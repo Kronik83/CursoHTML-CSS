@@ -47,7 +47,46 @@
                         </section>
                     </div>
                     <div class="code-example">
-                        
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="hero hero-simple-centered"&gt;
+    &lt;div class="hero-content"&gt;
+        &lt;h1&gt;Bienvenido a Nuestro Sitio Web&lt;/h1&gt;
+        &lt;p&gt;Descubre nuestros servicios y productos.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary btn-sm"&gt;Explorar Ahora&lt;/a&gt;
+    &lt;/div&gt;
+</code>
+                        </pre>
+                    </div>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.hero-simple-centered {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* Ajusta la altura según sea necesario */
+    /*width: 100%;*/ /* Asegura que el hero ocupe todo el ancho disponible */
+    text-align: center;
+}
+
+.hero-simple-centered h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-simple-centered p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-simple-centered .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+</code>
+                        </pre>
                     </div>
                 </div>
 
@@ -61,6 +100,47 @@
                                 <a href="#" class="btn btn-primary btn-sm">Únete Ahora</a>
                             </div>
                         </section>
+                    </div>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+<pre><code>&lt;section class="hero hero-bg-image"&gt;
+    &lt;div class="hero-content"&gt;
+        &lt;h1&gt;Transforma tu Vida Hoy&lt;/h1&gt;
+        &lt;p&gt;Únete a nuestra comunidad y comienza tu viaje.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary btn-sm"&gt;Únete Ahora&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>.hero-bg-image {
+    background-image: url('ruta/a/tu/imagen.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* Ajusta la altura según sea necesario */
+    width: 100%; /* Asegura que el hero ocupe todo el ancho disponible */
+    text-align: center;
+}
+
+.hero-bg-image h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-bg-image p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-bg-image .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+</code></pre>
                     </div>
                 </div>
             </section>

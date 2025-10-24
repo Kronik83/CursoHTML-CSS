@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejemplo de HERO's</title>
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="top-nav">
+                <a href="../modulo14.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i> Volver al Modulo
+                </a>
+                <div class="module-indicator">
+                    <span class="current-module">Example: About Me</span>
+                </div>
+            </nav>
+
+            <header class="module-header">
+                <div class="module-info">
+                    <h1 class="module-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Ejemplos de Seccion Sobre Mi para el Proyecto Final
+                    </h1>
+                    <p class="module-description">
+                        Partiendo de lo aprendido se muestran diferentes estilos
+                        de Seccion Sobre Mi.
+                    </p>
+                </div>
+            </header>
+
+            <section class="module-content">
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="aboutme1">
+                        Seccion Sobre Mi con Imagen a la Izquierda
+                    </h4>
+                    <div class="view-example">
+                        <section class="about-me about-me-image-left">
+                            <div class="about-me-image">
+                                <img
+                                    src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm90byUyMGRlJTIwcGVyZmlsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500"
+                                    alt="Foto de Perfil">
+                            </div>
+                            <div class="about-me-content">
+                                <h2>Sobre Mí</h2>
+                                <p>
+                                    Hola, soy Juan Pérez, un desarrollador web
+                                    apasionado por crear experiencias digitales
+                                    atractivas y funcionales. Tengo más de 5
+                                    años
+                                    de experiencia en el sector y me especializo
+                                    en HTML, CSS y JavaScript.
+                                </p>
+                                <a href="#" class="btn btn-primary btn-sm">
+                                    Contactar
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="about-me about-me-image-left"&gt;
+    &lt;div class="about-me-image"&gt;
+        &lt;img src="ruta de tu imagen" alt="Foto de Perfil"&gt;
+    &lt;/div&gt;
+    &lt;div class="about-me-content"&gt;
+        &lt;h2&gt;Sobre Mí&lt;/h2&gt;
+        &lt;p&gt;
+            Descripcion personal o profesional.
+        &lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary btn-sm"&gt;
+            Contactar
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                        </pre>
+                    </div>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.about-me{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    background: #e0f2fe;
+    border-radius: 15px;
+}
+
+.about-me.about-me-image-left{
+    flex-direction: row;
+}
+
+.about-me-image-left .about-me-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #0284c7;
+    overflow: hidden;
+}
+
+.about-me-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-me-content h2 {
+    font-size: 2rem;
+}
+.about-me-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+.about-me-content .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="aboutme2">
+                        Seccion Sobre Mi con Imagen a la Izquierda
+                    </h4>
+                    <div class="view-example">
+                        <section class="about-me about-me-image-right">
+                            <div class="about-me-image">
+                                <img
+                                    src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm90byUyMGRlJTIwcGVyZmlsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500"
+                                    alt="Foto de Perfil">
+                            </div>
+                            <div class="about-me-content">
+                                <h2>Sobre Mí</h2>
+                                <p>
+                                    Hola, soy Juan Pérez, un desarrollador web
+                                    apasionado por crear experiencias digitales
+                                    atractivas y funcionales. Tengo más de 5
+                                    años
+                                    de experiencia en el sector y me especializo
+                                    en HTML, CSS y JavaScript.
+                                </p>
+                                <a href="#" class="btn btn-primary btn-sm">
+                                    Contactar
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="about-me about-me-image-right"&gt;
+    &lt;div class="about-me-image"&gt;
+        &lt;img src="ruta de tu imagen" alt="Foto de Perfil"&gt;
+    &lt;/div&gt;
+    &lt;div class="about-me-content"&gt;
+        &lt;h2&gt;Sobre Mí&lt;/h2&gt;
+        &lt;p&gt;
+            Descripcion personal o profesional.
+        &lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary btn-sm"&gt;
+            Contactar
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                        </pre>
+                    </div>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.about-me{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    background: #e0f2fe;
+    border-radius: 15px;
+}
+.about-me.about-me-image-right{
+    flex-direction: row-reverse;
+}
+.about-me-image-right .about-me-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #0284c7;
+    overflow: hidden;
+}
+.about-me-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.about-me-content h2 {
+    font-size: 2rem;
+}
+.about-me-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+.about-me-content .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
