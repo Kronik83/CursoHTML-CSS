@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejemplo de Formularios de Contacto</title>
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="top-nav">
+                <a href="../modulo14.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i> Volver al Módulo
+                </a>
+                <div class="module-indicator">
+                    <span class="current-module">Example: Contact Form</span>
+                </div>
+            </nav>
+
+            <header class="module-header">
+                <div class="module-info">
+                    <h1 class="module-title">
+                        <i class="fas fa-envelope"></i>
+                        Ejemplos de Sección Contacto para el Proyecto Final
+                    </h1>
+                    <p class="module-description">
+                        Partiendo de lo aprendido se muestran diferentes estilos
+                        de Sección de Contacto con formularios funcionales.
+                    </p>
+                </div>
+            </header>
+
+            <section class="module-examples">
+                <!-- Ejemplo 1: Formulario Simple Centrado -->
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="contact1">
+                        Formulario de Contacto Simple y Centrado.
+                    </h4>
+                    <p>
+                        Un diseño minimalista y elegante con el formulario centrado,
+                        ideal para páginas de contacto dedicadas.
+                    </p>
+                    <p>Incluye validación HTML5 básica y diseño responsive.</p>
+                    <div class="view-example">
+                        <section class="contact-simple-for-seccion">
+                            <div class="contact-form-container">
+                                <h2>¡Contáctanos!</h2>
+                                <p class="contact-subtitle">Estamos aquí para ayudarte. Envíanos un mensaje.</p>
+                                <form class="contact-form">
+                                    <div class="form-group">
+                                        <label for="name1">
+                                            <i class="fas fa-user"></i> Nombre Completo
+                                        </label>
+                                        <input type="text" id="name1" name="name" placeholder="Tu nombre completo" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email1">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </label>
+                                        <input type="email" id="email1" name="email" placeholder="tu@email.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone1">
+                                            <i class="fas fa-phone"></i> Teléfono
+                                        </label>
+                                        <input type="tel" id="phone1" name="phone" placeholder="+34 123 456 789">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message1">
+                                            <i class="fas fa-comment"></i> Mensaje
+                                        </label>
+                                        <textarea id="message1" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-submit">
+                                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                                    </button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="contact-simple"&gt;
+    &lt;div class="contact-form-container"&gt;
+        &lt;h2&gt;¡Contáctanos!&lt;/h2&gt;
+        &lt;form class="contact-form"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="name"&gt;Nombre Completo&lt;/label&gt;
+                &lt;input type="text" id="name" name="name" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="email"&gt;Email&lt;/label&gt;
+                &lt;input type="email" id="email" name="email" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="message"&gt;Mensaje&lt;/label&gt;
+                &lt;textarea id="message" name="message" required&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code>
+</pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.contact-simple {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.contact-form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1a202c;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+}
+</code></pre>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Formulario con Información de Contacto al Lado -->
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="contact2">
+                        Formulario con Información de Contacto (Layout Dividido).
+                    </h4>
+                    <p>
+                        Diseño de dos columnas donde se muestra el formulario junto con
+                        información de contacto adicional (dirección, teléfono, email, redes sociales).
+                    </p>
+                    <p>Ideal para páginas corporativas o de negocios.</p>
+                    <div class="view-example">
+                        <section class="contact-split">
+                            <div class="contact-info">
+                                <h2>Información de Contacto</h2>
+                                <p>No dudes en ponerte en contacto con nosotros. Estamos disponibles para ayudarte.</p>
+                                
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Dirección</h4>
+                                        <p>Calle Principal 123, Madrid, España</p>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Teléfono</h4>
+                                        <p>+34 123 456 789</p>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Email</h4>
+                                        <p>contacto@tuempresa.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="social-links">
+                                    <h4>Síguenos</h4>
+                                    <div class="social-icons">
+                                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-form-wrapper">
+                                <h2>Envíanos un Mensaje</h2>
+                                <form class="contact-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="name2">Nombre</label>
+                                            <input type="text" id="name2" name="name" placeholder="Tu nombre" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email2">Email</label>
+                                            <input type="email" id="email2" name="email" placeholder="tu@email.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subject2">Asunto</label>
+                                        <input type="text" id="subject2" name="subject" placeholder="Asunto del mensaje" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message2">Mensaje</label>
+                                        <textarea id="message2" name="message" rows="6" placeholder="Tu mensaje..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-submit">
+                                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                                    </button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="contact-split"&gt;
+    &lt;div class="contact-info"&gt;
+        &lt;h2&gt;Información de Contacto&lt;/h2&gt;
+        &lt;div class="info-item"&gt;
+            &lt;div class="info-icon"&gt;
+                &lt;i class="fas fa-map-marker-alt"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;div class="info-content"&gt;
+                &lt;h4&gt;Dirección&lt;/h4&gt;
+                &lt;p&gt;Calle Principal 123&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Más items de información... --&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="contact-form-wrapper"&gt;
+        &lt;h2&gt;Envíanos un Mensaje&lt;/h2&gt;
+        &lt;form class="contact-form"&gt;
+            &lt;!-- Campos del formulario --&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code>
+</pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    padding: 40px;
+    background: #f8fafc;
+}
+
+.contact-info {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-split {
+        grid-template-columns: 1fr;
+    }
+}
+</code></pre>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Formulario con Mapa -->
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="contact3">
+                        Formulario con Mapa de Ubicación Integrado.
+                    </h4>
+                    <p>
+                        Diseño completo que incluye un mapa de ubicación (simulado con imagen),
+                        información de contacto en tarjetas y formulario.
+                    </p>
+                    <p>Perfecto para empresas con ubicación física.</p>
+                    <div class="view-example">
+                        <section class="contact-with-map">
+                            <div class="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.822956824324!2d-3.7037902!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1234567890" 
+                                    width="100%" 
+                                    height="400" 
+                                    style="border:0; border-radius: 15px;" 
+                                    allowfullscreen="" 
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+
+                            <div class="contact-cards">
+                                <div class="contact-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h3>Horario</h3>
+                                    <p>Lun - Vie: 9:00 - 18:00</p>
+                                    <p>Sáb: 10:00 - 14:00</p>
+                                </div>
+
+                                <div class="contact-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                    <h3>Ubicación</h3>
+                                    <p>Calle Principal 123</p>
+                                    <p>28001 Madrid, España</p>
+                                </div>
+
+                                <div class="contact-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-headset"></i>
+                                    </div>
+                                    <h3>Contacto Directo</h3>
+                                    <p>+34 123 456 789</p>
+                                    <p>info@empresa.com</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-form-full">
+                                <h2>Completa el Formulario</h2>
+                                <form class="contact-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="name3">Nombre Completo *</label>
+                                            <input type="text" id="name3" name="name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email3">Email *</label>
+                                            <input type="email" id="email3" name="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="phone3">Teléfono</label>
+                                            <input type="tel" id="phone3" name="phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="service3">Servicio de Interés</label>
+                                            <select id="service3" name="service">
+                                                <option value="">Selecciona una opción</option>
+                                                <option value="consulta">Consulta General</option>
+                                                <option value="soporte">Soporte Técnico</option>
+                                                <option value="ventas">Ventas</option>
+                                                <option value="otro">Otro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message3">Mensaje *</label>
+                                        <textarea id="message3" name="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="form-group checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="privacy" required>
+                                            <span>Acepto la política de privacidad y términos de uso</span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-submit">
+                                        <i class="fas fa-check"></i> Enviar Formulario
+                                    </button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="contact-with-map"&gt;
+    &lt;div class="map-container"&gt;
+        &lt;iframe src="URL_DEL_MAPA"&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="contact-cards"&gt;
+        &lt;div class="contact-card"&gt;
+            &lt;div class="card-icon"&gt;
+                &lt;i class="fas fa-clock"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;h3&gt;Horario&lt;/h3&gt;
+            &lt;p&gt;Lun - Vie: 9:00 - 18:00&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;!-- Más tarjetas... --&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="contact-form-full"&gt;
+        &lt;form class="contact-form"&gt;
+            &lt;!-- Campos del formulario --&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code>
+</pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.contact-with-map {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.map-container {
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.contact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 1.5rem;
+}
+</code></pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
