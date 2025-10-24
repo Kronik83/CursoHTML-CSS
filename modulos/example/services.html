@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejemplo de HERO's</title>
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="top-nav">
+                <a href="../modulo14.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i> Volver al Modulo
+                </a>
+                <div class="module-indicator">
+                    <span class="current-module">Example: About Me</span>
+                </div>
+            </nav>
+
+            <header class="module-header">
+                <div class="module-info">
+                    <h1 class="module-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Ejemplos de Servicios para el Proyecto Final
+                    </h1>
+                    <p class="module-description">
+                        Partiendo de lo aprendido se muestran diferentes estilos
+                        de Seccion de Servicios.
+                    </p>
+                </div>
+            </header>
+
+            <section class="module-content">
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="services1">
+                        Sección de Servicios en grilla de Tarjetas.
+                    </h4>
+                    <p>El estilo de esta sección utiliza un diseño de cuadrícula
+                        para organizar las tarjetas de servicio de manera
+                        eficiente y atractiva. Las tarjetas no tienen un tamaño
+                        fijo, lo que permite que se adapten al espacio
+                        disponible. Tampoco tiene algún tipo de alineación.</p>
+                    <div class="view-example">
+                        <section class="services services-grid-cards">
+                            <div class="service-card">
+                                <i class="fas fa-laptop-code service-icon"></i>
+                                <h3>Desarrollo Web</h3>
+                                <p>Creación de sitios web responsivos y
+                                    funcionales.</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-mobile-alt service-icon"></i>
+                                <h3>Aplicaciones Móviles</h3>
+                                <p>Desarrollo de aplicaciones para iOS y
+                                    Android.</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-search service-icon"></i>
+                                <h3>SEO</h3>
+                                <p>Optimización para motores de búsqueda.</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-search service-icon"></i>
+                                <h3>Responsive</h3>
+                                <p>Optimización para dispositivos móviles.</p>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>
+&lt;section class="services services-grid-cards"&gt;
+    &lt;div class="service-card"&gt;
+        &lt;i class="fas fa-laptop-code service-icon"&gt;&lt;/i&gt;
+        &lt;h3&gt;Desarrollo Web&lt;/h3&gt;
+        &lt;p&gt;Creación de sitios web responsivos y funcionales.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="service-card"&gt;
+        &lt;i class="fas fa-mobile-alt service-icon"&gt;&lt;/i&gt;
+        &lt;h3&gt;Aplicaciones Móviles&lt;/h3&gt;
+        &lt;p&gt;Desarrollo de aplicaciones para iOS y Android.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="service-card"&gt;
+        &lt;i class="fas fa-search service-icon"&gt;&lt;/i&gt;
+        &lt;h3&gt;SEO&lt;/h3&gt;
+        &lt;p&gt;Optimización para motores de búsqueda.&lt;/p&gt;
+    &lt;/div&gt;
+</code>
+                            </pre>
+                    </div>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.services-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.service-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.service-card .service-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.service-icon h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+.service-icon p {
+    color: #4a5568;
+    line-height: 1.5;
+}
+</code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="services1">
+                        Sección de Servicios en Organización por Flexbox de
+                        Tarjetas.
+                    </h4>
+                    <p>El estilo de esta sección utiliza un diseño de Flexbox
+                        para mostrar las tarjetas de servicio, ubicando las
+                        tarjetas según el ancho del contenedor. Las tarjetas
+                        tienen un tamaño fijo.</p>
+                    <div class="view-example">
+                        <section class="services services-flex-cards">
+                            <div class="service-card">
+                                <i class="fas fa-laptop-code service-icon"></i>
+                                <h3>Desarrollo Web</h3>
+                                <p>Creación de sitios web responsivos y
+                                    funcionales.</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-mobile-alt service-icon"></i>
+                                <h3>Aplicaciones Móviles</h3>
+                                <p>Desarrollo de aplicaciones para iOS y
+                                    Android.</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-search service-icon"></i>
+                                <h3>SEO</h3>
+                                <p>Optimización para motores de búsqueda.</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-search service-icon"></i>
+                                <h3>Responsive</h3>
+                                <p>Optimización para dispositivos móviles.</p>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="services services-flex-cards"&gt;
+    &lt;div class="service-card"&gt;
+        &lt;i class="fas fa-laptop-code service-icon"&gt;&lt;/i&gt;
+        &lt;h3&gt;Desarrollo Web&lt;/h3&gt;
+        &lt;p&gt;Creación de sitios web responsivos y funcionales.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="service-card"&gt;
+        &lt;i class="fas fa-mobile-alt service-icon"&gt;&lt;/i&gt;
+        &lt;h3&gt;Aplicaciones Móviles&lt;/h3&gt;
+        &lt;p&gt;Desarrollo de aplicaciones para iOS y Android.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="service-card"&gt;
+        &lt;i class="fas fa-search service-icon"&gt;&lt;/i&gt;
+        &lt;h3&gt;SEO&lt;/h3&gt;
+        &lt;p&gt;Optimización para motores de búsqueda.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="service-card"&gt;
+        &lt;i class="fas fa-search service-icon"&gt;&lt;/i&gt;
+        &lt;h3&gt;Responsive&lt;/h3&gt;
+        &lt;p&gt;Optimización para dispositivos móviles.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code>
+                        </pre>
+                    </div>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.services-flex-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    flex: 1 1 280px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 2rem;
+    color: #4f46e5;
+    margin-bottom: 15px;
+}
+
+.service-icon h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+.service-icon p {
+    color: #4a5568;
+    line-height: 1.5;
+}
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </html>
