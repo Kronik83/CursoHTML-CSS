@@ -588,7 +588,7 @@ code {
     padding: 40px;
     background: #e0f2fe;
     border-radius: 15px;
-    
+
     &.about-me-image-left {
         flex-direction: row;
     }
@@ -603,25 +603,27 @@ code {
         border: 4px solid #3b82f6;
         border-radius: 50%;
         overflow: hidden;
-        img{
+
+        img {
             object-fit: cover;
             object-position: center;
             width: 100%;
             height: 100%;
         }
     }
-    
+
     .about-me-content {
         flex: 1;
+
         h2 {
             font-size: 2rem;
         }
-        
+
         p {
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
-        
+
         .btn {
             font-size: 1rem;
             padding: 10px 20px;
@@ -629,7 +631,7 @@ code {
     }
 }
 
-.services{
+.services {
 
     &.services-grid-cards {
         display: grid;
@@ -642,6 +644,7 @@ code {
         flex-wrap: wrap;
         gap: 20px;
     }
+
     .service-card {
         background: white;
         padding: 25px;
@@ -675,6 +678,80 @@ code {
             line-height: 1.5;
         }
     }
+}
+
+
+/* Galería tipo Masonry - Tamaños originales */
+.gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.gallery-item-masonry {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item-masonry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.gallery-item-masonry img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item-masonry:hover img {
+    transform: scale(1.05);
+}
+
+/* Galería tipo Masonry con CSS Columns */
+.gallery-columns {
+    column-count: 3;
+    /* Número de columnas */
+    column-gap: 15px;
+    /* Espacio entre columnas */
+    padding: 15px;
+}
+
+.gallery-item-column {
+    break-inside: avoid;
+    /* Evita que los elementos se corten entre columnas */
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: white;
+}
+
+.gallery-item-column:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.gallery-item-column img {
+    width: 100%;
+    height: auto;
+    /* Mantiene la proporción original */
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item-column:hover img {
+    opacity: 0.9;
 }
 
 /* Responsive Design */
@@ -729,6 +806,11 @@ code {
     .nav-item {
         justify-content: center;
     }
+
+    /* Galería de columnas responsive - tablet */
+    .gallery-columns {
+        column-count: 2;
+    }
 }
 
 @media (max-width: 480px) {
@@ -746,6 +828,11 @@ code {
 
     .code-example {
         padding: 15px;
+    }
+
+    /* Galería de columnas responsive - móvil */
+    .gallery-columns {
+        column-count: 1;
     }
 }
 

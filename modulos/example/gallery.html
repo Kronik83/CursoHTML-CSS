@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejemplo de HERO's</title>
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="top-nav">
+                <a href="../modulo14.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i> Volver al Modulo
+                </a>
+                <div class="module-indicator">
+                    <span class="current-module">Ejemplo: Galería Estática</span>
+                </div>
+            </nav>
+
+            <header class="module-header">
+                <div class="module-info">
+                    <h1 class="module-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Ejemplos de Sección Galería para el Proyecto Final
+                    </h1>
+                    <p class="module-description">
+                        Partiendo de lo aprendido se muestran diferentes estilos
+                        de Sección Galería.
+                    </p>
+
+                </div>
+            </header>
+
+            <section class="module-examples">
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="gallery-intro">
+                        Imagenes Reales:
+                    </h4>
+                    <img src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm90byUyMGRlJTIwcGVyZmlsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="Imagen 1">
+                    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm90byUyMGRlJTIwcGVyZmlsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="Imagen 2">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm90byUyMGRlJTIwcGVyZmlsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="Imagen 3">
+
+                </div>
+                <!-- Ejemplo de Galería Masonry -->
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="gallery1">
+                        Galería de Imágenes con Tamaño Original (Masonry).
+                    </h4>
+                    <p>
+                        Esta galería muestra las imágenes respetando sus proporciones y tamaños originales,
+                        organizándolas de forma dinámica usando CSS Grid con auto-flow dense.
+                    </p>
+                    <p>Las imágenes se adaptan naturalmente sin forzar un tamaño específico, creando un efecto tipo Pinterest.</p>
+                    <div class="view-example">
+                        <section class="gallery-masonry" id="gallery2">
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=600&fit=crop"
+                                    alt="Montaña al atardecer">
+                            </div>
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop"
+                                    alt="Naturaleza">
+                            </div>
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop"
+                                    alt="Retrato masculino">
+                            </div>
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+                                    alt="Retrato femenino">
+                            </div>
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"
+                                    alt="Retrato casual">
+                            </div>
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=350&fit=crop"
+                                    alt="Retrato outdoor">
+                            </div>
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop"
+                                    alt="Retrato elegante">
+                            </div>
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=400&h=280&fit=crop"
+                                    alt="Bosque niebla">
+                            </div>
+                            <div class="gallery-item-masonry">
+                                <img
+                                    src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=400&h=550&fit=crop"
+                                    alt="Paisaje urbano">
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="gallery gallery-masonry"&gt;
+    &lt;div class="gallery-item-masonry"&gt; 
+        &lt;img src="imagen1.jpg" alt="Descripción"&gt;
+    &lt;/div&gt;
+    &lt;div class="gallery-item-masonry"&gt; 
+        &lt;img src="imagen2.jpg" alt="Descripción"&gt;
+    &lt;/div&gt;
+    &lt;!-- Más imágenes... --&gt;
+&lt;/section&gt;
+</code>
+</pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 10px; /* Filas pequeñas para mejor control */
+    gap: 15px;
+    padding: 15px;
+}
+
+.gallery-item-masonry {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item-masonry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item-masonry img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción original */
+    display: block;
+    object-fit: cover;
+}
+</code></pre>
+                    </div>
+                </div>
+
+                <!-- Ejemplo de Galería Masonry con Columnas CSS -->
+                <div class="exercise-content">
+                    <h4 class="exercise-title" id="gallery3">
+                        Galería Masonry con CSS Columns (Diseño Alternativo).
+                    </h4>
+                    <p>
+                        Este diseño utiliza CSS Columns para crear un efecto masonry fluido donde las imágenes
+                        se distribuyen automáticamente en columnas verticales.
+                    </p>
+                    <p>Las imágenes fluyen de arriba hacia abajo en cada columna, creando un diseño de revista tipo Pinterest.</p>
+                    <div class="view-example">
+                        <section class="gallery-columns" id="gallery3">
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=400&h=600&fit=crop"
+                                    alt="Ciudad futurista">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?w=400&h=300&fit=crop"
+                                    alt="Arquitectura moderna">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1682687221038-404cb8830901?w=400&h=500&fit=crop"
+                                    alt="Arte urbano">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1682687220199-d0124f48f95b?w=400&h=450&fit=crop"
+                                    alt="Detalles arquitectónicos">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1682687218904-de46ed992b58?w=400&h=550&fit=crop"
+                                    alt="Perspectiva urbana">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1682687221080-5cb261c645cb?w=400&h=350&fit=crop"
+                                    alt="Rascacielos">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=500&fit=crop"
+                                    alt="Montaña majestuosa">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=280&fit=crop"
+                                    alt="Camino natural">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=400&h=600&fit=crop"
+                                    alt="Lago sereno">
+                            </div>
+                            <div class="gallery-item-column">
+                                <img
+                                    src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=320&fit=crop"
+                                    alt="Valle montañoso">
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre>
+<code>&lt;section class="gallery-columns"&gt;
+    &lt;div class="gallery-item-column"&gt; 
+        &lt;img src="imagen1.jpg" alt="Descripción"&gt;
+    &lt;/div&gt;
+    &lt;div class="gallery-item-column"&gt; 
+        &lt;img src="imagen2.jpg" alt="Descripción"&gt;
+    &lt;/div&gt;
+    &lt;!-- Más imágenes... --&gt;
+&lt;/section&gt;
+</code>
+</pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre>
+<code>.gallery-columns {
+    column-count: 3; /* Número de columnas */
+    column-gap: 15px; /* Espacio entre columnas */
+    padding: 15px;
+}
+
+.gallery-item-column {
+    break-inside: avoid; /* Evita que los items se corten entre columnas */
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-item-column:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item-column img {
+    width: 100%;
+    height: auto; /* Mantiene proporción original */
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-columns {
+        column-count: 2; /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-columns {
+        column-count: 1; /* 1 columna en móviles */
+    }
+}
+</code></pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
