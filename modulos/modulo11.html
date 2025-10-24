@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 11: Estilos avanzados - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 11 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">11</div>
+            <div class="module-info">
+                <h1 class="module-title">Estilos avanzados</h1>
+                <p class="module-description">Efectos visuales, pseudo-clases y animaciones CSS</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#pseudo-clases" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-mouse-pointer"></i>
+                            </div>
+                            <h3>Pseudo-clases</h3>
+                            <p>Domina :hover, :focus, :nth-child y estados interactivos.</p>
+                        </div>
+                    </a>
+                    <a href="#pseudo-elementos" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <h3>Pseudo-elementos</h3>
+                            <p>Crea contenido decorativo con ::before y ::after.</p>
+                        </div>
+                    </a>
+                    <a href="#efectos-visuales" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>Efectos visuales</h3>
+                            <p>Sombras, bordes redondeados, gradientes y fuentes.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Pseudo-clases -->
+            <section class="content-section" id="pseudo-clases">
+                <h2 class="section-title">
+                    <i class="fas fa-mouse-pointer"></i>
+                    Pseudo-clases interactivas
+                </h2>
+                <div class="topic-content">
+                    <p><strong>Las pseudo-clases</strong> permiten aplicar estilos a elementos basándose en su estado o posición, sin necesidad de agregar clases adicionales en el HTML.</p>
+                    
+                    <h3>¿Qué son las pseudo-clases?</h3>
+                    <p>Son selectores especiales que seleccionan elementos en estados específicos:</p>
+                    <ul>
+                        <li>✅ <strong>Estados interactivos:</strong> hover, focus, active</li>
+                        <li>✅ <strong>Estados de enlace:</strong> visited, link</li>
+                        <li>✅ <strong>Posición estructural:</strong> nth-child, first-child, last-child</li>
+                        <li>✅ <strong>Estados de formulario:</strong> checked, disabled, required</li>
+                        <li>✅ <strong>Estados de validación:</strong> valid, invalid</li>
+                    </ul>
+
+                    <h3>:hover - Efectos al pasar el ratón</h3>
+                    <p>La pseudo-clase más popular para interactividad:</p>
+                    <div class="code-example">
+                        <pre><code>/* Hover básico en botones */
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;  /* Suaviza el cambio */
+}
+
+.button:hover {
+  background-color: #0056b3;  /* Color más oscuro */
+  transform: translateY(-2px);  /* Levanta ligeramente */
+  box-shadow: 0 4px 12px rgba(0,123,255,0.3);  /* Sombra */
+}
+
+/* Hover en enlaces */
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* Efecto de subrayado animado */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;  /* El subrayado se extiende en hover */
+}</code></pre>
+                    </div>
+
+                    <h3>:focus - Estados de enfoque</h3>
+                    <p>Fundamental para accesibilidad y navegación con teclado:</p>
+                    <div class="code-example">
+                        <pre><code>/* Focus en inputs */
+.form-input {
+  border: 2px solid #ddd;
+  padding: 0.75rem;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;  /* Quita el outline por defecto */
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);  /* Anillo de enfoque */
+}
+
+/* Focus en botones */
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.5);
+}
+
+/* Focus visible solo con teclado */
+.button:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Estados combinados */
+.form-input:focus:invalid {
+  border-color: #dc3545;  /* Rojo si no es válido */
+  box-shadow: 0 0 0 3px rgba(220,53,69,0.25);
+}</code></pre>
+                    </div>
+
+                    <h3>:active - Estado al hacer clic</h3>
+                    <div class="code-example">
+                        <pre><code>/* Efecto de "presión" en botones */
+.button:active {
+  transform: translateY(1px);  /* Se "hunde" al presionar */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Estados en secuencia: normal → hover → active */
+.interactive-card {
+  transition: all 0.2s ease;
+  transform: scale(1);
+}
+
+.interactive-card:hover {
+  transform: scale(1.05);  /* Crece en hover */
+}
+
+.interactive-card:active {
+  transform: scale(0.98);  /* Se encoge al hacer clic */
+}</code></pre>
+                    </div>
+
+                    <h3>:nth-child() - Selección posicional</h3>
+                    <p>Permite seleccionar elementos basándose en su posición:</p>
+                    <div class="code-example">
+                        <pre><code>/* Seleccionar elementos específicos */
+.list-item:nth-child(1) {
+  color: #007bff;  /* Primer elemento */
+}
+
+.list-item:nth-child(odd) {
+  background-color: #f8f9fa;  /* Elementos impares */
+}
+
+.list-item:nth-child(even) {
+  background-color: white;  /* Elementos pares */
+}
+
+/* Patrones más complejos */
+.grid-item:nth-child(3n) {
+  border-right: none;  /* Cada tercer elemento */
+}
+
+.gallery-item:nth-child(3n+1) {
+  margin-left: 0;  /* Primer elemento de cada fila de 3 */
+}
+
+/* Seleccionar rangos */
+.table-row:nth-child(n+3):nth-child(-n+7) {
+  background-color: #fff3cd;  /* Filas 3 a 7 */
+}
+
+/* Últimos elementos */
+.nav-item:nth-last-child(1) {
+  border-right: none;  /* Último elemento */
+}
+
+.nav-item:nth-last-child(-n+2) {
+  font-weight: bold;  /* Últimos 2 elementos */
+}</code></pre>
+                    </div>
+
+                    <h3>Pseudo-clases estructurales</h3>
+                    <div class="code-example">
+                        <pre><code>/* Primer y último elemento */
+.menu-item:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.menu-item:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Único elemento */
+.card:only-child {
+  margin: 0 auto;  /* Centrar si es el único */
+}
+
+/* Elementos vacíos */
+.section:empty {
+  display: none;  /* Ocultar secciones vacías */
+}
+
+/* Basado en tipo de elemento */
+h2:first-of-type {
+  margin-top: 0;  /* Primer h2 sin margen superior */
+}
+
+p:last-of-type {
+  margin-bottom: 0;  /* Último párrafo sin margen inferior */
+}</code></pre>
+                    </div>
+
+                    <h3>Pseudo-clases de formularios</h3>
+                    <div class="code-example">
+                        <pre><code>/* Estados de validación */
+.form-input:valid {
+  border-color: #28a745;  /* Verde si es válido */
+}
+
+.form-input:invalid {
+  border-color: #dc3545;  /* Rojo si no es válido */
+}
+
+/* Solo mostrar invalid después de interacción */
+.form-input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #dc3545;
+}
+
+/* Campos requeridos */
+.form-input:required {
+  border-left: 3px solid #ffc107;  /* Indicador visual */
+}
+
+/* Checkboxes y radios */
+.checkbox:checked + .label::before {
+  background-color: #007bff;
+  content: "✓";
+  color: white;
+}
+
+/* Elementos deshabilitados */
+.form-input:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Estados de rango (para inputs de número) */
+.range-input:in-range {
+  border-color: #28a745;
+}
+
+.range-input:out-of-range {
+  border-color: #dc3545;
+}</code></pre>
+                    </div>
+
+                    <h3>Estados de enlaces</h3>
+                    <div class="code-example">
+                        <pre><code>/* Orden correcto para enlaces: LVHA */
+
+/* Link - enlace no visitado */
+a:link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Visited - enlace visitado */
+a:visited {
+  color: #6f42c1;
+}
+
+/* Hover - al pasar el ratón */
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Active - al hacer clic */
+a:active {
+  color: #004085;
+}
+
+/* Ejemplo práctico: botón de enlace */
+.link-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 2px solid #007bff;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.link-button:visited {
+  border-color: #6f42c1;
+  color: #6f42c1;
+}
+
+.link-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.link-button:active {
+  transform: scale(0.98);
+}</code></pre>
+                    </div>
+
+                    <h3>Combinando pseudo-clases</h3>
+                    <div class="code-example">
+                        <pre><code>/* Múltiples estados combinados */
+.button:hover:not(:disabled) {
+  background-color: #0056b3;  /* Hover solo si no está deshabilitado */
+}
+
+.form-input:focus:invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220,53,69,0.25);
+}
+
+/* Hover en elementos específicos */
+.table-row:nth-child(even):hover {
+  background-color: #e9ecef;  /* Hover en filas pares */
+}
+
+/* Estados complejos */
+.dropdown-item:hover:not(.disabled):not(.selected) {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+/* Primer y último elemento con hover */
+.nav-item:first-child:hover {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.nav-item:last-child:hover {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}</code></pre>
+                    </div>
+
+                    <h3>Ejemplo práctico: Menú de navegación interactivo</h3>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;nav class="main-nav"&gt;
+  &lt;ul class="nav-list"&gt;
+    &lt;li class="nav-item"&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nav-item"&gt;&lt;a href="#"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nav-item"&gt;&lt;a href="#"&gt;Acerca&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nav-item"&gt;&lt;a href="#"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS completo:</h4>
+                        <pre><code>.main-nav {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover effects */
+.nav-item:hover a {
+  color: #007bff;
+  background-color: #f8f9fa;
+}
+
+/* Active state */
+.nav-item a:active {
+  background-color: #e9ecef;
+}
+
+/* Focus para accesibilidad */
+.nav-item a:focus {
+  outline: 2px solid #007bff;
+  outline-offset: -2px;
+}
+
+/* Efecto de barra inferior */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* Estilos especiales para primer y último */
+.nav-item:first-child a {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.nav-item:last-child a {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Pseudo-elementos -->
+            <section class="content-section" id="pseudo-elementos">
+                <h2 class="section-title">
+                    <i class="fas fa-plus-circle"></i>
+                    Pseudo-elementos decorativos
+                </h2>
+                <div class="topic-content">
+                    <p><strong>Los pseudo-elementos</strong> permiten crear y estilizar partes específicas de un elemento, o insertar contenido decorativo sin modificar el HTML.</p>
+                    
+                    <h3>¿Qué son los pseudo-elementos?</h3>
+                    <p>Son elementos virtuales que puedes crear con CSS:</p>
+                    <ul>
+                        <li>✅ <strong>::before</strong> - Inserta contenido antes del elemento</li>
+                        <li>✅ <strong>::after</strong> - Inserta contenido después del elemento</li>
+                        <li>✅ <strong>::first-letter</strong> - Estiliza la primera letra</li>
+                        <li>✅ <strong>::first-line</strong> - Estiliza la primera línea</li>
+                        <li>✅ <strong>::selection</strong> - Estiliza el texto seleccionado</li>
+                        <li>✅ <strong>::placeholder</strong> - Estiliza placeholder de inputs</li>
+                    </ul>
+
+                    <h3>::before y ::after - Los más utilizados</h3>
+                    <p>Permiten insertar contenido decorativo:</p>
+                    <div class="code-example">
+                        <pre><code>/* Reglas importantes para ::before y ::after */
+.element::before,
+.element::after {
+  content: "";        /* Obligatorio - puede estar vacío */
+  display: block;     /* O inline-block según necesites */
+  position: absolute; /* Muy común para posicionamiento */
+}
+
+/* Ejemplo básico: iconos decorativos */
+.success-message::before {
+  content: "✓";
+  color: #28a745;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.warning-message::before {
+  content: "⚠";
+  color: #ffc107;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.error-message::before {
+  content: "✗";
+  color: #dc3545;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}</code></pre>
+                    </div>
+
+                    <h3>Creando formas decorativas</h3>
+                    <div class="code-example">
+                        <pre><code>/* Triángulos con pseudo-elementos */
+.tooltip {
+  position: relative;
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  /* Crea un triángulo que apunta hacia abajo */
+}
+
+/* Círculos decorativos */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Líneas decorativas */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #007bff;
+  margin: 1rem auto 0;
+}</code></pre>
+                    </div>
+
+                    <h3>Overlays y efectos de imagen</h3>
+                    <div class="code-example">
+                        <pre><code>/* Overlay oscuro en imágenes */
+.image-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-card:hover::after {
+  opacity: 1;  /* Overlay aparece en hover */
+}
+
+/* Efecto de "cortina" */
+.reveal-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #007bff;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.reveal-card:hover::before {
+  transform: translateX(100%);  /* Cortina se desliza */
+}</code></pre>
+                    </div>
+
+                    <h3>Contadores automáticos</h3>
+                    <div class="code-example">
+                        <pre><code>/* Sistema de numeración automática */
+.numbered-list {
+  counter-reset: item-counter;
+}
+
+.numbered-list .list-item {
+  counter-increment: item-counter;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.numbered-list .list-item::before {
+  content: counter(item-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Resultado: círculos numerados automáticamente */
+/* ① Primer elemento
+   ② Segundo elemento
+   ③ Tercer elemento */</code></pre>
+                    </div>
+
+                    <h3>Estilizando texto específico</h3>
+                    <div class="code-example">
+                        <pre><code>/* Primera letra (drop cap) */
+.article-content::first-letter {
+  font-size: 3em;
+  font-weight: bold;
+  float: left;
+  line-height: 1;
+  margin-right: 0.1em;
+  margin-top: 0.1em;
+  color: #007bff;
+}
+
+/* Primera línea */
+.intro-paragraph::first-line {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1em;
+}
+
+/* Texto seleccionado */
+::selection {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Para Firefox */
+::-moz-selection {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Placeholder de inputs */
+.form-input::placeholder {
+  color: #6c757d;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.form-input:focus::placeholder {
+  opacity: 0.4;  /* Más sutil cuando está enfocado */
+}</code></pre>
+                    </div>
+
+                    <h3>Pseudo-elementos para iconos</h3>
+                    <div class="code-example">
+                        <pre><code>/* Iconos con pseudo-elementos en lugar de imágenes */
+.download-link::after {
+  content: " ⬇";
+  color: #007bff;
+}
+
+.external-link::after {
+  content: " ↗";
+  font-size: 0.8em;
+  color: #6c757d;
+}
+
+.email-link::before {
+  content: "📧 ";
+}
+
+.phone-link::before {
+  content: "📞 ";
+}
+
+/* Iconos con FontAwesome usando content */
+.menu-toggle::before {
+  content: "\f0c9";  /* Código FontAwesome para hamburger */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+/* Estados diferentes del mismo icono */
+.accordion-header::after {
+  content: "+";
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.open::after {
+  content: "−";
+  transform: rotate(180deg);
+}</code></pre>
+                    </div>
+
+                    <h3>Ejemplo complejo: Tarjeta con efectos</h3>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;div class="enhanced-card"&gt;
+  &lt;img src="image.jpg" alt="Descripción"&gt;
+  &lt;div class="card-content"&gt;
+    &lt;h3&gt;Título de la tarjeta&lt;/h3&gt;
+    &lt;p&gt;Descripción del contenido de la tarjeta&lt;/p&gt;
+    &lt;a href="#" class="card-link"&gt;Leer más&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS con múltiples pseudo-elementos:</h4>
+                        <pre><code>.enhanced-card {
+  position: relative;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de elevación en hover */
+.enhanced-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* Indicador de "nuevo" */
+.enhanced-card::before {
+  content: "NUEVO";
+  position: absolute;
+  top: 15px;
+  right: -30px;
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 40px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  transform: rotate(45deg);
+  z-index: 10;
+}
+
+/* Overlay gradiente en la imagen */
+.enhanced-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;  /* Altura de la imagen */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(0,0,0,0.7) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.enhanced-card:hover::after {
+  opacity: 1;
+}
+
+/* Estilo del enlace con icono */
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.card-link::after {
+  content: "→";
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover {
+  color: #0056b3;
+}
+
+.card-link:hover::after {
+  transform: translateX(5px);
+}
+
+/* Línea decorativa bajo el título */
+.enhanced-card h3::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.enhanced-card:hover h3::after {
+  width: 100%;
+}</code></pre>
+                    </div>
+
+                    <h3>Mejores prácticas con pseudo-elementos</h3>
+                    <div class="code-example">
+                        <pre><code>/* ✅ BUENAS PRÁCTICAS */
+
+/* 1. Siempre incluir content, aunque esté vacío */
+.element::before {
+  content: "";  /* Obligatorio */
+}
+
+/* 2. Definir display explícitamente */
+.element::after {
+  content: "";
+  display: block;  /* O inline-block, inline, etc. */
+}
+
+/* 3. Usar z-index cuando sea necesario */
+.overlay::after {
+  content: "";
+  position: absolute;
+  z-index: 1;  /* Control de capas */
+}
+
+/* 4. Agrupar pseudo-elementos relacionados */
+.icon-element::before,
+.icon-element::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+/* 5. Considerar accesibilidad */
+.decorative::before {
+  content: "";
+  aria-hidden: true;  /* Ocultar de lectores de pantalla */
+}
+
+/* ❌ EVITAR */
+
+/* No usar content con texto importante */
+.bad-example::after {
+  content: "Información importante";  /* ❌ No accesible */
+}
+
+/* No sobrecargar con demasiados pseudo-elementos */
+.overloaded::before,
+.overloaded::after {
+  /* Demasiados efectos pueden confundir */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Efectos visuales -->
+            <section class="content-section" id="efectos-visuales">
+                <h2 class="section-title">
+                    <i class="fas fa-palette"></i>
+                    Sombras, bordes redondeados, gradientes y fuentes
+                </h2>
+                <div class="topic-content">
+                    <p>Los efectos visuales modernos de CSS permiten crear interfaces atractivas sin necesidad de imágenes externas.</p>
+                    
+                    <h3>Box-shadow: Sombras y profundidad</h3>
+                    <p>Las sombras agregan profundidad y jerarquía visual:</p>
+                    <div class="code-example">
+                        <pre><code>/* Sintaxis: box-shadow: offset-x offset-y blur-radius spread-radius color */
+
+/* Sombras básicas */
+.card-subtle {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Sombra sutil */
+}
+
+.card-medium {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);  /* Sombra media */
+}
+
+.card-strong {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);  /* Sombra pronunciada */
+}
+
+/* Sombras direccionales */
+.shadow-right {
+  box-shadow: 5px 0 10px rgba(0,0,0,0.1);  /* Sombra hacia la derecha */
+}
+
+.shadow-top {
+  box-shadow: 0 -3px 8px rgba(0,0,0,0.1);  /* Sombra hacia arriba */
+}
+
+/* Sombras internas */
+.inset-shadow {
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);  /* Sombra interior */
+}
+
+/* Múltiples sombras */
+.complex-shadow {
+  box-shadow: 
+    0 1px 3px rgba(0,0,0,0.12),    /* Sombra cercana */
+    0 1px 2px rgba(0,0,0,0.24);    /* Sombra lejana */
+}
+
+/* Sombras coloreadas */
+.colored-shadow {
+  box-shadow: 0 4px 12px rgba(0,123,255,0.3);  /* Sombra azul */
+}
+
+/* Efectos de elevación en hover */
+.elevate-card {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.elevate-card:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+}</code></pre>
+                    </div>
+
+                    <h3>Border-radius: Bordes redondeados</h3>
+                    <div class="code-example">
+                        <pre><code>/* Redondeo básico */
+.rounded-small {
+  border-radius: 4px;    /* Bordes ligeramente redondeados */
+}
+
+.rounded-medium {
+  border-radius: 8px;    /* Redondeo medio */
+}
+
+.rounded-large {
+  border-radius: 12px;   /* Redondeo grande */
+}
+
+.rounded-full {
+  border-radius: 50%;    /* Círculo perfecto */
+}
+
+/* Redondeo específico por esquina */
+.custom-corners {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 5px;
+}
+
+/* Shorthand para esquinas específicas */
+.shorthand-corners {
+  border-radius: 15px 5px 15px 5px;  /* top-left, top-right, bottom-right, bottom-left */
+}
+
+/* Formas especiales */
+.pill-shape {
+  border-radius: 50px;   /* Forma de píldora */
+  padding: 0.5rem 1.5rem;
+}
+
+.speech-bubble {
+  border-radius: 20px 20px 20px 5px;  /* Burbuja de conversación */
+}
+
+/* Elementos circulares */
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff;
+  color: white;
+}</code></pre>
+                    </div>
+
+                    <h3>Gradientes: Transiciones de color</h3>
+                    <div class="code-example">
+                        <pre><code>/* Gradientes lineales */
+.gradient-vertical {
+  background: linear-gradient(to bottom, #007bff, #0056b3);
+}
+
+.gradient-horizontal {
+  background: linear-gradient(to right, #007bff, #28a745);
+}
+
+.gradient-diagonal {
+  background: linear-gradient(45deg, #007bff, #6f42c1);
+}
+
+/* Gradientes con múltiples colores */
+.gradient-rainbow {
+  background: linear-gradient(
+    90deg,
+    #ff6b6b 0%,
+    #feca57 25%,
+    #48dbfb 50%,
+    #ff9ff3 75%,
+    #54a0ff 100%
+  );
+}
+
+/* Gradientes radiales */
+.gradient-radial {
+  background: radial-gradient(circle, #007bff, #0056b3);
+}
+
+.gradient-radial-center {
+  background: radial-gradient(
+    circle at center,
+    rgba(0,123,255,0.8) 0%,
+    rgba(0,123,255,0.2) 50%,
+    transparent 100%
+  );
+}
+
+/* Gradientes como overlays */
+.hero-section {
+  background-image: 
+    linear-gradient(
+      rgba(0,0,0,0.4),
+      rgba(0,0,0,0.6)
+    ),
+    url('hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Gradientes sutiles para depth */
+.subtle-gradient {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8f9fa 100%
+  );
+}
+
+/* Gradientes animados */
+.animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}</code></pre>
+                    </div>
+
+                    <h3>Google Fonts: Tipografía personalizada</h3>
+                    <div class="code-example">
+                        <h4>1. Importar Google Fonts en HTML:</h4>
+                        <pre><code>&lt;head&gt;
+  &lt;!-- Método 1: Link en HTML --&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+  &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;
+&lt;/head&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>2. Importar en CSS:</h4>
+                        <pre><code>/* Método 2: @import en CSS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Método 3: Local fonts como fallback */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('fonts/custom-font.woff2') format('woff2'),
+       url('fonts/custom-font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;  /* Mejora performance */
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>3. Aplicar fuentes en CSS:</h4>
+                        <pre><code>/* Configuración base de fuentes */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Jerarquía tipográfica */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Fuentes especiales para elementos específicos */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.code-text {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9rem;
+  background-color: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+}
+
+/* Variaciones de peso */
+.text-light {
+  font-weight: 300;
+}
+
+.text-normal {
+  font-weight: 400;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.text-semibold {
+  font-weight: 600;
+}
+
+.text-bold {
+  font-weight: 700;
+}</code></pre>
+                    </div>
+
+                    <h3>Combinando todos los efectos</h3>
+                    <div class="code-example">
+                        <h4>Ejemplo: Tarjeta premium con todos los efectos:</h4>
+                        <pre><code>.premium-card {
+  /* Estructura básica */
+  position: relative;
+  padding: 2rem;
+  margin: 1rem;
+  max-width: 400px;
+  
+  /* Fondo con gradiente */
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.9) 0%,
+    rgba(248,249,250,0.9) 100%
+  );
+  
+  /* Bordes redondeados */
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  
+  /* Sombra elegante */
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.1),
+    0 2px 16px rgba(0,0,0,0.05);
+  
+  /* Tipografía */
+  font-family: 'Inter', sans-serif;
+  
+  /* Transiciones */
+  transition: all 0.3s ease;
+  
+  /* Backdrop filter para efecto glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Estados interactivos */
+.premium-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.15),
+    0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* Título con gradiente de texto */
+.premium-card h3 {
+  background: linear-gradient(135deg, #007bff, #6f42c1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Decoración con pseudo-elemento */
+.premium-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #007bff, #28a745, #ffc107, #dc3545);
+  border-radius: 16px 16px 0 0;
+}
+
+/* Botón con efectos completos */
+.premium-card .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.premium-card .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,123,255,0.4);
+  background: linear-gradient(135deg, #0056b3, #004085);
+}
+
+.premium-card .cta-button:active {
+  transform: translateY(0);
+}</code></pre>
+                    </div>
+
+                    <h3>Optimización y rendimiento</h3>
+                    <div class="code-example">
+                        <pre><code>/* ✅ BUENAS PRÁCTICAS */
+
+/* 1. Usar will-change para animaciones */
+.animated-element {
+  will-change: transform, opacity;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 2. Optimizar sombras complejas */
+.optimized-shadow {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);  /* Simple pero efectiva */
+}
+
+/* 3. Limitar gradientes complejos */
+.simple-gradient {
+  background: linear-gradient(135deg, #007bff, #0056b3);  /* Solo 2 colores */
+}
+
+/* 4. Usar font-display para mejor loading */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('font.woff2') format('woff2');
+  font-display: swap;  /* Evita FOIT (Flash of Invisible Text) */
+}
+
+/* 5. Precargar fuentes críticas */
+/* En HTML: <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin> */
+
+/* ❌ EVITAR */
+
+/* Sombras excesivamente complejas */
+.heavy-shadow {
+  box-shadow: 
+    0 1px 1px rgba(0,0,0,0.1),
+    0 2px 2px rgba(0,0,0,0.1),
+    0 4px 4px rgba(0,0,0,0.1),
+    0 8px 8px rgba(0,0,0,0.1);  /* ❌ Demasiado pesado */
+}
+
+/* Gradientes con demasiados colores */
+.heavy-gradient {
+  background: linear-gradient(
+    90deg,
+    red, orange, yellow, green, blue, indigo, violet
+  );  /* ❌ Costoso de renderizar */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Efectos hover en botones y enlaces, sombras y fuente personalizada</h3>
+                        <span class="difficulty">Intermedio</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear una sección con botones interactivos, tarjetas con sombras y implementar una fuente personalizada de Google Fonts.</p>
+                        
+                        <h4>Requisitos:</h4>
+                        <ol class="exercise-steps">
+                            <li>Implementar Google Fonts (sugerencia: Inter o Poppins)</li>
+                            <li>Crear 3 botones diferentes con efectos hover únicos</li>
+                            <li>Diseñar tarjetas con sombras que se eleven en hover</li>
+                            <li>Agregar efectos a enlaces de navegación</li>
+                            <li>Usar pseudo-elementos para decoraciones</li>
+                            <li>Implementar al menos un gradiente</li>
+                            <li>Crear efectos de transición suaves</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Estructura HTML sugerida:</h4>
+                            <pre><code>&lt;section class="interactive-section"&gt;
+  &lt;div class="container"&gt;
+    &lt;h2 class="section-title"&gt;Elementos Interactivos&lt;/h2&gt;
+    
+    &lt;!-- Botones con diferentes efectos --&gt;
+    &lt;div class="buttons-demo"&gt;
+      &lt;h3&gt;Botones con Efectos&lt;/h3&gt;
+      &lt;button class="btn btn-primary"&gt;Botón Principal&lt;/button&gt;
+      &lt;button class="btn btn-gradient"&gt;Botón Gradiente&lt;/button&gt;
+      &lt;button class="btn btn-shadow"&gt;Botón Sombra&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Navegación con efectos --&gt;
+    &lt;nav class="interactive-nav"&gt;
+      &lt;h3&gt;Navegación Interactiva&lt;/h3&gt;
+      &lt;ul class="nav-list"&gt;
+        &lt;li&gt;&lt;a href="#" class="nav-link"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" class="nav-link"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" class="nav-link"&gt;Acerca&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" class="nav-link"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+    
+    &lt;!-- Tarjetas con sombras --&gt;
+    &lt;div class="cards-demo"&gt;
+      &lt;h3&gt;Tarjetas con Efectos&lt;/h3&gt;
+      &lt;div class="cards-grid"&gt;
+        &lt;div class="effect-card"&gt;
+          &lt;div class="card-icon"&gt;🎨&lt;/div&gt;
+          &lt;h4&gt;Diseño&lt;/h4&gt;
+          &lt;p&gt;Creamos interfaces atractivas y funcionales.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="effect-card"&gt;
+          &lt;div class="card-icon"&gt;💻&lt;/div&gt;
+          &lt;h4&gt;Desarrollo&lt;/h4&gt;
+          &lt;p&gt;Programamos soluciones robustas y escalables.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="effect-card"&gt;
+          &lt;div class="card-icon"&gt;📱&lt;/div&gt;
+          &lt;h4&gt;Mobile&lt;/h4&gt;
+          &lt;p&gt;Optimizamos para todos los dispositivos.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                        </div>
+
+                        <h4>Especificaciones técnicas:</h4>
+                        <ul>
+                            <li>✅ Google Font: Inter con pesos 400, 500, 600</li>
+                            <li>✅ Transiciones: 0.3s ease en todos los efectos</li>
+                            <li>✅ Botón principal: elevación y cambio de color</li>
+                            <li>✅ Botón gradiente: background animado</li>
+                            <li>✅ Botón sombra: sombra que crece en hover</li>
+                            <li>✅ Enlaces: subrayado animado con ::after</li>
+                            <li>✅ Tarjetas: sombra inicial + elevación en hover</li>
+                            <li>✅ Pseudo-elementos: iconos o decoraciones</li>
+                        </ul>
+
+                        <h4>CSS inicial sugerido:</h4>
+                        <div class="code-example">
+                            <pre><code>/* Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.interactive-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  /* Agregar efectos de gradiente aquí */
+}
+
+/* Botones base */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Configurar cada tipo de botón */
+}
+
+/* Navegación */
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-link {
+  /* Configurar estados y pseudo-elementos */
+}
+
+/* Tarjetas */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.effect-card {
+  /* Configurar sombras y efectos hover */
+}
+
+/* Completar el resto del CSS... */</code></pre>
+                        </div>
+
+                        <h4>Efectos específicos a implementar:</h4>
+                        <ul>
+                            <li>⭐ Botón que "rebota" ligeramente al hacer hover</li>
+                            <li>⭐ Enlace con línea que se desliza desde la izquierda</li>
+                            <li>⭐ Tarjeta que rota ligeramente en hover</li>
+                            <li>⭐ Título con gradiente de texto</li>
+                            <li>⭐ Icono que cambia de color progresivamente</li>
+                        </ul>
+
+                        <h4>Resultado esperado:</h4>
+                        <p>Una sección completamente interactiva con efectos suaves y profesionales que demuestren el dominio de pseudo-clases, pseudo-elementos y efectos visuales modernos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-mouse-pointer"></i>
+                        </div>
+                        <h3>MDN - Pseudo-clases CSS</h3>
+                        <p>Documentación completa de pseudo-clases en español</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://fonts.google.com/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-font"></i>
+                        </div>
+                        <h3>Google Fonts</h3>
+                        <p>Biblioteca completa de fuentes gratuitas para web</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://cssgradient.io/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>CSS Gradient Generator</h3>
+                        <p>Herramienta para crear gradientes CSS visualmente</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo10.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo12.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 11: Estilos avanzados</p>
+        </footer>
+    </div>
+</body>
+</html>

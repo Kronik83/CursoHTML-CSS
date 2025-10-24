@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6: Introducción a CSS - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navegación superior -->
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link">
+                <i class="fas fa-arrow-left"></i> Volver al Índice
+            </a>
+            <div class="module-indicator">
+                <span class="current-module">Módulo 6 de 14</span>
+            </div>
+        </nav>
+
+        <!-- Header del módulo -->
+        <header class="module-header">
+            <div class="module-number">06</div>
+            <div class="module-info">
+                <h1 class="module-title">Introducción a CSS</h1>
+                <p class="module-description">Aprende los fundamentos de CSS para dar estilo a tus páginas web</p>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#que-es-css" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>¿Qué es CSS?</h3>
+                            <p>Comprende qué es CSS y cómo se aplica: inline, en etiqueta style y archivo externo.</p>
+                        </div>
+                    </a>
+                    <a href="#selectores-basicos" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-crosshairs"></i>
+                            </div>
+                            <h3>Selectores básicos</h3>
+                            <p>Domina los selectores de elemento, clase (.clase) e ID (#id).</p>
+                        </div>
+                    </a>
+                    <a href="#propiedades-comunes" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                            <h3>Propiedades comunes</h3>
+                            <p>Aprende color, background, margin, padding, border y font.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: ¿Qué es CSS? -->
+            <section class="content-section" id="que-es-css">
+                <h2 class="section-title">
+                    <i class="fas fa-palette"></i>
+                    ¿Qué es CSS y para qué sirve?
+                </h2>
+                <div class="topic-content">
+                    <p><strong>CSS (Cascading Style Sheets)</strong> es el lenguaje que se utiliza para describir la presentación de documentos HTML. Mientras HTML se encarga de la estructura y el contenido, CSS se encarga del diseño, colores, tipografías, espaciado y disposición visual de los elementos.</p>
+                    
+                    <h3>¿Por qué separar HTML de CSS?</h3>
+                    <ul>
+                        <li><strong>Separación de responsabilidades:</strong> HTML para contenido, CSS para presentación</li>
+                        <li><strong>Reutilización:</strong> Un mismo CSS puede aplicarse a múltiples páginas HTML</li>
+                        <li><strong>Mantenimiento:</strong> Es más fácil actualizar el diseño sin tocar el contenido</li>
+                        <li><strong>Carga eficiente:</strong> Los archivos CSS se descargan una vez y se almacenan en caché</li>
+                        <li><strong>Flexibilidad:</strong> Diferentes estilos para diferentes dispositivos o contextos</li>
+                    </ul>
+
+                    <h3>Formas de aplicar CSS</h3>
+                    <p>Existen tres maneras principales de incluir CSS en un documento HTML:</p>
+
+                    <h4>1. CSS Inline (en línea)</h4>
+                    <p>Se aplica directamente en el elemento HTML usando el atributo <code>style</code>:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;p style="color: blue; font-size: 18px;"&gt;
+  Este párrafo tiene estilos en línea
+&lt;/p&gt;
+
+&lt;h1 style="background-color: yellow; text-align: center;"&gt;
+  Título con fondo amarillo
+&lt;/h1&gt;</code></pre>
+                    </div>
+                    <p><strong>Ventajas:</strong> Rápido para pruebas puntuales<br>
+                    <strong>Desventajas:</strong> Difícil de mantener, mezcla contenido con presentación</p>
+
+                    <h4>2. CSS Interno (en etiqueta &lt;style&gt;)</h4>
+                    <p>Se incluye dentro del <code>&lt;head&gt;</code> del documento HTML:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Mi página con CSS interno&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    
+    p {
+      color: #666;
+      line-height: 1.6;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Título Principal&lt;/h1&gt;
+  &lt;p&gt;Este párrafo usa CSS interno.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                    <p><strong>Ventajas:</strong> Todos los estilos en un lugar, fácil para páginas pequeñas<br>
+                    <strong>Desventajas:</strong> No se puede reutilizar en otras páginas</p>
+
+                    <h4>3. CSS Externo (archivo separado) - ¡RECOMENDADO!</h4>
+                    <p>Los estilos se guardan en un archivo separado con extensión <code>.css</code> y se enlazan al HTML:</p>
+                    
+                    <div class="code-example">
+                        <h4>Archivo HTML (index.html):</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Mi página con CSS externo&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Título Principal&lt;/h1&gt;
+  &lt;p&gt;Este párrafo usa CSS externo.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Archivo CSS (styles.css):</h4>
+                        <pre><code>/* Este es un comentario en CSS */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 16px;
+}</code></pre>
+                    </div>
+
+                    <p><strong>Ventajas:</strong> Reutilizable, mantenible, cacheable, mejor organización<br>
+                    <strong>Desventajas:</strong> Requiere un archivo adicional</p>
+
+                    <h3>Anatomía de una regla CSS</h3>
+                    <p>Una regla CSS tiene la siguiente estructura:</p>
+                    <div class="code-example">
+                        <pre><code>selector {
+  propiedad: valor;
+  otra-propiedad: otro-valor;
+}
+
+/* Ejemplo real */
+h1 {
+  color: blue;
+  font-size: 24px;
+  text-align: center;
+}</code></pre>
+                    </div>
+                    <ul>
+                        <li><strong>Selector:</strong> Indica qué elementos HTML se van a estilizar</li>
+                        <li><strong>Propiedad:</strong> Qué aspecto se va a modificar (color, tamaño, etc.)</li>
+                        <li><strong>Valor:</strong> Cómo se va a modificar esa propiedad</li>
+                        <li><strong>Declaración:</strong> Cada línea propiedad: valor;</li>
+                        <li><strong>Bloque de declaraciones:</strong> Todo lo que está entre las llaves { }</li>
+                    </ul>
+
+                    <h3>Comentarios en CSS</h3>
+                    <p>Los comentarios en CSS se escriben entre <code>/*</code> y <code>*/</code>:</p>
+                    <div class="code-example">
+                        <pre><code>/* Este es un comentario de una línea */
+
+/*
+  Este es un comentario
+  de múltiples líneas
+  muy útil para documentar
+*/
+
+body {
+  font-family: Arial, sans-serif; /* Fuente principal */
+  /* background-color: red; Esta línea está comentada */
+}</code></pre>
+                    </div>
+
+                    <h3>Buenas prácticas desde el inicio</h3>
+                    <ul>
+                        <li>✅ <strong>Usa CSS externo</strong> siempre que sea posible</li>
+                        <li>✅ <strong>Organiza tu código</strong> con comentarios y espacios</li>
+                        <li>✅ <strong>Usa nombres descriptivos</strong> para clases e IDs</li>
+                        <li>✅ <strong>Mantén consistencia</strong> en el estilo de escritura</li>
+                        <li>✅ <strong>Una declaración por línea</strong> para mejor legibilidad</li>
+                        <li>❌ <strong>Evita CSS inline</strong> para proyectos reales</li>
+                        <li>❌ <strong>No uses estilos duplicados</strong> innecesariamente</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección 2: Selectores básicos -->
+            <section class="content-section" id="selectores-basicos">
+                <h2 class="section-title">
+                    <i class="fas fa-crosshairs"></i>
+                    Selectores básicos en CSS
+                </h2>
+                <div class="topic-content">
+                    <p>Los selectores son patrones que nos permiten seleccionar los elementos HTML a los que queremos aplicar estilos. Existen diferentes tipos de selectores, cada uno con su propósito específico.</p>
+                    
+                    <h3>1. Selector de elemento (o tipo)</h3>
+                    <p>Selecciona todos los elementos de un tipo específico:</p>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>/* Selecciona TODOS los párrafos */
+p {
+  color: blue;
+  font-size: 16px;
+}
+
+/* Selecciona TODOS los títulos h1 */
+h1 {
+  color: red;
+  text-align: center;
+}
+
+/* Selecciona TODOS los enlaces */
+a {
+  text-decoration: none;
+  color: green;
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>HTML correspondiente:</h4>
+                        <pre><code>&lt;h1&gt;Este título será rojo y centrado&lt;/h1&gt;
+&lt;p&gt;Este párrafo será azul&lt;/p&gt;
+&lt;p&gt;Este párrafo también será azul&lt;/p&gt;
+&lt;a href="#"&gt;Este enlace será verde sin subrayado&lt;/a&gt;</code></pre>
+                    </div>
+
+                    <h3>2. Selector de clase (.clase)</h3>
+                    <p>Selecciona elementos que tienen un atributo <code>class</code> específico. Se escribe con un punto (.) seguido del nombre de la clase:</p>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>/* Selecciona elementos con class="destacado" */
+.destacado {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* Selecciona elementos con class="boton" */
+.boton {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Selecciona elementos con class="texto-pequeño" */
+.texto-pequeño {
+  font-size: 12px;
+  color: gray;
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>HTML correspondiente:</h4>
+                        <pre><code>&lt;p&gt;Este párrafo es normal&lt;/p&gt;
+&lt;p class="destacado"&gt;Este párrafo está destacado&lt;/p&gt;
+&lt;button class="boton"&gt;Botón estilizado&lt;/button&gt;
+&lt;span class="texto-pequeño"&gt;Texto en tamaño pequeño&lt;/span&gt;
+
+&lt;!-- Un elemento puede tener múltiples clases --&gt;
+&lt;p class="destacado texto-pequeño"&gt;Párrafo destacado y pequeño&lt;/p&gt;</code></pre>
+                    </div>
+
+                    <h3>3. Selector de ID (#id)</h3>
+                    <p>Selecciona el elemento que tiene un atributo <code>id</code> específico. Se escribe con una almohadilla (#) seguida del nombre del ID:</p>
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>/* Selecciona el elemento con id="encabezado" */
+#encabezado {
+  background-color: navy;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Selecciona el elemento con id="menu-principal" */
+#menu-principal {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 15px;
+}
+
+/* Selecciona el elemento con id="pie-pagina" */
+#pie-pagina {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>HTML correspondiente:</h4>
+                        <pre><code>&lt;header id="encabezado"&gt;
+  &lt;h1&gt;Mi Sitio Web&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav id="menu-principal"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Acerca&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;footer id="pie-pagina"&gt;
+  &lt;p&gt;&copy; 2025 Mi Sitio Web&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                    </div>
+
+                    <h3>4. Selector universal (*)</h3>
+                    <p>Selecciona TODOS los elementos de la página:</p>
+                    <div class="code-example">
+                        <pre><code>/* Aplicar a TODOS los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+                    </div>
+
+                    <h3>5. Selectores de agrupación</h3>
+                    <p>Puedes aplicar los mismos estilos a múltiples selectores separándolos con comas:</p>
+                    <div class="code-example">
+                        <pre><code>/* Aplicar los mismos estilos a h1, h2 y h3 */
+h1, h2, h3 {
+  color: #333;
+  font-family: 'Georgia', serif;
+  margin-bottom: 15px;
+}
+
+/* Aplicar estilos a múltiples clases */
+.boton, .enlace-boton, .btn-primary {
+  background-color: blue;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+}</code></pre>
+                    </div>
+
+                    <h3>Especificidad de selectores</h3>
+                    <p>Cuando varios selectores apuntan al mismo elemento, CSS usa un sistema de especificidad para determinar qué estilos aplicar:</p>
+                    
+                    <div class="code-example">
+                        <h4>Orden de especificidad (de menor a mayor):</h4>
+                        <pre><code>/* 1. Selector de elemento (especificidad: 1) */
+p {
+  color: black;
+}
+
+/* 2. Selector de clase (especificidad: 10) */
+.texto-azul {
+  color: blue;
+}
+
+/* 3. Selector de ID (especificidad: 100) */
+#texto-especial {
+  color: red;
+}
+
+/* 4. CSS Inline (especificidad: 1000) */
+/* &lt;p style="color: green;"&gt; */</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Ejemplo práctico de especificidad:</h4>
+                        <pre><code>&lt;!-- HTML --&gt;
+&lt;p id="texto-especial" class="texto-azul"&gt;
+  ¿De qué color será este texto?
+&lt;/p&gt;
+
+&lt;!-- CSS --&gt;
+p { color: black; }           /* Especificidad: 1 */
+.texto-azul { color: blue; }  /* Especificidad: 10 */
+#texto-especial { color: red; } /* Especificidad: 100 - GANA */
+
+/* Resultado: el texto será ROJO */</code></pre>
+                    </div>
+
+                    <h3>Buenas prácticas para selectores</h3>
+                    <ul>
+                        <li>✅ <strong>Usa clases para estilos reutilizables:</strong> <code>.boton</code>, <code>.destacado</code></li>
+                        <li>✅ <strong>Usa IDs para elementos únicos:</strong> <code>#encabezado</code>, <code>#menu-principal</code></li>
+                        <li>✅ <strong>Nombres descriptivos:</strong> <code>.boton-primario</code> en lugar de <code>.azul</code></li>
+                        <li>✅ <strong>Selectores de elemento para estilos globales:</strong> <code>body</code>, <code>h1</code>, <code>p</code></li>
+                        <li>❌ <strong>Evita IDs para estilos reutilizables</strong></li>
+                        <li>❌ <strong>No uses selectores demasiado específicos</strong> sin necesidad</li>
+                    </ul>
+
+                    <h3>Ejercicio de selectores</h3>
+                    <div class="code-example">
+                        <h4>Practica con este HTML:</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Práctica de Selectores&lt;/title&gt;
+  &lt;link rel="stylesheet" href="selectores.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header id="cabecera"&gt;
+    &lt;h1&gt;Mi Blog Personal&lt;/h1&gt;
+    &lt;p class="subtitulo"&gt;Bienvenido a mi espacio en la web&lt;/p&gt;
+  &lt;/header&gt;
+  
+  &lt;main&gt;
+    &lt;article class="post"&gt;
+      &lt;h2&gt;Mi primer artículo&lt;/h2&gt;
+      &lt;p&gt;Este es un párrafo normal.&lt;/p&gt;
+      &lt;p class="destacado"&gt;Este párrafo está destacado.&lt;/p&gt;
+      &lt;a href="#" class="enlace-importante"&gt;Leer más&lt;/a&gt;
+    &lt;/article&gt;
+  &lt;/main&gt;
+  
+  &lt;footer id="pie"&gt;
+    &lt;p&gt;&copy; 2025 Mi Blog&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS sugerido (selectores.css):</h4>
+                        <pre><code>/* Selector de elemento */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Selector de ID */
+#cabecera {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Selector de clase */
+.subtitulo {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.post {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.destacado {
+  background-color: #f39c12;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.enlace-importante {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Selector agrupado */
+h1, h2 {
+  color: #2c3e50;
+}
+
+/* Selector de ID para el pie */
+#pie {
+  background-color: #34495e;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Propiedades comunes -->
+            <section class="content-section" id="propiedades-comunes">
+                <h2 class="section-title">
+                    <i class="fas fa-sliders-h"></i>
+                    Propiedades CSS fundamentales
+                </h2>
+                <div class="topic-content">
+                    <p>CSS ofrece cientos de propiedades para controlar la apariencia de los elementos. Aquí aprenderás las propiedades más importantes y utilizadas en el desarrollo web.</p>
+                    
+                    <h3>Propiedades de color</h3>
+                    <p>Controlan el color del texto y del fondo de los elementos:</p>
+                    
+                    <h4>color (color del texto)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Diferentes formas de especificar colores */
+
+/* Nombres de colores predefinidos */
+p { color: red; }
+h1 { color: blue; }
+span { color: green; }
+
+/* Colores hexadecimales */
+.titulo { color: #ff0000; }    /* Rojo */
+.subtitulo { color: #0066cc; } /* Azul */
+.texto { color: #333333; }     /* Gris oscuro */
+
+/* Colores RGB */
+.header { color: rgb(255, 0, 0); }      /* Rojo */
+.nav { color: rgb(0, 102, 204); }       /* Azul */
+
+/* Colores RGBA (con transparencia) */
+.overlay { color: rgba(0, 0, 0, 0.7); } /* Negro con 70% opacidad */
+
+/* Colores HSL */
+.banner { color: hsl(120, 100%, 50%); } /* Verde puro */</code></pre>
+                    </div>
+
+                    <h4>background-color (color de fondo)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Color de fondo sólido */
+body { background-color: #f8f9fa; }
+.destacado { background-color: yellow; }
+.boton { background-color: #007bff; }
+
+/* Fondo transparente */
+.modal { background-color: rgba(0, 0, 0, 0.5); }
+
+/* Quitar el fondo */
+.sin-fondo { background-color: transparent; }</code></pre>
+                    </div>
+
+                    <h3>Propiedades de fuente y texto</h3>
+                    
+                    <h4>font-family (tipo de fuente)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Fuente única */
+body { font-family: Arial; }
+
+/* Lista de fuentes (fallback) */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* Familias genéricas */
+.serif { font-family: serif; }          /* Times New Roman, Georgia */
+.sans-serif { font-family: sans-serif; } /* Arial, Helvetica */
+.monospace { font-family: monospace; }   /* Courier New, Monaco */
+
+/* Fuentes de Google Fonts */
+.titulo { font-family: 'Roboto', sans-serif; }
+.elegante { font-family: 'Playfair Display', serif; }</code></pre>
+                    </div>
+
+                    <h4>font-size (tamaño de fuente)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Unidades absolutas */
+.pequeno { font-size: 12px; }
+.normal { font-size: 16px; }
+.grande { font-size: 24px; }
+
+/* Unidades relativas */
+.relativo { font-size: 1.2em; }    /* 1.2 veces el tamaño del padre */
+.responsive { font-size: 1.5rem; }  /* 1.5 veces el tamaño raíz */
+
+/* Porcentajes */
+.porcentaje { font-size: 120%; }
+
+/* Palabras clave */
+.muy-pequeno { font-size: xx-small; }
+.pequeno { font-size: small; }
+.mediano { font-size: medium; }
+.grande { font-size: large; }
+.muy-grande { font-size: xx-large; }</code></pre>
+                    </div>
+
+                    <h4>font-weight (grosor de fuente)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Palabras clave */
+.delgado { font-weight: normal; }   /* 400 */
+.negrita { font-weight: bold; }     /* 700 */
+.mas-delgado { font-weight: lighter; }
+.mas-grueso { font-weight: bolder; }
+
+/* Valores numéricos */
+.muy-delgado { font-weight: 100; }
+.delgado { font-weight: 300; }
+.normal { font-weight: 400; }
+.medio { font-weight: 500; }
+.semi-negrita { font-weight: 600; }
+.negrita { font-weight: 700; }
+.extra-negrita { font-weight: 800; }
+.ultra-negrita { font-weight: 900; }</code></pre>
+                    </div>
+
+                    <h4>text-align (alineación del texto)</h4>
+                    <div class="code-example">
+                        <pre><code>.izquierda { text-align: left; }      /* Por defecto */
+.centrado { text-align: center; }
+.derecha { text-align: right; }
+.justificado { text-align: justify; }  /* Alinea a ambos lados */</code></pre>
+                    </div>
+
+                    <h4>text-decoration (decoración del texto)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Quitar subrayado de enlaces */
+a { text-decoration: none; }
+
+/* Agregar decoraciones */
+.subrayado { text-decoration: underline; }
+.tachado { text-decoration: line-through; }
+.sobrayado { text-decoration: overline; }
+
+/* Combinar decoraciones */
+.decorado { text-decoration: underline overline; }</code></pre>
+                    </div>
+
+                    <h3>Modelo de caja básico</h3>
+                    
+                    <h4>margin (margen exterior)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Margen uniforme */
+.espaciado { margin: 20px; }
+
+/* Margen específico por lado */
+.margen-top { margin-top: 10px; }
+.margen-right { margin-right: 15px; }
+.margen-bottom { margin-bottom: 10px; }
+.margen-left { margin-left: 15px; }
+
+/* Margen con 2 valores (vertical horizontal) */
+.margen-vh { margin: 10px 20px; }
+
+/* Margen con 4 valores (top right bottom left) */
+.margen-completo { margin: 10px 15px 20px 5px; }
+
+/* Centrar elemento horizontalmente */
+.centrado { margin: 0 auto; }</code></pre>
+                    </div>
+
+                    <h4>padding (espaciado interior)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Padding uniforme */
+.relleno { padding: 15px; }
+
+/* Padding específico por lado */
+.relleno-top { padding-top: 10px; }
+.relleno-right { padding-right: 20px; }
+.relleno-bottom { padding-bottom: 10px; }
+.relleno-left { padding-left: 20px; }
+
+/* Padding con múltiples valores */
+.relleno-vh { padding: 10px 20px; }           /* vertical horizontal */
+.relleno-completo { padding: 5px 10px 15px 20px; } /* top right bottom left */</code></pre>
+                    </div>
+
+                    <h4>border (bordes)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Borde simple */
+.con-borde { border: 1px solid black; }
+
+/* Borde detallado */
+.borde-completo {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #007bff;
+}
+
+/* Bordes específicos por lado */
+.borde-superior { border-top: 2px solid red; }
+.borde-derecho { border-right: 1px dashed blue; }
+.borde-inferior { border-bottom: 3px dotted green; }
+.borde-izquierdo { border-left: 2px solid purple; }
+
+/* Estilos de borde */
+.solido { border: 2px solid black; }
+.punteado { border: 2px dotted red; }
+.rayado { border: 2px dashed blue; }
+.doble { border: 4px double green; }
+
+/* Bordes redondeados */
+.redondeado { border-radius: 5px; }
+.muy-redondeado { border-radius: 15px; }
+.circular { border-radius: 50%; }</code></pre>
+                    </div>
+
+                    <h3>Propiedades de fondo avanzadas</h3>
+                    <div class="code-example">
+                        <h4>background (propiedades de fondo)</h4>
+                        <pre><code>/* Imagen de fondo */
+.con-imagen {
+  background-image: url('imagen.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Fondo con gradiente */
+.gradiente {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+/* Múltiples fondos */
+.multiple {
+  background: 
+    url('patron.png') repeat,
+    linear-gradient(to bottom, #fff, #f0f0f0);
+}</code></pre>
+                    </div>
+
+                    <h3>Ejemplo completo combinando propiedades</h3>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;div class="tarjeta"&gt;
+  &lt;h2 class="titulo-tarjeta"&gt;Mi Tarjeta&lt;/h2&gt;
+  &lt;p class="contenido-tarjeta"&gt;
+    Este es el contenido de mi tarjeta con estilos CSS.
+  &lt;/p&gt;
+  &lt;a href="#" class="boton-tarjeta"&gt;Leer más&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>.tarjeta {
+  /* Modelo de caja */
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  
+  /* Fondo */
+  background-color: #ffffff;
+  
+  /* Fuente */
+  font-family: 'Arial', sans-serif;
+}
+
+.titulo-tarjeta {
+  /* Color y fuente */
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  
+  /* Alineación y espaciado */
+  text-align: center;
+  margin-bottom: 15px;
+  
+  /* Borde inferior decorativo */
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.contenido-tarjeta {
+  /* Texto */
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify;
+  
+  /* Espaciado */
+  margin-bottom: 20px;
+}
+
+.boton-tarjeta {
+  /* Apariencia de botón */
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  
+  /* Texto */
+  text-decoration: none;
+  font-weight: bold;
+  
+  /* Disposición */
+  display: inline-block;
+  text-align: center;
+}
+
+.boton-tarjeta:hover {
+  background-color: #0056b3;
+}</code></pre>
+                    </div>
+
+                    <h3>Unidades de medida en CSS</h3>
+                    <div class="code-example">
+                        <h4>Unidades absolutas:</h4>
+                        <pre><code>/* Píxeles (más común) */
+.pixeles { font-size: 16px; margin: 10px; }
+
+/* Otras unidades absolutas (menos comunes) */
+.puntos { font-size: 12pt; }      /* Puntos (impresión) */
+.pulgadas { width: 2in; }         /* Pulgadas */
+.centimetros { width: 5cm; }      /* Centímetros */</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Unidades relativas:</h4>
+                        <pre><code>/* em - relativo al tamaño de fuente del padre */
+.em-unit { font-size: 1.2em; padding: 0.5em; }
+
+/* rem - relativo al tamaño de fuente raíz */
+.rem-unit { font-size: 1.5rem; margin: 2rem; }
+
+/* Porcentajes - relativo al elemento padre */
+.porcentaje { width: 100%; height: 50%; }
+
+/* Unidades de viewport */
+.viewport-width { width: 100vw; }    /* 100% del ancho de pantalla */
+.viewport-height { height: 100vh; }  /* 100% del alto de pantalla */</code></pre>
+                    </div>
+
+                    <h3>Jerarquía y herencia</h3>
+                    <p>Algunas propiedades CSS se heredan automáticamente de los elementos padre:</p>
+                    <div class="code-example">
+                        <pre><code>/* Propiedades que se heredan */
+body {
+  font-family: Arial, sans-serif;  /* Se hereda a todos los hijos */
+  color: #333;                     /* Se hereda a todos los hijos */
+  line-height: 1.6;              /* Se hereda a todos los hijos */
+}
+
+/* Los elementos hijos heredarán estas propiedades automáticamente */
+/* Pero pueden sobrescribirse específicamente */
+h1 {
+  color: #007bff;  /* Sobrescribe el color heredado */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Crear tu primer archivo CSS</h3>
+                        <span class="difficulty">Intermedio</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crea un archivo styles.css y enlázalo con tu HTML. Aplica color de fondo, tipo de fuente y formato de texto.</p>
+                        
+                        <h4>Pasos a seguir:</h4>
+                        <ol class="exercise-steps">
+                            <li>Crea un archivo llamado <code>styles.css</code></li>
+                            <li>Enlaza el archivo CSS con tu HTML</li>
+                            <li>Aplica estilos al body (fondo y fuente)</li>
+                            <li>Estiliza encabezados y párrafos</li>
+                            <li>Usa clases e IDs para estilos específicos</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Ejemplo HTML:</h4>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;title&gt;Mi página con CSS&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id="titulo-principal"&gt;Mi Primera Página con CSS&lt;/h1&gt;
+    &lt;p class="descripcion"&gt;Este párrafo tiene estilos CSS.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>Ejemplo CSS (styles.css):</h4>
+                            <pre><code>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+#titulo-principal {
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #007bff;
+}
+
+.descripcion {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fab fa-firefox"></i>
+                        </div>
+                        <h3>MDN CSS</h3>
+                        <p>Documentación completa de CSS en español</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://cssreference.io/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>CSS Reference</h3>
+                        <p>Guía visual de propiedades CSS con ejemplos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://www.w3schools.com/css/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>W3Schools CSS</h3>
+                        <p>Tutorial interactivo de CSS desde cero</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Navegación entre módulos -->
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo05.html">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Módulo Anterior</span>
+                </a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo07.html">
+                    <span>Siguiente Módulo</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 6: Introducción a CSS</p>
+        </footer>
+    </div>
+</body>
+</html>

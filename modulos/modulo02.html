@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Texto y formato - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navegación superior -->
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link">
+                <i class="fas fa-arrow-left"></i> Volver al Índice
+            </a>
+            <div class="module-indicator">
+                <span class="current-module">Módulo 2 de 14</span>
+            </div>
+        </nav>
+
+        <!-- Header del módulo -->
+        <header class="module-header">
+            <div class="module-number">02</div>
+            <div class="module-info">
+                <h1 class="module-title">Texto y formato</h1>
+                <p class="module-description">Aprende a estructurar y dar formato al texto en HTML</p>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#etiquetas-texto" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-heading"></i>
+                            </div>
+                            <h3>Etiquetas de texto</h3>
+                            <p>Domina las etiquetas h1-h6, p, br, strong, em, u, small y mark.</p>
+                        </div>
+                    </a>
+                    <a href="#listas" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-list"></i>
+                            </div>
+                            <h3>Listas</h3>
+                            <p>Aprende a crear listas ordenadas y no ordenadas con ul, ol y li.</p>
+                        </div>
+                    </a>
+                    <a href="#enlaces" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <h3>Enlaces</h3>
+                            <p>Crea enlaces internos y externos con la etiqueta a href.</p>
+                        </div>
+                    </a>
+                    <a href="#citas" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <h3>Citas</h3>
+                            <p>Utiliza blockquote y q para incluir citas en tu contenido.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Etiquetas de texto -->
+            <section class="content-section" id="etiquetas-texto">
+                <h2 class="section-title">
+                    <i class="fas fa-heading"></i>
+                    Etiquetas de texto
+                </h2>
+                <div class="topic-content">
+                    <p>Las etiquetas de texto son fundamentales en HTML para estructurar y dar formato al contenido textual de una página web. Cada etiqueta tiene un propósito específico y un significado semántico.</p>
+                    
+                    <h3>Encabezados (h1-h6)</h3>
+                    <p>Los encabezados definen la jerarquía del contenido, desde el más importante (h1) hasta el menos importante (h6):</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de encabezados:</h4>
+                        <pre><code>&lt;h1&gt;Título principal&lt;/h1&gt;
+&lt;h2&gt;Subtítulo importante&lt;/h2&gt;
+&lt;h3&gt;Sección&lt;/h3&gt;
+&lt;h4&gt;Subsección&lt;/h4&gt;
+&lt;h5&gt;Apartado&lt;/h5&gt;
+&lt;h6&gt;Subapartado&lt;/h6&gt;</code></pre>
+                    </div>
+                    
+                    <h3>Párrafos y saltos de línea</h3>
+                    <ul>
+                        <li><code>&lt;p&gt;</code>: Define un párrafo de texto</li>
+                        <li><code>&lt;br&gt;</code>: Inserta un salto de línea</li>
+                    </ul>
+                    <div class="code-example">
+                        <pre><code>&lt;p&gt;Este es un párrafo completo con texto.&lt;/p&gt;
+&lt;p&gt;Este es otro párrafo.&lt;br&gt;
+Con un salto de línea en el medio.&lt;/p&gt;</code></pre>
+                    </div>
+
+                    <h3>Etiquetas de formato</h3>
+                    <ul>
+                        <li><code>&lt;strong&gt;</code>: Texto importante (negrita semántica)</li>
+                        <li><code>&lt;em&gt;</code>: Texto enfatizado (cursiva semántica)</li>
+                        <li><code>&lt;u&gt;</code>: Texto subrayado</li>
+                        <li><code>&lt;small&gt;</code>: Texto pequeño (letra pequeña)</li>
+                        <li><code>&lt;mark&gt;</code>: Texto resaltado</li>
+                    </ul>
+                    <div class="code-example">
+                        <h4>Ejemplo de formato:</h4>
+                        <pre><code>&lt;p&gt;Este texto tiene &lt;strong&gt;palabras importantes&lt;/strong&gt; y 
+&lt;em&gt;texto enfatizado&lt;/em&gt;. También podemos &lt;u&gt;subrayar&lt;/u&gt; 
+y &lt;mark&gt;resaltar&lt;/mark&gt; texto.&lt;/p&gt;
+&lt;small&gt;Texto en letra pequeña para notas.&lt;/small&gt;</code></pre>
+                    </div>
+
+                    <h3>Buenas prácticas</h3>
+                    <ul>
+                        <li>Usa solo un &lt;h1&gt; por página</li>
+                        <li>Mantén la jerarquía lógica de encabezados</li>
+                        <li>Prefiere &lt;strong&gt; y &lt;em&gt; sobre &lt;b&gt; e &lt;i&gt;</li>
+                        <li>No uses &lt;br&gt; para espaciado, usa CSS</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección 2: Listas -->
+            <section class="content-section" id="listas">
+                <h2 class="section-title">
+                    <i class="fas fa-list"></i>
+                    Listas en HTML
+                </h2>
+                <div class="topic-content">
+                    <p>Las listas son elementos fundamentales para organizar información de manera estructurada. HTML ofrece diferentes tipos de listas según el propósito.</p>
+
+                    <h3>Listas no ordenadas (&lt;ul&gt;)</h3>
+                    <p>Se usan cuando el orden de los elementos no es importante. Los elementos se marcan con viñetas.</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de lista no ordenada:</h4>
+                        <pre><code>&lt;ul&gt;
+    &lt;li&gt;Elemento 1&lt;/li&gt;
+    &lt;li&gt;Elemento 2&lt;/li&gt;
+    &lt;li&gt;Elemento 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+
+                    <h3>Listas ordenadas (&lt;ol&gt;)</h3>
+                    <p>Se usan cuando el orden de los elementos es importante. Los elementos se numeran automáticamente.</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de lista ordenada:</h4>
+                        <pre><code>&lt;ol&gt;
+    &lt;li&gt;Primer paso&lt;/li&gt;
+    &lt;li&gt;Segundo paso&lt;/li&gt;
+    &lt;li&gt;Tercer paso&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                    </div>
+
+                    <h3>Listas anidadas</h3>
+                    <p>Puedes crear listas dentro de otras listas para estructura jerárquica:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de listas anidadas:</h4>
+                        <pre><code>&lt;ul&gt;
+    &lt;li&gt;Frutas
+        &lt;ul&gt;
+            &lt;li&gt;Manzanas&lt;/li&gt;
+            &lt;li&gt;Naranjas&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Verduras
+        &lt;ul&gt;
+            &lt;li&gt;Lechuga&lt;/li&gt;
+            &lt;li&gt;Tomate&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+
+                    <h3>Atributos útiles</h3>
+                    <ul>
+                        <li><code>start</code>: Define el número inicial en listas ordenadas</li>
+                        <li><code>type</code>: Cambia el tipo de numeración (1, A, a, I, i)</li>
+                        <li><code>reversed</code>: Invierte el orden de numeración</li>
+                    </ul>
+                    <div class="code-example">
+                        <pre><code>&lt;ol start="5" type="A"&gt;
+    &lt;li&gt;Elemento E&lt;/li&gt;
+    &lt;li&gt;Elemento F&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Enlaces -->
+            <section class="content-section" id="enlaces">
+                <h2 class="section-title">
+                    <i class="fas fa-link"></i>
+                    Enlaces en HTML
+                </h2>
+                <div class="topic-content">
+                    <p>Los enlaces son la base de la navegación web y permiten conectar páginas, secciones y recursos. La etiqueta &lt;a&gt; es fundamental para crear hipervínculos.</p>
+
+                    <h3>Enlaces externos</h3>
+                    <p>Conectan a páginas web externas usando URLs completas:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de enlace externo:</h4>
+                        <pre><code>&lt;a href="https://www.google.com"&gt;Ir a Google&lt;/a&gt;
+&lt;a href="https://www.github.com" target="_blank"&gt;GitHub (nueva pestaña)&lt;/a&gt;</code></pre>
+                    </div>
+
+                    <h3>Enlaces internos</h3>
+                    <p>Navegan dentro del mismo sitio web usando rutas relativas:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de enlaces internos:</h4>
+                        <pre><code>&lt;a href="pagina2.html"&gt;Ir a página 2&lt;/a&gt;
+&lt;a href="../index.html"&gt;Volver al inicio&lt;/a&gt;
+&lt;a href="contacto.html"&gt;Contacto&lt;/a&gt;</code></pre>
+                    </div>
+
+                    <h3>Enlaces de anclaje</h3>
+                    <p>Navegan a secciones específicas dentro de la misma página:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de enlaces de anclaje:</h4>
+                        <pre><code>&lt;a href="#seccion1"&gt;Ir a sección 1&lt;/a&gt;
+&lt;a href="#top"&gt;Ir arriba&lt;/a&gt;
+
+&lt;!-- Destino del enlace --&gt;
+&lt;h2 id="seccion1"&gt;Sección 1&lt;/h2&gt;</code></pre>
+                    </div>
+
+                    <h3>Enlaces especiales</h3>
+                    <ul>
+                        <li><strong>Email:</strong> <code>&lt;a href="mailto:correo@ejemplo.com"&gt;</code></li>
+                        <li><strong>Teléfono:</strong> <code>&lt;a href="tel:+123456789"&gt;</code></li>
+                        <li><strong>Descarga:</strong> <code>&lt;a href="archivo.pdf" download&gt;</code></li>
+                    </ul>
+                    <div class="code-example">
+                        <pre><code>&lt;a href="mailto:contacto@ejemplo.com"&gt;Enviar email&lt;/a&gt;
+&lt;a href="tel:+34123456789"&gt;Llamar&lt;/a&gt;
+&lt;a href="documento.pdf" download&gt;Descargar PDF&lt;/a&gt;</code></pre>
+                    </div>
+
+                    <h3>Atributos importantes</h3>
+                    <ul>
+                        <li><code>target="_blank"</code>: Abre en nueva pestaña</li>
+                        <li><code>title</code>: Texto de ayuda al pasar el mouse</li>
+                        <li><code>download</code>: Fuerza la descarga del archivo</li>
+                        <li><code>rel="noopener"</code>: Seguridad para enlaces externos</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección 4: Citas -->
+            <section class="content-section" id="citas">
+                <h2 class="section-title">
+                    <i class="fas fa-quote-right"></i>
+                    Citas en HTML
+                </h2>
+                <div class="topic-content">
+                    <p>Las citas son elementos importantes para incluir referencias, testimonios o fragmentos de texto de otras fuentes. HTML proporciona etiquetas específicas para diferentes tipos de citas.</p>
+
+                    <h3>Citas en bloque (&lt;blockquote&gt;)</h3>
+                    <p>Se usan para citas largas que ocupan su propio párrafo, generalmente con sangría:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de blockquote:</h4>
+                        <pre><code>&lt;blockquote cite="https://fuente.com"&gt;
+    &lt;p&gt;La imaginación es más importante que el conocimiento. 
+    El conocimiento es limitado, mientras que la imaginación 
+    abarca el mundo entero.&lt;/p&gt;
+    &lt;footer&gt;— Albert Einstein&lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+                    </div>
+
+                    <h3>Citas en línea (&lt;q&gt;)</h3>
+                    <p>Se usan para citas cortas dentro de un párrafo. El navegador añade comillas automáticamente:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de cita en línea:</h4>
+                        <pre><code>&lt;p&gt;Como dijo Gandhi: &lt;q&gt;Sé el cambio que quieres ver en el mundo&lt;/q&gt;.&lt;/p&gt;</code></pre>
+                    </div>
+
+                    <h3>Elemento &lt;cite&gt;</h3>
+                    <p>Se usa para referenciar el título de una obra (libro, película, artículo, etc.):</p>
+                    <div class="code-example">
+                        <h4>Ejemplo con cite:</h4>
+                        <pre><code>&lt;p&gt;Mi libro favorito es &lt;cite&gt;Cien años de soledad&lt;/cite&gt; 
+de Gabriel García Márquez.&lt;/p&gt;</code></pre>
+                    </div>
+
+                    <h3>Atributo cite</h3>
+                    <p>Proporciona la URL de la fuente original de la cita:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;blockquote cite="https://www.ejemplo.com/articulo"&gt;
+    &lt;p&gt;Contenido de la cita aquí.&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+                    </div>
+
+                    <h3>Mejores prácticas</h3>
+                    <ul>
+                        <li>Usa &lt;blockquote&gt; para citas largas (más de una línea)</li>
+                        <li>Usa &lt;q&gt; para citas cortas dentro del texto</li>
+                        <li>Incluye siempre la fuente de la cita</li>
+                        <li>Usa el atributo cite para referenciar la fuente</li>
+                        <li>Considera usar &lt;footer&gt; dentro de blockquote para la atribución</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo completo:</h4>
+                        <pre><code>&lt;article&gt;
+    &lt;h2&gt;Sobre la creatividad&lt;/h2&gt;
+    &lt;p&gt;Muchos pensadores han reflexionado sobre la creatividad.&lt;/p&gt;
+    
+    &lt;blockquote cite="https://ejemplo.com"&gt;
+        &lt;p&gt;La creatividad es la inteligencia divirtiéndose.&lt;/p&gt;
+        &lt;footer&gt;— &lt;cite&gt;Albert Einstein&lt;/cite&gt;&lt;/footer&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;p&gt;Esta idea se relaciona con lo que Jobs decía: 
+    &lt;q&gt;La innovación distingue a un líder de un seguidor&lt;/q&gt;.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Sección de presentación personal</h3>
+                        <span class="difficulty">Principiante</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Agrega una sección de presentación personal con encabezado, párrafos, una lista de intereses y un enlace a una red social.</p>
+                        
+                        <h4>Pasos a seguir:</h4>
+                        <ol class="exercise-steps">
+                            <li>Crea un encabezado principal con tu nombre</li>
+                            <li>Agrega párrafos describiendo tu experiencia</li>
+                            <li>Incluye una lista de tus intereses</li>
+                            <li>Añade un enlace a tu perfil de red social</li>
+                            <li>Usa etiquetas de formato para resaltar información</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Ejemplo de código:</h4>
+                            <pre><code>&lt;section&gt;
+    &lt;h1&gt;Juan Pérez&lt;/h1&gt;
+    &lt;p&gt;Soy un &lt;strong&gt;desarrollador web&lt;/strong&gt; con pasión por crear 
+       experiencias digitales &lt;em&gt;increíbles&lt;/em&gt;.&lt;/p&gt;
+    
+    &lt;h2&gt;Mis intereses&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Desarrollo frontend&lt;/li&gt;
+        &lt;li&gt;Diseño UX/UI&lt;/li&gt;
+        &lt;li&gt;Tecnologías emergentes&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;Puedes encontrarme en 
+       &lt;a href="https://linkedin.com/in/juanperez"&gt;LinkedIn&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fab fa-firefox"></i>
+                        </div>
+                        <h3>Elementos HTML</h3>
+                        <p>Referencia completa de elementos HTML en MDN</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://www.w3schools.com/html/html_formatting.asp" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Formato de texto</h3>
+                        <p>Tutorial de W3Schools sobre formato de texto</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://htmlreference.io/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>HTML Reference</h3>
+                        <p>Guía visual de elementos HTML con ejemplos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Navegación entre módulos -->
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo01.html">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Módulo Anterior</span>
+                </a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo03.html">
+                    <span>Siguiente Módulo</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 2: Texto y formato</p>
+        </footer>
+    </div>
+</body>
+</html>

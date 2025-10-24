@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 13: Animaciones y transiciones - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 13 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">13</div>
+            <div class="module-info">
+                <h1 class="module-title">Animaciones y transiciones</h1>
+                <p class="module-description">Añade movimiento y vida a tus páginas web</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#transitions" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <h3>Transiciones CSS</h3>
+                            <p>Transiciones suaves entre estados con transition.</p>
+                        </div>
+                    </a>
+                    <a href="#keyframes" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h3>Animaciones @keyframes</h3>
+                            <p>Crea animaciones complejas con control total.</p>
+                        </div>
+                    </a>
+                    <a href="#aplicaciones" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h3>Aplicaciones prácticas</h3>
+                            <p>Efectos en botones, scroll y entradas de elementos.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Transiciones -->
+            <section class="content-section" id="transitions">
+                <h2 class="section-title">
+                    <i class="fas fa-exchange-alt"></i>
+                    Propiedades de transición (transition)
+                </h2>
+                <div class="topic-content">
+                    <p><strong>Las transiciones CSS</strong> permiten cambiar propiedades de manera gradual durante un período determinado, creando efectos suaves y profesionales.</p>
+                    
+                    <h3>Sintaxis básica</h3>
+                    <div class="code-example">
+                        <pre><code>/* Transition simple */
+.button {
+  background-color: #007bff;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;  /* Cambia suavemente en 0.3s */
+}
+
+/* Sintaxis completa */
+transition: property duration timing-function delay;
+
+/* Ejemplo:
+   - property: propiedad a animar (background-color)
+   - duration: duración (0.3s)
+   - timing-function: curva de animación (ease)
+   - delay: retraso antes de iniciar (0s) */</code></pre>
+                    </div>
+
+                    <h3>Propiedades de transition</h3>
+                    
+                    <h4>transition-property</h4>
+                    <div class="code-example">
+                        <pre><code>/* Transición de una propiedad */
+.box {
+  transition-property: transform;
+}
+
+/* Múltiples propiedades */
+.box {
+  transition-property: transform, opacity, background-color;
+}
+
+/* Todas las propiedades */
+.box {
+  transition-property: all;  /* Anima todo lo que cambie */
+}</code></pre>
+                    </div>
+
+                    <h4>transition-duration</h4>
+                    <div class="code-example">
+                        <pre><code>/* Duración en segundos */
+.fast {
+  transition-duration: 0.2s;   /* Rápida */
+}
+
+.normal {
+  transition-duration: 0.3s;   /* Normal */
+}
+
+.slow {
+  transition-duration: 0.5s;   /* Lenta */
+}
+
+/* Múltiples duraciones */
+.multi {
+  transition-property: transform, opacity;
+  transition-duration: 0.3s, 0.5s;  /* transform: 0.3s, opacity: 0.5s */
+}</code></pre>
+                    </div>
+
+                    <h4>transition-timing-function</h4>
+                    <div class="code-example">
+                        <pre><code>/* Curvas de timing predefinidas */
+.ease {
+  transition-timing-function: ease;  /* Inicio lento, rápido, final lento */
+}
+
+.linear {
+  transition-timing-function: linear;  /* Velocidad constante */
+}
+
+.ease-in {
+  transition-timing-function: ease-in;  /* Inicio lento */
+}
+
+.ease-out {
+  transition-timing-function: ease-out;  /* Final lento */
+}
+
+.ease-in-out {
+  transition-timing-function: ease-in-out;  /* Inicio y final lentos */
+}
+
+/* Curvas personalizadas con cubic-bezier */
+.custom {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Crea efectos de "rebote" u otros movimientos personalizados */
+}</code></pre>
+                    </div>
+
+                    <h4>transition-delay</h4>
+                    <div class="code-example">
+                        <pre><code>/* Retraso antes de iniciar */
+.delayed {
+  transition-delay: 0.2s;  /* Espera 0.2s antes de iniciar */
+}
+
+/* Retrasos escalonados */
+.item:nth-child(1) { transition-delay: 0s; }
+.item:nth-child(2) { transition-delay: 0.1s; }
+.item:nth-child(3) { transition-delay: 0.2s; }
+.item:nth-child(4) { transition-delay: 0.3s; }</code></pre>
+                    </div>
+
+                    <h3>Shorthand transition</h3>
+                    <div class="code-example">
+                        <pre><code>/* Forma corta (recomendado) */
+.element {
+  transition: property duration timing-function delay;
+}
+
+/* Ejemplos prácticos */
+.button {
+  transition: background-color 0.3s ease;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item {
+  transition: all 0.2s ease-in-out;
+}</code></pre>
+                    </div>
+
+                    <h3>Ejemplos prácticos de transiciones</h3>
+
+                    <h4>1. Botón con múltiples efectos</h4>
+                    <div class="code-example">
+                        <pre><code>.button-animated {
+  padding: 1rem 2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+  /* Transición de múltiples propiedades */
+  transition: 
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.button-animated:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.button-animated:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}</code></pre>
+                    </div>
+
+                    <h4>2. Card con flip</h4>
+                    <div class="code-example">
+                        <pre><code>.card-flip {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}</code></pre>
+                    </div>
+
+                    <h4>3. Menú con transiciones</h4>
+                    <div class="code-example">
+                        <pre><code>.nav-link {
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Keyframes -->
+            <section class="content-section" id="keyframes">
+                <h2 class="section-title">
+                    <i class="fas fa-film"></i>
+                    Animaciones con @keyframes
+                </h2>
+                <div class="topic-content">
+                    <p><strong>@keyframes</strong> permite crear animaciones complejas con múltiples estados y control total sobre el proceso de animación.</p>
+                    
+                    <h3>Sintaxis básica</h3>
+                    <div class="code-example">
+                        <pre><code>/* Definir la animación */
+@keyframes nombreAnimacion {
+  from {
+    /* Estado inicial */
+    opacity: 0;
+  }
+  to {
+    /* Estado final */
+    opacity: 1;
+  }
+}
+
+/* Aplicar la animación */
+.element {
+  animation: nombreAnimacion 1s ease;
+}</code></pre>
+                    </div>
+
+                    <h3>Keyframes con porcentajes</h3>
+                    <div class="code-example">
+                        <pre><code>/* Control preciso con porcentajes */
+@keyframes deslizar {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animación compleja */
+@keyframes rebote {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>Propiedades de animation</h3>
+                    <div class="code-example">
+                        <pre><code>/* animation-name */
+.element {
+  animation-name: deslizar;
+}
+
+/* animation-duration */
+.element {
+  animation-duration: 2s;
+}
+
+/* animation-timing-function */
+.element {
+  animation-timing-function: ease-in-out;
+}
+
+/* animation-delay */
+.element {
+  animation-delay: 0.5s;
+}
+
+/* animation-iteration-count */
+.element {
+  animation-iteration-count: 3;        /* 3 veces */
+  animation-iteration-count: infinite; /* Infinito */
+}
+
+/* animation-direction */
+.element {
+  animation-direction: normal;          /* Normal */
+  animation-direction: reverse;         /* Al revés */
+  animation-direction: alternate;       /* Alterna */
+  animation-direction: alternate-reverse; /* Alterna inverso */
+}
+
+/* animation-fill-mode */
+.element {
+  animation-fill-mode: forwards;   /* Mantiene estado final */
+  animation-fill-mode: backwards;  /* Aplica estado inicial */
+  animation-fill-mode: both;       /* Ambos */
+}
+
+/* animation-play-state */
+.element {
+  animation-play-state: running;  /* Ejecutándose */
+  animation-play-state: paused;   /* Pausada */
+}</code></pre>
+                    </div>
+
+                    <h3>Shorthand animation</h3>
+                    <div class="code-example">
+                        <pre><code>/* Sintaxis completa */
+animation: name duration timing-function delay iteration-count direction fill-mode;
+
+/* Ejemplos prácticos */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.spin-infinite {
+  animation: spin 2s linear infinite;
+}
+
+.slide-and-fade {
+  animation: slideIn 0.5s ease-out forwards;
+}</code></pre>
+                    </div>
+
+                    <h3>Animaciones populares</h3>
+
+                    <h4>1. Fade In</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Slide In</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}</code></pre>
+                    </div>
+
+                    <h4>3. Bounce</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}</code></pre>
+                    </div>
+
+                    <h4>4. Spin</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}</code></pre>
+                    </div>
+
+                    <h4>5. Pulse</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}</code></pre>
+                    </div>
+
+                    <h4>6. Shake</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}</code></pre>
+                    </div>
+
+                    <h3>Múltiples animaciones</h3>
+                    <div class="code-example">
+                        <pre><code>/* Aplicar varias animaciones a la vez */
+.multi-animated {
+  animation: 
+    fadeIn 1s ease-in,
+    slideInLeft 1s ease-out,
+    pulse 2s ease-in-out infinite 1s;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Aplicaciones prácticas -->
+            <section class="content-section" id="aplicaciones">
+                <h2 class="section-title">
+                    <i class="fas fa-magic"></i>
+                    Aplicación en botones, fondos y elementos al desplazarse
+                </h2>
+                <div class="topic-content">
+                    <p>Las animaciones cobran vida cuando se aplican en contextos prácticos y mejoran la experiencia del usuario.</p>
+                    
+                    <h3>1. Botones interactivos avanzados</h3>
+                    
+                    <h4>Botón con efecto de onda</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;button class="ripple-button"&gt;
+  &lt;span&gt;Click Me&lt;/span&gt;
+&lt;/button&gt;
+
+.ripple-button {
+  position: relative;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.ripple-button:hover {
+  transform: scale(1.05);
+}
+
+.ripple-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-button:hover::before {
+  width: 300px;
+  height: 300px;
+}</code></pre>
+                    </div>
+
+                    <h4>Botón con loading spinner</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;button class="loading-button" data-loading="false"&gt;
+  &lt;span class="button-text"&gt;Enviar&lt;/span&gt;
+  &lt;span class="button-spinner"&gt;&lt;/span&gt;
+&lt;/button&gt;
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-button {
+  position: relative;
+  padding: 0.75rem 2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+.loading-button[data-loading="true"] .button-text {
+  display: none;
+}
+
+.loading-button[data-loading="true"] .button-spinner {
+  display: inline-block;
+}</code></pre>
+                    </div>
+
+                    <h3>2. Fondos animados</h3>
+
+                    <h4>Gradiente animado</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-background {
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}</code></pre>
+                    </div>
+
+                    <h4>Partículas flotantes</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 0.5s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 1s; }</code></pre>
+                    </div>
+
+                    <h3>3. Animaciones al scroll (con JavaScript)</h3>
+
+                    <h4>HTML y CSS base</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="reveal"&gt;
+  &lt;h2&gt;Contenido que aparece al hacer scroll&lt;/h2&gt;
+&lt;/div&gt;
+
+/* Estados de animación */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variaciones */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}</code></pre>
+                    </div>
+
+                    <h4>JavaScript para detectar scroll</h4>
+                    <div class="code-example">
+                        <pre><code>// Detectar elementos al hacer scroll
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.reveal');
+  
+  reveals.forEach(element => {
+    const windowHeight = window.innerHeight;
+    const elementTop = element.getBoundingClientRect().top;
+    const elementVisible = 150;
+    
+    if (elementTop < windowHeight - elementVisible) {
+      element.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Ejecutar al cargar</code></pre>
+                    </div>
+
+                    <h3>4. Animación de entrada de página</h3>
+
+                    <h4>Hero con animación de entrada</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes heroEntry {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  animation: heroEntry 1s ease-out;
+}
+
+.hero h1 {
+  animation: heroEntry 1s ease-out 0.2s backwards;
+}
+
+.hero p {
+  animation: heroEntry 1s ease-out 0.4s backwards;
+}
+
+.hero .cta-button {
+  animation: heroEntry 1s ease-out 0.6s backwards;
+}</code></pre>
+                    </div>
+
+                    <h4>Efecto de escritura (typewriter)</h4>
+                    <div class="code-example">
+                        <pre><code>@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid #333;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink 0.75s step-end infinite;
+}</code></pre>
+                    </div>
+
+                    <h3>5. Loader/Spinner animado</h3>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="loader"&gt;&lt;/div&gt;
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner con múltiples círculos */
+.loader-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.loader-dots div {
+  width: 15px;
+  height: 15px;
+  background-color: #007bff;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loader-dots div:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loader-dots div:nth-child(2) {
+  animation-delay: -0.16s;
+}</code></pre>
+                    </div>
+
+                    <h3>Performance y buenas prácticas</h3>
+                    <div class="code-example">
+                        <pre><code>/* ✅ BUENAS PRÁCTICAS */
+
+/* 1. Animar solo propiedades de bajo costo */
+/* Económicas: transform, opacity */
+.good-performance {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ❌ Costosas: width, height, top, left */
+.bad-performance {
+  transition: width 0.3s, height 0.3s;  /* Evitar */
+}
+
+/* 2. Usar will-change para animaciones complejas */
+.optimized {
+  will-change: transform, opacity;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* 3. Limitar animaciones infinitas */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 4. Usar transform en lugar de position */
+/* ✅ Mejor */
+.slide {
+  transform: translateX(100px);
+}
+
+/* ❌ Peor */
+.slide-bad {
+  left: 100px;  /* Causa reflow */
+}
+
+/* 5. GPU acceleration */
+.accelerated {
+  transform: translateZ(0);  /* Fuerza aceleración por GPU */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Animación de entrada al cargar y efecto hover animado</h3>
+                        <span class="difficulty">Intermedio-Avanzado</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear una landing page con animaciones de entrada al cargar la página y múltiples efectos hover en elementos interactivos.</p>
+                        
+                        <h4>Requisitos:</h4>
+                        <ol class="exercise-steps">
+                            <li>Hero section con animación de fade-in + slide-up</li>
+                            <li>Título con efecto de escritura (typewriter)</li>
+                            <li>Tarjetas de servicios con entrada escalonada</li>
+                            <li>Botones con efectos hover avanzados (ripple, scale, etc.)</li>
+                            <li>Animaciones al hacer scroll (reveal on scroll)</li>
+                            <li>Loading spinner mientras "carga" contenido</li>
+                            <li>Uso de @keyframes y transitions</li>
+                        </ol>
+
+                        <h4>Animaciones a implementar:</h4>
+                        <ul>
+                            <li>✅ Fade-in del hero: 1s ease-out</li>
+                            <li>✅ Slide-up de elementos: translateY(50px) → translateY(0)</li>
+                            <li>✅ Entrada escalonada: delays de 0.1s, 0.2s, 0.3s</li>
+                            <li>✅ Hover en botones: scale(1.05) + box-shadow</li>
+                            <li>✅ Hover en cards: translateY(-10px) + sombra</li>
+                            <li>✅ Spinner infinito mientras carga</li>
+                            <li>✅ Reveal on scroll con IntersectionObserver</li>
+                        </ul>
+
+                        <h4>Código JavaScript para scroll animations:</h4>
+                        <div class="code-example">
+                            <pre><code>// Intersection Observer para animaciones al scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach(el => {
+  observer.observe(el);
+});</code></pre>
+                        </div>
+
+                        <h4>Bonus (opcional):</h4>
+                        <ul>
+                            <li>⭐ Parallax effect en el hero</li>
+                            <li>⭐ Gradiente animado en el background</li>
+                            <li>⭐ Contador animado (números que suben)</li>
+                            <li>⭐ Respeta prefers-reduced-motion</li>
+                            <li>⭐ Partículas flotantes decorativas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Animations" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>MDN - Animaciones CSS</h3>
+                        <p>Documentación completa de animaciones CSS</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://animate.style/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>Animate.css</h3>
+                        <p>Biblioteca de animaciones CSS listas para usar</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://cubic-bezier.com/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Cubic Bezier Generator</h3>
+                        <p>Herramienta para crear curvas de timing personalizadas</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo12.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo14.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 13: Animaciones y transiciones</p>
+        </footer>
+    </div>
+</body>
+</html>

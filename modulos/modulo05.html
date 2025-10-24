@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Tablas y formularios - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 5 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">05</div>
+            <div class="module-info">
+                <h1 class="module-title">Tablas y formularios</h1>
+                <p class="module-description">Aprende a crear tablas de datos y formularios interactivos</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#tablas-html" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <h3>Tablas HTML</h3>
+                            <p>Aprende a crear tablas estructuradas para mostrar datos de forma organizada.</p>
+                        </div>
+                    </a>
+                    <a href="#formularios-basicos" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-wpforms"></i>
+                            </div>
+                            <h3>Formularios básicos</h3>
+                            <p>Domina la creación de formularios interactivos para recopilar datos.</p>
+                        </div>
+                    </a>
+                    <a href="#tipos-inputs" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-keyboard"></i>
+                            </div>
+                            <h3>Tipos de inputs</h3>
+                            <p>Explora todos los tipos de campos de entrada disponibles en HTML5.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Tablas HTML -->
+            <section class="content-section" id="tablas-html">
+                <h2 class="section-title">
+                    <i class="fas fa-table"></i>
+                    Tablas HTML para organizar datos
+                </h2>
+                <div class="topic-content">
+                    <p>Las tablas HTML permiten organizar y mostrar datos de forma estructurada en filas y columnas. Son ideales para presentar información tabular como horarios, precios, estadísticas o cualquier dato que se beneficie de una disposición en rejilla.</p>
+                    
+                    <h3>Estructura básica de una tabla</h3>
+                    <p>Una tabla HTML se compone de varios elementos que trabajan juntos:</p>
+                    <ul>
+                        <li><strong>&lt;table&gt;</strong> - Contenedor principal de la tabla</li>
+                        <li><strong>&lt;thead&gt;</strong> - Encabezado de la tabla</li>
+                        <li><strong>&lt;tbody&gt;</strong> - Cuerpo principal con datos</li>
+                        <li><strong>&lt;tfoot&gt;</strong> - Pie de tabla (opcional)</li>
+                        <li><strong>&lt;tr&gt;</strong> - Fila de tabla</li>
+                        <li><strong>&lt;th&gt;</strong> - Celda de encabezado</li>
+                        <li><strong>&lt;td&gt;</strong> - Celda de datos</li>
+                        <li><strong>&lt;caption&gt;</strong> - Título descriptivo</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Tabla básica:</h4>
+                        <pre><code>&lt;table&gt;
+  &lt;caption&gt;Horarios de Atención&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Día&lt;/th&gt;
+      &lt;th&gt;Apertura&lt;/th&gt;
+      &lt;th&gt;Cierre&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Lunes&lt;/td&gt;
+      &lt;td&gt;9:00 AM&lt;/td&gt;
+      &lt;td&gt;6:00 PM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Martes&lt;/td&gt;
+      &lt;td&gt;9:00 AM&lt;/td&gt;
+      &lt;td&gt;6:00 PM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Miércoles&lt;/td&gt;
+      &lt;td&gt;9:00 AM&lt;/td&gt;
+      &lt;td&gt;6:00 PM&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+
+                    <h3>Atributos importantes de tablas</h3>
+
+                    <h4>Colspan y Rowspan</h4>
+                    <p>Permiten que las celdas ocupen múltiples columnas o filas:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;table&gt;
+  &lt;caption&gt;Horario de Clases&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Hora&lt;/th&gt;
+      &lt;th&gt;Lunes&lt;/th&gt;
+      &lt;th&gt;Martes&lt;/th&gt;
+      &lt;th&gt;Miércoles&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9:00-10:00&lt;/td&gt;
+      &lt;td&gt;Matemáticas&lt;/td&gt;
+      &lt;td colspan="2"&gt;Laboratorio de Física&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10:00-11:00&lt;/td&gt;
+      &lt;td&gt;Historia&lt;/td&gt;
+      &lt;td&gt;Química&lt;/td&gt;
+      &lt;td rowspan="2"&gt;Proyecto Final&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11:00-12:00&lt;/td&gt;
+      &lt;td&gt;Inglés&lt;/td&gt;
+      &lt;td&gt;Biología&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+
+                    <h4>Scope y Headers para accesibilidad</h4>
+                    <p>Importantes para tecnologías asistivas:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;table&gt;
+  &lt;caption&gt;Ventas por Trimestre&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Producto&lt;/th&gt;
+      &lt;th scope="col"&gt;Q1&lt;/th&gt;
+      &lt;th scope="col"&gt;Q2&lt;/th&gt;
+      &lt;th scope="col"&gt;Q3&lt;/th&gt;
+      &lt;th scope="col"&gt;Total&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Laptops&lt;/th&gt;
+      &lt;td&gt;150&lt;/td&gt;
+      &lt;td&gt;200&lt;/td&gt;
+      &lt;td&gt;180&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;530&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Smartphones&lt;/th&gt;
+      &lt;td&gt;300&lt;/td&gt;
+      &lt;td&gt;350&lt;/td&gt;
+      &lt;td&gt;280&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;930&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+
+                    <h3>Ejemplos prácticos de tablas</h3>
+
+                    <h4>1. Tabla de precios</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;table&gt;
+  &lt;caption&gt;Planes de Hosting&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Característica&lt;/th&gt;
+      &lt;th scope="col"&gt;Básico&lt;/th&gt;
+      &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;th scope="col"&gt;Enterprise&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Precio mensual&lt;/th&gt;
+      &lt;td&gt;$5.99&lt;/td&gt;
+      &lt;td&gt;$12.99&lt;/td&gt;
+      &lt;td&gt;$29.99&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Espacio en disco&lt;/th&gt;
+      &lt;td&gt;10 GB&lt;/td&gt;
+      &lt;td&gt;100 GB&lt;/td&gt;
+      &lt;td&gt;Ilimitado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Dominios&lt;/th&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Ilimitados&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Soporte&lt;/th&gt;
+      &lt;td&gt;Email&lt;/td&gt;
+      &lt;td&gt;Email + Chat&lt;/td&gt;
+      &lt;td&gt;24/7 Teléfono&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+
+                    <h4>2. Tabla de estadísticas deportivas</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;table&gt;
+  &lt;caption&gt;Tabla de Posiciones - Liga de Fútbol&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Pos&lt;/th&gt;
+      &lt;th scope="col"&gt;Equipo&lt;/th&gt;
+      &lt;th scope="col"&gt;PJ&lt;/th&gt;
+      &lt;th scope="col"&gt;PG&lt;/th&gt;
+      &lt;th scope="col"&gt;PE&lt;/th&gt;
+      &lt;th scope="col"&gt;PP&lt;/th&gt;
+      &lt;th scope="col"&gt;Pts&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;th scope="row"&gt;Real Madrid&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;26&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;th scope="row"&gt;Barcelona&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;24&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;th scope="row"&gt;Atlético Madrid&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;21&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan="7"&gt;PJ: Partidos Jugados, PG: Partidos Ganados, PE: Partidos Empatados, PP: Partidos Perdidos&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+
+                    <h3>Tablas responsivas</h3>
+                    <p>Para hacer tablas responsivas, se puede usar CSS y técnicas de diseño adaptativo:</p>
+                    <div class="code-example">
+                        <h4>Tabla con scroll horizontal:</h4>
+                        <pre><code>&lt;div class="table-container"&gt;
+  &lt;table&gt;
+    &lt;!-- Contenido de la tabla --&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  min-width: 600px;
+  width: 100%;
+}
+&lt;/style&gt;</code></pre>
+                    </div>
+
+                    <h3>Buenas prácticas para tablas</h3>
+                    <ul>
+                        <li>Usa &lt;caption&gt; para describir el contenido de la tabla</li>
+                        <li>Incluye &lt;thead&gt;, &lt;tbody&gt; y &lt;tfoot&gt; cuando sea apropiado</li>
+                        <li>Usa scope="col" y scope="row" para mejorar la accesibilidad</li>
+                        <li>Evita usar tablas para layout, úsalas solo para datos tabulares</li>
+                        <li>Considera la responsividad en dispositivos móviles</li>
+                        <li>Mantén un estilo consistente en toda la tabla</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección 2: Formularios básicos -->
+            <section class="content-section" id="formularios-basicos">
+                <h2 class="section-title">
+                    <i class="fas fa-wpforms"></i>
+                    Formularios HTML interactivos
+                </h2>
+                <div class="topic-content">
+                    <p>Los formularios son elementos fundamentales para la interacción del usuario con una página web. Permiten recopilar información, realizar búsquedas, enviar comentarios y mucho más.</p>
+                    
+                    <h3>Estructura básica de un formulario</h3>
+                    <p>Todo formulario HTML se construye usando estos elementos principales:</p>
+                    <ul>
+                        <li><strong>&lt;form&gt;</strong> - Contenedor principal del formulario</li>
+                        <li><strong>&lt;label&gt;</strong> - Etiqueta descriptiva para campos</li>
+                        <li><strong>&lt;input&gt;</strong> - Campo de entrada de datos</li>
+                        <li><strong>&lt;textarea&gt;</strong> - Área de texto multilínea</li>
+                        <li><strong>&lt;select&gt;</strong> - Lista desplegable</li>
+                        <li><strong>&lt;button&gt;</strong> - Botón de acción</li>
+                        <li><strong>&lt;fieldset&gt;</strong> - Agrupación de campos relacionados</li>
+                        <li><strong>&lt;legend&gt;</strong> - Título para un fieldset</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Formulario básico de contacto:</h4>
+                        <pre><code>&lt;form action="/enviar-contacto" method="post"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Información Personal&lt;/legend&gt;
+    
+    &lt;label for="nombre"&gt;Nombre completo:&lt;/label&gt;
+    &lt;input type="text" id="nombre" name="nombre" required&gt;
+    
+    &lt;label for="email"&gt;Correo electrónico:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="telefono"&gt;Teléfono:&lt;/label&gt;
+    &lt;input type="tel" id="telefono" name="telefono"&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Mensaje&lt;/legend&gt;
+    
+    &lt;label for="asunto"&gt;Asunto:&lt;/label&gt;
+    &lt;select id="asunto" name="asunto" required&gt;
+      &lt;option value=""&gt;Selecciona un asunto&lt;/option&gt;
+      &lt;option value="consulta"&gt;Consulta general&lt;/option&gt;
+      &lt;option value="soporte"&gt;Soporte técnico&lt;/option&gt;
+      &lt;option value="ventas"&gt;Información de ventas&lt;/option&gt;
+    &lt;/select&gt;
+    
+    &lt;label for="mensaje"&gt;Tu mensaje:&lt;/label&gt;
+    &lt;textarea id="mensaje" name="mensaje" rows="5" required&gt;&lt;/textarea&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;button type="submit"&gt;Enviar mensaje&lt;/button&gt;
+  &lt;button type="reset"&gt;Limpiar formulario&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+
+                    <h3>Atributos importantes del elemento &lt;form&gt;</h3>
+                    <ul>
+                        <li><strong>action</strong> - URL donde se enviarán los datos</li>
+                        <li><strong>method</strong> - Método HTTP (GET o POST)</li>
+                        <li><strong>enctype</strong> - Tipo de codificación para archivos</li>
+                        <li><strong>target</strong> - Dónde mostrar la respuesta</li>
+                        <li><strong>novalidate</strong> - Desactiva la validación automática</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Diferentes configuraciones de form:</h4>
+                        <pre><code>&lt;!-- Formulario para búsqueda (GET) --&gt;
+&lt;form action="/buscar" method="get"&gt;
+  &lt;input type="search" name="q" placeholder="Buscar..."&gt;
+  &lt;button type="submit"&gt;Buscar&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- Formulario para subir archivos --&gt;
+&lt;form action="/subir" method="post" enctype="multipart/form-data"&gt;
+  &lt;label for="archivo"&gt;Seleccionar archivo:&lt;/label&gt;
+  &lt;input type="file" id="archivo" name="archivo" accept=".pdf,.doc,.docx"&gt;
+  &lt;button type="submit"&gt;Subir archivo&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- Formulario que abre en nueva ventana --&gt;
+&lt;form action="/procesar" method="post" target="_blank"&gt;
+  &lt;!-- Campos del formulario --&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+
+                    <h3>Elemento &lt;label&gt; y accesibilidad</h3>
+                    <p>Las etiquetas son cruciales para la accesibilidad y usabilidad:</p>
+                    <div class="code-example">
+                        <h4>Formas correctas de asociar labels:</h4>
+                        <pre><code>&lt;!-- Método 1: usando el atributo 'for' --&gt;
+&lt;label for="usuario"&gt;Nombre de usuario:&lt;/label&gt;
+&lt;input type="text" id="usuario" name="usuario"&gt;
+
+&lt;!-- Método 2: envolviendo el input --&gt;
+&lt;label&gt;
+  Contraseña:
+  &lt;input type="password" name="password"&gt;
+&lt;/label&gt;
+
+&lt;!-- Para checkboxes y radios --&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" name="acepto" value="si"&gt;
+  Acepto los términos y condiciones
+&lt;/label&gt;</code></pre>
+                    </div>
+
+                    <h3>Validación HTML5</h3>
+                    <p>HTML5 incluye validación automática con varios atributos:</p>
+                    <div class="code-example">
+                        <h4>Atributos de validación:</h4>
+                        <pre><code>&lt;form&gt;
+  &lt;!-- Campo obligatorio --&gt;
+  &lt;label for="nombre"&gt;Nombre (obligatorio):&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre" required&gt;
+  
+  &lt;!-- Longitud mínima y máxima --&gt;
+  &lt;label for="usuario"&gt;Usuario (4-12 caracteres):&lt;/label&gt;
+  &lt;input type="text" id="usuario" name="usuario" 
+         minlength="4" maxlength="12" required&gt;
+  
+  &lt;!-- Patrón personalizado --&gt;
+  &lt;label for="codigo"&gt;Código postal (5 dígitos):&lt;/label&gt;
+  &lt;input type="text" id="codigo" name="codigo" 
+         pattern="[0-9]{5}" title="Debe ser exactamente 5 dígitos"&gt;
+  
+  &lt;!-- Rango numérico --&gt;
+  &lt;label for="edad"&gt;Edad (18-99):&lt;/label&gt;
+  &lt;input type="number" id="edad" name="edad" 
+         min="18" max="99" required&gt;
+  
+  &lt;!-- Placeholder para ayuda --&gt;
+  &lt;label for="telefono"&gt;Teléfono:&lt;/label&gt;
+  &lt;input type="tel" id="telefono" name="telefono" 
+         placeholder="+34 123 456 789"&gt;
+         
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+
+                    <h3>Mensajes de validación personalizados</h3>
+                    <div class="code-example">
+                        <h4>Usando JavaScript para personalizar mensajes:</h4>
+                        <pre><code>&lt;input type="email" id="email" name="email" required
+       oninvalid="this.setCustomValidity('Por favor introduce un email válido')"
+       oninput="this.setCustomValidity('')"&gt;
+
+&lt;script&gt;
+document.getElementById('email').addEventListener('invalid', function(e) {
+  if (this.validity.valueMissing) {
+    this.setCustomValidity('El email es obligatorio');
+  } else if (this.validity.typeMismatch) {
+    this.setCustomValidity('Por favor introduce un email válido');
+  }
+});
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <h3>Ejemplos de formularios comunes</h3>
+
+                    <h4>1. Formulario de registro</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;form action="/registro" method="post"&gt;
+  &lt;h2&gt;Crear Cuenta Nueva&lt;/h2&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Datos Personales&lt;/legend&gt;
+    
+    &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" id="nombre" name="nombre" required&gt;
+    
+    &lt;label for="apellido"&gt;Apellido:&lt;/label&gt;
+    &lt;input type="text" id="apellido" name="apellido" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="fecha-nacimiento"&gt;Fecha de nacimiento:&lt;/label&gt;
+    &lt;input type="date" id="fecha-nacimiento" name="fecha_nacimiento"&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Datos de Acceso&lt;/legend&gt;
+    
+    &lt;label for="usuario"&gt;Nombre de usuario:&lt;/label&gt;
+    &lt;input type="text" id="usuario" name="usuario" 
+           minlength="4" maxlength="20" required&gt;
+    
+    &lt;label for="password"&gt;Contraseña:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password" 
+           minlength="8" required&gt;
+    
+    &lt;label for="confirm-password"&gt;Confirmar contraseña:&lt;/label&gt;
+    &lt;input type="password" id="confirm-password" name="confirm_password" 
+           minlength="8" required&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Preferencias&lt;/legend&gt;
+    
+    &lt;label&gt;
+      &lt;input type="checkbox" name="newsletter" value="si"&gt;
+      Quiero recibir el newsletter
+    &lt;/label&gt;
+    
+    &lt;label&gt;
+      &lt;input type="checkbox" name="terminos" value="acepto" required&gt;
+      Acepto los términos y condiciones
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;button type="submit"&gt;Crear cuenta&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+
+                    <h4>2. Formulario de encuesta</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;form action="/encuesta" method="post"&gt;
+  &lt;h2&gt;Encuesta de Satisfacción&lt;/h2&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;¿Cómo calificarías nuestro servicio?&lt;/legend&gt;
+    
+    &lt;label&gt;
+      &lt;input type="radio" name="calificacion" value="excelente" required&gt;
+      Excelente
+    &lt;/label&gt;
+    
+    &lt;label&gt;
+      &lt;input type="radio" name="calificacion" value="bueno" required&gt;
+      Bueno
+    &lt;/label&gt;
+    
+    &lt;label&gt;
+      &lt;input type="radio" name="calificacion" value="regular" required&gt;
+      Regular
+    &lt;/label&gt;
+    
+    &lt;label&gt;
+      &lt;input type="radio" name="calificacion" value="malo" required&gt;
+      Malo
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;label for="mejoras"&gt;¿Qué podríamos mejorar?&lt;/label&gt;
+  &lt;select id="mejoras" name="mejoras" multiple&gt;
+    &lt;option value="atencion"&gt;Atención al cliente&lt;/option&gt;
+    &lt;option value="velocidad"&gt;Velocidad de respuesta&lt;/option&gt;
+    &lt;option value="precio"&gt;Precios&lt;/option&gt;
+    &lt;option value="funcionalidades"&gt;Nuevas funcionalidades&lt;/option&gt;
+  &lt;/select&gt;
+  
+  &lt;label for="comentarios"&gt;Comentarios adicionales:&lt;/label&gt;
+  &lt;textarea id="comentarios" name="comentarios" rows="4"&gt;&lt;/textarea&gt;
+  
+  &lt;button type="submit"&gt;Enviar encuesta&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Tipos de inputs -->
+            <section class="content-section" id="tipos-inputs">
+                <h2 class="section-title">
+                    <i class="fas fa-keyboard"></i>
+                    Tipos de inputs en HTML5
+                </h2>
+                <div class="topic-content">
+                    <p>HTML5 introdujo muchos tipos nuevos de inputs que mejoran la experiencia del usuario y proporcionan validación automática. Cada tipo está optimizado para diferentes tipos de datos.</p>
+                    
+                    <h3>Inputs de texto</h3>
+                    <div class="code-example">
+                        <h4>Tipos básicos de texto:</h4>
+                        <pre><code>&lt;!-- Texto simple --&gt;
+&lt;label for="texto"&gt;Texto normal:&lt;/label&gt;
+&lt;input type="text" id="texto" name="texto" placeholder="Escribe aquí..."&gt;
+
+&lt;!-- Contraseña --&gt;
+&lt;label for="password"&gt;Contraseña:&lt;/label&gt;
+&lt;input type="password" id="password" name="password"&gt;
+
+&lt;!-- Email (con validación automática) --&gt;
+&lt;label for="email"&gt;Email:&lt;/label&gt;
+&lt;input type="email" id="email" name="email" placeholder="usuario@ejemplo.com"&gt;
+
+&lt;!-- URL (con validación automática) --&gt;
+&lt;label for="website"&gt;Sitio web:&lt;/label&gt;
+&lt;input type="url" id="website" name="website" placeholder="https://ejemplo.com"&gt;
+
+&lt;!-- Teléfono --&gt;
+&lt;label for="tel"&gt;Teléfono:&lt;/label&gt;
+&lt;input type="tel" id="tel" name="tel" placeholder="+34 123 456 789"&gt;
+
+&lt;!-- Búsqueda --&gt;
+&lt;label for="busqueda"&gt;Buscar:&lt;/label&gt;
+&lt;input type="search" id="busqueda" name="busqueda" placeholder="Buscar productos..."&gt;</code></pre>
+                    </div>
+
+                    <h3>Inputs numéricos</h3>
+                    <div class="code-example">
+                        <h4>Números y rangos:</h4>
+                        <pre><code>&lt;!-- Número --&gt;
+&lt;label for="edad"&gt;Edad:&lt;/label&gt;
+&lt;input type="number" id="edad" name="edad" min="0" max="120" step="1"&gt;
+
+&lt;!-- Rango con slider --&gt;
+&lt;label for="volumen"&gt;Volumen:&lt;/label&gt;
+&lt;input type="range" id="volumen" name="volumen" min="0" max="100" value="50"&gt;
+&lt;output for="volumen"&gt;50&lt;/output&gt;
+
+&lt;!-- Precio con decimales --&gt;
+&lt;label for="precio"&gt;Precio:&lt;/label&gt;
+&lt;input type="number" id="precio" name="precio" min="0" step="0.01" placeholder="0.00"&gt;</code></pre>
+                    </div>
+
+                    <h3>Inputs de fecha y hora</h3>
+                    <div class="code-example">
+                        <h4>Fechas y horarios:</h4>
+                        <pre><code>&lt;!-- Fecha completa --&gt;
+&lt;label for="fecha"&gt;Fecha:&lt;/label&gt;
+&lt;input type="date" id="fecha" name="fecha"&gt;
+
+&lt;!-- Hora --&gt;
+&lt;label for="hora"&gt;Hora:&lt;/label&gt;
+&lt;input type="time" id="hora" name="hora"&gt;
+
+&lt;!-- Fecha y hora combinadas --&gt;
+&lt;label for="datetime"&gt;Fecha y hora:&lt;/label&gt;
+&lt;input type="datetime-local" id="datetime" name="datetime"&gt;
+
+&lt;!-- Mes y año --&gt;
+&lt;label for="mes"&gt;Mes:&lt;/label&gt;
+&lt;input type="month" id="mes" name="mes"&gt;
+
+&lt;!-- Semana --&gt;
+&lt;label for="semana"&gt;Semana:&lt;/label&gt;
+&lt;input type="week" id="semana" name="semana"&gt;</code></pre>
+                    </div>
+
+                    <h3>Inputs de selección</h3>
+                    <div class="code-example">
+                        <h4>Checkboxes y radio buttons:</h4>
+                        <pre><code>&lt;!-- Checkbox simple --&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" name="acepto" value="si"&gt;
+  Acepto los términos y condiciones
+&lt;/label&gt;
+
+&lt;!-- Múltiples checkboxes --&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;¿Qué lenguajes conoces?&lt;/legend&gt;
+  
+  &lt;label&gt;
+    &lt;input type="checkbox" name="lenguajes[]" value="html"&gt;
+    HTML
+  &lt;/label&gt;
+  
+  &lt;label&gt;
+    &lt;input type="checkbox" name="lenguajes[]" value="css"&gt;
+    CSS
+  &lt;/label&gt;
+  
+  &lt;label&gt;
+    &lt;input type="checkbox" name="lenguajes[]" value="javascript"&gt;
+    JavaScript
+  &lt;/label&gt;
+&lt;/fieldset&gt;
+
+&lt;!-- Radio buttons (solo una opción) --&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;¿Cuál es tu nivel de experiencia?&lt;/legend&gt;
+  
+  &lt;label&gt;
+    &lt;input type="radio" name="nivel" value="principiante" required&gt;
+    Principiante
+  &lt;/label&gt;
+  
+  &lt;label&gt;
+    &lt;input type="radio" name="nivel" value="intermedio" required&gt;
+    Intermedio
+  &lt;/label&gt;
+  
+  &lt;label&gt;
+    &lt;input type="radio" name="nivel" value="avanzado" required&gt;
+    Avanzado
+  &lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+                    </div>
+
+                    <h3>Inputs de archivos y colores</h3>
+                    <div class="code-example">
+                        <h4>Archivos y colores:</h4>
+                        <pre><code>&lt;!-- Subir archivo único --&gt;
+&lt;label for="avatar"&gt;Foto de perfil:&lt;/label&gt;
+&lt;input type="file" id="avatar" name="avatar" accept="image/*"&gt;
+
+&lt;!-- Múltiples archivos --&gt;
+&lt;label for="documentos"&gt;Documentos:&lt;/label&gt;
+&lt;input type="file" id="documentos" name="documentos[]" 
+       accept=".pdf,.doc,.docx" multiple&gt;
+
+&lt;!-- Selector de color --&gt;
+&lt;label for="color-favorito"&gt;Color favorito:&lt;/label&gt;
+&lt;input type="color" id="color-favorito" name="color_favorito" value="#ff0000"&gt;</code></pre>
+                    </div>
+
+                    <h3>Inputs especiales HTML5</h3>
+                    <div class="code-example">
+                        <h4>Tipos avanzados:</h4>
+                        <pre><code>&lt;!-- Campo oculto --&gt;
+&lt;input type="hidden" name="token" value="abc123"&gt;
+
+&lt;!-- Botón de imagen --&gt;
+&lt;input type="image" src="boton-enviar.png" alt="Enviar formulario" 
+       width="100" height="40"&gt;
+
+&lt;!-- Botón simple --&gt;
+&lt;input type="button" value="Cancelar" onclick="limpiarFormulario()"&gt;
+
+&lt;!-- Botón de envío --&gt;
+&lt;input type="submit" value="Enviar formulario"&gt;
+
+&lt;!-- Botón de reset --&gt;
+&lt;input type="reset" value="Limpiar campos"&gt;</code></pre>
+                    </div>
+
+                    <h3>Atributos importantes para inputs</h3>
+                    <div class="code-example">
+                        <h4>Atributos comunes:</h4>
+                        <pre><code>&lt;input type="text" 
+       id="ejemplo"              &lt;!-- ID único --&gt;
+       name="ejemplo"            &lt;!-- Nombre para el servidor --&gt;
+       value="Valor inicial"     &lt;!-- Valor predeterminado --&gt;
+       placeholder="Ayuda..."    &lt;!-- Texto de ayuda --&gt;
+       required                  &lt;!-- Campo obligatorio --&gt;
+       readonly                  &lt;!-- Solo lectura --&gt;
+       disabled                  &lt;!-- Deshabilitado --&gt;
+       maxlength="50"           &lt;!-- Longitud máxima --&gt;
+       minlength="3"            &lt;!-- Longitud mínima --&gt;
+       pattern="[A-Za-z]{3,}"   &lt;!-- Patrón regex --&gt;
+       title="Ayuda tooltip"     &lt;!-- Tooltip --&gt;
+       autocomplete="name"       &lt;!-- Autocompletado --&gt;
+       autofocus                 &lt;!-- Foco automático --&gt;
+&gt;</code></pre>
+                    </div>
+
+                    <h3>Formulario completo con todos los tipos</h3>
+                    <div class="code-example">
+                        <h4>Ejemplo integral:</h4>
+                        <pre><code>&lt;form action="/procesar" method="post" enctype="multipart/form-data"&gt;
+  &lt;h2&gt;Formulario Completo&lt;/h2&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Información Personal&lt;/legend&gt;
+    
+    &lt;label for="nombre"&gt;Nombre completo:&lt;/label&gt;
+    &lt;input type="text" id="nombre" name="nombre" required autofocus&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="telefono"&gt;Teléfono:&lt;/label&gt;
+    &lt;input type="tel" id="telefono" name="telefono"&gt;
+    
+    &lt;label for="website"&gt;Sitio web:&lt;/label&gt;
+    &lt;input type="url" id="website" name="website"&gt;
+    
+    &lt;label for="edad"&gt;Edad:&lt;/label&gt;
+    &lt;input type="number" id="edad" name="edad" min="18" max="99"&gt;
+    
+    &lt;label for="fecha-nacimiento"&gt;Fecha de nacimiento:&lt;/label&gt;
+    &lt;input type="date" id="fecha-nacimiento" name="fecha_nacimiento"&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Preferencias&lt;/legend&gt;
+    
+    &lt;label for="color-favorito"&gt;Color favorito:&lt;/label&gt;
+    &lt;input type="color" id="color-favorito" name="color_favorito"&gt;
+    
+    &lt;label for="experiencia"&gt;Nivel de experiencia:&lt;/label&gt;
+    &lt;input type="range" id="experiencia" name="experiencia" 
+           min="1" max="10" value="5"&gt;
+    
+    &lt;label for="cv"&gt;Subir CV:&lt;/label&gt;
+    &lt;input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx"&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;¿Cómo nos conociste?&lt;/legend&gt;
+    
+    &lt;label&gt;
+      &lt;input type="radio" name="origen" value="google" required&gt;
+      Google
+    &lt;/label&gt;
+    
+    &lt;label&gt;
+      &lt;input type="radio" name="origen" value="redes" required&gt;
+      Redes sociales
+    &lt;/label&gt;
+    
+    &lt;label&gt;
+      &lt;input type="radio" name="origen" value="amigo" required&gt;
+      Recomendación
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;label&gt;
+    &lt;input type="checkbox" name="newsletter" value="si"&gt;
+    Quiero recibir noticias por email
+  &lt;/label&gt;
+  
+  &lt;label for="comentarios"&gt;Comentarios:&lt;/label&gt;
+  &lt;textarea id="comentarios" name="comentarios" rows="4"&gt;&lt;/textarea&gt;
+  
+  &lt;button type="submit"&gt;Enviar formulario&lt;/button&gt;
+  &lt;button type="reset"&gt;Limpiar todo&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+
+                    <h3>Mejores prácticas para formularios</h3>
+                    <ul>
+                        <li>Siempre usa &lt;label&gt; asociado a cada input</li>
+                        <li>Agrupa campos relacionados con &lt;fieldset&gt; y &lt;legend&gt;</li>
+                        <li>Usa el tipo de input más apropiado para cada dato</li>
+                        <li>Incluye placeholder como ayuda, no como sustituto del label</li>
+                        <li>Implementa validación tanto en cliente como servidor</li>
+                        <li>Proporciona feedback claro sobre errores</li>
+                        <li>Usa required solo en campos realmente obligatorios</li>
+                        <li>Considera la accesibilidad en todo momento</li>
+                        <li>Testa tu formulario en diferentes dispositivos</li>
+                        <li>Usa autocomplete para mejorar la experiencia del usuario</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Tabla de horarios y formulario de contacto</h3>
+                        <span class="difficulty">Intermedio</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear una página que combine una tabla informativa con un formulario funcional de contacto.</p>
+                        
+                        <h4>Parte 1: Tabla de horarios</h4>
+                        <ol class="exercise-steps">
+                            <li>Crea una tabla con los horarios de atención de un negocio</li>
+                            <li>Incluye columnas para: Día, Horario de apertura, Horario de cierre, Servicios disponibles</li>
+                            <li>Usa &lt;caption&gt;, &lt;thead&gt;, &lt;tbody&gt; y elementos semánticos</li>
+                            <li>Implementa colspan o rowspan donde sea apropiado</li>
+                            <li>Asegura accesibilidad con scope y otros atributos</li>
+                        </ol>
+
+                        <h4>Parte 2: Formulario de contacto</h4>
+                        <ol class="exercise-steps" start="6">
+                            <li>Diseña un formulario completo de contacto</li>
+                            <li>Incluye campos para: nombre, email, teléfono, asunto, mensaje</li>
+                            <li>Usa diferentes tipos de inputs apropiados</li>
+                            <li>Implementa validación HTML5</li>
+                            <li>Agrupa campos con fieldset y legend</li>
+                            <li>Agrega un campo de archivo para adjuntos</li>
+                            <li>Incluye checkboxes para preferencias</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Estructura sugerida:</h4>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Contacto - Mi Negocio&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Mi Negocio&lt;/h1&gt;
+  &lt;/header&gt;
+  
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Horarios de Atención&lt;/h2&gt;
+      &lt;table&gt;
+        &lt;caption&gt;Horarios y servicios disponibles&lt;/caption&gt;
+        &lt;!-- Tu tabla aquí --&gt;
+      &lt;/table&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+      &lt;h2&gt;Contáctanos&lt;/h2&gt;
+      &lt;form action="/contacto" method="post" enctype="multipart/form-data"&gt;
+        &lt;!-- Tu formulario aquí --&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <h4>Criterios de evaluación:</h4>
+                        <ul>
+                            <li>✅ Tabla bien estructurada con elementos semánticos</li>
+                            <li>✅ Uso correcto de colspan/rowspan si es necesario</li>
+                            <li>✅ Atributos de accesibilidad implementados</li>
+                            <li>✅ Formulario con tipos de input apropiados</li>
+                            <li>✅ Validación HTML5 configurada correctamente</li>
+                            <li>✅ Labels correctamente asociados</li>
+                            <li>✅ Agrupación lógica con fieldset</li>
+                            <li>✅ Código semántico y bien organizado</li>
+                        </ul>
+
+                        <h4>Bonus (opcional):</h4>
+                        <ul>
+                            <li>⭐ Agrega estilos CSS básicos para mejorar la presentación</li>
+                            <li>⭐ Implementa un botón para mostrar/ocultar horarios especiales</li>
+                            <li>⭐ Agrega un mapa de ubicación usando iframe</li>
+                            <li>⭐ Incluye validación personalizada con JavaScript</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/table" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <h3>MDN - Tablas HTML</h3>
+                        <p>Documentación completa sobre elementos de tabla y sus atributos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/form" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-wpforms"></i>
+                        </div>
+                        <h3>MDN - Formularios HTML</h3>
+                        <p>Guía completa sobre formularios y todos los tipos de inputs</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://web.dev/learn/forms/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Web.dev - Learn Forms</h3>
+                        <p>Curso interactivo sobre mejores prácticas en formularios</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://www.w3.org/WAI/tutorials/forms/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3>W3C - Forms Accessibility</h3>
+                        <p>Tutorial sobre accesibilidad en formularios web</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo04.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo06.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 5: Tablas y formularios</p>
+        </footer>
+    </div>
+</body>
+</html>

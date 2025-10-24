@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 9: Flexbox - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 9 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">09</div>
+            <div class="module-info">
+                <h1 class="module-title">Flexbox</h1>
+                <p class="module-description">Aprende el sistema de layout flexible para crear diseños modernos</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#flexbox-conceptos" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-grip-horizontal"></i>
+                            </div>
+                            <h3>Conceptos clave de Flexbox</h3>
+                            <p>Comprende contenedor flex, elementos flex y ejes principales.</p>
+                        </div>
+                    </a>
+                    <a href="#propiedades-contenedor" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-th-large"></i>
+                            </div>
+                            <h3>Propiedades del contenedor</h3>
+                            <p>Domina justify-content, align-items, flex-direction y gap.</p>
+                        </div>
+                    </a>
+                    <a href="#layouts-flexbox" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-columns"></i>
+                            </div>
+                            <h3>Layouts con Flexbox</h3>
+                            <p>Crea headers, secciones de servicios y footers flexibles.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Conceptos clave de Flexbox -->
+            <section class="content-section" id="flexbox-conceptos">
+                <h2 class="section-title">
+                    <i class="fas fa-grip-horizontal"></i>
+                    Conceptos fundamentales de Flexbox
+                </h2>
+                <div class="topic-content">
+                    <p><strong>Flexbox (Flexible Box Layout)</strong> es un sistema de layout unidimensional que permite distribuir espacio y alinear elementos de forma eficiente, especialmente cuando el tamaño de los elementos es desconocido o dinámico.</p>
+                    
+                    <h3>¿Por qué usar Flexbox?</h3>
+                    <ul>
+                        <li>✅ <strong>Distribución flexible</strong> del espacio disponible</li>
+                        <li>✅ <strong>Alineación precisa</strong> vertical y horizontal</li>
+                        <li>✅ <strong>Orden visual</strong> independiente del HTML</li>
+                        <li>✅ <strong>Responsive automático</strong> sin media queries</li>
+                        <li>✅ <strong>Centrado perfecto</strong> con pocas líneas</li>
+                        <li>✅ <strong>Columnas de igual altura</strong> automáticamente</li>
+                    </ul>
+
+                    <h3>Anatomía de Flexbox</h3>
+                    <p>Flexbox trabaja con dos componentes principales:</p>
+                    
+                    <h4>1. Contenedor Flex (Flex Container)</h4>
+                    <p>El elemento padre que se convierte en contenedor flex con <code>display: flex</code>:</p>
+                    <div class="code-example">
+                        <pre><code>.contenedor-flex {
+  display: flex;  /* Activa Flexbox */
+}
+
+/* También existe */
+.contenedor-inline-flex {
+  display: inline-flex;  /* Flexbox inline */
+}</code></pre>
+                    </div>
+
+                    <h4>2. Elementos Flex (Flex Items)</h4>
+                    <p>Los hijos directos del contenedor flex se convierten automáticamente en elementos flex:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="contenedor-flex"&gt;
+  &lt;div class="item"&gt;Item 1&lt;/div&gt;  &lt;!-- Flex item --&gt;
+  &lt;div class="item"&gt;Item 2&lt;/div&gt;  &lt;!-- Flex item --&gt;
+  &lt;div class="item"&gt;Item 3&lt;/div&gt;  &lt;!-- Flex item --&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <h3>Ejes en Flexbox</h3>
+                    <p>Flexbox trabaja con dos ejes perpendiculares:</p>
+
+                    <div class="code-example">
+                        <h4>Diagrama conceptual:</h4>
+                        <pre><code>Main Axis (Eje Principal)
+──────────────────────────────&gt;
+│ [Item 1] [Item 2] [Item 3] │
+│                            │
+│                            │ Cross Axis
+│                            │  (Eje Cruzado)
+│                            │
+└────────────────────────────┘
+              ↓</code></pre>
+                    </div>
+
+                    <h4>Eje Principal (Main Axis)</h4>
+                    <ul>
+                        <li>Dirección principal del flujo de elementos</li>
+                        <li>Por defecto es horizontal (izquierda → derecha)</li>
+                        <li>Se controla con <code>flex-direction</code></li>
+                        <li>Alineación con <code>justify-content</code></li>
+                    </ul>
+
+                    <h4>Eje Cruzado (Cross Axis)</h4>
+                    <ul>
+                        <li>Perpendicular al eje principal</li>
+                        <li>Por defecto es vertical (arriba → abajo)</li>
+                        <li>Alineación con <code>align-items</code></li>
+                    </ul>
+
+                    <h3>Ejemplo básico de Flexbox</h3>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;div class="flex-container"&gt;
+  &lt;div class="flex-item"&gt;Uno&lt;/div&gt;
+  &lt;div class="flex-item"&gt;Dos&lt;/div&gt;
+  &lt;div class="flex-item"&gt;Tres&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>.flex-container {
+  display: flex;
+  background-color: #f8f9fa;
+  padding: 20px;
+  gap: 10px;  /* Espacio entre elementos */
+}
+
+.flex-item {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Resultado: elementos alineados horizontalmente con espacio entre ellos */</code></pre>
+                    </div>
+
+                    <h3>Diferencias con otros sistemas de layout</h3>
+                    
+                    <div class="code-example">
+                        <h4>Comparación visual:</h4>
+                        <pre><code>/* Layout tradicional con float */
+.tradicional .item {
+  float: left;
+  width: 33.333%;
+  /* Problemas: clearfix, altura desigual, cálculos complejos */
+}
+
+/* Layout con Flexbox */
+.moderno {
+  display: flex;
+  /* Beneficios: automático, flexible, altura igual */
+}
+
+.moderno .item {
+  flex: 1;  /* Distribuir espacio igualmente */
+}
+
+/* Layout con Grid (para comparar) */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* Mejor para layouts 2D complejos */
+}</code></pre>
+                    </div>
+
+                    <h3>Cuándo usar Flexbox</h3>
+                    <h4>✅ Ideal para:</h4>
+                    <ul>
+                        <li>Distribución de elementos en una dimensión (fila o columna)</li>
+                        <li>Centrado vertical y horizontal</li>
+                        <li>Navegación horizontal</li>
+                        <li>Distribución de botones o formularios</li>
+                        <li>Cards de igual altura</li>
+                        <li>Sidebar + contenido principal</li>
+                    </ul>
+
+                    <h4>❌ Mejor usar Grid para:</h4>
+                    <ul>
+                        <li>Layouts 2D complejos (filas y columnas)</li>
+                        <li>Sistemas de grid específicos</li>
+                        <li>Superposición compleja de elementos</li>
+                    </ul>
+
+                    <h3>Terminología clave</h3>
+                    <div class="code-example">
+                        <pre><code>/* Términos importantes en Flexbox: */
+
+Main Start    Main Axis              Main End
+    │    ┌─────────────────────────────┐    │
+    │    │ ┌──────┐ ┌──────┐ ┌──────┐ │    │
+Cross├────┤ │Item 1│ │Item 2│ │Item 3│ ├────┤Cross
+Start │    │ └──────┘ └──────┘ └──────┘ │    │ End
+    │    └─────────────────────────────┘    │
+         Cross Axis (perpendicular)
+
+/* Propiedades según ejes:
+   - Main Axis: justify-content, flex-grow, flex-shrink
+   - Cross Axis: align-items, align-self, align-content */</code></pre>
+                    </div>
+
+                    <h3>Activando Flexbox</h3>
+                    <div class="code-example">
+                        <pre><code>/* Flex container de bloque */
+.contenedor {
+  display: flex;
+  /* El contenedor se comporta como block externamente
+     pero internamente distribuye elementos con flexbox */
+}
+
+/* Flex container inline */
+.contenedor-inline {
+  display: inline-flex;
+  /* El contenedor se comporta como inline externamente
+     pero internamente usa flexbox */
+}
+
+/* Efecto inmediato al activar flexbox:
+   - Elementos hijos se alinean horizontalmente
+   - Todos los elementos tienen la misma altura por defecto
+   - Se comportan como columnas flexibles */</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Propiedades del contenedor -->
+            <section class="content-section" id="propiedades-contenedor">
+                <h2 class="section-title">
+                    <i class="fas fa-th-large"></i>
+                    Propiedades del contenedor flex
+                </h2>
+                <div class="topic-content">
+                    <p>El contenedor flex tiene varias propiedades para controlar cómo se distribuyen y alinean los elementos flex dentro de él.</p>
+                    
+                    <h3>flex-direction: dirección del eje principal</h3>
+                    <p>Controla la dirección en la que se colocan los elementos flex:</p>
+                    <div class="code-example">
+                        <pre><code>/* Dirección horizontal (por defecto) */
+.flex-row {
+  display: flex;
+  flex-direction: row;        /* Izquierda → Derecha */
+}
+
+.flex-row-reverse {
+  display: flex;
+  flex-direction: row-reverse; /* Derecha → Izquierda */
+}
+
+/* Dirección vertical */
+.flex-column {
+  display: flex;
+  flex-direction: column;      /* Arriba → Abajo */
+}
+
+.flex-column-reverse {
+  display: flex;
+  flex-direction: column-reverse; /* Abajo → Arriba */
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Ejemplo visual de flex-direction:</h4>
+                        <pre><code>&lt;!-- HTML igual para todos --&gt;
+&lt;div class="demo-direction"&gt;
+  &lt;div class="item"&gt;1&lt;/div&gt;
+  &lt;div class="item"&gt;2&lt;/div&gt;
+  &lt;div class="item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+/* row (por defecto): [1] [2] [3] */
+.direction-row {
+  flex-direction: row;
+}
+
+/* row-reverse: [3] [2] [1] */
+.direction-row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* column: [1]
+           [2]
+           [3] */
+.direction-column {
+  flex-direction: column;
+}
+
+/* column-reverse: [3]
+                   [2]
+                   [1] */
+.direction-column-reverse {
+  flex-direction: column-reverse;
+}</code></pre>
+                    </div>
+
+                    <h3>justify-content: alineación en el eje principal</h3>
+                    <p>Controla cómo se distribuyen los elementos a lo largo del eje principal:</p>
+                    <div class="code-example">
+                        <pre><code>/* Alineación al inicio (por defecto) */
+.justify-start {
+  justify-content: flex-start;  /* [1][2][3]     */
+}
+
+/* Alineación al final */
+.justify-end {
+  justify-content: flex-end;    /*      [1][2][3] */
+}
+
+/* Centrado */
+.justify-center {
+  justify-content: center;      /*   [1][2][3]   */
+}
+
+/* Distribución con espacio */
+.justify-between {
+  justify-content: space-between; /* [1]   [2]   [3] */
+}
+
+.justify-around {
+  justify-content: space-around;  /*  [1]  [2]  [3]  */
+}
+
+.justify-evenly {
+  justify-content: space-evenly;  /*  [1]  [2]  [3]  */
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Diferencias en distribución de espacio:</h4>
+                        <pre><code>/* space-between: espacio solo ENTRE elementos */
+/* [Item]────────[Item]────────[Item] */
+
+/* space-around: espacio alrededor (doble en el centro) */
+/* ──[Item]────────[Item]────────[Item]── */
+
+/* space-evenly: espacio uniforme en todos lados */
+/* ────[Item]────[Item]────[Item]──── */</code></pre>
+                    </div>
+
+                    <h3>align-items: alineación en el eje cruzado</h3>
+                    <p>Controla cómo se alinean los elementos en el eje cruzado:</p>
+                    <div class="code-example">
+                        <pre><code>/* Estirar para llenar el contenedor (por defecto) */
+.align-stretch {
+  align-items: stretch;    /* Elementos toman toda la altura */
+}
+
+/* Alineación al inicio del eje cruzado */
+.align-start {
+  align-items: flex-start; /* Elementos arriba (si flex-direction: row) */
+}
+
+/* Alineación al final del eje cruzado */
+.align-end {
+  align-items: flex-end;   /* Elementos abajo */
+}
+
+/* Centrado en el eje cruzado */
+.align-center {
+  align-items: center;     /* Elementos centrados verticalmente */
+}
+
+/* Alineación a la línea base del texto */
+.align-baseline {
+  align-items: baseline;   /* Útil para elementos con diferentes tamaños de fuente */
+}</code></pre>
+                    </div>
+
+                    <h3>flex-wrap: ajuste de línea</h3>
+                    <p>Controla si los elementos deben ajustarse a nuevas líneas:</p>
+                    <div class="code-example">
+                        <pre><code>/* No ajustar (por defecto) */
+.no-wrap {
+  flex-wrap: nowrap;  /* Elementos en una sola línea, pueden desbordarse */
+}
+
+/* Ajustar a nuevas líneas */
+.wrap {
+  flex-wrap: wrap;    /* Elementos saltan a nuevas líneas cuando es necesario */
+}
+
+/* Ajustar en dirección reversa */
+.wrap-reverse {
+  flex-wrap: wrap-reverse; /* Nuevas líneas se agregan arriba */
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Ejemplo de flex-wrap:</h4>
+                        <pre><code>.tarjetas-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tarjeta {
+  flex: 0 0 300px;  /* No crecer, no encoger, 300px de base */
+  /* Si no hay espacio para 300px, salta a nueva línea */
+}
+
+/* Comportamiento:
+   - Contenedor ancho: [Tarjeta1] [Tarjeta2] [Tarjeta3]
+   - Contenedor estrecho: [Tarjeta1] [Tarjeta2]
+                          [Tarjeta3] */</code></pre>
+                    </div>
+
+                    <h3>flex-flow: shorthand para direction y wrap</h3>
+                    <div class="code-example">
+                        <pre><code>/* Combina flex-direction y flex-wrap */
+.flex-flow-demo {
+  flex-flow: row wrap;           /* = flex-direction: row; flex-wrap: wrap; */
+  flex-flow: column nowrap;      /* = flex-direction: column; flex-wrap: nowrap; */
+  flex-flow: row-reverse wrap;   /* = flex-direction: row-reverse; flex-wrap: wrap; */
+}</code></pre>
+                    </div>
+
+                    <h3>align-content: alineación de líneas múltiples</h3>
+                    <p>Solo funciona cuando hay múltiples líneas (flex-wrap: wrap):</p>
+                    <div class="code-example">
+                        <pre><code>.align-content-demo {
+  display: flex;
+  flex-wrap: wrap;     /* Necesario para múltiples líneas */
+  height: 400px;       /* Altura fija para ver el efecto */
+  
+  /* Opciones de align-content */
+  align-content: flex-start;    /* Líneas al inicio */
+  align-content: flex-end;      /* Líneas al final */
+  align-content: center;        /* Líneas centradas */
+  align-content: space-between; /* Espacio entre líneas */
+  align-content: space-around;  /* Espacio alrededor de líneas */
+  align-content: stretch;       /* Líneas se estiran (por defecto) */
+}</code></pre>
+                    </div>
+
+                    <h3>gap: espacio entre elementos</h3>
+                    <p>Propiedad moderna para controlar el espacio entre elementos:</p>
+                    <div class="code-example">
+                        <pre><code>/* Espacio uniforme */
+.con-gap {
+  display: flex;
+  gap: 20px;    /* 20px entre todos los elementos */
+}
+
+/* Espacio diferente horizontal y vertical */
+.gap-diferente {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 30px;  /* row-gap: 20px; column-gap: 30px; */
+}
+
+/* Propiedades individuales */
+.gap-individual {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 15px;     /* Espacio entre filas */
+  column-gap: 25px;  /* Espacio entre columnas */
+}</code></pre>
+                    </div>
+
+                    <h3>Ejemplos prácticos combinando propiedades</h3>
+
+                    <h4>1. Navegación horizontal centrada</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;nav class="nav-horizontal"&gt;
+  &lt;a href="#"&gt;Inicio&lt;/a&gt;
+  &lt;a href="#"&gt;Servicios&lt;/a&gt;
+  &lt;a href="#"&gt;Acerca&lt;/a&gt;
+  &lt;a href="#"&gt;Contacto&lt;/a&gt;
+&lt;/nav&gt;
+
+.nav-horizontal {
+  display: flex;
+  justify-content: center;  /* Centrar horizontalmente */
+  align-items: center;      /* Centrar verticalmente */
+  gap: 30px;               /* Espacio entre enlaces */
+  padding: 20px;
+  background-color: #f8f9fa;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Header con logo y navegación</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;header class="header-flex"&gt;
+  &lt;div class="logo"&gt;Mi Sitio&lt;/div&gt;
+  &lt;nav class="nav-main"&gt;
+    &lt;a href="#"&gt;Inicio&lt;/a&gt;
+    &lt;a href="#"&gt;Servicios&lt;/a&gt;
+    &lt;a href="#"&gt;Contacto&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+.header-flex {
+  display: flex;
+  justify-content: space-between; /* Logo izquierda, nav derecha */
+  align-items: center;            /* Centrado vertical */
+  padding: 15px 30px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-main {
+  display: flex;
+  gap: 25px;
+}</code></pre>
+                    </div>
+
+                    <h4>3. Cards de igual altura</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="cards-container"&gt;
+  &lt;div class="card"&gt;
+    &lt;h3&gt;Servicio 1&lt;/h3&gt;
+    &lt;p&gt;Descripción corta&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="card"&gt;
+    &lt;h3&gt;Servicio 2&lt;/h3&gt;
+    &lt;p&gt;Descripción mucho más larga que ocupa varias líneas&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="card"&gt;
+    &lt;h3&gt;Servicio 3&lt;/h3&gt;
+    &lt;p&gt;Descripción mediana&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.cards-container {
+  display: flex;
+  gap: 20px;
+  /* align-items: stretch por defecto = altura igual */
+}
+
+.card {
+  flex: 1;              /* Distribuir espacio igualmente */
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}</code></pre>
+                    </div>
+
+                    <h4>4. Layout responsive sin media queries</h4>
+                    <div class="code-example">
+                        <pre><code>.responsive-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.responsive-item {
+  flex: 1 1 300px;  /* Crecer, encoger, base 300px */
+  /* Si no hay espacio para 300px, salta a nueva línea */
+  min-width: 250px; /* Ancho mínimo antes de envolver */
+  padding: 20px;
+  background-color: #e9ecef;
+}
+
+/* Comportamiento automático:
+   - Pantalla ancha: elementos en fila
+   - Pantalla media: algunos elementos saltan línea
+   - Pantalla estrecha: un elemento por línea */</code></pre>
+                    </div>
+
+                    <h3>Centrado perfecto con Flexbox</h3>
+                    <div class="code-example">
+                        <h4>Técnica más popular para centrar:</h4>
+                        <pre><code>.centrado-perfecto {
+  display: flex;
+  justify-content: center;  /* Centrar horizontalmente */
+  align-items: center;      /* Centrar verticalmente */
+  height: 100vh;           /* Altura completa de pantalla */
+}
+
+.elemento-centrado {
+  padding: 40px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Solo 3 líneas para centrado perfecto en ambas direcciones */</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Layouts con Flexbox -->
+            <section class="content-section" id="layouts-flexbox">
+                <h2 class="section-title">
+                    <i class="fas fa-columns"></i>
+                    Creando layouts completos con Flexbox
+                </h2>
+                <div class="topic-content">
+                    <p>Flexbox es ideal para crear layouts de página completos, especialmente para distribuciones lineales como headers, secciones de contenido y footers.</p>
+                    
+                    <h3>Layout básico de página</h3>
+                    <div class="code-example">
+                        <h4>HTML estructura básica:</h4>
+                        <pre><code>&lt;div class="page-layout"&gt;
+  &lt;header class="header"&gt;Header&lt;/header&gt;
+  &lt;main class="main-content"&gt;
+    &lt;aside class="sidebar"&gt;Sidebar&lt;/aside&gt;
+    &lt;section class="content"&gt;Contenido principal&lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer class="footer"&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS para layout completo:</h4>
+                        <pre><code>.page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* Altura mínima completa */
+}
+
+.header {
+  background-color: #343a40;
+  color: white;
+  padding: 1rem 2rem;
+  /* No flex - mantiene su altura natural */
+}
+
+.main-content {
+  display: flex;
+  flex: 1;            /* Toma todo el espacio disponible */
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.sidebar {
+  flex: 0 0 250px;    /* No crecer, no encoger, 250px fijo */
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.content {
+  flex: 1;            /* Toma el espacio restante */
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.footer {
+  background-color: #6c757d;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  /* No flex - mantiene su altura natural */
+}</code></pre>
+                    </div>
+
+                    <h3>Header flexible y responsivo</h3>
+                    <div class="code-example">
+                        <h4>Header con múltiples secciones:</h4>
+                        <pre><code>&lt;header class="header-completo"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="logo-section"&gt;
+      &lt;img src="logo.png" alt="Logo" class="logo"&gt;
+      &lt;h1 class="site-title"&gt;Mi Sitio Web&lt;/h1&gt;
+    &lt;/div&gt;
+    
+    &lt;nav class="main-nav"&gt;
+      &lt;a href="#"&gt;Inicio&lt;/a&gt;
+      &lt;a href="#"&gt;Servicios&lt;/a&gt;
+      &lt;a href="#"&gt;Acerca&lt;/a&gt;
+      &lt;a href="#"&gt;Contacto&lt;/a&gt;
+    &lt;/nav&gt;
+    
+    &lt;div class="header-actions"&gt;
+      &lt;button class="btn-search"&gt;🔍&lt;/button&gt;
+      &lt;button class="btn-login"&gt;Iniciar Sesión&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+.header-completo {
+  background-color: white;
+  border-bottom: 1px solid #e9ecef;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.header-completo .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.main-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #007bff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-search,
+.btn-login {
+  padding: 0.5rem 1rem;
+  border: 1px solid #007bff;
+  background-color: transparent;
+  color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-login {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-search:hover,
+.btn-login:hover {
+  transform: translateY(-2px);
+}</code></pre>
+                    </div>
+
+                    <h3>Sección de servicios con cards</h3>
+                    <div class="code-example">
+                        <h4>HTML para sección de servicios:</h4>
+                        <pre><code>&lt;section class="servicios-section"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="section-header"&gt;
+      &lt;h2&gt;Nuestros Servicios&lt;/h2&gt;
+      &lt;p&gt;Ofrecemos soluciones completas para tu negocio&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="servicios-grid"&gt;
+      &lt;div class="servicio-card"&gt;
+        &lt;div class="card-icon"&gt;🎨&lt;/div&gt;
+        &lt;h3&gt;Diseño Web&lt;/h3&gt;
+        &lt;p&gt;Creamos diseños modernos y atractivos que captan la atención de tus usuarios.&lt;/p&gt;
+        &lt;a href="#" class="card-link"&gt;Saber más&lt;/a&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="servicio-card"&gt;
+        &lt;div class="card-icon"&gt;💻&lt;/div&gt;
+        &lt;h3&gt;Desarrollo Web&lt;/h3&gt;
+        &lt;p&gt;Desarrollamos sitios web funcionales y optimizados con las últimas tecnologías.&lt;/p&gt;
+        &lt;a href="#" class="card-link"&gt;Saber más&lt;/a&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="servicio-card"&gt;
+        &lt;div class="card-icon"&gt;📱&lt;/div&gt;
+        &lt;h3&gt;Apps Móviles&lt;/h3&gt;
+        &lt;p&gt;Creamos aplicaciones móviles nativas y híbridas para iOS y Android.&lt;/p&gt;
+        &lt;a href="#" class="card-link"&gt;Saber más&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS para sección de servicios:</h4>
+                        <pre><code>.servicios-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.servicios-grid {
+  display: flex;
+  gap: 2rem;
+  /* Responsive automático */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.servicio-card {
+  flex: 1 1 300px;        /* Base de 300px, flexible */
+  max-width: 350px;       /* Máximo para evitar cards muy anchas */
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Flexbox interno para distribuir contenido */
+  display: flex;
+  flex-direction: column;
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.servicio-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.servicio-card p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;  /* Toma el espacio disponible para igualar alturas */
+}
+
+.card-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin-top: auto;  /* Se posiciona al final */
+}
+
+.card-link:hover {
+  background-color: #0056b3;
+}</code></pre>
+                    </div>
+
+                    <h3>Footer flexible con múltiples columnas</h3>
+                    <div class="code-example">
+                        <h4>HTML para footer completo:</h4>
+                        <pre><code>&lt;footer class="footer-completo"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="footer-content"&gt;
+      &lt;div class="footer-section"&gt;
+        &lt;h3&gt;Mi Empresa&lt;/h3&gt;
+        &lt;p&gt;Somos una empresa dedicada a crear soluciones web innovadoras.&lt;/p&gt;
+        &lt;div class="social-links"&gt;
+          &lt;a href="#"&gt;Facebook&lt;/a&gt;
+          &lt;a href="#"&gt;Twitter&lt;/a&gt;
+          &lt;a href="#"&gt;LinkedIn&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="footer-section"&gt;
+        &lt;h3&gt;Servicios&lt;/h3&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Diseño Web&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Desarrollo&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Consultoría&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Soporte&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="footer-section"&gt;
+        &lt;h3&gt;Contacto&lt;/h3&gt;
+        &lt;p&gt;📧 info@miempresa.com&lt;/p&gt;
+        &lt;p&gt;📞 +34 123 456 789&lt;/p&gt;
+        &lt;p&gt;📍 Madrid, España&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="footer-bottom"&gt;
+      &lt;p&gt;&copy; 2025 Mi Empresa. Todos los derechos reservados.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS para footer:</h4>
+                        <pre><code>.footer-completo {
+  background-color: #343a40;
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1 1 250px;  /* Flexible con base de 250px */
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: #f8f9fa;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  color: #adb5bd;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #f8f9fa;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: #adb5bd;
+  text-decoration: none;
+  padding: 0.5rem;
+  border: 1px solid #495057;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: white;
+  border-color: #007bff;
+  background-color: #007bff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #495057;
+  color: #adb5bd;
+}</code></pre>
+                    </div>
+
+                    <h3>Layout de formulario con Flexbox</h3>
+                    <div class="code-example">
+                        <h4>Formulario de contacto responsive:</h4>
+                        <pre><code>&lt;form class="contact-form"&gt;
+  &lt;div class="form-header"&gt;
+    &lt;h2&gt;Contáctanos&lt;/h2&gt;
+    &lt;p&gt;Nos encantaría saber de ti&lt;/p&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="form-row"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="nombre"&gt;Nombre&lt;/label&gt;
+      &lt;input type="text" id="nombre" required&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="email"&gt;Email&lt;/label&gt;
+      &lt;input type="email" id="email" required&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="form-group full-width"&gt;
+    &lt;label for="mensaje"&gt;Mensaje&lt;/label&gt;
+    &lt;textarea id="mensaje" rows="5" required&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="form-actions"&gt;
+    &lt;button type="reset" class="btn-secondary"&gt;Limpiar&lt;/button&gt;
+    &lt;button type="submit" class="btn-primary"&gt;Enviar Mensaje&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 1;  /* Distribuir espacio igualmente */
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-secondary,
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;  /* Campos en columna en móvil */
+  }
+  
+  .form-actions {
+    flex-direction: column;  /* Botones en columna */
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>Técnicas avanzadas con Flexbox</h3>
+
+                    <h4>1. Sticky footer con Flexbox</h4>
+                    <div class="code-example">
+                        <pre><code>/* HTML */
+&lt;div class="page-wrapper"&gt;
+  &lt;header&gt;Header&lt;/header&gt;
+  &lt;main&gt;Contenido variable&lt;/main&gt;
+  &lt;footer&gt;Footer siempre abajo&lt;/footer&gt;
+&lt;/div&gt;
+
+/* CSS */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;  /* Toma todo el espacio disponible */
+}
+
+/* Footer siempre al fondo, incluso con poco contenido */</code></pre>
+                    </div>
+
+                    <h4>2. Distribución proporcional</h4>
+                    <div class="code-example">
+                        <pre><code>/* Distribución específica de espacio */
+.distribucion-custom {
+  display: flex;
+  height: 400px;
+}
+
+.sidebar {
+  flex: 0 0 200px;  /* 200px fijo */
+}
+
+.content {
+  flex: 2;          /* 2 partes del espacio restante */
+}
+
+.ads {
+  flex: 1;          /* 1 parte del espacio restante */
+}
+
+/* Proporción 200px : 2/3 restante : 1/3 restante */</code></pre>
+                    </div>
+
+                    <h4>3. Ordenamiento visual</h4>
+                    <div class="code-example">
+                        <pre><code>/* Cambiar orden visual sin cambiar HTML */
+.reorder-container {
+  display: flex;
+}
+
+.item-1 { order: 3; }  /* Aparece tercero */
+.item-2 { order: 1; }  /* Aparece primero */
+.item-3 { order: 2; }  /* Aparece segundo */
+
+/* HTML: [Item 1] [Item 2] [Item 3] */
+/* Visual: [Item 2] [Item 3] [Item 1] */</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Sección de servicios con Flexbox</h3>
+                        <span class="difficulty">Intermedio</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear una sección de "servicios" con tres cajas alineadas horizontalmente usando Flexbox.</p>
+                        
+                        <h4>Requisitos:</h4>
+                        <ol class="exercise-steps">
+                            <li>Crear un contenedor principal con display: flex</li>
+                            <li>Tres tarjetas de servicios con igual altura automáticamente</li>
+                            <li>Distribución uniforme del espacio disponible</li>
+                            <li>Cada tarjeta debe tener: ícono, título, descripción y botón</li>
+                            <li>El botón debe estar siempre al final de cada tarjeta</li>
+                            <li>Efectos hover en las tarjetas</li>
+                            <li>Diseño responsive que se adapte a pantallas pequeñas</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Estructura HTML sugerida:</h4>
+                            <pre><code>&lt;section class="servicios"&gt;
+  &lt;div class="container"&gt;
+    &lt;h2 class="section-title"&gt;Nuestros Servicios&lt;/h2&gt;
+    &lt;div class="servicios-grid"&gt;
+      
+      &lt;div class="servicio-card"&gt;
+        &lt;div class="servicio-icon"&gt;🎨&lt;/div&gt;
+        &lt;h3&gt;Diseño Web&lt;/h3&gt;
+        &lt;p&gt;Creamos diseños modernos y atractivos para tu presencia digital.&lt;/p&gt;
+        &lt;a href="#" class="btn-servicio"&gt;Ver más&lt;/a&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="servicio-card"&gt;
+        &lt;div class="servicio-icon"&gt;💻&lt;/div&gt;
+        &lt;h3&gt;Desarrollo Web&lt;/h3&gt;
+        &lt;p&gt;Desarrollamos sitios web funcionales con las últimas tecnologías del mercado.&lt;/p&gt;
+        &lt;a href="#" class="btn-servicio"&gt;Ver más&lt;/a&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="servicio-card"&gt;
+        &lt;div class="servicio-icon"&gt;📱&lt;/div&gt;
+        &lt;h3&gt;Apps Móviles&lt;/h3&gt;
+        &lt;p&gt;Aplicaciones móviles nativas para iOS y Android.&lt;/p&gt;
+        &lt;a href="#" class="btn-servicio"&gt;Ver más&lt;/a&gt;
+      &lt;/div&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                        </div>
+
+                        <h4>Especificaciones técnicas:</h4>
+                        <ul>
+                            <li>✅ Contenedor: display: flex, gap: 2rem</li>
+                            <li>✅ Tarjetas: flex: 1 (distribución igual)</li>
+                            <li>✅ Altura automática igual en todas las tarjetas</li>
+                            <li>✅ Padding interno: 1.5rem en cada tarjeta</li>
+                            <li>✅ Border-radius: 8px, box-shadow sutil</li>
+                            <li>✅ Botón siempre al final con margin-top: auto</li>
+                            <li>✅ Hover effect: transform translateY(-5px)</li>
+                            <li>✅ Responsive: flex-wrap para pantallas pequeñas</li>
+                        </ul>
+
+                        <h4>CSS inicial sugerido:</h4>
+                        <div class="code-example">
+                            <pre><code>.servicios {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.servicios-grid {
+  display: flex;
+  /* Añadir propiedades flex aquí */
+}
+
+.servicio-card {
+  /* Configurar como flex item */
+  /* Añadir estilos de tarjeta */
+  /* Configurar flex interno para botón al final */
+}
+
+/* Completar el resto del CSS... */</code></pre>
+                        </div>
+
+                        <h4>Bonus (opcional):</h4>
+                        <ul>
+                            <li>⭐ Media query que cambie a columna en móvil</li>
+                            <li>⭐ Animaciones suaves con transition</li>
+                            <li>⭐ Íconos SVG en lugar de emojis</li>
+                            <li>⭐ Variaciones de color en cada tarjeta</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-grip-horizontal"></i>
+                        </div>
+                        <h3>MDN - Flexbox Guide</h3>
+                        <p>Guía completa de CSS Flexible Box Layout en español</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>CSS-Tricks - Flexbox Guide</h3>
+                        <p>La guía visual más popular de Flexbox con ejemplos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://flexboxfroggy.com/#es" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Flexbox Froggy</h3>
+                        <p>Juego interactivo para aprender Flexbox de forma divertida</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo08.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo10.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 9: Flexbox</p>
+        </footer>
+    </div>
+</body>
+</html>

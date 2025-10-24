@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <title>Ejemplo Header</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="top-nav">
+                <a href="../modulo14.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i> Volver al Modulo
+                </a>
+                <div class="module-indicator">
+                    <span class="current-module">Módulo 14/ejemplos de 14</span>
+                </div>
+            </nav>
+
+            <header class="module-header">
+                <div class="module-info">
+                    <h1 class="module-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Ejemplos de headers para el Proyecto Final
+                    </h1>
+                    <p class="module-description">
+                        Partiendo de lo aprendido se muestran diferentes estilos de header.
+                    </p>
+                </div>
+            </header>
+
+            <section class="content-section">
+                <div class="exercise-card">
+                    <div class="exercise-content">
+                        <h2 class="section-title">
+                            <i class="fas fa-bullseye"></i>
+                            A tener en cuenta para el Encabezado.
+                        </h2>
+                        <p>Generalmente los encabezados contienen el logo y el
+                            menú de navegación.</p>
+                        <p>Algunos incluyen otro menú para con los botones de
+                            login y registro, que cambia su contenido de acuerdo
+                            al usuario logueado.</p>
+                        <p>Algunos tienen un slider en la parte superior o
+                            inferior, que utilizan para mostrar contenido
+                            destacado</p>
+                        <p>Otros incluyen un buscador o un botón de llamada a la
+                            acción.</p>
+                        <p>También hay otros que tienen un hero en la parte
+                            inferior.</p>
+                        <p>Los diseños pueden variar según las especificaciones
+                            del cliente, pero en general deben ser atractivos y
+                            funcionales.</p>
+                    </div>
+                    <div class="alert tips">
+                        <h3>Tip:</h3>
+                        <p>
+                            Recuerda que el header es lo primero que ve un visitante al entrar a un sitio web, por lo que es importante causar una buena impresión.
+                        </p>
+                        <p>Y si este tiene el menú principal de navegación, debe ser claro, fácil de usar y generalmente debería estar siempre presente.</p>
+                        <p>Usando position:fixed; en los estilo puedes hacerlo siempre visible. en la parte donde nosotros lo coloquemos.</p>
+                    </div>
+                    <div class="exercise-content">
+                        <h4 class="exercise-title" id="lm">Logo y menú</h4>
+                        <div class="view-example">
+                            <header class="exa-header">
+                                <div class="exa-logo">
+                                    <img src="logo.png" alt="Mi Logo">
+                                </div>
+                                <nav class="exa-main-nav">
+                                    <ul>
+                                        <li><a href="#home">Inicio</a></li>
+                                        <li><a href="#about">Sobre Mí</a></li>
+                                        <li><a
+                                                href="#services">Servicios</a></li>
+                                        <li><a href="#gallery">Galería</a></li>
+                                        <li><a href="#contact">Contacto</a></li>
+                                    </ul>
+                                </nav>
+                            </header>
+                            <style>
+.exa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+
+    .logo img{
+        max-width: 100px;
+    }
+
+    .exa-main-nav ul {
+        list-style: none;
+        padding: 0;
+
+        li{
+            display: inline;
+            margin-right: 1rem;
+
+            a{
+                text-decoration: none;
+                padding: .25rem .75rem;
+                font-size: 1rem;
+                color: #fff;
+                &:hover{
+                    background-color: #ffffff20;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+</style>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>HTML:</h4>
+                            <pre>
+<code>&lt;header&gt;
+    &lt;div class="logo"&gt;
+        &lt;img src="logo.png" alt="Mi Logo"&gt;
+    &lt;/div&gt;
+    &lt;nav class="main-nav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#home"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;Sobre Mí&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#services"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#gallery"&gt;Galería&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#contact"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="code-example">
+                            <h4>CSS:</h4>
+                            <pre>
+<code>header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    background-color: #ffffff20;
+    border-radius: 5px;
+}
+                                    </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="exercise-content">
+                        <h4 class="exercise-title" id="lmh">Logo, menu y hero</h4>
+                        <div class="view-example">
+                            <header>
+                                <div class="header-top">
+                                    <div class="logo">
+                                        <img src="logo.png" alt="Mi Logo">
+                                    </div>
+                                    <nav class="main-nav">
+                                        <ul>
+                                            <li><a href="#home">Inicio</a></li>
+                                            <li><a href="#about">Sobre
+                                                    Mí</a></li>
+                                            <li><a
+                                                    href="#services">Servicios</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="hero">
+                                    <h1>Bienvenido a Mi Sitio Web</h1>
+                                    <p>Descubre mis servicios y proyectos.</p>
+                                </div>
+                            </header>
+                            <style>
+#lmh header {
+    background-color: #333;
+    color: #fff;
+        
+    .header-top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    
+        .logo img {
+            max-width: 100px;
+        }
+    
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            
+            li {
+                display: inline;
+                margin-right: 1rem;
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: .25rem .75rem;
+                    font-size: 1rem;
+                    
+                    &:hover {
+                        background: #ffffff20;
+                        border-radius: .5rem;
+                    }
+                }
+            }
+        }
+    }
+    
+
+    .hero {
+        padding-bottom: 2rem;
+        text-align: center;
+        margin-top: 2rem;
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+    }
+}
+
+
+
+
+
+
+</style>
+                        </div>
+                        <div class="code-example">
+                            <h4>HTML:</h4>
+                            <pre>
+<code>&lt;header&gt;
+    &lt;div class="logo"&gt;
+        &lt;img src="logo.png" alt="Mi Logo"&gt;
+    &lt;/div&gt;
+    &lt;nav class="main-nav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#home"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;Sobre Mí&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#services"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;div class="hero"&gt;
+        &lt;h1&gt;Bienvenido a Mi Sitio Web&lt;/h1&gt;
+        &lt;p&gt;Descubre mis servicios y proyectos.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+                                </code>
+                                </pre>
+                        </div>
+                        <div class="code-example">
+                            <h4>CSS:</h4>
+                            <pre>
+<code>header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    text-decoration: underline;
+}
+.hero {
+    text-align: center;
+    margin-top: 2rem;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+                                    </code>
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

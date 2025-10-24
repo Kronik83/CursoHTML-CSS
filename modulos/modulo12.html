@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 12: Responsive Design - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 12 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">12</div>
+            <div class="module-info">
+                <h1 class="module-title">Responsive Design</h1>
+                <p class="module-description">Diseña sitios web que se adapten a cualquier dispositivo</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#responsive-intro" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Diseño adaptable</h3>
+                            <p>Comprende qué es responsive design y por qué es fundamental.</p>
+                        </div>
+                    </a>
+                    <a href="#media-queries" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h3>Media Queries</h3>
+                            <p>Domina @media para adaptar estilos según dispositivo.</p>
+                        </div>
+                    </a>
+                    <a href="#unidades-mobile-first" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-ruler-combined"></i>
+                            </div>
+                            <h3>Unidades y Mobile First</h3>
+                            <p>Aprende unidades relativas y metodología mobile-first.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Diseño adaptable -->
+            <section class="content-section" id="responsive-intro">
+                <h2 class="section-title">
+                    <i class="fas fa-mobile-alt"></i>
+                    ¿Qué es el diseño adaptable?
+                </h2>
+                <div class="topic-content">
+                    <p><strong>Responsive Design (Diseño Responsivo)</strong> es una técnica de diseño web que permite que los sitios se adapten automáticamente a diferentes tamaños de pantalla y dispositivos.</p>
+                    
+                    <h3>¿Por qué es importante?</h3>
+                    <ul>
+                        <li>📱 <strong>Uso móvil dominante:</strong> Más del 60% del tráfico web es móvil</li>
+                        <li>🎯 <strong>Mejor experiencia de usuario:</strong> Contenido legible en cualquier dispositivo</li>
+                        <li>🚀 <strong>SEO mejorado:</strong> Google prioriza sitios mobile-friendly</li>
+                        <li>💰 <strong>Un solo código:</strong> Mantener una versión en vez de múltiples</li>
+                        <li>♿ <strong>Accesibilidad:</strong> Mayor alcance de audiencia</li>
+                        <li>⚡ <strong>Performance:</strong> Optimización para cada dispositivo</li>
+                    </ul>
+
+                    <h3>Principios fundamentales</h3>
+                    
+                    <h4>1. Diseño fluido (Fluid Grid)</h4>
+                    <p>Usar porcentajes y unidades relativas en lugar de píxeles fijos:</p>
+                    <div class="code-example">
+                        <pre><code>/* ❌ Layout fijo (no responsive) */
+.container-fixed {
+  width: 960px;  /* Siempre 960px, no se adapta */
+}
+
+/* ✅ Layout fluido (responsive) */
+.container-fluid {
+  width: 90%;           /* Se adapta al 90% del ancho disponible */
+  max-width: 1200px;    /* Límite máximo */
+  margin: 0 auto;       /* Centrado */
+}
+
+/* ✅ Columnas fluidas */
+.column {
+  width: 33.333%;       /* Siempre 1/3 del contenedor */
+  padding: 1rem;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Imágenes flexibles</h4>
+                    <p>Las imágenes deben adaptarse al contenedor:</p>
+                    <div class="code-example">
+                        <pre><code>/* Imágenes responsive básicas */
+img {
+  max-width: 100%;      /* Nunca más grande que su contenedor */
+  height: auto;         /* Mantiene proporción */
+  display: block;       /* Evita espacio extra debajo */
+}
+
+/* Imágenes con object-fit */
+.hero-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;    /* Cubre área sin deformar */
+  object-position: center;
+}
+
+/* Picture element para diferentes resoluciones */</code></pre>
+                        <pre><code>&lt;picture&gt;
+  &lt;source media="(min-width: 1024px)" srcset="imagen-grande.jpg"&gt;
+  &lt;source media="(min-width: 768px)" srcset="imagen-media.jpg"&gt;
+  &lt;img src="imagen-pequeña.jpg" alt="Descripción"&gt;
+&lt;/picture&gt;</code></pre>
+                    </div>
+
+                    <h4>3. Viewport meta tag (Fundamental)</h4>
+                    <p>Debe incluirse en todas las páginas responsive:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;head&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;/head&gt;
+
+/* Explicación:
+   - width=device-width: Ancho = ancho del dispositivo
+   - initial-scale=1.0: Sin zoom inicial
+   - Sin este tag, móviles muestran la versión desktop */</code></pre>
+                    </div>
+
+                    <h3>Breakpoints comunes</h3>
+                    <p>Puntos donde el diseño cambia según el tamaño de pantalla:</p>
+                    <div class="code-example">
+                        <pre><code>/* Sistema de breakpoints estándar */
+
+/* Extra Small (móviles en vertical) */
+/* 0px - 575px: diseño base */
+
+/* Small (móviles en horizontal, tablets pequeños) */
+@media (min-width: 576px) {
+  /* Estilos para ≥576px */
+}
+
+/* Medium (tablets) */
+@media (min-width: 768px) {
+  /* Estilos para ≥768px */
+}
+
+/* Large (desktops) */
+@media (min-width: 992px) {
+  /* Estilos para ≥992px */
+}
+
+/* Extra Large (desktops grandes) */
+@media (min-width: 1200px) {
+  /* Estilos para ≥1200px */
+}
+
+/* XXL (pantallas muy grandes) */
+@media (min-width: 1400px) {
+  /* Estilos para ≥1400px */
+}</code></pre>
+                    </div>
+
+                    <h3>Ejemplo básico de diseño responsive</h3>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Sitio Responsive&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class="header"&gt;
+    &lt;h1&gt;Mi Sitio Web&lt;/h1&gt;
+    &lt;nav class="nav"&gt;
+      &lt;a href="#"&gt;Inicio&lt;/a&gt;
+      &lt;a href="#"&gt;Servicios&lt;/a&gt;
+      &lt;a href="#"&gt;Contacto&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  
+  &lt;main class="content"&gt;
+    &lt;div class="card"&gt;Tarjeta 1&lt;/div&gt;
+    &lt;div class="card"&gt;Tarjeta 2&lt;/div&gt;
+    &lt;div class="card"&gt;Tarjeta 3&lt;/div&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS responsive:</h4>
+                        <pre><code>/* Base: diseño móvil */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;  /* Navegación vertical en móvil */
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.content {
+  padding: 1rem;
+}
+
+.card {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+/* Tablet: ≥768px */
+@media (min-width: 768px) {
+  .nav {
+    flex-direction: row;      /* Navegación horizontal */
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columnas */
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop: ≥1024px */
+@media (min-width: 1024px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  .nav {
+    margin-top: 0;
+  }
+  
+  .content {
+    grid-template-columns: repeat(3, 1fr);  /* 3 columnas */
+    max-width: 1200px;
+    padding: 2rem;
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>Testing responsive design</h3>
+                    <div class="code-example">
+                        <pre><code>/* Herramientas para probar diseño responsive:
+
+1. DevTools de navegador:
+   - Chrome: F12 → Toggle device toolbar (Ctrl+Shift+M)
+   - Firefox: F12 → Responsive Design Mode
+   - Safari: Develop → Enter Responsive Design Mode
+
+2. Tamaños comunes para probar:
+   - iPhone SE: 375x667px
+   - iPhone 12/13: 390x844px
+   - iPad: 768x1024px
+   - iPad Pro: 1024x1366px
+   - Desktop HD: 1920x1080px
+
+3. Orientación:
+   - Portrait (vertical)
+   - Landscape (horizontal)
+
+4. Herramientas online:
+   - Responsively App
+   - BrowserStack
+   - LambdaTest */</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Media Queries -->
+            <section class="content-section" id="media-queries">
+                <h2 class="section-title">
+                    <i class="fas fa-desktop"></i>
+                    Media queries (@media)
+                </h2>
+                <div class="topic-content">
+                    <p><strong>Media queries</strong> son reglas CSS que aplican estilos según características del dispositivo como ancho, alto, orientación, etc.</p>
+                    
+                    <h3>Sintaxis básica</h3>
+                    <div class="code-example">
+                        <pre><code>/* Sintaxis general */
+@media media-type and (condición) {
+  /* Estilos que se aplican cuando la condición es verdadera */
+}
+
+/* Ejemplo básico */
+@media screen and (max-width: 768px) {
+  .elemento {
+    font-size: 14px;
+  }
+}
+
+/* Explicación:
+   - @media: inicia la media query
+   - screen: tipo de medio (pantalla)
+   - and: operador lógico
+   - (max-width: 768px): condición
+   - {...}: estilos a aplicar */</code></pre>
+                    </div>
+
+                    <h3>Tipos de media (media types)</h3>
+                    <div class="code-example">
+                        <pre><code>/* screen: pantallas (más común) */
+@media screen {
+  body { background-color: white; }
+}
+
+/* print: impresión */
+@media print {
+  body { 
+    background-color: white;
+    color: black;
+  }
+  .no-print { display: none; }  /* Ocultar en impresión */
+}
+
+/* all: todos los dispositivos (por defecto) */
+@media all {
+  /* Se aplica a todo */
+}
+
+/* speech: lectores de pantalla (menos común) */
+@media speech {
+  /* Estilos para síntesis de voz */
+}</code></pre>
+                    </div>
+
+                    <h3>Características de media (media features)</h3>
+
+                    <h4>Ancho (width)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Ancho exacto */
+@media (width: 768px) {
+  /* Estilos solo para exactamente 768px */
+}
+
+/* Ancho mínimo */
+@media (min-width: 768px) {
+  /* Estilos para 768px o más */
+  .container { max-width: 1200px; }
+}
+
+/* Ancho máximo */
+@media (max-width: 767px) {
+  /* Estilos para 767px o menos */
+  .sidebar { display: none; }
+}
+
+/* Rango específico */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Estilos solo entre 768px y 1023px */
+  .content { width: 90%; }
+}</code></pre>
+                    </div>
+
+                    <h4>Altura (height)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Altura mínima */
+@media (min-height: 800px) {
+  .hero { height: 100vh; }
+}
+
+/* Altura máxima */
+@media (max-height: 600px) {
+  .header { padding: 0.5rem; }  /* Header más compacto */
+}
+
+/* Combinando ancho y alto */
+@media (min-width: 1024px) and (min-height: 768px) {
+  /* Pantallas grandes con altura suficiente */
+  .fullscreen-modal { display: flex; }
+}</code></pre>
+                    </div>
+
+                    <h4>Orientación</h4>
+                    <div class="code-example">
+                        <pre><code>/* Orientación vertical (portrait) */
+@media (orientation: portrait) {
+  .image-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Orientación horizontal (landscape) */
+@media (orientation: landscape) {
+  .image-gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Móvil en horizontal */
+@media (max-width: 767px) and (orientation: landscape) {
+  .header { 
+    position: fixed;
+    height: 50px;  /* Header más pequeño */
+  }
+}</code></pre>
+                    </div>
+
+                    <h4>Resolución y densidad de píxeles</h4>
+                    <div class="code-example">
+                        <pre><code>/* Pantallas de alta densidad (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .logo {
+    background-image: url('logo@2x.png');
+    background-size: 200px 50px;
+  }
+}
+
+/* Pantallas de muy alta densidad */
+@media (-webkit-min-device-pixel-ratio: 3),
+       (min-resolution: 288dpi) {
+  .logo {
+    background-image: url('logo@3x.png');
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>Operadores lógicos</h3>
+                    <div class="code-example">
+                        <pre><code>/* AND: ambas condiciones deben cumplirse */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Solo tablets */
+}
+
+/* OR (coma): cualquier condición */
+@media (max-width: 767px), (orientation: portrait) {
+  /* Móviles O cualquier dispositivo vertical */
+}
+
+/* NOT: invertir condición */
+@media not screen and (min-width: 768px) {
+  /* Todo EXCEPTO pantallas ≥768px */
+}
+
+/* ONLY: solo para navegadores que soporten media queries */
+@media only screen and (max-width: 767px) {
+  /* Navegadores modernos en pantallas pequeñas */
+}</code></pre>
+                    </div>
+
+                    <h3>Estrategia de breakpoints</h3>
+
+                    <h4>Mobile First (recomendado)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Base: diseño móvil (sin media query) */
+.container {
+  width: 100%;
+  padding: 1rem;
+}
+
+.nav {
+  flex-direction: column;
+}
+
+.grid {
+  display: block;  /* Una columna en móvil */
+}
+
+/* Tablet: agregar complejidad */
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  .nav {
+    flex-direction: row;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: más complejidad */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+                    </div>
+
+                    <h4>Desktop First (menos común)</h4>
+                    <div class="code-example">
+                        <pre><code>/* Base: diseño desktop */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Tablet: simplificar */
+@media (max-width: 1023px) {
+  .container {
+    max-width: 750px;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Móvil: más simplificación */
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .grid {
+    display: block;
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>Patrones responsive comunes</h3>
+
+                    <h4>1. Navegación hamburger</h4>
+                    <div class="code-example">
+                        <pre><code>/* Móvil: menú oculto, botón hamburger visible */
+.nav-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  flex-direction: column;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.hamburger {
+  display: block;  /* Visible en móvil */
+  cursor: pointer;
+}
+
+/* Desktop: menú visible, hamburger oculto */
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+  }
+  
+  .hamburger {
+    display: none;  /* Oculto en desktop */
+  }
+}</code></pre>
+                    </div>
+
+                    <h4>2. Grid responsive automático</h4>
+                    <div class="code-example">
+                        <pre><code>/* Sin media queries: se adapta automáticamente */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Explicación:
+   - auto-fit: ajusta columnas según espacio
+   - minmax(300px, 1fr): mínimo 300px, máximo flexible
+   - Móvil: 1 columna (si < 300px)
+   - Tablet: 2-3 columnas
+   - Desktop: 3-4 columnas */</code></pre>
+                    </div>
+
+                    <h4>3. Tipografía fluida</h4>
+                    <div class="code-example">
+                        <pre><code>/* Móvil */
+h1 {
+  font-size: 1.75rem;  /* 28px */
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.25rem;  /* 36px */
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;  /* 48px */
+  }
+}
+
+/* Alternativa: fluid typography con clamp() */
+h1 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  /* Mínimo: 1.75rem
+     Preferido: 4% del viewport
+     Máximo: 3rem */
+}</code></pre>
+                    </div>
+
+                    <h4>4. Sidebar responsive</h4>
+                    <div class="code-example">
+                        <pre><code>/* Móvil: sidebar debajo del contenido */
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  order: 2;  /* Aparece después */
+}
+
+.main-content {
+  order: 1;  /* Aparece primero */
+}
+
+/* Desktop: sidebar al lado */
+@media (min-width: 1024px) {
+  .layout {
+    flex-direction: row;
+  }
+  
+  .sidebar {
+    flex: 0 0 250px;  /* Ancho fijo */
+    order: 1;
+  }
+  
+  .main-content {
+    flex: 1;  /* Toma espacio restante */
+    order: 2;
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>Debugging media queries</h3>
+                    <div class="code-example">
+                        <pre><code>/* Indicador visual de breakpoint activo */
+body::before {
+  content: "XS - Mobile";
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  z-index: 9999;
+}
+
+@media (min-width: 576px) {
+  body::before { content: "SM - Mobile Large"; background-color: orange; }
+}
+
+@media (min-width: 768px) {
+  body::before { content: "MD - Tablet"; background-color: yellow; color: black; }
+}
+
+@media (min-width: 992px) {
+  body::before { content: "LG - Desktop"; background-color: green; }
+}
+
+@media (min-width: 1200px) {
+  body::before { content: "XL - Desktop Large"; background-color: blue; }
+}
+
+/* Remover en producción */</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Unidades relativas y Mobile First -->
+            <section class="content-section" id="unidades-mobile-first">
+                <h2 class="section-title">
+                    <i class="fas fa-ruler-combined"></i>
+                    Unidades relativas y diseño móvil primero
+                </h2>
+                <div class="topic-content">
+                    <p>Las <strong>unidades relativas</strong> son fundamentales para crear diseños flexibles y adaptativos.</p>
+                    
+                    <h3>Porcentajes (%)</h3>
+                    <p>Relativos al elemento padre:</p>
+                    <div class="code-example">
+                        <pre><code>/* Ancho relativo al padre */
+.container {
+  width: 90%;  /* 90% del ancho del padre */
+}
+
+/* Padding/margin relativos */
+.box {
+  padding: 5%;  /* 5% del ancho del padre */
+}
+
+/* Alturas relativas (requiere altura definida en padre) */
+.parent {
+  height: 500px;
+}
+
+.child {
+  height: 50%;  /* 250px (50% de 500px) */
+}
+
+/* Uso común: layouts fluidos */
+.column {
+  width: 33.333%;  /* 3 columnas iguales */
+  float: left;
+}</code></pre>
+                    </div>
+
+                    <h3>em - Relativo al font-size del elemento</h3>
+                    <div class="code-example">
+                        <pre><code>/* 1em = font-size del elemento actual */
+.element {
+  font-size: 16px;
+  padding: 1em;      /* = 16px */
+  margin: 0.5em;     /* = 8px */
+}
+
+/* Em se hereda y compone */
+.parent {
+  font-size: 16px;
+}
+
+.child {
+  font-size: 1.5em;  /* = 24px (1.5 × 16px) */
+  padding: 1em;      /* = 24px (relativo a font-size del child) */
+}
+
+.grandchild {
+  font-size: 1.2em;  /* = 28.8px (1.2 × 24px) */
+  /* ⚠️ Se va acumulando, puede ser confuso */
+}
+
+/* Uso recomendado: espaciado proporcional */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;  /* Proporcional al tamaño del h1 */
+}</code></pre>
+                    </div>
+
+                    <h3>rem - Relativo al font-size root</h3>
+                    <div class="code-example">
+                        <pre><code>/* 1rem = font-size del elemento html (root) */
+html {
+  font-size: 16px;  /* Base por defecto */
+}
+
+.element {
+  font-size: 1rem;      /* = 16px */
+  padding: 1.5rem;      /* = 24px */
+  margin: 2rem;         /* = 32px */
+}
+
+.nested {
+  font-size: 1.25rem;   /* = 20px */
+  padding: 1rem;        /* = 16px (NO se acumula como em) */
+}
+
+/* ✅ Ventajas de rem sobre em:
+   - Predecible: siempre relativo a root
+   - No se acumula en nesting
+   - Fácil de escalar todo el sitio */
+
+/* Sistema de tipografía con rem */
+html {
+  font-size: 16px;
+}
+
+h1 { font-size: 2.5rem; }    /* 40px */
+h2 { font-size: 2rem; }      /* 32px */
+h3 { font-size: 1.75rem; }   /* 28px */
+body { font-size: 1rem; }    /* 16px */
+small { font-size: 0.875rem; } /* 14px */
+
+/* Responsive font-size ajustando root */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;  /* Todo el sitio se escala proporcionalmente */
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>vw y vh - Viewport units</h3>
+                    <div class="code-example">
+                        <pre><code>/* vw: 1% del ancho del viewport */
+.full-width {
+  width: 100vw;  /* Ancho completo de ventana */
+}
+
+.half-width {
+  width: 50vw;   /* Mitad del ancho de ventana */
+}
+
+/* vh: 1% de la altura del viewport */
+.hero {
+  height: 100vh;  /* Altura completa de ventana */
+}
+
+.section {
+  min-height: 50vh;  /* Mínimo mitad de la pantalla */
+}
+
+/* vmin: el menor entre vw y vh */
+.square {
+  width: 50vmin;
+  height: 50vmin;  /* Cuadrado que siempre cabe */
+}
+
+/* vmax: el mayor entre vw y vh */
+.cover {
+  width: 100vmax;
+  height: 100vmax;  /* Cubre toda la pantalla */
+}
+
+/* Tipografía fluida con viewport units */
+h1 {
+  font-size: calc(2rem + 2vw);
+  /* Base 2rem + 2% del viewport */
+  /* Se adapta automáticamente al tamaño de pantalla */
+}
+
+/* Hero section responsive */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ⚠️ Cuidado con 100vw en móvil (puede causar scroll horizontal) */
+.container {
+  width: 100%;      /* Mejor que 100vw */
+  max-width: 100vw;
+  overflow-x: hidden;
+}</code></pre>
+                    </div>
+
+                    <h3>Función clamp() - Valores fluidos con límites</h3>
+                    <div class="code-example">
+                        <pre><code>/* Sintaxis: clamp(mínimo, preferido, máximo) */
+
+/* Tipografía fluida perfecta */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  /* Mínimo: 1.5rem (24px)
+     Preferido: 5% del viewport
+     Máximo: 3rem (48px) */
+}
+
+/* Anchos fluidos */
+.container {
+  width: clamp(300px, 90%, 1200px);
+  /* Nunca menos de 300px
+     Preferido: 90% del padre
+     Nunca más de 1200px */
+}
+
+/* Espaciado adaptativo */
+.section {
+  padding: clamp(1rem, 5vw, 4rem);
+  /* Padding que crece con viewport pero con límites */
+}
+
+/* Gap responsive sin media queries */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+}</code></pre>
+                    </div>
+
+                    <h3>Metodología Mobile First</h3>
+                    <p><strong>Mobile First</strong> significa diseñar primero para móviles y luego agregar complejidad para pantallas más grandes.</p>
+
+                    <h4>¿Por qué Mobile First?</h4>
+                    <ul>
+                        <li>📱 <strong>Prioridad de contenido:</strong> Fuerza a pensar en lo esencial</li>
+                        <li>⚡ <strong>Performance:</strong> Móviles cargan solo lo necesario</li>
+                        <li>📈 <strong>Progressive enhancement:</strong> Agregar, no quitar</li>
+                        <li>🎯 <strong>Mejor UX móvil:</strong> Mayoría de usuarios</li>
+                        <li>🔧 <strong>Más fácil mantener:</strong> Código más limpio</li>
+                    </ul>
+
+                    <h4>Ejemplo completo Mobile First</h4>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Sitio Mobile First&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class="header"&gt;
+    &lt;h1 class="logo"&gt;MiMarca&lt;/h1&gt;
+    &lt;button class="menu-toggle"&gt;☰&lt;/button&gt;
+    &lt;nav class="nav"&gt;
+      &lt;a href="#"&gt;Inicio&lt;/a&gt;
+      &lt;a href="#"&gt;Servicios&lt;/a&gt;
+      &lt;a href="#"&gt;Acerca&lt;/a&gt;
+      &lt;a href="#"&gt;Contacto&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section class="hero"&gt;
+      &lt;h2&gt;Bienvenido&lt;/h2&gt;
+      &lt;p&gt;Contenido principal&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section class="services"&gt;
+      &lt;div class="service-card"&gt;Servicio 1&lt;/div&gt;
+      &lt;div class="service-card"&gt;Servicio 2&lt;/div&gt;
+      &lt;div class="service-card"&gt;Servicio 3&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="footer"&gt;
+    &lt;p&gt;&copy; 2025 MiMarca&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS Mobile First completo:</h4>
+                        <pre><code>/* ===== BASE: DISEÑO MÓVIL (sin media query) ===== */
+
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;  /* Base para rem */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Header móvil */
+.header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.menu-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Navegación móvil: inicialmente oculta */
+.nav {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nav.active {
+  display: flex;  /* Visible al activar hamburger */
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+/* Hero móvil */
+.hero {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.hero h2 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+/* Servicios en móvil: apilados */
+.services {
+  padding: 2rem 1rem;
+}
+
+.service-card {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer móvil */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+/* ===== TABLET: ≥768px ===== */
+@media (min-width: 768px) {
+  /* Header se vuelve horizontal */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  /* Ocultar botón hamburger */
+  .menu-toggle {
+    display: none;
+  }
+  
+  /* Navegación siempre visible y horizontal */
+  .nav {
+    display: flex !important;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 0;
+  }
+  
+  .nav a {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+  }
+  
+  /* Hero más grande */
+  .hero {
+    padding: 4rem 2rem;
+  }
+  
+  /* Servicios en 2 columnas */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  
+  .service-card {
+    margin-bottom: 0;
+  }
+}
+
+/* ===== DESKTOP: ≥1024px ===== */
+@media (min-width: 1024px) {
+  /* Container máximo */
+  .header,
+  .hero,
+  .footer {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Hero aún más espacioso */
+  .hero {
+    padding: 6rem 2rem;
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+  }
+  
+  /* Servicios en 3 columnas */
+  .services {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    padding: 4rem 2rem;
+  }
+  
+  /* Efectos hover solo en desktop */
+  .service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+  
+  .nav a:hover {
+    color: #667eea;
+  }
+}
+
+/* ===== DESKTOP GRANDE: ≥1400px ===== */
+@media (min-width: 1400px) {
+  .services {
+    max-width: 1400px;
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>Comparación: Mobile First vs Desktop First</h3>
+                    <div class="code-example">
+                        <pre><code>/* ===== MOBILE FIRST (Recomendado) ===== */
+
+/* Base: móvil (más simple) */
+.element {
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+/* Agregar complejidad para pantallas grandes */
+@media (min-width: 768px) {
+  .element {
+    font-size: 1.25rem;
+    padding: 2rem;
+  }
+}
+
+/* Ventajas:
+   ✅ Código más limpio
+   ✅ Performance: móvil carga menos
+   ✅ Progressive enhancement
+   ✅ Más fácil de mantener */
+
+
+/* ===== DESKTOP FIRST (Menos recomendado) ===== */
+
+/* Base: desktop (más complejo) */
+.element {
+  font-size: 1.25rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Quitar complejidad para móvil */
+@media (max-width: 767px) {
+  .element {
+    font-size: 1rem;
+    padding: 1rem;
+    display: block;
+  }
+}
+
+/* Desventajas:
+   ❌ Móvil carga código desktop innecesario
+   ❌ Más resets y sobrescrituras
+   ❌ Código menos mantenible */</code></pre>
+                    </div>
+
+                    <h3>Checklist Mobile First</h3>
+                    <div class="code-example">
+                        <pre><code>/* Lista de verificación para diseño móvil primero:
+
+✅ Meta viewport configurado correctamente
+✅ Estilos base para móvil (sin media query)
+✅ Contenido priorizado (lo esencial primero)
+✅ Navegación adaptable (hamburger para móvil)
+✅ Imágenes responsive (max-width: 100%)
+✅ Touch targets mínimo 44x44px
+✅ Tipografía legible (mínimo 16px)
+✅ Media queries con min-width (mobile first)
+✅ Testing en dispositivos reales
+✅ Performance optimizado para móvil
+✅ Gestos táctiles considerados
+✅ Formularios optimizados para móvil */</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Sitio responsive con menú vertical en móvil e imágenes adaptables</h3>
+                        <span class="difficulty">Avanzado</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear un sitio web completamente responsive usando metodología mobile-first, con navegación adaptable e imágenes flexibles.</p>
+                        
+                        <h4>Requisitos:</h4>
+                        <ol class="exercise-steps">
+                            <li>Implementar viewport meta tag correctamente</li>
+                            <li>Diseño base para móvil (sin media queries)</li>
+                            <li>Navegación hamburger funcional en móvil</li>
+                            <li>Navegación horizontal en desktop</li>
+                            <li>Imágenes 100% responsive</li>
+                            <li>Grid de contenido que se adapta: 1/2/3 columnas</li>
+                            <li>Usar unidades relativas (rem, %, vw/vh)</li>
+                            <li>Implementar al menos 3 breakpoints</li>
+                        </ol>
+
+                        <h4>Estructura HTML base:</h4>
+                        <div class="code-example">
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mi Sitio Responsive&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class="header"&gt;
+    &lt;div class="container"&gt;
+      &lt;h1 class="logo"&gt;MiSitio&lt;/h1&gt;
+      &lt;button class="menu-toggle" aria-label="Toggle menu"&gt;
+        &lt;span class="hamburger"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;nav class="nav"&gt;
+        &lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
+        &lt;a href="#servicios"&gt;Servicios&lt;/a&gt;
+        &lt;a href="#galeria"&gt;Galería&lt;/a&gt;
+        &lt;a href="#contacto"&gt;Contacto&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section class="hero"&gt;
+      &lt;h2&gt;Bienvenido a nuestro sitio&lt;/h2&gt;
+      &lt;p&gt;Diseño responsive que se adapta a cualquier dispositivo&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section class="services"&gt;
+      &lt;div class="container"&gt;
+        &lt;h2&gt;Nuestros Servicios&lt;/h2&gt;
+        &lt;div class="services-grid"&gt;
+          &lt;div class="service-card"&gt;
+            &lt;img src="service1.jpg" alt="Servicio 1"&gt;
+            &lt;h3&gt;Diseño Web&lt;/h3&gt;
+            &lt;p&gt;Creamos sitios web modernos y atractivos.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class="service-card"&gt;
+            &lt;img src="service2.jpg" alt="Servicio 2"&gt;
+            &lt;h3&gt;Desarrollo&lt;/h3&gt;
+            &lt;p&gt;Programamos soluciones robustas y escalables.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class="service-card"&gt;
+            &lt;img src="service3.jpg" alt="Servicio 3"&gt;
+            &lt;h3&gt;Optimización&lt;/h3&gt;
+            &lt;p&gt;Mejoramos el rendimiento de tu sitio.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="footer"&gt;
+    &lt;p&gt;&copy; 2025 MiSitio. Todos los derechos reservados.&lt;/p&gt;
+  &lt;/footer&gt;
+
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <h4>JavaScript para menú hamburger:</h4>
+                        <div class="code-example">
+                            <pre><code>// script.js
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav');
+  
+  menuToggle.addEventListener('click', function() {
+    nav.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+  });
+  
+  // Cerrar menú al hacer click en enlace
+  const navLinks = document.querySelectorAll('.nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+    });
+  });
+});</code></pre>
+                        </div>
+
+                        <h4>Especificaciones CSS:</h4>
+                        <ul>
+                            <li>✅ Mobile base: navegación vertical oculta por defecto</li>
+                            <li>✅ Botón hamburger: visible solo en móvil</li>
+                            <li>✅ Imágenes: max-width: 100%, height: auto</li>
+                            <li>✅ Grid servicios: 1 columna (móvil) → 2 (tablet) → 3 (desktop)</li>
+                            <li>✅ Container: 90% en móvil, max-width en desktop</li>
+                            <li>✅ Tipografía: clamp() para fluidez</li>
+                            <li>✅ Breakpoints: 768px (tablet), 1024px (desktop)</li>
+                        </ul>
+
+                        <h4>Funcionalidades adicionales:</h4>
+                        <ul>
+                            <li>⭐ Smooth scroll para navegación</li>
+                            <li>⭐ Animaciones en hamburger (transformación X)</li>
+                            <li>⭐ Hero con imagen de fondo responsive</li>
+                            <li>⭐ Lazy loading de imágenes</li>
+                            <li>⭐ Dark mode toggle</li>
+                        </ul>
+
+                        <h4>Testing requerido:</h4>
+                        <ul>
+                            <li>📱 iPhone SE (375px)</li>
+                            <li>📱 iPhone 12 (390px)</li>
+                            <li>📱 Tablet (768px)</li>
+                            <li>💻 Desktop (1920px)</li>
+                            <li>🔄 Orientación portrait y landscape</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>MDN - Diseño web adaptable</h3>
+                        <p>Guía completa de responsive design en español</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://responsively.app/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>Responsively App</h3>
+                        <p>Herramienta para probar diseños en múltiples dispositivos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://www.mydevice.io/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <h3>mydevice.io</h3>
+                        <p>Información sobre tamaños y resoluciones de dispositivos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo11.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo13.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 12: Responsive Design</p>
+        </footer>
+    </div>
+</body>
+</html>

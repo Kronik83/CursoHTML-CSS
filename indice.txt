@@ -1,0 +1,232 @@
+Módulo 1: Introducción a HTML
+
+Contenidos:
+
+Qué es HTML y su función en la web.
+
+Estructura básica de un documento HTML (<!DOCTYPE html>, <html>, <head>, <body>).
+
+Etiquetas, atributos y jerarquía de elementos.
+
+Cómo usar comentarios (<!-- -->).
+
+Introducción al editor de código (VS Code).
+
+Ejercicio:
+Crea un archivo index.html con la estructura básica del documento e incluye un título y un párrafo de bienvenida.
+Objetivo: Iniciar el esqueleto de tu futura página web.
+
+Referencia:
+👉 MDN Web Docs - Introducción a HTML
+
+🔹 Módulo 2: Texto y formato
+
+Contenidos:
+
+Etiquetas de texto: <h1> a <h6>, <p>, <br>, <strong>, <em>, <u>, <small>, <mark>.
+
+Listas: <ul>, <ol>, <li>.
+
+Enlaces: <a href="">.
+
+Citas: <blockquote> y <q>.
+
+Ejercicio:
+Agrega una sección de presentación personal con encabezado, párrafos, una lista de intereses y un enlace a una red social.
+
+Referencia:
+👉 MDN - Etiquetas de texto HTML
+
+🔹 Módulo 3: Imágenes y multimedia
+
+Contenidos:
+
+Etiqueta <img>: atributos src, alt, width, height.
+
+Agregar video y audio: <video> y <audio>.
+
+Uso de <figure> y <figcaption>.
+
+Ejercicio:
+Inserta una imagen de perfil y un video de presentación o un audio corto de bienvenida.
+
+Referencia:
+👉 MDN - Imágenes en HTML
+
+🔹 Módulo 4: Estructura semántica
+
+Contenidos:
+
+Etiquetas semánticas modernas: <header>, <nav>, <section>, <article>, <aside>, <footer>.
+
+Cómo organizar contenido semánticamente.
+
+SEO básico y accesibilidad (atributos alt, title, lang).
+
+Ejercicio:
+Divide tu página en secciones con encabezado, menú, contenido principal, y pie de página.
+
+Referencia:
+👉 MDN - HTML Semántico
+
+🔹 Módulo 5: Tablas y formularios
+
+Contenidos:
+
+Tablas: <table>, <tr>, <th>, <td>, <caption>.
+
+Formularios: <form>, <input>, <label>, <textarea>, <select>, <option>, <button>.
+
+Tipos de inputs: texto, email, password, checkbox, radio, etc.
+
+Ejercicio:
+Agrega una tabla de información (por ejemplo, horarios o precios) y un formulario de contacto funcional (sin backend).
+
+Referencia:
+👉 MDN - Formularios HTML
+
+🔹 Módulo 6: Introducción a CSS
+
+Contenidos:
+
+Qué es CSS y cómo se aplica (inline, <style>, archivo externo).
+
+Selectores básicos (element, .clase, #id).
+
+Propiedades comunes: color, background, margin, padding, border, font.
+
+Ejercicio:
+Crea un archivo styles.css y enlázalo con tu HTML. Aplica color de fondo, tipo de fuente y formato de texto.
+
+Referencia:
+👉 MDN - Introducción a CSS
+
+🔹 Módulo 7: Modelo de caja (Box Model)
+
+Contenidos:
+
+Propiedades: margin, padding, border, width, height.
+
+Cómo visualizar los contornos con outline o border.
+
+display: block, inline, inline-block.
+
+Ejercicio:
+Aplica márgenes, rellenos y bordes a las secciones de tu página.
+
+Referencia:
+👉 MDN - Modelo de caja
+
+🔹 Módulo 8: Posicionamiento y diseño
+
+Contenidos:
+
+position: static, relative, absolute, fixed, sticky.
+
+float y clear.
+
+Uso de z-index.
+
+Ejercicio:
+Haz que el menú de navegación se mantenga fijo arriba mientras haces scroll.
+
+Referencia:
+👉 MDN - Posicionamiento CSS
+
+🔹 Módulo 9: Flexbox
+
+Contenidos:
+
+Conceptos clave: contenedor (display: flex) y elementos flexibles.
+
+Propiedades principales: justify-content, align-items, flex-direction, gap.
+
+Diseño de cabeceras, secciones y footers con Flexbox.
+
+Ejercicio:
+Crea una sección de “servicios” con tres cajas alineadas horizontalmente.
+
+Referencia:
+👉 MDN - Guía completa Flexbox
+
+🔹 Módulo 10: Grid Layout
+
+Contenidos:
+
+Crear un grid (display: grid).
+
+Propiedades: grid-template-columns, grid-template-rows, gap, grid-area.
+
+Diferencias con Flexbox.
+
+Ejercicio:
+Diseña una galería de imágenes usando CSS Grid.
+
+Referencia:
+👉 MDN - CSS Grid Layout
+
+🔹 Módulo 11: Estilos avanzados
+
+Contenidos:
+
+Pseudo-clases (:hover, :focus, :nth-child).
+
+Pseudo-elementos (::before, ::after).
+
+Sombras, bordes redondeados, gradientes.
+
+Fuentes externas con Google Fonts.
+
+Ejercicio:
+Agrega efectos hover en botones y enlaces, sombras a las tarjetas, y una fuente personalizada.
+
+Referencia:
+👉 MDN - Pseudo-clases CSS
+
+🔹 Módulo 12: Responsive Design
+
+Contenidos:
+
+Qué es el diseño adaptable.
+
+Media queries (@media).
+
+Unidades relativas (%, em, rem, vw, vh).
+
+Diseño móvil primero (“mobile first”).
+
+Ejercicio:
+Haz que tu sitio se vea bien en pantallas pequeñas (menú vertical, imágenes adaptables).
+
+Referencia:
+👉 MDN - Diseño web adaptable
+
+🔹 Módulo 13: Animaciones y transiciones
+
+Contenidos:
+
+Propiedades de transición (transition).
+
+Animaciones con @keyframes.
+
+Aplicación en botones, fondos y elementos al desplazarse.
+
+Ejercicio:
+Agrega una animación de entrada al cargar la página o un efecto hover animado.
+
+Referencia:
+👉 MDN - Animaciones CSS
+
+🔹 Módulo 14: Proyecto final – Página web completa
+
+Objetivo:
+Unir todos los ejercicios anteriores para construir una página web personal o de negocio con:
+
+Encabezado, menú, secciones, galería, formulario, pie de página.
+
+Diseño responsive y estilos modernos.
+
+Animaciones y efectos.
+
+Ejercicio final:
+Publica tu sitio con GitHub Pages o Netlify.

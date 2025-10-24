@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Imágenes y multimedia - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link">
+                <i class="fas fa-arrow-left"></i> Volver al Índice
+            </a>
+            <div class="module-indicator">
+                <span class="current-module">Módulo 3 de 14</span>
+            </div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">03</div>
+            <div class="module-info">
+                <h1 class="module-title">Imágenes y multimedia</h1>
+                <p class="module-description">Aprende a integrar imágenes, videos y audio en tus páginas web</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#etiqueta-img" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <h3>Etiqueta &lt;img&gt;</h3>
+                            <p>Domina los atributos src, alt, width, height para imágenes.</p>
+                        </div>
+                    </a>
+                    <a href="#video-audio" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <h3>Video y audio</h3>
+                            <p>Aprende a agregar video y audio con las etiquetas &lt;video&gt; y &lt;audio&gt;.</p>
+                        </div>
+                    </a>
+                    <a href="#figure-figcaption" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <h3>Figure y figcaption</h3>
+                            <p>Uso semántico de &lt;figure&gt; y &lt;figcaption&gt; para contenido multimedia.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Etiqueta img -->
+            <section class="content-section" id="etiqueta-img">
+                <h2 class="section-title">
+                    <i class="fas fa-image"></i>
+                    Etiqueta &lt;img&gt;
+                </h2>
+                <div class="topic-content">
+                    <p>La etiqueta <code>&lt;img&gt;</code> es fundamental para mostrar imágenes en páginas web. Es una etiqueta auto-cerrada que requiere atributos específicos para funcionar correctamente.</p>
+                    
+                    <h3>Atributos esenciales</h3>
+                    
+                    <h4>src (source)</h4>
+                    <p>Especifica la ruta o URL de la imagen que se va a mostrar:</p>
+                    <div class="code-example">
+                        <h4>Ejemplos de src:</h4>
+                        <pre><code>&lt;!-- Imagen local --&gt;
+&lt;img src="imagenes/foto.jpg"&gt;
+
+&lt;!-- Imagen desde URL --&gt;
+&lt;img src="https://ejemplo.com/imagen.png"&gt;
+
+&lt;!-- Ruta relativa --&gt;
+&lt;img src="../assets/logo.svg"&gt;</code></pre>
+                    </div>
+
+                    <h4>alt (alternative text)</h4>
+                    <p>Proporciona texto alternativo para accesibilidad y SEO. Es obligatorio y crucial:</p>
+                    <ul>
+                        <li>Se muestra si la imagen no carga</li>
+                        <li>Leído por lectores de pantalla</li>
+                        <li>Mejora el SEO de la página</li>
+                        <li>Describe el contenido de la imagen</li>
+                    </ul>
+                    <div class="code-example">
+                        <h4>Ejemplos de alt:</h4>
+                        <pre><code>&lt;img src="perro.jpg" alt="Perro golden retriever jugando en el parque"&gt;
+&lt;img src="logo.png" alt="Logo de la empresa TechCorp"&gt;
+&lt;img src="grafico.png" alt="Gráfico de ventas enero-marzo 2025"&gt;</code></pre>
+                    </div>
+
+                    <h4>width y height</h4>
+                    <p>Controlan las dimensiones de la imagen en píxeles:</p>
+                    <div class="code-example">
+                        <h4>Controlando dimensiones:</h4>
+                        <pre><code>&lt;!-- Tamaño específico --&gt;
+&lt;img src="imagen.jpg" alt="Descripción" width="300" height="200"&gt;
+
+&lt;!-- Solo ancho (altura proporcional) --&gt;
+&lt;img src="imagen.jpg" alt="Descripción" width="500"&gt;
+
+&lt;!-- Mejor práctica: usar CSS --&gt;
+&lt;img src="imagen.jpg" alt="Descripción" class="imagen-responsive"&gt;</code></pre>
+                    </div>
+
+                    <h3>Otros atributos útiles</h3>
+                    <ul>
+                        <li><code>title</code>: Tooltip que aparece al pasar el mouse</li>
+                        <li><code>loading="lazy"</code>: Carga diferida para mejor rendimiento</li>
+                        <li><code>crossorigin</code>: Control de CORS para imágenes externas</li>
+                        <li><code>decoding="async"</code>: Decodificación asíncrona</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo completo:</h4>
+                        <pre><code>&lt;img 
+  src="imagenes/producto.jpg" 
+  alt="Laptop gaming con RGB y pantalla 4K" 
+  width="400" 
+  height="300"
+  title="Ver detalles del producto"
+  loading="lazy"&gt;</code></pre>
+                    </div>
+
+                    <h3>Formatos de imagen recomendados</h3>
+                    <ul>
+                        <li><strong>JPEG:</strong> Fotos y imágenes con muchos colores</li>
+                        <li><strong>PNG:</strong> Imágenes con transparencia, logos</li>
+                        <li><strong>SVG:</strong> Gráficos vectoriales, iconos</li>
+                        <li><strong>WebP:</strong> Formato moderno, mejor compresión</li>
+                        <li><strong>AVIF:</strong> Formato de nueva generación</li>
+                    </ul>
+
+                    <h3>Mejores prácticas</h3>
+                    <ul>
+                        <li>Siempre incluye el atributo alt</li>
+                        <li>Optimiza el tamaño de las imágenes</li>
+                        <li>Usa formatos modernos cuando sea posible</li>
+                        <li>Considera la carga diferida (lazy loading)</li>
+                        <li>Proporciona múltiples tamaños para responsive design</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección 2: Video y audio -->
+            <section class="content-section" id="video-audio">
+                <h2 class="section-title">
+                    <i class="fas fa-play-circle"></i>
+                    Video y audio en HTML
+                </h2>
+                <div class="topic-content">
+                    <p>HTML5 introdujo las etiquetas <code>&lt;video&gt;</code> y <code>&lt;audio&gt;</code> para incrustar contenido multimedia directamente en las páginas web sin necesidad de plugins externos.</p>
+
+                    <h3>Etiqueta &lt;video&gt;</h3>
+                    <p>Permite incorporar videos de forma nativa en HTML:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo básico de video:</h4>
+                        <pre><code>&lt;video controls width="600" height="400"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;source src="video.webm" type="video/webm"&gt;
+  Tu navegador no soporta el elemento video.
+&lt;/video&gt;</code></pre>
+                    </div>
+
+                    <h4>Atributos de video</h4>
+                    <ul>
+                        <li><code>controls</code>: Muestra controles de reproducción</li>
+                        <li><code>autoplay</code>: Reproduce automáticamente (úsalo con cuidado)</li>
+                        <li><code>loop</code>: Reproduce en bucle</li>
+                        <li><code>muted</code>: Silencia el audio por defecto</li>
+                        <li><code>poster</code>: Imagen que se muestra antes de reproducir</li>
+                        <li><code>preload</code>: Controla la precarga (none, metadata, auto)</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Video con todos los atributos:</h4>
+                        <pre><code>&lt;video 
+  controls 
+  width="800" 
+  height="450"
+  poster="miniatura.jpg"
+  preload="metadata"&gt;
+  
+  &lt;source src="video-hd.mp4" type="video/mp4"&gt;
+  &lt;source src="video-hd.webm" type="video/webm"&gt;
+  
+  &lt;!-- Subtítulos --&gt;
+  &lt;track src="subtitulos-es.vtt" kind="subtitles" srclang="es" label="Español"&gt;
+  
+  &lt;p&gt;Tu navegador no soporta video HTML5. 
+     &lt;a href="video-hd.mp4"&gt;Descargar video&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/video&gt;</code></pre>
+                    </div>
+
+                    <h3>Etiqueta &lt;audio&gt;</h3>
+                    <p>Similar a video, pero para contenido de audio:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de audio:</h4>
+                        <pre><code>&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+  &lt;source src="audio.ogg" type="audio/ogg"&gt;
+  &lt;source src="audio.wav" type="audio/wav"&gt;
+  Tu navegador no soporta el elemento audio.
+&lt;/audio&gt;</code></pre>
+                    </div>
+
+                    <h4>Atributos de audio</h4>
+                    <ul>
+                        <li><code>controls</code>: Muestra controles de reproducción</li>
+                        <li><code>autoplay</code>: Reproduce automáticamente</li>
+                        <li><code>loop</code>: Reproduce en bucle</li>
+                        <li><code>muted</code>: Silencia por defecto</li>
+                        <li><code>preload</code>: Controla la precarga</li>
+                    </ul>
+
+                    <h3>Formatos multimedia recomendados</h3>
+                    
+                    <h4>Video:</h4>
+                    <ul>
+                        <li><strong>MP4 (H.264):</strong> Amplia compatibilidad</li>
+                        <li><strong>WebM (VP9):</strong> Código abierto, buena compresión</li>
+                        <li><strong>AV1:</strong> Formato de nueva generación</li>
+                    </ul>
+
+                    <h4>Audio:</h4>
+                    <ul>
+                        <li><strong>MP3:</strong> Amplia compatibilidad</li>
+                        <li><strong>OGG Vorbis:</strong> Código abierto</li>
+                        <li><strong>AAC:</strong> Buena calidad y compresión</li>
+                        <li><strong>FLAC:</strong> Sin pérdida de calidad</li>
+                    </ul>
+
+                    <h3>Mejores prácticas multimedia</h3>
+                    <ul>
+                        <li>Proporciona múltiples formatos para compatibilidad</li>
+                        <li>Incluye texto alternativo para accesibilidad</li>
+                        <li>Optimiza el tamaño de los archivos</li>
+                        <li>Considera el autoplay (puede ser molesto)</li>
+                        <li>Usa poster para videos</li>
+                        <li>Proporciona controles siempre</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo de audio con playlist:</h4>
+                        <pre><code>&lt;div class="playlist"&gt;
+  &lt;h3&gt;Mi Playlist&lt;/h3&gt;
+  
+  &lt;audio controls&gt;
+    &lt;source src="cancion1.mp3" type="audio/mpeg"&gt;
+    &lt;source src="cancion1.ogg" type="audio/ogg"&gt;
+  &lt;/audio&gt;
+  &lt;p&gt;Canción 1 - Artista A&lt;/p&gt;
+  
+  &lt;audio controls&gt;
+    &lt;source src="cancion2.mp3" type="audio/mpeg"&gt;
+    &lt;source src="cancion2.ogg" type="audio/ogg"&gt;
+  &lt;/audio&gt;
+  &lt;p&gt;Canción 2 - Artista B&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Figure y figcaption -->
+            <section class="content-section" id="figure-figcaption">
+                <h2 class="section-title">
+                    <i class="fas fa-images"></i>
+                    Figure y figcaption
+                </h2>
+                <div class="topic-content">
+                    <p>Los elementos <code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code> proporcionan una forma semánticamente correcta de agrupar contenido multimedia con sus descripciones o títulos.</p>
+
+                    <h3>Elemento &lt;figure&gt;</h3>
+                    <p>Se usa para agrupar contenido que es referenciado desde el contenido principal pero que puede moverse a otra ubicación sin afectar el flujo del documento:</p>
+                    <ul>
+                        <li>Imágenes con descripción</li>
+                        <li>Diagramas y gráficos</li>
+                        <li>Fragmentos de código</li>
+                        <li>Videos con título</li>
+                        <li>Citas con atribución</li>
+                    </ul>
+
+                    <h3>Elemento &lt;figcaption&gt;</h3>
+                    <p>Proporciona una descripción o título para el contenido dentro de <code>&lt;figure&gt;</code>. Debe ser el primer o último elemento hijo de figure.</p>
+
+                    <div class="code-example">
+                        <h4>Ejemplo básico con imagen:</h4>
+                        <pre><code>&lt;figure&gt;
+  &lt;img src="paisaje.jpg" alt="Paisaje montañoso al atardecer"&gt;
+  &lt;figcaption&gt;
+    Atardecer en los Andes peruanos - Fotografía de Juan Pérez
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    </div>
+
+                    <h3>Casos de uso comunes</h3>
+
+                    <h4>1. Galería de imágenes</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;figure&gt;
+  &lt;img src="producto1.jpg" alt="Smartphone modelo X"&gt;
+  &lt;figcaption&gt;
+    &lt;strong&gt;Smartphone X&lt;/strong&gt; - Pantalla 6.1", 128GB, $599
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src="producto2.jpg" alt="Laptop gaming RGB"&gt;
+  &lt;figcaption&gt;
+    &lt;strong&gt;Gaming Laptop Pro&lt;/strong&gt; - RTX 4060, 16GB RAM, $1299
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    </div>
+
+                    <h4>2. Video con descripción</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;figure&gt;
+  &lt;video controls width="600" poster="tutorial-thumb.jpg"&gt;
+    &lt;source src="tutorial-html.mp4" type="video/mp4"&gt;
+    &lt;source src="tutorial-html.webm" type="video/webm"&gt;
+  &lt;/video&gt;
+  &lt;figcaption&gt;
+    Tutorial: Primeros pasos con HTML - Duración: 15 minutos
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    </div>
+
+                    <h4>3. Fragmento de código</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;figure&gt;
+  &lt;pre&gt;&lt;code&gt;
+function saludar(nombre) {
+  return `¡Hola, ${nombre}!`;
+}
+  &lt;/code&gt;&lt;/pre&gt;
+  &lt;figcaption&gt;
+    Función JavaScript para saludar usuarios
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    </div>
+
+                    <h4>4. Gráfico con datos</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;figure&gt;
+  &lt;img src="grafico-ventas.svg" alt="Gráfico de barras de ventas 2025"&gt;
+  &lt;figcaption&gt;
+    &lt;strong&gt;Figura 1:&lt;/strong&gt; Evolución de ventas por trimestre en 2025. 
+    Se observa un crecimiento del 25% respecto al año anterior.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    </div>
+
+                    <h4>5. Audio con información</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;figure&gt;
+  &lt;audio controls&gt;
+    &lt;source src="podcast-ep1.mp3" type="audio/mpeg"&gt;
+    &lt;source src="podcast-ep1.ogg" type="audio/ogg"&gt;
+  &lt;/audio&gt;
+  &lt;figcaption&gt;
+    &lt;strong&gt;Podcast TechTalk - Episodio 1:&lt;/strong&gt; 
+    "El futuro del desarrollo web" con María González
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    </div>
+
+                    <h3>Ventajas semánticas</h3>
+                    <ul>
+                        <li><strong>Accesibilidad:</strong> Los lectores de pantalla entienden la relación</li>
+                        <li><strong>SEO:</strong> Los motores de búsqueda comprenden mejor el contenido</li>
+                        <li><strong>Estructura:</strong> Código más limpio y organizad</li>
+                        <li><strong>Estilizado:</strong> Más fácil de estilizar con CSS</li>
+                        <li><strong>Mantenimiento:</strong> Código más fácil de mantener</li>
+                    </ul>
+
+                    <h3>Mejores prácticas</h3>
+                    <ul>
+                        <li>Usa figure solo cuando el contenido necesite descripción</li>
+                        <li>Coloca figcaption al inicio o al final de figure</li>
+                        <li>Haz que figcaption sea descriptivo pero conciso</li>
+                        <li>No uses figure para decoración, solo para contenido relevante</li>
+                        <li>Considera la numeración para figuras en artículos largos</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo completo - Artículo con múltiples figuras:</h4>
+                        <pre><code>&lt;article&gt;
+  &lt;h1&gt;Guía de fotografía de paisajes&lt;/h1&gt;
+  
+  &lt;p&gt;La fotografía de paisajes requiere técnica y paciencia...&lt;/p&gt;
+  
+  &lt;figure&gt;
+    &lt;img src="equipo-fotografia.jpg" alt="Cámara y trípode en montaña"&gt;
+    &lt;figcaption&gt;
+      &lt;strong&gt;Figura 1:&lt;/strong&gt; Equipo básico para fotografía de paisajes
+    &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  
+  &lt;p&gt;Como se puede ver en la Figura 1, el equipo esencial incluye...&lt;/p&gt;
+  
+  &lt;figure&gt;
+    &lt;video controls poster="tecnica-composicion.jpg"&gt;
+      &lt;source src="composicion-regla-tercios.mp4" type="video/mp4"&gt;
+    &lt;/video&gt;
+    &lt;figcaption&gt;
+      &lt;strong&gt;Video tutorial:&lt;/strong&gt; Aplicando la regla de los tercios
+    &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/article&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Galería multimedia personal</h3>
+                        <span class="difficulty">Intermedio</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Inserta una imagen de perfil y un video de presentación o un audio corto de bienvenida usando las técnicas aprendidas.</p>
+                        
+                        <h4>Pasos a seguir:</h4>
+                        <ol class="exercise-steps">
+                            <li>Crea una sección "Sobre mí" con una imagen de perfil usando figure y figcaption</li>
+                            <li>Agrega un video de presentación personal (puedes usar un placeholder)</li>
+                            <li>Incluye un audio de bienvenida con controles</li>
+                            <li>Asegúrate de usar todos los atributos necesarios (alt, controls, etc.)</li>
+                            <li>Aplica las mejores prácticas de accesibilidad</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Estructura sugerida:</h4>
+                            <pre><code>&lt;section id="sobre-mi"&gt;
+  &lt;h2&gt;Sobre mí&lt;/h2&gt;
+  
+  &lt;figure&gt;
+    &lt;img src="perfil.jpg" alt="Tu nombre - Desarrollador web" width="300"&gt;
+    &lt;figcaption&gt;Tu Nombre - Desarrollador Frontend&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  
+  &lt;figure&gt;
+    &lt;video controls width="600" poster="video-thumb.jpg"&gt;
+      &lt;source src="presentacion.mp4" type="video/mp4"&gt;
+      &lt;source src="presentacion.webm" type="video/webm"&gt;
+      No se puede cargar el video.
+    &lt;/video&gt;
+    &lt;figcaption&gt;Video de presentación personal&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  
+  &lt;figure&gt;
+    &lt;audio controls&gt;
+      &lt;source src="bienvenida.mp3" type="audio/mpeg"&gt;
+      &lt;source src="bienvenida.ogg" type="audio/ogg"&gt;
+      No se puede cargar el audio.
+    &lt;/audio&gt;
+    &lt;figcaption&gt;Mensaje de bienvenida&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/section&gt;</code></pre>
+                        </div>
+
+                        <h4>Puntos extra:</h4>
+                        <ul>
+                            <li>Agrega subtítulos al video</li>
+                            <li>Usa lazy loading en las imágenes</li>
+                            <li>Crea una galería con múltiples imágenes</li>
+                            <li>Implementa controles personalizados con CSS</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/img" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fab fa-firefox"></i>
+                        </div>
+                        <h3>MDN - Elemento img</h3>
+                        <p>Documentación completa sobre la etiqueta img y sus atributos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/video" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <h3>MDN - Video y Audio</h3>
+                        <p>Guía completa sobre elementos multimedia en HTML5</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://web.dev/fast/#optimize-your-images" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Web.dev - Optimización</h3>
+                        <p>Técnicas avanzadas para optimizar imágenes y multimedia</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo02.html">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Módulo Anterior</span>
+                </a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo04.html">
+                    <span>Siguiente Módulo</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 3: Imágenes y multimedia</p>
+        </footer>
+    </div>
+</body>
+</html>

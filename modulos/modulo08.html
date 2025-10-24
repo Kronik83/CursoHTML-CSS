@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Posicionamiento y diseño - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 8 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">08</div>
+            <div class="module-info">
+                <h1 class="module-title">Posicionamiento y diseño</h1>
+                <p class="module-description">Domina el posicionamiento CSS y técnicas de layout</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#position-types" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-arrows-alt"></i>
+                            </div>
+                            <h3>Tipos de posicionamiento</h3>
+                            <p>Domina static, relative, absolute, fixed y sticky positioning.</p>
+                        </div>
+                    </a>
+                    <a href="#float-clear" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-align-left"></i>
+                            </div>
+                            <h3>Float y Clear</h3>
+                            <p>Aprende las técnicas clásicas de layout con float y clear.</p>
+                        </div>
+                    </a>
+                    <a href="#z-index" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h3>Z-index y capas</h3>
+                            <p>Controla el apilamiento y orden de elementos superpuestos.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Tipos de posicionamiento -->
+            <section class="content-section" id="position-types">
+                <h2 class="section-title">
+                    <i class="fas fa-arrows-alt"></i>
+                    Tipos de posicionamiento en CSS
+                </h2>
+                <div class="topic-content">
+                    <p>El posicionamiento CSS controla dónde aparecen los elementos en la página. La propiedad <code>position</code> define el método de posicionamiento, y las propiedades <code>top</code>, <code>right</code>, <code>bottom</code> y <code>left</code> especifican la ubicación exacta.</p>
+                    
+                    <h3>1. position: static (por defecto)</h3>
+                    <p>Es el posicionamiento normal del flujo del documento. Los elementos aparecen en el orden que están en el HTML.</p>
+                    <div class="code-example">
+                        <pre><code>.estatico {
+  position: static;  /* Valor por defecto */
+  /* top, right, bottom, left NO tienen efecto */
+}
+
+/* Comportamiento:
+   - Sigue el flujo normal del documento
+   - No se puede mover con top, right, bottom, left
+   - No crea contexto de apilamiento
+   - Más predecible y estable */</code></pre>
+                    </div>
+
+                    <h3>2. position: relative</h3>
+                    <p>El elemento se posiciona relativo a su posición original en el flujo normal.</p>
+                    <div class="code-example">
+                        <pre><code>.relativo {
+  position: relative;
+  top: 20px;     /* 20px hacia abajo desde su posición original */
+  left: 30px;    /* 30px hacia la derecha desde su posición original */
+}
+
+/* Características:
+   - Mantiene su espacio original en el flujo
+   - Se mueve visualmente pero no afecta otros elementos
+   - Crea contexto de apilamiento (z-index funciona)
+   - Punto de referencia para posicionamiento absoluto */</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Ejemplo práctico con relative:</h4>
+                        <pre><code>&lt;div class="contenedor"&gt;
+  &lt;div class="caja normal"&gt;Normal&lt;/div&gt;
+  &lt;div class="caja relativa"&gt;Relativa&lt;/div&gt;
+  &lt;div class="caja normal"&gt;Normal&lt;/div&gt;
+&lt;/div&gt;
+
+.caja {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  margin: 10px;
+  display: inline-block;
+}
+
+.relativa {
+  position: relative;
+  top: 15px;
+  left: 20px;
+  background-color: lightcoral;
+}
+
+/* La caja relativa se mueve pero deja su espacio original */</code></pre>
+                    </div>
+
+                    <h3>3. position: absolute</h3>
+                    <p>El elemento se posiciona relativo a su contenedor posicionado más cercano (que no sea static).</p>
+                    <div class="code-example">
+                        <pre><code>.absoluto {
+  position: absolute;
+  top: 50px;     /* 50px desde el top del contenedor posicionado */
+  right: 20px;   /* 20px desde el right del contenedor posicionado */
+}
+
+/* Características:
+   - Se saca del flujo normal (no ocupa espacio)
+   - Se posiciona relativo al ancestro posicionado más cercano
+   - Si no hay ancestro posicionado, se posiciona relativo al viewport
+   - Crea contexto de apilamiento
+   - Los otros elementos actúan como si no existiera */</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Sistema contenedor + elemento absoluto:</h4>
+                        <pre><code>&lt;div class="contenedor-relativo"&gt;
+  &lt;p&gt;Contenido normal del contenedor...&lt;/p&gt;
+  &lt;div class="elemento-absoluto"&gt;Posicionado absolutamente&lt;/div&gt;
+  &lt;p&gt;Más contenido normal...&lt;/p&gt;
+&lt;/div&gt;
+
+.contenedor-relativo {
+  position: relative;  /* Crea el contexto de posicionamiento */
+  border: 2px solid blue;
+  padding: 20px;
+  height: 300px;
+}
+
+.elemento-absoluto {
+  position: absolute;
+  top: 10px;           /* 10px desde el top del contenedor */
+  right: 10px;         /* 10px desde el right del contenedor */
+  background-color: yellow;
+  padding: 10px;
+  border: 1px solid red;
+}</code></pre>
+                    </div>
+
+                    <h3>4. position: fixed</h3>
+                    <p>El elemento se posiciona relativo a la ventana del navegador (viewport).</p>
+                    <div class="code-example">
+                        <pre><code>.fijo {
+  position: fixed;
+  top: 0;        /* Pegado al top de la ventana */
+  left: 0;       /* Pegado al left de la ventana */
+  width: 100%;   /* Ancho completo */
+}
+
+/* Características:
+   - Siempre visible, no se mueve con scroll
+   - Se posiciona relativo al viewport, no a ningún elemento
+   - Se saca del flujo normal
+   - Ideal para headers fijos, botones flotantes, modales */</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Header fijo típico:</h4>
+                        <pre><code>.header-fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  z-index: 1000;      /* Asegurar que esté por encima */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Compensar el espacio del header fijo */
+body {
+  padding-top: 60px;  /* Altura del header */
+}
+
+/* Botón flotante */
+.boton-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+}</code></pre>
+                    </div>
+
+                    <h3>5. position: sticky</h3>
+                    <p>Híbrido entre relative y fixed. Se comporta como relative hasta que alcanza un punto, luego como fixed.</p>
+                    <div class="code-example">
+                        <pre><code>.pegajoso {
+  position: sticky;
+  top: 20px;     /* Se "pega" cuando está a 20px del top */
+}
+
+/* Características:
+   - Funciona dentro de su contenedor padre
+   - Se mueve con scroll hasta alcanzar el threshold
+   - Luego se "pega" en la posición especificada
+   - Ideal para sidebars, headers de sección */</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Navegación sticky en sidebar:</h4>
+                        <pre><code>&lt;div class="contenido-principal"&gt;
+  &lt;aside class="sidebar"&gt;
+    &lt;nav class="nav-sticky"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#seccion1"&gt;Sección 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#seccion2"&gt;Sección 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#seccion3"&gt;Sección 3&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+  
+  &lt;main class="contenido"&gt;
+    &lt;!-- Contenido largo aquí --&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.nav-sticky {
+  position: sticky;
+  top: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+}</code></pre>
+                    </div>
+
+                    <h3>Comparación visual de posicionamientos</h3>
+                    <div class="code-example">
+                        <h4>HTML de demostración:</h4>
+                        <pre><code>&lt;div class="demo-container"&gt;
+  &lt;div class="box static"&gt;Static&lt;/div&gt;
+  &lt;div class="box relative"&gt;Relative&lt;/div&gt;
+  &lt;div class="box absolute"&gt;Absolute&lt;/div&gt;
+  &lt;div class="box static"&gt;Static&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="fixed"&gt;Fixed&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS de demostración:</h4>
+                        <pre><code>.demo-container {
+  position: relative;
+  border: 2px solid #333;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #666;
+  text-align: center;
+  line-height: 80px;
+}
+
+.static {
+  position: static;
+  background-color: lightblue;
+}
+
+.relative {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  background-color: lightgreen;
+}
+
+.absolute {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: lightcoral;
+}
+
+.fixed {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: lightyellow;
+  border: 2px solid orange;
+  padding: 10px;
+}</code></pre>
+                    </div>
+
+                    <h3>Propiedades de posicionamiento</h3>
+                    <div class="code-example">
+                        <h4>top, right, bottom, left:</h4>
+                        <pre><code>/* Valores positivos */
+.elemento {
+  position: absolute;
+  top: 20px;     /* 20px desde arriba */
+  right: 30px;   /* 30px desde la derecha */
+  bottom: 40px;  /* 40px desde abajo */
+  left: 50px;    /* 50px desde la izquierda */
+}
+
+/* Valores negativos */
+.sobresalir {
+  position: relative;
+  top: -10px;    /* 10px hacia arriba */
+  left: -15px;   /* 15px hacia la izquierda */
+}
+
+/* Valores en porcentaje */
+.centrado {
+  position: absolute;
+  top: 50%;      /* Centro vertical */
+  left: 50%;     /* Centro horizontal */
+  transform: translate(-50%, -50%); /* Compensar tamaño propio */
+}
+
+/* Valores auto */
+.auto-posicion {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;  /* Se calcula automáticamente */
+  left: auto;    /* Se calcula automáticamente */
+}</code></pre>
+                    </div>
+
+                    <h3>Técnicas comunes de posicionamiento</h3>
+
+                    <h4>1. Centrado absoluto</h4>
+                    <div class="code-example">
+                        <pre><code>/* Método tradicional */
+.centrado-tradicional {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 100px;
+  margin-top: -50px;   /* -height/2 */
+  margin-left: -100px; /* -width/2 */
+}
+
+/* Método moderno con transform */
+.centrado-moderno {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Con dimensiones conocidas */
+.centrado-conocido {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 200px;
+  height: 100px;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Overlay/Modal</h4>
+                    <div class="code-example">
+                        <pre><code>.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}</code></pre>
+                    </div>
+
+                    <h4>3. Tooltip posicionado</h4>
+                    <div class="code-example">
+                        <pre><code>.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333;
+}
+
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Float y Clear -->
+            <section class="content-section" id="float-clear">
+                <h2 class="section-title">
+                    <i class="fas fa-align-left"></i>
+                    Float y Clear: técnicas clásicas de layout
+                </h2>
+                <div class="topic-content">
+                    <p>Antes de Flexbox y Grid, <code>float</code> era la técnica principal para crear layouts complejos. Aunque menos común hoy día, sigue siendo útil para ciertos casos específicos como texto alrededor de imágenes.</p>
+                    
+                    <h3>La propiedad float</h3>
+                    <p>Float hace que un elemento "flote" hacia un lado, permitiendo que otros elementos fluyan alrededor de él.</p>
+
+                    <h4>Valores de float</h4>
+                    <div class="code-example">
+                        <pre><code>/* Valores principales */
+.float-left {
+  float: left;    /* Flota hacia la izquierda */
+}
+
+.float-right {
+  float: right;   /* Flota hacia la derecha */
+}
+
+.no-float {
+  float: none;    /* Sin float (valor por defecto) */
+}
+
+/* Valor menos común */
+.inherit-float {
+  float: inherit; /* Hereda el valor del padre */
+}</code></pre>
+                    </div>
+
+                    <h3>Comportamiento del float</h3>
+                    <div class="code-example">
+                        <h4>Ejemplo básico con imagen:</h4>
+                        <pre><code>&lt;div class="articulo"&gt;
+  &lt;img src="imagen.jpg" class="imagen-flotante" alt="Descripción"&gt;
+  &lt;p&gt;Este párrafo fluye alrededor de la imagen flotante. El texto se envuelve naturalmente alrededor del elemento flotado, creando un efecto de revista o periódico. Es muy útil para layouts editoriales.&lt;/p&gt;
+  &lt;p&gt;Este segundo párrafo también continúa fluyendo alrededor de la imagen hasta que se acabe el espacio vertical de la imagen.&lt;/p&gt;
+&lt;/div&gt;
+
+.imagen-flotante {
+  float: left;
+  margin: 0 20px 20px 0;  /* Espacio alrededor */
+  width: 200px;
+  height: auto;
+}</code></pre>
+                    </div>
+
+                    <h3>Características del float</h3>
+                    <ul>
+                        <li>✅ El elemento se saca del flujo normal</li>
+                        <li>✅ Se convierte en block-level (aunque sea inline originalmente)</li>
+                        <li>✅ Los elementos siguientes fluyen alrededor</li>
+                        <li>✅ El contenedor puede "colapsar" si todos los hijos flotan</li>
+                        <li>⚠️ Puede crear layouts inesperados si no se maneja bien</li>
+                    </ul>
+
+                    <h3>La propiedad clear</h3>
+                    <p>Clear evita que un elemento fluya junto a elementos flotados, forzándolo a aparecer debajo.</p>
+                    <div class="code-example">
+                        <pre><code>/* Valores de clear */
+.clear-left {
+  clear: left;    /* No elementos flotados a la izquierda */
+}
+
+.clear-right {
+  clear: right;   /* No elementos flotados a la derecha */
+}
+
+.clear-both {
+  clear: both;    /* No elementos flotados en ningún lado */
+}
+
+.clear-none {
+  clear: none;    /* Permite elementos flotados (por defecto) */
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Ejemplo práctico de clear:</h4>
+                        <pre><code>&lt;div class="contenedor"&gt;
+  &lt;div class="caja float-left"&gt;Izquierda&lt;/div&gt;
+  &lt;div class="caja float-right"&gt;Derecha&lt;/div&gt;
+  &lt;div class="caja clear-both"&gt;Este elemento aparece debajo&lt;/div&gt;
+&lt;/div&gt;
+
+.caja {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  margin: 10px;
+  padding: 10px;
+}
+
+.float-left {
+  float: left;
+  background-color: lightcoral;
+}
+
+.float-right {
+  float: right;
+  background-color: lightgreen;
+}
+
+.clear-both {
+  clear: both;
+  background-color: lightyellow;
+}</code></pre>
+                    </div>
+
+                    <h3>Clearfix: solucionando el colapso del contenedor</h3>
+                    <p>Cuando todos los elementos hijos flotan, el contenedor puede "colapsar" (altura = 0).</p>
+
+                    <div class="code-example">
+                        <h4>Problema del colapso:</h4>
+                        <pre><code>&lt;div class="contenedor-problematico"&gt;
+  &lt;div class="hijo-flotante"&gt;Contenido flotante&lt;/div&gt;
+  &lt;div class="hijo-flotante"&gt;Más contenido flotante&lt;/div&gt;
+&lt;/div&gt;
+
+.contenedor-problematico {
+  border: 2px solid red;
+  /* Este contenedor tendrá altura 0 */
+}
+
+.hijo-flotante {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  margin: 10px;
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Soluciones con clearfix:</h4>
+                        <pre><code>/* Método 1: Clearfix clásico */
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Método 2: Clearfix moderno */
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* Método 3: Overflow (método simple) */
+.contenedor-overflow {
+  overflow: hidden;  /* Crea nuevo contexto de formateo */
+}
+
+/* Método 4: Display flow-root (moderno) */
+.contenedor-moderno {
+  display: flow-root;  /* Crea contexto sin efectos secundarios */
+}
+
+/* Uso en HTML */
+&lt;div class="contenedor clearfix"&gt;
+  &lt;div class="hijo-flotante"&gt;Contenido&lt;/div&gt;
+  &lt;div class="hijo-flotante"&gt;Más contenido&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <h3>Layouts tradicionales con float</h3>
+
+                    <h4>Layout de 2 columnas</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="layout-2col clearfix"&gt;
+  &lt;aside class="sidebar"&gt;Sidebar&lt;/aside&gt;
+  &lt;main class="contenido-principal"&gt;Contenido principal&lt;/main&gt;
+&lt;/div&gt;
+
+.layout-2col {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  float: left;
+  width: 25%;
+  background-color: #f8f9fa;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contenido-principal {
+  float: right;
+  width: 75%;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}</code></pre>
+                    </div>
+
+                    <h4>Layout de 3 columnas</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="layout-3col clearfix"&gt;
+  &lt;aside class="sidebar-left"&gt;Sidebar Izquierdo&lt;/aside&gt;
+  &lt;main class="contenido-centro"&gt;Contenido Central&lt;/main&gt;
+  &lt;aside class="sidebar-right"&gt;Sidebar Derecho&lt;/aside&gt;
+&lt;/div&gt;
+
+.layout-3col {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sidebar-left {
+  float: left;
+  width: 20%;
+  background-color: #e9ecef;
+}
+
+.contenido-centro {
+  float: left;
+  width: 60%;
+  background-color: white;
+  padding: 20px;
+}
+
+.sidebar-right {
+  float: right;
+  width: 20%;
+  background-color: #e9ecef;
+}
+
+/* Todos los elementos necesitan box-sizing */
+.sidebar-left,
+.contenido-centro,
+.sidebar-right {
+  box-sizing: border-box;
+  padding: 20px;
+}</code></pre>
+                    </div>
+
+                    <h3>Grid de imágenes/tarjetas con float</h3>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="grid-container clearfix"&gt;
+  &lt;div class="tarjeta"&gt;Tarjeta 1&lt;/div&gt;
+  &lt;div class="tarjeta"&gt;Tarjeta 2&lt;/div&gt;
+  &lt;div class="tarjeta"&gt;Tarjeta 3&lt;/div&gt;
+  &lt;div class="tarjeta"&gt;Tarjeta 4&lt;/div&gt;
+&lt;/div&gt;
+
+.grid-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tarjeta {
+  float: left;
+  width: calc(25% - 20px);  /* 4 columnas con espacio */
+  margin: 10px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-sizing: border-box;
+  min-height: 200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tarjeta {
+    width: calc(50% - 20px);  /* 2 columnas en tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .tarjeta {
+    width: calc(100% - 20px); /* 1 columna en móvil */
+  }
+}</code></pre>
+                    </div>
+
+                    <h3>Problemas comunes con float</h3>
+
+                    <h4>1. Colapso de contenedor</h4>
+                    <div class="code-example">
+                        <pre><code>/* Problema */
+.contenedor-sin-altura {
+  border: 2px solid red;
+  /* Colapsa si todos los hijos flotan */
+}
+
+/* Solución */
+.contenedor-con-clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Elementos de diferentes alturas</h4>
+                    <div class="code-example">
+                        <pre><code>/* Problema: elementos flotados de diferentes alturas se "atascan" */
+.tarjeta-alta {
+  float: left;
+  width: 25%;
+  height: 300px;  /* Más alta que otras */
+}
+
+.tarjeta-normal {
+  float: left;
+  width: 25%;
+  height: 200px;
+}
+
+/* Solución: clear cada cierto número de elementos */
+.tarjeta:nth-child(4n+1) {
+  clear: left;  /* Cada 4to elemento hace clear */
+}</code></pre>
+                    </div>
+
+                    <h3>Cuándo usar float en 2025</h3>
+                    
+                    <h4>✅ Casos apropiados para float:</h4>
+                    <ul>
+                        <li>Texto alrededor de imágenes (uso original)</li>
+                        <li>Elementos flotantes dentro de contenido editorial</li>
+                        <li>Sistemas legacy que no se pueden actualizar</li>
+                    </ul>
+
+                    <h4>❌ Evitar float para:</h4>
+                    <ul>
+                        <li>Layouts principales (usar Flexbox o Grid)</li>
+                        <li>Centrado de elementos</li>
+                        <li>Distribución de elementos en filas/columnas</li>
+                        <li>Layouts responsivos complejos</li>
+                    </ul>
+
+                    <h4>Alternativas modernas:</h4>
+                    <div class="code-example">
+                        <pre><code>/* En lugar de float para layouts, usar: */
+
+/* Flexbox para distribución 1D */
+.contenedor-flex {
+  display: flex;
+  gap: 20px;
+}
+
+.hijo-flex {
+  flex: 1;  /* Distribución igual */
+}
+
+/* Grid para layouts 2D */
+.contenedor-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+}
+
+/* Para texto alrededor de imágenes - float sigue siendo útil */
+.imagen-editorial {
+  float: left;
+  margin: 0 20px 20px 0;
+  shape-outside: circle(50%);  /* Forma personalizada */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Z-index y capas -->
+            <section class="content-section" id="z-index">
+                <h2 class="section-title">
+                    <i class="fas fa-layer-group"></i>
+                    Z-index y contextos de apilamiento
+                </h2>
+                <div class="topic-content">
+                    <p>El z-index controla el orden de apilamiento de elementos superpuestos. Es fundamental para modales, tooltips, menús desplegables y cualquier elemento que deba aparecer "por encima" de otros.</p>
+                    
+                    <h3>¿Qué es el z-index?</h3>
+                    <p>Z-index determina el orden en el eje Z (profundidad) de elementos posicionados. Los valores más altos aparecen encima de valores más bajos.</p>
+
+                    <div class="code-example">
+                        <h4>Uso básico del z-index:</h4>
+                        <pre><code>.elemento-atras {
+  position: relative;
+  z-index: 1;
+  background-color: blue;
+}
+
+.elemento-adelante {
+  position: relative;
+  z-index: 2;       /* Mayor valor = más adelante */
+  background-color: red;
+}
+
+.elemento-muy-adelante {
+  position: absolute;
+  z-index: 999;     /* Mucho más adelante */
+  background-color: yellow;
+}
+
+/* Valores negativos también funcionan */
+.elemento-muy-atras {
+  position: relative;
+  z-index: -1;      /* Detrás de elementos con z-index 0 */
+}</code></pre>
+                    </div>
+
+                    <h3>Requisitos para que z-index funcione</h3>
+                    <p>Z-index solo funciona en elementos que tienen <code>position</code> diferente a <code>static</code>:</p>
+                    <div class="code-example">
+                        <pre><code>/* ❌ NO funciona - position static */
+.no-funciona {
+  position: static;  /* Valor por defecto */
+  z-index: 999;      /* Se ignora completamente */
+}
+
+/* ✅ SÍ funciona - position diferente a static */
+.si-funciona-relative {
+  position: relative;
+  z-index: 999;
+}
+
+.si-funciona-absolute {
+  position: absolute;
+  z-index: 999;
+}
+
+.si-funciona-fixed {
+  position: fixed;
+  z-index: 999;
+}
+
+.si-funciona-sticky {
+  position: sticky;
+  z-index: 999;
+}</code></pre>
+                    </div>
+
+                    <h3>Contextos de apilamiento (Stacking Context)</h3>
+                    <p>Un contexto de apilamiento es un grupo de elementos que se apilan juntos. Los z-index solo se comparan dentro del mismo contexto.</p>
+
+                    <h4>Elementos que crean contexto de apilamiento:</h4>
+                    <ul>
+                        <li>Elemento raíz del documento (&lt;html&gt;)</li>
+                        <li>Elementos con position != static y z-index != auto</li>
+                        <li>Elementos con opacity &lt; 1</li>
+                        <li>Elementos con transform != none</li>
+                        <li>Elementos con filter != none</li>
+                        <li>Elementos con isolation: isolate</li>
+                        <li>Flex items y grid items con z-index != auto</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo de contextos de apilamiento:</h4>
+                        <pre><code>&lt;div class="contexto-padre"&gt;
+  &lt;div class="hijo-alto"&gt;Z-index 100&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="contexto-otro-padre"&gt;
+  &lt;div class="hijo-bajo"&gt;Z-index 1&lt;/div&gt;
+&lt;/div&gt;
+
+.contexto-padre {
+  position: relative;
+  z-index: 1;           /* Crea contexto de apilamiento */
+  background-color: blue;
+}
+
+.hijo-alto {
+  position: relative;
+  z-index: 100;         /* Solo se compara dentro de su contexto */
+  background-color: red;
+}
+
+.contexto-otro-padre {
+  position: relative;
+  z-index: 2;           /* Mayor que contexto-padre */
+  background-color: green;
+}
+
+.hijo-bajo {
+  position: relative;
+  z-index: 1;           /* Pero aparece encima de hijo-alto */
+  background-color: yellow;
+}
+
+/* Resultado: hijo-bajo (z-index 1) aparece encima de hijo-alto (z-index 100)
+   porque contexto-otro-padre (z-index 2) > contexto-padre (z-index 1) */</code></pre>
+                    </div>
+
+                    <h3>Valores de z-index y buenas prácticas</h3>
+                    <div class="code-example">
+                        <h4>Sistema de capas organizado:</h4>
+                        <pre><code>/* Sistema de capas jerárquico */
+:root {
+  --z-background: -1;
+  --z-default: 0;
+  --z-content: 1;
+  --z-header: 10;
+  --z-dropdown: 100;
+  --z-tooltip: 200;
+  --z-modal-backdrop: 1000;
+  --z-modal: 1001;
+  --z-notification: 2000;
+  --z-debug: 9999;
+}
+
+/* Uso del sistema */
+.header {
+  position: fixed;
+  z-index: var(--z-header);
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: var(--z-dropdown);
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: var(--z-modal-backdrop);
+}
+
+.modal {
+  position: fixed;
+  z-index: var(--z-modal);
+}
+
+.tooltip {
+  position: absolute;
+  z-index: var(--z-tooltip);
+}</code></pre>
+                    </div>
+
+                    <h3>Casos de uso comunes</h3>
+
+                    <h4>1. Modal con backdrop</h4>
+                    <div class="code-example">
+                        <pre><code>.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1001;     /* Encima del backdrop */
+  max-width: 90%;
+  max-height: 90%;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Header fijo con dropdown</h4>
+                    <div class="code-example">
+                        <pre><code>.header-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  z-index: 100;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 101;      /* Encima del header */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}</code></pre>
+                    </div>
+
+                    <h4>3. Tooltip posicionado</h4>
+                    <div class="code-example">
+                        <pre><code>.tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 1000;     /* Encima de la mayoría de elementos */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  
+  /* Flecha del tooltip */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+  }
+}
+
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}</code></pre>
+                    </div>
+
+                    <h3>Debugging de z-index</h3>
+
+                    <h4>Herramientas y técnicas:</h4>
+                    <div class="code-example">
+                        <pre><code>/* CSS temporal para visualizar capas */
+.debug-layers * {
+  outline: 1px solid red;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.debug-layers *:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+/* Mostrar z-index en elementos */
+.debug-z-index::before {
+  content: 'z-index: ' attr(style);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: yellow;
+  padding: 2px 4px;
+  font-size: 12px;
+  z-index: 9999;
+}</code></pre>
+                    </div>
+
+                    <h4>Usando herramientas del navegador:</h4>
+                    <ul>
+                        <li><strong>Chrome DevTools:</strong> Elements → Styles → Computed → "Show all" → buscar z-index</li>
+                        <li><strong>Firefox DevTools:</strong> Inspector → Layout → "Display z-index values"</li>
+                        <li><strong>Extensiones:</strong> "Z-Index DevTool" para Chrome</li>
+                    </ul>
+
+                    <h3>Problemas comunes y soluciones</h3>
+
+                    <h4>1. Z-index no funciona</h4>
+                    <div class="code-example">
+                        <pre><code>/* Problema: elemento sin position */
+.no-funciona {
+  z-index: 999;  /* Ignorado - falta position */
+}
+
+/* Solución: agregar position */
+.si-funciona {
+  position: relative;  /* Mínimo requerido */
+  z-index: 999;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Contextos de apilamiento inesperados</h4>
+                    <div class="code-example">
+                        <pre><code>/* Problema: elemento padre crea contexto sin querer */
+.padre-problematico {
+  opacity: 0.99;     /* Crea contexto de apilamiento */
+  /* o transform, filter, etc. */
+}
+
+.hijo-atrapado {
+  position: relative;
+  z-index: 9999;     /* No puede escapar del contexto del padre */
+}
+
+/* Soluciones: */
+/* 1. Mover el elemento fuera del contexto problemático */
+/* 2. Ajustar el z-index del elemento padre */
+.padre-solucion {
+  z-index: 1000;     /* Elevar todo el contexto */
+}
+
+/* 3. Usar isolation para crear nuevo contexto controlado */
+.nuevo-contexto {
+  isolation: isolate;
+}</code></pre>
+                    </div>
+
+                    <h4>3. Z-index muy altos</h4>
+                    <div class="code-example">
+                        <pre><code>/* ❌ Malo: valores excesivos */
+.z-index-excesivo {
+  z-index: 999999999;  /* Innecesario y difícil de mantener */
+}
+
+/* ✅ Bueno: sistema organizado */
+.z-index-organizado {
+  z-index: var(--z-modal);  /* Valor semántico y mantenible */
+}</code></pre>
+                    </div>
+
+                    <h3>Mejores prácticas para z-index</h3>
+                    <ul>
+                        <li>✅ <strong>Usa un sistema de capas</strong> con variables CSS</li>
+                        <li>✅ <strong>Valores bajos</strong> son mejores que valores altos</li>
+                        <li>✅ <strong>Documenta</strong> por qué necesitas cierto z-index</li>
+                        <li>✅ <strong>Agrupa</strong> elementos relacionados en rangos</li>
+                        <li>✅ <strong>Usa isolation</strong> para crear contextos controlados</li>
+                        <li>❌ <strong>Evita</strong> z-index mayores a 10000 sin razón específica</li>
+                        <li>❌ <strong>No uses</strong> z-index: 999999 como solución rápida</li>
+                        <li>❌ <strong>No olvides</strong> que z-index requiere position</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Header fijo con menú scroll-aware</h3>
+                        <span class="difficulty">Avanzado</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear un header que se mantenga fijo arriba mientras haces scroll, con un sistema de capas bien organizado.</p>
+                        
+                        <h4>Requisitos:</h4>
+                        <ol class="exercise-steps">
+                            <li>Header fijo en la parte superior con navegación</li>
+                            <li>Contenido principal que compense el espacio del header</li>
+                            <li>Botón flotante en la esquina inferior derecha</li>
+                            <li>Modal que se active al hacer clic en el botón</li>
+                            <li>Sistema de z-index organizado con variables CSS</li>
+                            <li>Tooltip en algunos elementos del menú</li>
+                            <li>Scroll suave a secciones internas</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Estructura HTML sugerida:</h4>
+                            <pre><code>&lt;header class="header-fijo"&gt;
+  &lt;nav class="nav-principal"&gt;
+    &lt;div class="logo"&gt;Mi Sitio&lt;/div&gt;
+    &lt;ul class="nav-menu"&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a href="#inicio" class="tooltip-container"&gt;
+          Inicio
+          &lt;span class="tooltip"&gt;Ir al inicio&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;&lt;a href="#servicios"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="nav-item"&gt;&lt;a href="#contacto"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main class="contenido-principal"&gt;
+  &lt;section id="inicio" class="seccion"&gt;Contenido...&lt;/section&gt;
+  &lt;section id="servicios" class="seccion"&gt;Contenido...&lt;/section&gt;
+  &lt;section id="contacto" class="seccion"&gt;Contenido...&lt;/section&gt;
+&lt;/main&gt;
+
+&lt;button class="boton-flotante" onclick="abrirModal()"&gt;?&lt;/button&gt;
+
+&lt;div class="modal-backdrop" id="modalBackdrop"&gt;
+  &lt;div class="modal"&gt;
+    &lt;h2&gt;Modal de Ayuda&lt;/h2&gt;
+    &lt;p&gt;Contenido del modal...&lt;/p&gt;
+    &lt;button onclick="cerrarModal()"&gt;Cerrar&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+
+                        <h4>Especificaciones técnicas:</h4>
+                        <ul>
+                            <li>✅ Header: position fixed, top: 0, width: 100%</li>
+                            <li>✅ Z-index del header: 100</li>
+                            <li>✅ Botón flotante: position fixed, bottom: 20px, right: 20px</li>
+                            <li>✅ Z-index del botón: 200</li>
+                            <li>✅ Modal backdrop: z-index 1000</li>
+                            <li>✅ Modal: z-index 1001</li>
+                            <li>✅ Tooltips: z-index 500</li>
+                            <li>✅ Compensar height del header en el body</li>
+                        </ul>
+
+                        <h4>JavaScript básico necesario:</h4>
+                        <div class="code-example">
+                            <pre><code>function abrirModal() {
+  document.getElementById('modalBackdrop').style.display = 'flex';
+}
+
+function cerrarModal() {
+  document.getElementById('modalBackdrop').style.display = 'none';
+}
+
+// Scroll suave (opcional)
+document.querySelectorAll('a[href^="#"]').forEach(anchor =&gt; {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    target.scrollIntoView({ behavior: 'smooth' });
+  });
+});</code></pre>
+                        </div>
+
+                        <h4>Bonus (opcional):</h4>
+                        <ul>
+                            <li>⭐ Agregar transiciones suaves a los tooltips</li>
+                            <li>⭐ Header que cambie de opacidad con el scroll</li>
+                            <li>⭐ Indicador de scroll en el header</li>
+                            <li>⭐ Menú hamburguesa para móvil</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/CSS/position" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-arrows-alt"></i>
+                        </div>
+                        <h3>MDN - CSS Position</h3>
+                        <p>Documentación completa sobre posicionamiento CSS</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://css-tricks.com/almanac/properties/p/position/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>CSS-Tricks - Position</h3>
+                        <p>Guía visual completa de posicionamiento</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>MDN - Understanding Z-index</h3>
+                        <p>Guía detallada sobre z-index y contextos de apilamiento</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo07.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo09.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 8: Posicionamiento y diseño</p>
+        </footer>
+    </div>
+</body>
+</html>

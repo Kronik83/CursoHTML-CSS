@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Modelo de caja (Box Model) - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 7 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">07</div>
+            <div class="module-info">
+                <h1 class="module-title">Modelo de caja (Box Model)</h1>
+                <p class="module-description">Comprende el modelo de caja y sus propiedades fundamentales</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#box-model-concepto" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h3>Concepto del Box Model</h3>
+                            <p>Comprende cómo CSS trata cada elemento como una caja rectangular.</p>
+                        </div>
+                    </a>
+                    <a href="#margin-padding" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </div>
+                            <h3>Margin y Padding</h3>
+                            <p>Domina el espaciado exterior e interior de los elementos.</p>
+                        </div>
+                    </a>
+                    <a href="#border-dimensiones" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-border-style"></i>
+                            </div>
+                            <h3>Border y dimensiones</h3>
+                            <p>Aprende a controlar bordes, width, height y box-sizing.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Concepto del Box Model -->
+            <section class="content-section" id="box-model-concepto">
+                <h2 class="section-title">
+                    <i class="fas fa-cube"></i>
+                    El modelo de caja en CSS
+                </h2>
+                <div class="topic-content">
+                    <p>El <strong>Box Model</strong> es uno de los conceptos más fundamentales en CSS. Cada elemento HTML se representa como una caja rectangular que tiene cuatro componentes principales: contenido, padding, border y margin.</p>
+                    
+                    <h3>Componentes del Box Model</h3>
+                    <div class="code-example">
+                        <h4>Estructura visual del Box Model:</h4>
+                        <pre><code>┌─────────────────────────────────────┐
+│              MARGIN                 │  ← Espacio exterior
+│  ┌───────────────────────────────┐  │
+│  │           BORDER              │  │  ← Borde visible
+│  │  ┌─────────────────────────┐  │  │
+│  │  │        PADDING          │  │  │  ← Espacio interior
+│  │  │  ┌───────────────────┐  │  │  │
+│  │  │  │     CONTENT       │  │  │  │  ← Contenido real
+│  │  │  │   (width × height)│  │  │  │
+│  │  │  └───────────────────┘  │  │  │
+│  │  └─────────────────────────┘  │  │
+│  └───────────────────────────────┘  │
+└─────────────────────────────────────┘</code></pre>
+                    </div>
+
+                    <h3>1. Content (Contenido)</h3>
+                    <p>Es el área donde aparece el contenido real del elemento: texto, imágenes, etc.</p>
+                    <ul>
+                        <li>Se controla con las propiedades <code>width</code> y <code>height</code></li>
+                        <li>Por defecto, width y height solo afectan al área de contenido</li>
+                        <li>Es la zona más interna del elemento</li>
+                    </ul>
+
+                    <h3>2. Padding (Relleno)</h3>
+                    <p>Espacio entre el contenido y el borde del elemento.</p>
+                    <ul>
+                        <li>Siempre es transparente</li>
+                        <li>Adopta el color de fondo del elemento</li>
+                        <li>Aumenta el tamaño total del elemento</li>
+                    </ul>
+
+                    <h3>3. Border (Borde)</h3>
+                    <p>Línea que rodea el padding y el contenido.</p>
+                    <ul>
+                        <li>Puede ser visible o invisible</li>
+                        <li>Tiene grosor, estilo y color</li>
+                        <li>Contribuye al tamaño total del elemento</li>
+                    </ul>
+
+                    <h3>4. Margin (Margen)</h3>
+                    <p>Espacio exterior alrededor del borde.</p>
+                    <ul>
+                        <li>Siempre es transparente</li>
+                        <li>Crea separación entre elementos</li>
+                        <li>No afecta el tamaño del elemento en sí</li>
+                    </ul>
+
+                    <h3>Ejemplo práctico del Box Model</h3>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;div class="caja-ejemplo"&gt;
+  Este es el contenido de la caja
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>.caja-ejemplo {
+  /* Contenido */
+  width: 200px;
+  height: 100px;
+  
+  /* Padding - espacio interior */
+  padding: 20px;
+  
+  /* Border - borde */
+  border: 5px solid #007bff;
+  
+  /* Margin - espacio exterior */
+  margin: 30px;
+  
+  /* Estilo visual para ver mejor */
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Tamaño total calculado:
+   Ancho total = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right
+   Ancho total = 30px + 5px + 20px + 200px + 20px + 5px + 30px = 310px
+   
+   Alto total = margin-top + border-top + padding-top + height + padding-bottom + border-bottom + margin-bottom
+   Alto total = 30px + 5px + 20px + 100px + 20px + 5px + 30px = 210px
+*/</code></pre>
+                    </div>
+
+                    <h3>Cálculo del tamaño total</h3>
+                    <p>Por defecto, el tamaño total de un elemento se calcula así:</p>
+                    <div class="code-example">
+                        <pre><code>Ancho total = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right
+
+Alto total = margin-top + border-top + padding-top + height + padding-bottom + border-bottom + margin-bottom</code></pre>
+                    </div>
+
+                    <h3>Visualizando el Box Model</h3>
+                    <p>Puedes ver el Box Model de cualquier elemento usando las herramientas de desarrollador del navegador:</p>
+                    <ul>
+                        <li><strong>Chrome/Edge:</strong> F12 → Elements → Computed → Box Model</li>
+                        <li><strong>Firefox:</strong> F12 → Inspector → Layout → Box Model</li>
+                        <li><strong>Safari:</strong> Desarrollar → Mostrar Inspector Web → Elements</li>
+                    </ul>
+
+                    <h3>Elementos en línea vs en bloque</h3>
+                    <p>El Box Model se comporta diferente según el tipo de elemento:</p>
+                    
+                    <h4>Elementos de bloque (block)</h4>
+                    <ul>
+                        <li>Ocupan todo el ancho disponible por defecto</li>
+                        <li>Se apilan verticalmente</li>
+                        <li>Respetan todas las propiedades del Box Model</li>
+                        <li>Ejemplos: <code>div</code>, <code>p</code>, <code>h1-h6</code>, <code>section</code></li>
+                    </ul>
+
+                    <h4>Elementos en línea (inline)</h4>
+                    <ul>
+                        <li>Solo ocupan el espacio necesario para su contenido</li>
+                        <li>Se alinean horizontalmente</li>
+                        <li>No respetan width, height, margin-top y margin-bottom</li>
+                        <li>Ejemplos: <code>span</code>, <code>a</code>, <code>strong</code>, <code>em</code></li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Comportamiento diferente:</h4>
+                        <pre><code>/* Elemento de bloque */
+.bloque {
+  display: block;
+  width: 200px;        /* ✅ Funciona */
+  height: 100px;       /* ✅ Funciona */
+  margin: 20px;        /* ✅ Funciona completo */
+  padding: 15px;       /* ✅ Funciona completo */
+}
+
+/* Elemento en línea */
+.en-linea {
+  display: inline;
+  width: 200px;        /* ❌ Se ignora */
+  height: 100px;       /* ❌ Se ignora */
+  margin: 20px;        /* ⚠️ Solo horizontal funciona */
+  padding: 15px;       /* ⚠️ Vertical puede solapar */
+}
+
+/* Inline-block - lo mejor de ambos */
+.inline-block {
+  display: inline-block;
+  width: 200px;        /* ✅ Funciona */
+  height: 100px;       /* ✅ Funciona */
+  margin: 20px;        /* ✅ Funciona completo */
+  padding: 15px;       /* ✅ Funciona completo */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Margin y Padding -->
+            <section class="content-section" id="margin-padding">
+                <h2 class="section-title">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                    Margin y Padding: espaciado en CSS
+                </h2>
+                <div class="topic-content">
+                    <p>Margin y padding son propiedades fundamentales para controlar el espaciado de los elementos. Aunque similares, tienen comportamientos y usos muy diferentes.</p>
+                    
+                    <h3>Padding: espacio interior</h3>
+                    <p>El padding es el espacio entre el contenido del elemento y su borde.</p>
+
+                    <h4>Sintaxis del padding</h4>
+                    <div class="code-example">
+                        <pre><code>/* Padding uniforme en todos los lados */
+.uniforme {
+  padding: 20px;
+}
+
+/* Padding específico por lado */
+.especifico {
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+}
+
+/* Shorthand con 2 valores: vertical horizontal */
+.dos-valores {
+  padding: 10px 20px;  /* arriba/abajo: 10px, izquierda/derecha: 20px */
+}
+
+/* Shorthand con 4 valores: top right bottom left (sentido horario) */
+.cuatro-valores {
+  padding: 10px 15px 20px 25px;
+}
+
+/* Shorthand con 3 valores: top horizontal bottom */
+.tres-valores {
+  padding: 10px 20px 15px;  /* top: 10px, horizontal: 20px, bottom: 15px */
+}</code></pre>
+                    </div>
+
+                    <h4>Características del padding</h4>
+                    <ul>
+                        <li>✅ <strong>Siempre transparente</strong> - adopta el color de fondo del elemento</li>
+                        <li>✅ <strong>Aumenta el tamaño</strong> del elemento</li>
+                        <li>✅ <strong>No colapsa</strong> entre elementos</li>
+                        <li>✅ <strong>Acepta valores porcentuales</strong> relativos al ancho del padre</li>
+                        <li>❌ <strong>No acepta valores negativos</strong></li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo visual del padding:</h4>
+                        <pre><code>.tarjeta {
+  width: 200px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 2px solid #007bff;
+}
+
+/* El contenido estará separado 20px del borde en todos los lados */
+/* El ancho total será: 200px + 20px + 20px + 2px + 2px = 244px */</code></pre>
+                    </div>
+
+                    <h3>Margin: espacio exterior</h3>
+                    <p>El margin es el espacio alrededor del elemento, fuera de su borde.</p>
+
+                    <h4>Sintaxis del margin</h4>
+                    <div class="code-example">
+                        <pre><code>/* Margin uniforme */
+.margin-uniforme {
+  margin: 20px;
+}
+
+/* Margin específico por lado */
+.margin-especifico {
+  margin-top: 10px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  margin-left: 25px;
+}
+
+/* Shorthand con diferentes valores */
+.margin-shorthand {
+  margin: 10px 20px;           /* vertical horizontal */
+  margin: 10px 15px 20px 25px; /* top right bottom left */
+  margin: 10px 20px 15px;      /* top horizontal bottom */
+}
+
+/* Margin automático para centrar */
+.centrado {
+  width: 300px;
+  margin: 0 auto;  /* vertical: 0, horizontal: automático (centra) */
+}</code></pre>
+                    </div>
+
+                    <h4>Características especiales del margin</h4>
+                    <ul>
+                        <li>✅ <strong>Siempre transparente</strong></li>
+                        <li>✅ <strong>Acepta valores negativos</strong> (puede solapar elementos)</li>
+                        <li>✅ <strong>Valor 'auto'</strong> permite centrado automático</li>
+                        <li>⚠️ <strong>Colapso de márgenes</strong> en elementos verticales</li>
+                        <li>⚠️ <strong>No afecta el tamaño</strong> del elemento en sí</li>
+                    </ul>
+
+                    <h3>Colapso de márgenes (Margin Collapse)</h3>
+                    <p>Los márgenes verticales adyacentes se combinan en un solo margen:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de colapso:</h4>
+                        <pre><code>.elemento1 {
+  margin-bottom: 30px;
+}
+
+.elemento2 {
+  margin-top: 20px;
+}
+
+/* El espacio entre elemento1 y elemento2 será 30px (no 50px)
+   Se toma el valor mayor, no se suman */</code></pre>
+                    </div>
+
+                    <h4>Cuándo ocurre el colapso:</h4>
+                    <ul>
+                        <li>Entre elementos de bloque adyacentes</li>
+                        <li>Entre un padre y su primer/último hijo (si no hay padding, border o contenido)</li>
+                        <li>En elementos vacíos (margin-top y margin-bottom colapsan)</li>
+                    </ul>
+
+                    <h4>Cómo evitar el colapso:</h4>
+                    <div class="code-example">
+                        <pre><code>/* Método 1: Usar padding en lugar de margin */
+.contenedor {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Método 2: Agregar border transparente */
+.contenedor {
+  border: 1px solid transparent;
+}
+
+/* Método 3: Usar overflow */
+.contenedor {
+  overflow: hidden;
+}
+
+/* Método 4: Usar flexbox o grid */
+.contenedor {
+  display: flex;
+  flex-direction: column;
+}</code></pre>
+                    </div>
+
+                    <h3>Valores negativos en margin</h3>
+                    <p>Los márgenes negativos pueden crear efectos interesantes:</p>
+                    <div class="code-example">
+                        <pre><code>/* Solapamiento hacia arriba */
+.sobreponer {
+  margin-top: -20px;
+}
+
+/* Expandir más allá del contenedor */
+.expandir {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+/* Centrado con ancho mayor al contenedor */
+.centrado-expandido {
+  width: 120%;
+  margin-left: -10%;
+}</code></pre>
+                    </div>
+
+                    <h3>Centrado con margin auto</h3>
+                    <div class="code-example">
+                        <h4>Diferentes técnicas de centrado:</h4>
+                        <pre><code>/* Centrado horizontal básico */
+.centrado-horizontal {
+  width: 300px;
+  margin: 0 auto;
+}
+
+/* Centrado horizontal con margen vertical */
+.centrado-con-margen {
+  width: 300px;
+  margin: 20px auto;
+}
+
+/* Centrado solo a la derecha */
+.alineado-derecha {
+  width: 300px;
+  margin-left: auto;
+}
+
+/* Centrado solo a la izquierda (comportamiento por defecto) */
+.alineado-izquierda {
+  width: 300px;
+  margin-right: auto;
+}</code></pre>
+                    </div>
+
+                    <h3>Comparación práctica: Margin vs Padding</h3>
+                    <div class="code-example">
+                        <h4>HTML de ejemplo:</h4>
+                        <pre><code>&lt;div class="contenedor"&gt;
+  &lt;div class="con-padding"&gt;Elemento con padding&lt;/div&gt;
+  &lt;div class="con-margin"&gt;Elemento con margin&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS comparativo:</h4>
+                        <pre><code>.contenedor {
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  padding: 10px;
+}
+
+.con-padding {
+  background-color: #d4e6ff;
+  padding: 20px;           /* Espacio interior - fondo se extiende */
+  border: 1px solid blue;
+}
+
+.con-margin {
+  background-color: #fff2d4;
+  margin: 20px;            /* Espacio exterior - fondo NO se extiende */
+  border: 1px solid orange;
+}
+
+/* Resultado:
+   - con-padding: el fondo azul incluye el espacio de 20px
+   - con-margin: el fondo amarillo NO incluye el espacio de 20px
+*/</code></pre>
+                    </div>
+
+                    <h3>Casos de uso recomendados</h3>
+                    
+                    <h4>Usar PADDING cuando:</h4>
+                    <ul>
+                        <li>✅ Quieres espacio interno que mantenga el color de fondo</li>
+                        <li>✅ Necesitas área clicable más grande en botones</li>
+                        <li>✅ Quieres que el borde esté separado del contenido</li>
+                        <li>✅ El espacio debe formar parte del elemento visualmente</li>
+                    </ul>
+
+                    <h4>Usar MARGIN cuando:</h4>
+                    <ul>
+                        <li>✅ Quieres separar elementos entre sí</li>
+                        <li>✅ Necesitas centrar elementos horizontalmente</li>
+                        <li>✅ Quieres controlar el espaciado exterior</li>
+                        <li>✅ El espacio debe ser transparente</li>
+                    </ul>
+
+                    <h3>Ejercicio práctico</h3>
+                    <div class="code-example">
+                        <h4>Crea una tarjeta con espaciado correcto:</h4>
+                        <pre><code>.tarjeta-producto {
+  /* Espaciado exterior entre tarjetas */
+  margin: 20px;
+  
+  /* Espaciado interior para el contenido */
+  padding: 25px;
+  
+  /* Dimensiones */
+  width: 300px;
+  
+  /* Estilos visuales */
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tarjeta-producto h3 {
+  margin-top: 0;        /* Quitar margen superior del primer elemento */
+  margin-bottom: 15px;  /* Espacio hacia el contenido siguiente */
+}
+
+.tarjeta-producto p {
+  margin-bottom: 20px;  /* Espacio hacia el botón */
+}
+
+.tarjeta-producto .boton {
+  margin: 0;           /* Los botones no necesitan margin externo aquí */
+  padding: 12px 24px;  /* Padding interno para área clicable */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Border y dimensiones -->
+            <section class="content-section" id="border-dimensiones">
+                <h2 class="section-title">
+                    <i class="fas fa-border-style"></i>
+                    Border, dimensiones y box-sizing
+                </h2>
+                <div class="topic-content">
+                    <p>Los bordes y las dimensiones son elementos clave del Box Model que afectan tanto la apariencia como el comportamiento de los elementos.</p>
+                    
+                    <h3>Propiedades de border</h3>
+                    <p>La propiedad border define el contorno visible de un elemento:</p>
+
+                    <h4>Sintaxis básica del border</h4>
+                    <div class="code-example">
+                        <pre><code>/* Sintaxis completa */
+border: width style color;
+
+/* Ejemplos */
+.borde-simple {
+  border: 1px solid black;
+}
+
+.borde-grueso {
+  border: 5px solid #007bff;
+}
+
+.borde-punteado {
+  border: 2px dotted red;
+}</code></pre>
+                    </div>
+
+                    <h4>Propiedades individuales del border</h4>
+                    <div class="code-example">
+                        <pre><code>/* Grosor del borde */
+.grosor {
+  border-width: 1px;      /* thin, medium, thick también válidos */
+  border-width: 2px 4px;  /* vertical horizontal */
+  border-width: 1px 2px 3px 4px; /* top right bottom left */
+}
+
+/* Estilo del borde */
+.estilo {
+  border-style: solid;    /* Sólido */
+  border-style: dashed;   /* Rayas */
+  border-style: dotted;   /* Puntos */
+  border-style: double;   /* Doble línea */
+  border-style: groove;   /* Efecto 3D hundido */
+  border-style: ridge;    /* Efecto 3D elevado */
+  border-style: inset;    /* Efecto 3D hacia dentro */
+  border-style: outset;   /* Efecto 3D hacia fuera */
+  border-style: none;     /* Sin borde */
+  border-style: hidden;   /* Oculto (similar a none) */
+}
+
+/* Color del borde */
+.color {
+  border-color: red;
+  border-color: #007bff;
+  border-color: rgb(255, 0, 0);
+  border-color: rgba(0, 0, 0, 0.5);
+}</code></pre>
+                    </div>
+
+                    <h4>Bordes específicos por lado</h4>
+                    <div class="code-example">
+                        <pre><code>/* Borde solo en un lado */
+.borde-superior {
+  border-top: 2px solid blue;
+}
+
+.borde-derecho {
+  border-right: 1px dashed green;
+}
+
+.borde-inferior {
+  border-bottom: 3px double red;
+}
+
+.borde-izquierdo {
+  border-left: 2px dotted purple;
+}
+
+/* Propiedades específicas por lado */
+.bordes-mixtos {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: blue;
+  
+  border-right-width: 2px;
+  border-right-style: dashed;
+  border-right-color: red;
+  
+  /* etc... */
+}</code></pre>
+                    </div>
+
+                    <h4>Border-radius: esquinas redondeadas</h4>
+                    <div class="code-example">
+                        <pre><code>/* Radio uniforme */
+.redondeado {
+  border-radius: 5px;
+}
+
+/* Radio diferente por esquina */
+.esquinas-diferentes {
+  border-radius: 10px 20px 30px 40px; /* top-left top-right bottom-right bottom-left */
+}
+
+/* Radio con dos valores */
+.ovalado {
+  border-radius: 50px 10px; /* horizontal vertical */
+}
+
+/* Propiedades individuales */
+.esquinas-individuales {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 5px;
+}
+
+/* Formas especiales */
+.circulo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;  /* Círculo perfecto */
+}
+
+.pastilla {
+  height: 40px;
+  border-radius: 20px; /* Radio = altura/2 */
+}</code></pre>
+                    </div>
+
+                    <h3>Dimensiones: width y height</h3>
+                    <p>Controlan el tamaño del área de contenido del elemento:</p>
+
+                    <h4>Unidades para dimensiones</h4>
+                    <div class="code-example">
+                        <pre><code>/* Unidades absolutas */
+.fijo {
+  width: 300px;
+  height: 200px;
+}
+
+/* Porcentajes (relativo al contenedor padre) */
+.porcentual {
+  width: 100%;    /* Todo el ancho del padre */
+  height: 50%;    /* La mitad de la altura del padre */
+}
+
+/* Unidades relativas */
+.relativo {
+  width: 20em;    /* 20 veces el tamaño de fuente */
+  height: 10rem;  /* 10 veces el tamaño de fuente raíz */
+}
+
+/* Unidades de viewport */
+.viewport {
+  width: 100vw;   /* 100% del ancho de la ventana */
+  height: 100vh;  /* 100% de la altura de la ventana */
+}</code></pre>
+                    </div>
+
+                    <h4>Valores especiales</h4>
+                    <div class="code-example">
+                        <pre><code>/* Valor auto (por defecto) */
+.automatico {
+  width: auto;    /* Se ajusta al contenido o contenedor */
+  height: auto;   /* Se ajusta al contenido */
+}
+
+/* Dimensiones mínimas y máximas */
+.con-limites {
+  width: 100%;
+  min-width: 200px;   /* Ancho mínimo */
+  max-width: 800px;   /* Ancho máximo */
+  
+  height: auto;
+  min-height: 300px;  /* Altura mínima */
+  max-height: 600px;  /* Altura máxima */
+}
+
+/* Fit-content (tamaño del contenido) */
+.ajustado {
+  width: fit-content;  /* Se ajusta exactamente al contenido */
+}</code></pre>
+                    </div>
+
+                    <h3>Box-sizing: cambiando el modelo de caja</h3>
+                    <p>La propiedad <code>box-sizing</code> determina cómo se calculan las dimensiones:</p>
+
+                    <h4>content-box (por defecto)</h4>
+                    <div class="code-example">
+                        <pre><code>.content-box {
+  box-sizing: content-box;  /* Valor por defecto */
+  width: 200px;
+  padding: 20px;
+  border: 5px solid black;
+}
+
+/* Tamaño total:
+   Ancho total = 200px + 20px + 20px + 5px + 5px = 250px
+   width solo afecta al contenido */</code></pre>
+                    </div>
+
+                    <h4>border-box (recomendado)</h4>
+                    <div class="code-example">
+                        <pre><code>.border-box {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 20px;
+  border: 5px solid black;
+}
+
+/* Tamaño total:
+   Ancho total = 200px (incluye padding y border)
+   Área de contenido = 200px - 20px - 20px - 5px - 5px = 150px */</code></pre>
+                    </div>
+
+                    <h4>Reset universal recomendado</h4>
+                    <div class="code-example">
+                        <pre><code>/* Aplicar border-box a todos los elementos */
+* {
+  box-sizing: border-box;
+}
+
+/* O más específico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset más completo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+                    </div>
+
+                    <h3>Ejemplo práctico: Tarjeta responsiva</h3>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;div class="tarjeta-responsiva"&gt;
+  &lt;img src="imagen.jpg" alt="Imagen de la tarjeta"&gt;
+  &lt;div class="contenido"&gt;
+    &lt;h3&gt;Título de la tarjeta&lt;/h3&gt;
+    &lt;p&gt;Descripción del contenido de la tarjeta con texto que se ajusta.&lt;/p&gt;
+    &lt;button class="boton"&gt;Leer más&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>/* Reset universal */
+* {
+  box-sizing: border-box;
+}
+
+.tarjeta-responsiva {
+  /* Dimensiones */
+  width: 100%;
+  max-width: 350px;
+  min-height: 400px;
+  
+  /* Box model */
+  margin: 20px auto;
+  padding: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  
+  /* Fondo y sombra */
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  
+  /* Transición suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-responsiva:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.tarjeta-responsiva img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.contenido {
+  padding: 20px;
+}
+
+.contenido h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.contenido p {
+  margin: 0 0 20px 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.boton {
+  /* Resetear estilos de botón */
+  border: none;
+  background: none;
+  
+  /* Box model */
+  padding: 12px 24px;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  
+  /* Texto */
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  
+  /* Interacción */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-2px);
+}</code></pre>
+                    </div>
+
+                    <h3>Debugging del Box Model</h3>
+                    <p>Técnicas para visualizar y debuggear problemas:</p>
+
+                    <div class="code-example">
+                        <h4>CSS temporal para debugging:</h4>
+                        <pre><code>/* Outline para ver límites sin afectar el layout */
+* {
+  outline: 1px solid red;
+}
+
+/* Background temporal para ver áreas */
+.debug {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid red;
+}
+
+.debug * {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid green;
+}
+
+/* Ver el Box Model en navegador */
+/* Herramientas de desarrollador (F12) > Elements > Computed > Box Model */</code></pre>
+                    </div>
+
+                    <h3>Problemas comunes y soluciones</h3>
+                    
+                    <h4>1. Elemento más ancho que su contenedor</h4>
+                    <div class="code-example">
+                        <pre><code>/* Problema */
+.problematico {
+  width: 100%;
+  padding: 20px;
+  border: 5px solid black;
+  /* Total: 100% + 40px + 10px = desbordamiento */
+}
+
+/* Solución */
+.solucionado {
+  box-sizing: border-box;  /* Incluir padding y border en width */
+  width: 100%;
+  padding: 20px;
+  border: 5px solid black;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Altura no funciona</h4>
+                    <div class="code-example">
+                        <pre><code>/* Problema: altura en porcentaje sin referencia */
+.sin-altura {
+  height: 100%;  /* No funciona si el padre no tiene altura definida */
+}
+
+/* Solución */
+html, body {
+  height: 100%;  /* Dar altura a los ancestros */
+}
+
+.con-altura {
+  height: 100%;  /* Ahora funciona */
+}
+
+/* O usar unidades de viewport */
+.alternativa {
+  height: 100vh;  /* 100% de la altura de la ventana */
+}</code></pre>
+                    </div>
+
+                    <h4>3. Colapso de márgenes inesperado</h4>
+                    <div class="code-example">
+                        <pre><code>/* Problema: margen del hijo "escapa" del padre */
+.padre {
+  background-color: blue;
+}
+
+.hijo {
+  margin-top: 20px;  /* Este margen aparece arriba del padre */
+}
+
+/* Soluciones */
+.padre-solucion1 {
+  padding-top: 1px;  /* Separar con padding */
+}
+
+.padre-solucion2 {
+  border-top: 1px solid transparent;  /* O con border */
+}
+
+.padre-solucion3 {
+  overflow: hidden;  /* O creando nuevo contexto */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Sistema de tarjetas con Box Model</h3>
+                        <span class="difficulty">Intermedio</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear un sistema de tarjetas que demuestre dominio completo del Box Model.</p>
+                        
+                        <h4>Requisitos:</h4>
+                        <ol class="exercise-steps">
+                            <li>Crear 3 tarjetas en una fila usando box-sizing: border-box</li>
+                            <li>Cada tarjeta debe tener: imagen, título, texto y botón</li>
+                            <li>Usar padding para espaciado interno consistente</li>
+                            <li>Usar margin para separación entre tarjetas</li>
+                            <li>Implementar bordes redondeados y sombras</li>
+                            <li>Las tarjetas deben mantener altura uniforme</li>
+                            <li>Agregar efectos hover que cambien bordes o sombras</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Estructura HTML sugerida:</h4>
+                            <pre><code>&lt;div class="contenedor-tarjetas"&gt;
+  &lt;div class="tarjeta"&gt;
+    &lt;img src="imagen1.jpg" alt="Descripción"&gt;
+    &lt;div class="contenido-tarjeta"&gt;
+      &lt;h3&gt;Título 1&lt;/h3&gt;
+      &lt;p&gt;Descripción de la primera tarjeta...&lt;/p&gt;
+      &lt;button class="btn"&gt;Ver más&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="tarjeta"&gt;
+    &lt;!-- Tarjeta 2 --&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="tarjeta"&gt;
+    &lt;!-- Tarjeta 3 --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+
+                        <h4>Especificaciones técnicas:</h4>
+                        <ul>
+                            <li>✅ Usar `box-sizing: border-box` en todos los elementos</li>
+                            <li>✅ Tarjetas: 300px de ancho, padding 20px interno</li>
+                            <li>✅ Margin entre tarjetas: 20px</li>
+                            <li>✅ Border: 1px solid #ddd, border-radius: 8px</li>
+                            <li>✅ Imagen: width 100%, height 200px, object-fit: cover</li>
+                            <li>✅ Botón con padding 10px 20px, border-radius 5px</li>
+                            <li>✅ Hover effects en tarjeta y botón</li>
+                        </ul>
+
+                        <h4>Bonus (opcional):</h4>
+                        <ul>
+                            <li>⭐ Hacer el diseño responsivo con media queries</li>
+                            <li>⭐ Agregar animaciones suaves con transition</li>
+                            <li>⭐ Usar box-shadow para efectos de profundidad</li>
+                            <li>⭐ Implementar diferentes border-radius por esquina</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Box_Model" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>MDN - CSS Box Model</h3>
+                        <p>Documentación completa sobre el modelo de caja en CSS</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://css-tricks.com/the-css-box-model/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>CSS-Tricks - Box Model</h3>
+                        <p>Guía visual interactiva del modelo de caja</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://web.dev/learn/css/box-model/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Web.dev - Learn Box Model</h3>
+                        <p>Curso interactivo sobre el modelo de caja</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo06.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo08.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 7: Modelo de caja (Box Model)</p>
+        </footer>
+    </div>
+</body>
+</html>

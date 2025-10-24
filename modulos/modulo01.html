@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Introducción a HTML - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navegación superior -->
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link">
+                <i class="fas fa-arrow-left"></i> Volver al Índice
+            </a>
+            <div class="module-indicator">
+                <span class="current-module">Módulo 1 de 14</span>
+            </div>
+        </nav>
+
+        <!-- Header del módulo -->
+        <header class="module-header">
+            <div class="module-number">01</div>
+            <div class="module-info">
+                <h1 class="module-title">Introducción a HTML</h1>
+                <p class="module-description">Fundamentos básicos de HTML y estructura de documentos web</p>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#que-es-html" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Qué es HTML</h3>
+                            <p>Aprende qué significa HTML y cuál es su función fundamental en el desarrollo web.</p>
+                        </div>
+                    </a>
+                    <a href="#estructura-basica" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-file-code"></i>
+                            </div>
+                            <h3>Estructura básica</h3>
+                            <p>Comprende la estructura básica: DOCTYPE, html, head y body.</p>
+                        </div>
+                    </a>
+                    <a href="#etiquetas-atributos" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <h3>Etiquetas y atributos</h3>
+                            <p>Domina el uso de etiquetas, atributos y la jerarquía de elementos.</p>
+                        </div>
+                    </a>
+                    <a href="#comentarios" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <h3>Comentarios</h3>
+                            <p>Aprende a usar comentarios HTML para documentar tu código.</p>
+                        </div>
+                    </a>
+                    <a href="#editor-codigo" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Editor de código</h3>
+                            <p>Introducción a VS Code y configuración del entorno de desarrollo.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Qué es HTML -->
+            <section class="content-section" id="que-es-html">
+                <h2 class="section-title">
+                    <i class="fas fa-globe"></i>
+                    Qué es HTML
+                </h2>
+                <div class="topic-content">
+                    <p><strong>HTML (HyperText Markup Language)</strong> es el lenguaje estándar para crear páginas web. Es la columna vertebral de todo contenido web y define la estructura y el significado del contenido web mediante el uso de etiquetas.</p>
+                    
+                    <h3>¿Qué significa HTML?</h3>
+                    <ul>
+                        <li><strong>HyperText:</strong> Se refiere a los enlaces que conectan páginas web entre sí</li>
+                        <li><strong>Markup:</strong> Significa "marcado", refiriéndose a las etiquetas que estructuran el contenido</li>
+                        <li><strong>Language:</strong> Es un lenguaje con su propia sintaxis y reglas</li>
+                    </ul>
+
+                    <h3>Función de HTML en la web</h3>
+                    <p>HTML no es un lenguaje de programación, sino un <em>lenguaje de marcado</em> que:</p>
+                    <ul>
+                        <li>Define la estructura del contenido (encabezados, párrafos, listas, etc.)</li>
+                        <li>Proporciona significado semántico al contenido</li>
+                        <li>Permite la inclusión de multimedia (imágenes, videos, audio)</li>
+                        <li>Facilita la navegación mediante enlaces</li>
+                        <li>Sirve como base para aplicar estilos CSS y funcionalidad JavaScript</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo básico de HTML:</h4>
+                        <pre><code>&lt;h1&gt;Este es un encabezado&lt;/h1&gt;
+&lt;p&gt;Este es un párrafo de texto.&lt;/p&gt;
+&lt;a href="https://ejemplo.com"&gt;Este es un enlace&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Estructura básica -->
+            <section class="content-section" id="estructura-basica">
+                <h2 class="section-title">
+                    <i class="fas fa-file-code"></i>
+                    Estructura básica de un documento HTML
+                </h2>
+                <div class="topic-content">
+                    <p>Todo documento HTML debe seguir una estructura específica que incluye elementos fundamentales. Esta estructura asegura que el navegador interprete correctamente el contenido.</p>
+
+                    <h3>Componentes esenciales:</h3>
+                    
+                    <h4>1. DOCTYPE</h4>
+                    <p>Declara el tipo de documento y la versión de HTML que se está utilizando.</p>
+                    <div class="code-example">
+                        <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+                    </div>
+
+                    <h4>2. Elemento &lt;html&gt;</h4>
+                    <p>Es el elemento raíz que envuelve todo el contenido de la página.</p>
+                    <div class="code-example">
+                        <pre><code>&lt;html lang="es"&gt;
+    &lt;!-- Todo el contenido va aquí --&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <h4>3. Elemento &lt;head&gt;</h4>
+                    <p>Contiene metadatos sobre el documento que no se muestran en la página.</p>
+                    <ul>
+                        <li><code>&lt;title&gt;</code>: Título que aparece en la pestaña del navegador</li>
+                        <li><code>&lt;meta charset="UTF-8"&gt;</code>: Codificación de caracteres</li>
+                        <li><code>&lt;meta name="viewport"&gt;</code>: Configuración para dispositivos móviles</li>
+                    </ul>
+
+                    <h4>4. Elemento &lt;body&gt;</h4>
+                    <p>Contiene todo el contenido visible de la página web.</p>
+
+                    <div class="code-example">
+                        <h4>Estructura completa:</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Título de la página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Contenido visible aquí --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Etiquetas y atributos -->
+            <section class="content-section" id="etiquetas-atributos">
+                <h2 class="section-title">
+                    <i class="fas fa-tags"></i>
+                    Etiquetas y atributos
+                </h2>
+                <div class="topic-content">
+                    <p>Las etiquetas HTML son los bloques de construcción básicos que definen la estructura y el contenido de una página web.</p>
+
+                    <h3>¿Qué son las etiquetas?</h3>
+                    <p>Las etiquetas HTML están rodeadas por corchetes angulares <code>&lt;&gt;</code> y generalmente vienen en pares:</p>
+                    <ul>
+                        <li><strong>Etiqueta de apertura:</strong> <code>&lt;etiqueta&gt;</code></li>
+                        <li><strong>Etiqueta de cierre:</strong> <code>&lt;/etiqueta&gt;</code></li>
+                        <li><strong>Contenido:</strong> Todo lo que está entre las etiquetas</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo de etiqueta:</h4>
+                        <pre><code>&lt;p&gt;Este es el contenido del párrafo&lt;/p&gt;</code></pre>
+                    </div>
+
+                    <h3>Etiquetas auto-cerradas</h3>
+                    <p>Algunas etiquetas no necesitan etiqueta de cierre:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;br&gt;     &lt;!-- Salto de línea --&gt;
+&lt;img&gt;    &lt;!-- Imagen --&gt;
+&lt;hr&gt;     &lt;!-- Línea horizontal --&gt;
+&lt;input&gt;  &lt;!-- Campo de entrada --&gt;</code></pre>
+                    </div>
+
+                    <h3>¿Qué son los atributos?</h3>
+                    <p>Los atributos proporcionan información adicional sobre los elementos HTML:</p>
+                    <ul>
+                        <li>Se escriben dentro de la etiqueta de apertura</li>
+                        <li>Tienen la forma <code>nombre="valor"</code></li>
+                        <li>Modifican el comportamiento o apariencia del elemento</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplos de atributos:</h4>
+                        <pre><code>&lt;a href="https://ejemplo.com" target="_blank"&gt;Enlace&lt;/a&gt;
+&lt;img src="imagen.jpg" alt="Descripción de la imagen"&gt;
+&lt;p class="destacado" id="parrafo1"&gt;Texto&lt;/p&gt;</code></pre>
+                    </div>
+
+                    <h3>Jerarquía de elementos</h3>
+                    <p>Los elementos HTML pueden anidarse (contener otros elementos), creando una estructura jerárquica:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;div&gt;
+    &lt;h2&gt;Título de sección&lt;/h2&gt;
+    &lt;p&gt;Este párrafo está &lt;strong&gt;dentro&lt;/strong&gt; de un div.&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Elemento 1&lt;/li&gt;
+        &lt;li&gt;Elemento 2&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 4: Comentarios -->
+            <section class="content-section" id="comentarios">
+                <h2 class="section-title">
+                    <i class="fas fa-comment"></i>
+                    Comentarios en HTML
+                </h2>
+                <div class="topic-content">
+                    <p>Los comentarios en HTML son notas que puedes agregar a tu código para explicar qué hace una sección específica. Los comentarios no se muestran en el navegador.</p>
+
+                    <h3>Sintaxis de comentarios</h3>
+                    <p>Los comentarios HTML comienzan con <code>&lt;!--</code> y terminan con <code>--&gt;</code>:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;!-- Este es un comentario --&gt;</code></pre>
+                    </div>
+
+                    <h3>Usos de los comentarios</h3>
+                    <ul>
+                        <li><strong>Documentación:</strong> Explicar secciones complejas del código</li>
+                        <li><strong>Notas temporales:</strong> Recordatorios para futuras modificaciones</li>
+                        <li><strong>Deshabilitar código:</strong> "Comentar" código sin eliminarlo</li>
+                        <li><strong>Organización:</strong> Marcar inicio y fin de secciones</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplos prácticos:</h4>
+                        <pre><code>&lt;!-- Inicio de la sección del encabezado --&gt;
+&lt;header&gt;
+    &lt;h1&gt;Mi sitio web&lt;/h1&gt;
+    &lt;!-- TODO: Agregar menú de navegación --&gt;
+&lt;/header&gt;
+&lt;!-- Fin de la sección del encabezado --&gt;
+
+&lt;!-- 
+Este es un comentario de múltiples líneas
+que puede extenderse por varias líneas
+para explicar código complejo
+--&gt;</code></pre>
+                    </div>
+
+                    <h3>Buenas prácticas</h3>
+                    <ul>
+                        <li>Usa comentarios para explicar el "por qué", no el "qué"</li>
+                        <li>Mantén los comentarios actualizados con el código</li>
+                        <li>No abuses de los comentarios; el código claro es mejor que muchos comentarios</li>
+                        <li>Usa comentarios para marcar secciones importantes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección 5: Editor de código -->
+            <section class="content-section" id="editor-codigo">
+                <h2 class="section-title">
+                    <i class="fas fa-code"></i>
+                    Editor de código: Visual Studio Code
+                </h2>
+                <div class="topic-content">
+                    <p><strong>Visual Studio Code (VS Code)</strong> es el editor de código más popular para desarrollo web. Es gratuito, potente y tiene excelente soporte para HTML, CSS y JavaScript.</p>
+
+                    <h3>¿Por qué VS Code?</h3>
+                    <ul>
+                        <li><strong>Gratuito y código abierto:</strong> Disponible para Windows, Mac y Linux</li>
+                        <li><strong>Intellisense:</strong> Autocompletado inteligente de código</li>
+                        <li><strong>Extensiones:</strong> Miles de extensiones para mejorar la productividad</li>
+                        <li><strong>Terminal integrado:</strong> No necesitas salir del editor</li>
+                        <li><strong>Control de versiones:</strong> Git integrado</li>
+                        <li><strong>Live Server:</strong> Previsualización en tiempo real</li>
+                    </ul>
+
+                    <h3>Configuración inicial</h3>
+                    <h4>1. Instalación</h4>
+                    <p>Descarga VS Code desde <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></p>
+
+                    <h4>2. Extensiones recomendadas para HTML/CSS</h4>
+                    <ul>
+                        <li><strong>Live Server:</strong> Servidor local con recarga automática</li>
+                        <li><strong>Auto Rename Tag:</strong> Renombra etiquetas automáticamente</li>
+                        <li><strong>HTML CSS Support:</strong> Autocompletado mejorado</li>
+                        <li><strong>Prettier:</strong> Formateador de código</li>
+                        <li><strong>Bracket Pair Colorizer:</strong> Colorea las llaves y paréntesis</li>
+                    </ul>
+
+                    <h4>3. Atajos de teclado útiles</h4>
+                    <ul>
+                        <li><code>Ctrl + /</code>: Comentar/descomentar línea</li>
+                        <li><code>Ctrl + D</code>: Seleccionar siguiente ocurrencia</li>
+                        <li><code>Alt + ↑/↓</code>: Mover línea arriba/abajo</li>
+                        <li><code>Ctrl + Shift + P</code>: Paleta de comandos</li>
+                        <li><code>Ctrl + `</code>: Abrir/cerrar terminal</li>
+                    </ul>
+
+                    <h3>Creando tu primer archivo HTML</h3>
+                    <ol>
+                        <li>Abre VS Code</li>
+                        <li>Crea una nueva carpeta para tu proyecto</li>
+                        <li>Abre la carpeta en VS Code (File → Open Folder)</li>
+                        <li>Crea un nuevo archivo: <code>index.html</code></li>
+                        <li>Escribe <code>!</code> y presiona Tab para generar la estructura básica</li>
+                        <li>Instala Live Server y haz clic derecho → "Open with Live Server"</li>
+                    </ol>
+
+                    <div class="code-example">
+                        <h4>Truco: Emmet en VS Code</h4>
+                        <p>Escribe <code>!</code> y presiona Tab para generar esto automáticamente:</p>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Crear tu primer documento HTML</h3>
+                        <span class="difficulty">Principiante</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear un archivo index.html con la estructura básica del documento e incluir un título y un párrafo de bienvenida.</p>
+                        
+                        <h4>Pasos a seguir:</h4>
+                        <ol class="exercise-steps">
+                            <li>Crea un nuevo archivo llamado <code>index.html</code></li>
+                            <li>Agrega la declaración DOCTYPE</li>
+                            <li>Estructura las etiquetas html, head y body</li>
+                            <li>Incluye un título en la etiqueta title</li>
+                            <li>Agrega un párrafo de bienvenida en el body</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Ejemplo de código:</h4>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi primera página web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;¡Bienvenido a mi primera página!&lt;/h1&gt;
+    &lt;p&gt;Este es mi primer documento HTML.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fab fa-firefox"></i>
+                        </div>
+                        <h3>MDN Web Docs</h3>
+                        <p>Documentación oficial de HTML en español</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://www.w3schools.com/html/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>W3Schools HTML</h3>
+                        <p>Tutorial interactivo con ejemplos prácticos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://code.visualstudio.com/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>Visual Studio Code</h3>
+                        <p>Descarga el editor de código recomendado</p>
+                        <span class="external-link">Descargar <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Navegación entre módulos -->
+        <nav class="module-navigation">
+            <div class="nav-item prev disabled">
+                <i class="fas fa-chevron-left"></i>
+                <span>Módulo Anterior</span>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo02.html">
+                    <span>Siguiente Módulo</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 1: Introducción a HTML</p>
+        </footer>
+    </div>
+</body>
+</html>

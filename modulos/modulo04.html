@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: Estructura semántica - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 4 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">04</div>
+            <div class="module-info">
+                <h1 class="module-title">Estructura semántica</h1>
+                <p class="module-description">Aprende a usar elementos semánticos para mejor estructura y SEO</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#etiquetas-semanticas" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <h3>Etiquetas semánticas</h3>
+                            <p>Domina header, nav, section, article, aside y footer para estructura moderna.</p>
+                        </div>
+                    </a>
+                    <a href="#organizacion-contenido" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h3>Organización de contenido</h3>
+                            <p>Aprende a estructurar el contenido de forma lógica y semántica.</p>
+                        </div>
+                    </a>
+                    <a href="#seo-accesibilidad" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>SEO y accesibilidad</h3>
+                            <p>Optimiza para motores de búsqueda y mejora la accesibilidad web.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Etiquetas semánticas -->
+            <section class="content-section" id="etiquetas-semanticas">
+                <h2 class="section-title">
+                    <i class="fas fa-sitemap"></i>
+                    Etiquetas semánticas modernas
+                </h2>
+                <div class="topic-content">
+                    <p>HTML5 introdujo elementos semánticos que proporcionan significado al contenido, mejorando la estructura, accesibilidad y SEO de las páginas web. Estos elementos reemplazan el uso genérico de &lt;div&gt; con elementos más descriptivos.</p>
+                    
+                    <h3>Elemento &lt;header&gt;</h3>
+                    <p>Representa el encabezado de una sección o página. Típicamente contiene:</p>
+                    <ul>
+                        <li>Logo del sitio</li>
+                        <li>Título principal</li>
+                        <li>Navegación principal</li>
+                        <li>Información de contacto</li>
+                    </ul>
+                    <div class="code-example">
+                        <h4>Ejemplo de header:</h4>
+                        <pre><code>&lt;header&gt;
+  &lt;img src="logo.png" alt="Logo de la empresa"&gt;
+  &lt;h1&gt;Mi Sitio Web&lt;/h1&gt;
+  &lt;p&gt;Bienvenido a nuestra página oficial&lt;/p&gt;
+&lt;/header&gt;</code></pre>
+                    </div>
+
+                    <h3>Elemento &lt;nav&gt;</h3>
+                    <p>Define una sección de navegación con enlaces a otras páginas o secciones:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de navegación:</h4>
+                        <pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#inicio"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#servicios"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#acerca"&gt;Acerca de&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#contacto"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+
+                    <h3>Elemento &lt;main&gt;</h3>
+                    <p>Representa el contenido principal del documento. Solo debe haber uno por página:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;main&gt;
+  &lt;h1&gt;Contenido principal de la página&lt;/h1&gt;
+  &lt;p&gt;Este es el contenido más importante...&lt;/p&gt;
+&lt;/main&gt;</code></pre>
+                    </div>
+
+                    <h3>Elemento &lt;section&gt;</h3>
+                    <p>Define una sección temática del documento. Cada section debería tener un encabezado:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de secciones:</h4>
+                        <pre><code>&lt;section&gt;
+  &lt;h2&gt;Nuestros Servicios&lt;/h2&gt;
+  &lt;p&gt;Ofrecemos una amplia gama de servicios...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;h2&gt;Testimonios&lt;/h2&gt;
+  &lt;p&gt;Lo que dicen nuestros clientes...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                    </div>
+
+                    <h3>Elemento &lt;article&gt;</h3>
+                    <p>Representa contenido independiente que puede ser distribuido por separado:</p>
+                    <ul>
+                        <li>Entradas de blog</li>
+                        <li>Artículos de noticias</li>
+                        <li>Comentarios de usuarios</li>
+                        <li>Productos en un catálogo</li>
+                    </ul>
+                    <div class="code-example">
+                        <h4>Ejemplo de artículo:</h4>
+                        <pre><code>&lt;article&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Introducción a HTML5&lt;/h2&gt;
+    &lt;p&gt;Publicado el &lt;time datetime="2025-10-21"&gt;21 de octubre, 2025&lt;/time&gt;&lt;/p&gt;
+  &lt;/header&gt;
+  
+  &lt;p&gt;HTML5 es la última versión del lenguaje de marcado...&lt;/p&gt;
+  
+  &lt;footer&gt;
+    &lt;p&gt;Autor: Juan Desarrollador&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+                    </div>
+
+                    <h3>Elemento &lt;aside&gt;</h3>
+                    <p>Contenido relacionado pero separado del contenido principal:</p>
+                    <ul>
+                        <li>Barras laterales</li>
+                        <li>Información adicional</li>
+                        <li>Publicidad</li>
+                        <li>Enlaces relacionados</li>
+                    </ul>
+                    <div class="code-example">
+                        <h4>Ejemplo de aside:</h4>
+                        <pre><code>&lt;aside&gt;
+  &lt;h3&gt;Artículos relacionados&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;CSS para principiantes&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;JavaScript básico&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Responsive Design&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/aside&gt;</code></pre>
+                    </div>
+
+                    <h3>Elemento &lt;footer&gt;</h3>
+                    <p>Representa el pie de página de una sección o documento:</p>
+                    <div class="code-example">
+                        <h4>Ejemplo de footer:</h4>
+                        <pre><code>&lt;footer&gt;
+  &lt;p&gt;&copy; 2025 Mi Empresa. Todos los derechos reservados.&lt;/p&gt;
+  &lt;nav&gt;
+    &lt;a href="#privacidad"&gt;Política de Privacidad&lt;/a&gt;
+    &lt;a href="#terminos"&gt;Términos de Uso&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/footer&gt;</code></pre>
+                    </div>
+
+                    <h3>Comparación: Antes vs Después</h3>
+                    <div class="code-example">
+                        <h4>Estructura tradicional (no semántica):</h4>
+                        <pre><code>&lt;div id="header"&gt;
+  &lt;div id="logo"&gt;...&lt;/div&gt;
+  &lt;div id="nav"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="content"&gt;
+  &lt;div class="post"&gt;...&lt;/div&gt;
+  &lt;div class="sidebar"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="footer"&gt;...&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Estructura semántica (HTML5):</h4>
+                        <pre><code>&lt;header&gt;
+  &lt;img src="logo.png" alt="Logo"&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;...&lt;/article&gt;
+  &lt;aside&gt;...&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Organización de contenido -->
+            <section class="content-section" id="organizacion-contenido">
+                <h2 class="section-title">
+                    <i class="fas fa-layer-group"></i>
+                    Organización de contenido semánticamente
+                </h2>
+                <div class="topic-content">
+                    <p>La organización semántica del contenido no solo mejora la estructura del código, sino que también facilita el mantenimiento, la accesibilidad y el SEO de tu sitio web.</p>
+
+                    <h3>Principios de organización semántica</h3>
+                    <ul>
+                        <li><strong>Jerarquía clara:</strong> Usa encabezados (h1-h6) de forma lógica</li>
+                        <li><strong>Agrupación temática:</strong> Usa section para agrupar contenido relacionado</li>
+                        <li><strong>Contenido independiente:</strong> Usa article para contenido autónomo</li>
+                        <li><strong>Información complementaria:</strong> Usa aside para contenido secundario</li>
+                    </ul>
+
+                    <h3>Estructura típica de una página web</h3>
+                    <div class="code-example">
+                        <h4>Plantilla básica semántica:</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Mi Sitio Web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Nombre del Sitio&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;!-- Navegación principal --&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Sección Principal&lt;/h2&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Artículo 1&lt;/h3&gt;
+        &lt;!-- Contenido del artículo --&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+    
+    &lt;aside&gt;
+      &lt;h2&gt;Contenido Relacionado&lt;/h2&gt;
+      &lt;!-- Sidebar o contenido complementario --&gt;
+    &lt;/aside&gt;
+  &lt;/main&gt;
+  
+  &lt;footer&gt;
+    &lt;!-- Información del pie de página --&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <h3>Ejemplos de estructuras específicas</h3>
+
+                    <h4>1. Blog o sitio de noticias</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;main&gt;
+  &lt;section&gt;
+    &lt;h1&gt;Últimas Noticias&lt;/h1&gt;
+    
+    &lt;article&gt;
+      &lt;header&gt;
+        &lt;h2&gt;Título de la noticia&lt;/h2&gt;
+        &lt;time datetime="2025-10-21"&gt;21 Oct 2025&lt;/time&gt;
+        &lt;address&gt;Por: &lt;a href="#"&gt;Reportero Ejemplo&lt;/a&gt;&lt;/address&gt;
+      &lt;/header&gt;
+      
+      &lt;p&gt;Contenido de la noticia...&lt;/p&gt;
+      
+      &lt;footer&gt;
+        &lt;p&gt;Categoría: &lt;a href="#"&gt;Tecnología&lt;/a&gt;&lt;/p&gt;
+      &lt;/footer&gt;
+    &lt;/article&gt;
+    
+    &lt;article&gt;
+      &lt;!-- Otra noticia --&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+  
+  &lt;aside&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Noticias Populares&lt;/h2&gt;
+      &lt;!-- Lista de noticias populares --&gt;
+    &lt;/section&gt;
+  &lt;/aside&gt;
+&lt;/main&gt;</code></pre>
+                    </div>
+
+                    <h4>2. Sitio corporativo</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;main&gt;
+  &lt;section id="hero"&gt;
+    &lt;h1&gt;Bienvenido a Nuestra Empresa&lt;/h1&gt;
+    &lt;p&gt;Somos líderes en soluciones tecnológicas&lt;/p&gt;
+  &lt;/section&gt;
+  
+  &lt;section id="servicios"&gt;
+    &lt;h2&gt;Nuestros Servicios&lt;/h2&gt;
+    &lt;article&gt;
+      &lt;h3&gt;Desarrollo Web&lt;/h3&gt;
+      &lt;p&gt;Creamos sitios web modernos y funcionales&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;article&gt;
+      &lt;h3&gt;Consultoría IT&lt;/h3&gt;
+      &lt;p&gt;Asesoramiento tecnológico especializado&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+  
+  &lt;section id="testimonios"&gt;
+    &lt;h2&gt;Lo que dicen nuestros clientes&lt;/h2&gt;
+    &lt;article&gt;
+      &lt;blockquote&gt;
+        &lt;p&gt;"Excelente servicio y atención al cliente"&lt;/p&gt;
+        &lt;footer&gt;— Cliente Satisfecho&lt;/footer&gt;
+      &lt;/blockquote&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+                    </div>
+
+                    <h4>3. E-commerce</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;main&gt;
+  &lt;section id="productos-destacados"&gt;
+    &lt;h2&gt;Productos Destacados&lt;/h2&gt;
+    
+    &lt;article class="producto"&gt;
+      &lt;header&gt;
+        &lt;h3&gt;Smartphone X&lt;/h3&gt;
+        &lt;p class="precio"&gt;$599&lt;/p&gt;
+      &lt;/header&gt;
+      
+      &lt;figure&gt;
+        &lt;img src="smartphone.jpg" alt="Smartphone X"&gt;
+      &lt;/figure&gt;
+      
+      &lt;p&gt;Descripción del producto...&lt;/p&gt;
+      
+      &lt;footer&gt;
+        &lt;button&gt;Agregar al carrito&lt;/button&gt;
+      &lt;/footer&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+  
+  &lt;aside&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Categorías&lt;/h2&gt;
+      &lt;nav&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Smartphones&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Laptops&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Accesorios&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+    &lt;/section&gt;
+  &lt;/aside&gt;
+&lt;/main&gt;</code></pre>
+                    </div>
+
+                    <h3>Buenas prácticas de organización</h3>
+                    <ul>
+                        <li>Usa solo un &lt;h1&gt; por página</li>
+                        <li>Mantén una jerarquía lógica de encabezados</li>
+                        <li>Agrupa contenido relacionado en &lt;section&gt;</li>
+                        <li>Usa &lt;article&gt; para contenido que tenga sentido por sí solo</li>
+                        <li>Coloca navegación secundaria en &lt;aside&gt;</li>
+                        <li>Incluye landmark roles para mayor accesibilidad</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección 3: SEO y accesibilidad -->
+            <section class="content-section" id="seo-accesibilidad">
+                <h2 class="section-title">
+                    <i class="fas fa-search"></i>
+                    SEO básico y accesibilidad
+                </h2>
+                <div class="topic-content">
+                    <p>La estructura semántica no solo mejora la organización del código, sino que también es fundamental para el SEO (Search Engine Optimization) y la accesibilidad web.</p>
+
+                    <h3>Beneficios para SEO</h3>
+                    <ul>
+                        <li><strong>Mejor comprensión:</strong> Los motores de búsqueda entienden mejor el contenido</li>
+                        <li><strong>Indexación eficiente:</strong> Facilita la indexación de páginas</li>
+                        <li><strong>Snippets mejorados:</strong> Mejor presentación en resultados de búsqueda</li>
+                        <li><strong>Ranking favorable:</strong> Google premia la estructura semántica</li>
+                    </ul>
+
+                    <h3>Atributos importantes para SEO y accesibilidad</h3>
+
+                    <h4>Atributo lang</h4>
+                    <p>Especifica el idioma del contenido para motores de búsqueda y lectores de pantalla:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;html lang="es"&gt;
+  &lt;!-- Página en español --&gt;
+&lt;/html&gt;
+
+&lt;html lang="en"&gt;
+  &lt;!-- Página en inglés --&gt;
+&lt;/html&gt;
+
+&lt;p lang="en"&gt;This paragraph is in English&lt;/p&gt;</code></pre>
+                    </div>
+
+                    <h4>Atributo alt en imágenes</h4>
+                    <p>Fundamental para accesibilidad y SEO de imágenes:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;!-- Buenas prácticas para alt --&gt;
+&lt;img src="producto.jpg" alt="Smartphone Samsung Galaxy S24 color azul"&gt;
+&lt;img src="logo.png" alt="Logo de TechCorp"&gt;
+&lt;img src="decoracion.png" alt=""&gt; &lt;!-- Imagen decorativa --&gt;
+
+&lt;!-- Evitar --&gt;
+&lt;img src="imagen.jpg" alt="imagen"&gt; &lt;!-- Muy genérico --&gt;
+&lt;img src="foto.jpg"&gt; &lt;!-- Sin alt --&gt;</code></pre>
+                    </div>
+
+                    <h4>Atributo title</h4>
+                    <p>Proporciona información adicional mediante tooltips:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;a href="contacto.html" title="Página de contacto - Envíanos un mensaje"&gt;
+  Contacto
+&lt;/a&gt;
+
+&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;
+
+&lt;img src="grafico.png" alt="Ventas 2025" title="Gráfico de ventas enero-octubre 2025"&gt;</code></pre>
+                    </div>
+
+                    <h3>Meta tags esenciales</h3>
+                    <div class="code-example">
+                        <h4>Meta tags para SEO:</h4>
+                        <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  
+  &lt;!-- SEO básico --&gt;
+  &lt;title&gt;Título específico y descriptivo - Nombre del sitio&lt;/title&gt;
+  &lt;meta name="description" content="Descripción concisa de la página (150-160 caracteres)"&gt;
+  &lt;meta name="keywords" content="palabra1, palabra2, palabra3"&gt;
+  
+  &lt;!-- Open Graph para redes sociales --&gt;
+  &lt;meta property="og:title" content="Título para redes sociales"&gt;
+  &lt;meta property="og:description" content="Descripción para redes sociales"&gt;
+  &lt;meta property="og:image" content="imagen-compartir.jpg"&gt;
+  &lt;meta property="og:url" content="https://misitioweb.com"&gt;
+  
+  &lt;!-- Twitter Cards --&gt;
+  &lt;meta name="twitter:card" content="summary_large_image"&gt;
+  &lt;meta name="twitter:title" content="Título para Twitter"&gt;
+  &lt;meta name="twitter:description" content="Descripción para Twitter"&gt;
+&lt;/head&gt;</code></pre>
+                    </div>
+
+                    <h3>Elementos adicionales para accesibilidad</h3>
+
+                    <h4>Roles ARIA</h4>
+                    <p>Proporcionan información adicional a tecnologías asistivas:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;nav role="navigation"&gt;...&lt;/nav&gt;
+&lt;main role="main"&gt;...&lt;/main&gt;
+&lt;aside role="complementary"&gt;...&lt;/aside&gt;
+&lt;div role="button" tabindex="0"&gt;Botón personalizado&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <h4>Atributos ARIA</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;!-- Etiquetas descriptivas --&gt;
+&lt;input type="email" aria-label="Correo electrónico para newsletter"&gt;
+
+&lt;!-- Estados --&gt;
+&lt;button aria-expanded="false" aria-controls="menu"&gt;Menú&lt;/button&gt;
+&lt;div id="menu" aria-hidden="true"&gt;...&lt;/div&gt;
+
+&lt;!-- Descripciones --&gt;
+&lt;input type="password" aria-describedby="pwd-help"&gt;
+&lt;div id="pwd-help"&gt;Mínimo 8 caracteres&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <h3>Estructura de encabezados para SEO</h3>
+                    <div class="code-example">
+                        <h4>Jerarquía correcta:</h4>
+                        <pre><code>&lt;h1&gt;Título principal de la página&lt;/h1&gt;
+  &lt;h2&gt;Sección importante&lt;/h2&gt;
+    &lt;h3&gt;Subsección&lt;/h3&gt;
+    &lt;h3&gt;Otra subsección&lt;/h3&gt;
+      &lt;h4&gt;Detalle específico&lt;/h4&gt;
+  &lt;h2&gt;Otra sección importante&lt;/h2&gt;
+    &lt;h3&gt;Subsección&lt;/h3&gt;</code></pre>
+                    </div>
+
+                    <h3>Checklist de SEO y accesibilidad</h3>
+                    <ul>
+                        <li>✅ Usar solo un &lt;h1&gt; por página</li>
+                        <li>✅ Jerarquía lógica de encabezados (h1-h6)</li>
+                        <li>✅ Atributo alt en todas las imágenes</li>
+                        <li>✅ Atributo lang en el elemento html</li>
+                        <li>✅ Meta description única para cada página</li>
+                        <li>✅ Títulos descriptivos y únicos</li>
+                        <li>✅ Enlaces con texto descriptivo</li>
+                        <li>✅ Estructura semántica clara</li>
+                        <li>✅ Contraste adecuado en colores</li>
+                        <li>✅ Navegación por teclado funcional</li>
+                    </ul>
+
+                    <h3>Herramientas útiles</h3>
+                    <ul>
+                        <li><strong>Google Lighthouse:</strong> Auditoría de performance y SEO</li>
+                        <li><strong>WAVE:</strong> Evaluación de accesibilidad web</li>
+                        <li><strong>aXe DevTools:</strong> Extensión para testing de accesibilidad</li>
+                        <li><strong>Google Search Console:</strong> Monitoreo de SEO</li>
+                        <li><strong>Screaming Frog:</strong> Análisis técnico de SEO</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplo completo - Página optimizada:</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Servicios de Desarrollo Web - TechCorp&lt;/title&gt;
+  &lt;meta name="description" content="Desarrollo web profesional con tecnologías modernas. Creamos sitios responsive y optimizados para SEO."&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header role="banner"&gt;
+    &lt;img src="logo.png" alt="TechCorp - Desarrollo Web"&gt;
+    &lt;nav role="navigation"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#servicios"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#portfolio"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contacto"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  
+  &lt;main role="main"&gt;
+    &lt;section id="servicios"&gt;
+      &lt;h1&gt;Nuestros Servicios de Desarrollo Web&lt;/h1&gt;
+      &lt;p&gt;Ofrecemos soluciones web completas y modernas&lt;/p&gt;
+      
+      &lt;article&gt;
+        &lt;h2&gt;Desarrollo Frontend&lt;/h2&gt;
+        &lt;p&gt;Interfaces modernas con React, Vue y tecnologías actuales&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  
+  &lt;footer role="contentinfo"&gt;
+    &lt;p&gt;&copy; 2025 TechCorp. Todos los derechos reservados.&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Estructura semántica completa</h3>
+                        <span class="difficulty">Intermedio</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Divide tu página en secciones con encabezado, menú, contenido principal, y pie de página usando elementos semánticos.</p>
+                        
+                        <h4>Pasos a seguir:</h4>
+                        <ol class="exercise-steps">
+                            <li>Crea una estructura HTML5 completa con elementos semánticos</li>
+                            <li>Implementa un header con logo y navegación</li>
+                            <li>Diseña un main con al menos 3 secciones temáticas</li>
+                            <li>Agrega un aside con contenido complementario</li>
+                            <li>Incluye un footer con información de contacto</li>
+                            <li>Optimiza para SEO con meta tags apropiados</li>
+                            <li>Asegura accesibilidad con atributos alt, lang y roles</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Estructura sugerida:</h4>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;[Tu nombre] - Desarrollador Web&lt;/title&gt;
+  &lt;meta name="description" content="Portfolio de [tu nombre], desarrollador web especializado en tecnologías modernas"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;[Tu Nombre]&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#sobre-mi"&gt;Sobre mí&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#proyectos"&gt;Proyectos&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contacto"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  
+  &lt;main&gt;
+    &lt;section id="sobre-mi"&gt;
+      &lt;h2&gt;Sobre mí&lt;/h2&gt;
+      &lt;!-- Tu presentación --&gt;
+    &lt;/section&gt;
+    
+    &lt;section id="proyectos"&gt;
+      &lt;h2&gt;Mis Proyectos&lt;/h2&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Proyecto 1&lt;/h3&gt;
+        &lt;!-- Descripción del proyecto --&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+    
+    &lt;section id="contacto"&gt;
+      &lt;h2&gt;Contacto&lt;/h2&gt;
+      &lt;!-- Información de contacto --&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  
+  &lt;aside&gt;
+    &lt;h2&gt;Habilidades&lt;/h2&gt;
+    &lt;!-- Lista de habilidades --&gt;
+  &lt;/aside&gt;
+  
+  &lt;footer&gt;
+    &lt;p&gt;&copy; 2025 [Tu nombre]. Todos los derechos reservados.&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <h4>Criterios de evaluación:</h4>
+                        <ul>
+                            <li>✅ Uso correcto de elementos semánticos</li>
+                            <li>✅ Jerarquía lógica de encabezados</li>
+                            <li>✅ Meta tags completos y descriptivos</li>
+                            <li>✅ Atributos de accesibilidad implementados</li>
+                            <li>✅ Navegación funcional y semántica</li>
+                            <li>✅ Estructura clara y organizada</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fab fa-firefox"></i>
+                        </div>
+                        <h3>MDN - Elementos semánticos</h3>
+                        <p>Documentación completa sobre elementos HTML5 semánticos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://web.dev/learn/html/semantic-html/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Web.dev - HTML Semántico</h3>
+                        <p>Guía completa sobre la importancia del HTML semántico</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3>WCAG 2.1 Guidelines</h3>
+                        <p>Directrices de accesibilidad web del W3C</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo03.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo05.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 4: Estructura semántica</p>
+        </footer>
+    </div>
+</body>
+</html>

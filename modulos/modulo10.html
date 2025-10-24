@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 10: Grid Layout - Curso HTML-CSS</title>
+    <link rel="stylesheet" href="../module-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <a href="../index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Volver al Índice</a>
+            <div class="module-indicator"><span class="current-module">Módulo 10 de 14</span></div>
+        </nav>
+        <header class="module-header">
+            <div class="module-number">10</div>
+            <div class="module-info">
+                <h1 class="module-title">Grid Layout</h1>
+                <p class="module-description">Crea layouts complejos con CSS Grid</p>
+            </div>
+        </header>
+        <main class="module-content">
+            
+            <!-- Sección de contenidos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Contenidos del Módulo
+                </h2>
+                <div class="topic-grid">
+                    <a href="#grid-conceptos" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-th"></i>
+                            </div>
+                            <h3>Crear un grid</h3>
+                            <p>Aprende display: grid y conceptos fundamentales de Grid Layout.</p>
+                        </div>
+                    </a>
+                    <a href="#propiedades-grid" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-grip-lines"></i>
+                            </div>
+                            <h3>Propiedades Grid</h3>
+                            <p>Domina grid-template-columns, grid-template-rows, gap y grid-area.</p>
+                        </div>
+                    </a>
+                    <a href="#grid-vs-flexbox" class="topic-card-link">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Grid vs Flexbox</h3>
+                            <p>Comprende cuándo usar cada sistema de layout.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección 1: Conceptos fundamentales de Grid -->
+            <section class="content-section" id="grid-conceptos">
+                <h2 class="section-title">
+                    <i class="fas fa-th"></i>
+                    Crear un grid (display: grid)
+                </h2>
+                <div class="topic-content">
+                    <p><strong>CSS Grid Layout</strong> es un sistema de layout bidimensional que permite crear diseños complejos organizando elementos en filas y columnas simultáneamente.</p>
+                    
+                    <h3>¿Por qué usar CSS Grid?</h3>
+                    <ul>
+                        <li>✅ <strong>Layout bidimensional</strong> (filas Y columnas)</li>
+                        <li>✅ <strong>Control preciso</strong> de posicionamiento</li>
+                        <li>✅ <strong>Layouts complejos</strong> con pocas líneas de código</li>
+                        <li>✅ <strong>Superposición</strong> natural de elementos</li>
+                        <li>✅ <strong>Responsive automático</strong> con funciones avanzadas</li>
+                        <li>✅ <strong>Separación contenido/diseño</strong> mejorada</li>
+                    </ul>
+
+                    <h3>Activando CSS Grid</h3>
+                    <p>Para convertir un elemento en contenedor grid:</p>
+                    <div class="code-example">
+                        <pre><code>/* Contenedor grid de bloque */
+.grid-container {
+  display: grid;
+}
+
+/* Contenedor grid inline */
+.inline-grid-container {
+  display: inline-grid;
+}</code></pre>
+                    </div>
+
+                    <h3>Anatomía de CSS Grid</h3>
+                    <p>Grid trabaja con varios conceptos clave:</p>
+
+                    <h4>1. Grid Container (Contenedor Grid)</h4>
+                    <p>El elemento padre que se convierte en contenedor grid:</p>
+                    <div class="code-example">
+                        <pre><code>.grid-container {
+  display: grid;
+  /* Se convierte en contenedor grid */
+}</code></pre>
+                    </div>
+
+                    <h4>2. Grid Items (Elementos Grid)</h4>
+                    <p>Los hijos directos del contenedor grid:</p>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="grid-container"&gt;
+  &lt;div class="grid-item"&gt;Item 1&lt;/div&gt;  &lt;!-- Grid item --&gt;
+  &lt;div class="grid-item"&gt;Item 2&lt;/div&gt;  &lt;!-- Grid item --&gt;
+  &lt;div class="grid-item"&gt;Item 3&lt;/div&gt;  &lt;!-- Grid item --&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <h4>3. Grid Lines (Líneas de Grid)</h4>
+                    <p>Las líneas que forman la estructura del grid:</p>
+                    <div class="code-example">
+                        <pre><code>/* Diagrama conceptual de líneas: */
+
+     1    2    3    4
+   ┌────┬────┬────┐  1
+   │    │    │    │
+   ├────┼────┼────┤  2
+   │    │    │    │
+   ├────┼────┼────┤  3
+   │    │    │    │
+   └────┴────┴────┘  4
+
+/* Grid de 3x3 tiene:
+   - 4 líneas verticales (1-4)
+   - 4 líneas horizontales (1-4) */</code></pre>
+                    </div>
+
+                    <h4>4. Grid Tracks (Pistas de Grid)</h4>
+                    <p>El espacio entre dos líneas adyacentes (filas o columnas):</p>
+                    <div class="code-example">
+                        <pre><code>/* 3 columnas = 3 column tracks */
+.grid {
+  display: grid;
+  grid-template-columns: 100px 200px 100px;
+  /* Track 1: 100px, Track 2: 200px, Track 3: 100px */
+}</code></pre>
+                    </div>
+
+                    <h4>5. Grid Cells (Celdas de Grid)</h4>
+                    <p>La intersección entre una fila y una columna:</p>
+                    <div class="code-example">
+                        <pre><code>/* Cada intersección es una celda */
+/* Grid 3x3 = 9 celdas total */
+
+┌─────┬─────┬─────┐
+│ 1,1 │ 1,2 │ 1,3 │
+├─────┼─────┼─────┤
+│ 2,1 │ 2,2 │ 2,3 │
+├─────┼─────┼─────┤
+│ 3,1 │ 3,2 │ 3,3 │
+└─────┴─────┴─────┘</code></pre>
+                    </div>
+
+                    <h4>6. Grid Areas (Áreas de Grid)</h4>
+                    <p>Grupos rectangulares de celdas:</p>
+                    <div class="code-example">
+                        <pre><code>/* Un área puede ocupar múltiples celdas */
+.grid-item {
+  grid-area: 1 / 1 / 3 / 3;  /* Fila 1-3, Columna 1-3 */
+}
+
+/* Resultado: área de 2x2 celdas */
+┌─────────┬─────┐
+│  ÁREA   │     │
+│         │     │
+├─────────┼─────┤
+│         │     │
+└─────────┴─────┘</code></pre>
+                    </div>
+
+                    <h3>Primer ejemplo básico</h3>
+                    <div class="code-example">
+                        <h4>HTML:</h4>
+                        <pre><code>&lt;div class="basic-grid"&gt;
+  &lt;div class="item"&gt;1&lt;/div&gt;
+  &lt;div class="item"&gt;2&lt;/div&gt;
+  &lt;div class="item"&gt;3&lt;/div&gt;
+  &lt;div class="item"&gt;4&lt;/div&gt;
+  &lt;div class="item"&gt;5&lt;/div&gt;
+  &lt;div class="item"&gt;6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS:</h4>
+                        <pre><code>.basic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  /* 3 columnas iguales */
+  grid-template-rows: 100px 100px;     /* 2 filas de 100px */
+  gap: 10px;                           /* Espacio entre elementos */
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.item {
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+/* Resultado: Grid 3x2 con 6 elementos distribuidos automáticamente */</code></pre>
+                    </div>
+
+                    <h3>Unidades en CSS Grid</h3>
+                    
+                    <h4>fr (fraction unit) - La unidad estrella</h4>
+                    <div class="code-example">
+                        <pre><code>/* 1fr = una fracción del espacio disponible */
+.grid-fractions {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;  /* 1:2:1 proporción */
+  /* Total: 4fr
+     Col 1: 1/4 = 25%
+     Col 2: 2/4 = 50%  
+     Col 3: 1/4 = 25% */
+}
+
+/* Combinando fr con otras unidades */
+.grid-mixed {
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  /* Col 1: 200px fijo
+     Col 2: resto del espacio disponible
+     Col 3: 100px fijo */
+}</code></pre>
+                    </div>
+
+                    <h4>Otras unidades útiles</h4>
+                    <div class="code-example">
+                        <pre><code>/* Unidades fijas */
+.grid-fixed {
+  grid-template-columns: 100px 200px 150px;  /* Píxeles */
+  grid-template-columns: 20% 50% 30%;        /* Porcentajes */
+  grid-template-columns: 10rem 5rem 8rem;    /* REM */
+}
+
+/* Auto - tamaño basado en contenido */
+.grid-auto {
+  grid-template-columns: auto 1fr auto;
+  /* Col 1: tamaño del contenido
+     Col 2: espacio restante
+     Col 3: tamaño del contenido */
+}
+
+/* min-content y max-content */
+.grid-content {
+  grid-template-columns: min-content 1fr max-content;
+  /* Col 1: mínimo espacio necesario
+     Col 2: espacio restante
+     Col 3: máximo espacio que querría */
+}</code></pre>
+                    </div>
+
+                    <h3>Comportamiento por defecto</h3>
+                    <p>Al activar <code>display: grid</code> sin más propiedades:</p>
+                    <div class="code-example">
+                        <pre><code>.default-grid {
+  display: grid;
+  /* Sin más propiedades definidas */
+}
+
+/* Comportamiento automático:
+   - Una sola columna (todos los elementos apilados)
+   - Filas automáticas según el contenido
+   - Sin espacios entre elementos (gap: 0)
+   - Altura de fila = altura del contenido */
+
+/* Ejemplo visual:
+   [Item 1]
+   [Item 2]
+   [Item 3]
+   [Item 4] */</code></pre>
+                    </div>
+
+                    <h3>Diferencias inmediatas con Flexbox</h3>
+                    <div class="code-example">
+                        <h4>Comparación rápida:</h4>
+                        <pre><code>/* FLEXBOX - Unidimensional */
+.flex-container {
+  display: flex;
+  /* Elementos se alinean en UNA dirección */
+  /* [Item1] [Item2] [Item3] */
+}
+
+/* GRID - Bidimensional */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Elementos se organizan en filas Y columnas */
+  /* [Item1] [Item2]
+     [Item3] [Item4] */
+}
+
+/* Flexbox: óptimo para distribución lineal
+   Grid: óptimo para layouts 2D complejos */</code></pre>
+                    </div>
+
+                    <h3>Ejemplo práctico: Layout de página básico</h3>
+                    <div class="code-example">
+                        <h4>HTML estructura:</h4>
+                        <pre><code>&lt;div class="page-grid"&gt;
+  &lt;header class="header"&gt;Header&lt;/header&gt;
+  &lt;nav class="sidebar"&gt;Sidebar&lt;/nav&gt;
+  &lt;main class="content"&gt;Contenido principal&lt;/main&gt;
+  &lt;footer class="footer"&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>CSS con Grid:</h4>
+                        <pre><code>.page-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;  /* Sidebar fijo, contenido flexible */
+  grid-template-rows: auto 1fr auto; /* Header/footer auto, contenido flexible */
+  min-height: 100vh;
+  gap: 1rem;
+}
+
+/* Posicionamiento específico */
+.header {
+  grid-column: 1 / -1;  /* Ocupa todas las columnas */
+  background-color: #343a40;
+  color: white;
+  padding: 1rem;
+}
+
+.sidebar {
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.content {
+  background-color: white;
+  padding: 2rem;
+}
+
+.footer {
+  grid-column: 1 / -1;  /* Ocupa todas las columnas */
+  background-color: #6c757d;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Resultado: layout clásico con pocas líneas */</code></pre>
+                    </div>
+
+                    <h3>Ventajas inmediatas de Grid</h3>
+                    <h4>✅ Comparado con Flexbox:</h4>
+                    <ul>
+                        <li>Control bidimensional vs unidimensional</li>
+                        <li>Posicionamiento específico de elementos</li>
+                        <li>Superposición natural</li>
+                        <li>Layouts complejos sin nesting</li>
+                    </ul>
+
+                    <h4>✅ Comparado con floats/positioning:</h4>
+                    <ul>
+                        <li>No necesita clearfix</li>
+                        <li>Responsive automático</li>
+                        <li>Código más limpio y mantenible</li>
+                        <li>No afecta al flujo normal del documento</li>
+                    </ul>
+
+                    <h3>Casos de uso ideales para Grid</h3>
+                    <div class="code-example">
+                        <pre><code>/* ✅ IDEAL para Grid: */
+- Layouts de página completos
+- Galerías de imágenes
+- Dashboard con widgets
+- Formularios complejos
+- Diseños de revista/periódico
+- Cards con diferentes tamaños
+- Superposición de elementos
+
+/* ❌ Mejor usar Flexbox para: */
+- Navegación horizontal simple
+- Distribución de botones
+- Centrado simple
+- Elementos en línea
+- Componentes lineales pequeños</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Propiedades principales -->
+            <section class="content-section" id="propiedades-grid">
+                <h2 class="section-title">
+                    <i class="fas fa-grip-lines"></i>
+                    Propiedades fundamentales de Grid
+                </h2>
+                <div class="topic-content">
+                    <p>Las propiedades de Grid se dividen entre las del contenedor (grid container) y las de los elementos (grid items).</p>
+                    
+                    <h3>grid-template-columns: definiendo columnas</h3>
+                    <p>Especifica el tamaño y número de columnas en el grid:</p>
+                    <div class="code-example">
+                        <pre><code>/* Columnas de tamaño fijo */
+.grid-fixed-columns {
+  display: grid;
+  grid-template-columns: 100px 200px 100px;  /* 3 columnas específicas */
+}
+
+/* Columnas flexibles con fr */
+.grid-flex-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;  /* Proporción 1:2:1 */
+}
+
+/* Combinando diferentes unidades */
+.grid-mixed-columns {
+  display: grid;
+  grid-template-columns: 200px 1fr 150px;  /* Fijo + Flexible + Fijo */
+}
+
+/* Repetir patrones con repeat() */
+.grid-repeat-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* = 1fr 1fr 1fr */
+  grid-template-columns: repeat(4, 100px); /* = 100px 100px 100px 100px */
+}
+
+/* Patrones complejos con repeat() */
+.grid-complex-repeat {
+  display: grid;
+  grid-template-columns: repeat(2, 100px 200px);  /* = 100px 200px 100px 200px */
+}</code></pre>
+                    </div>
+
+                    <h3>grid-template-rows: definiendo filas</h3>
+                    <p>Funciona igual que grid-template-columns pero para filas:</p>
+                    <div class="code-example">
+                        <pre><code>/* Filas específicas */
+.grid-rows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px 200px 150px;  /* 3 filas específicas */
+}
+
+/* Filas automáticas vs específicas */
+.grid-auto-rows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px;  /* Solo primera fila definida */
+  grid-auto-rows: 80px;       /* Filas adicionales serán de 80px */
+}
+
+/* Filas flexibles */
+.grid-flexible-rows {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr auto;  /* Header, contenido, footer */
+  height: 100vh;
+}</code></pre>
+                    </div>
+
+                    <h3>gap: espaciado entre elementos</h3>
+                    <p>Controla el espacio entre filas y columnas:</p>
+                    <div class="code-example">
+                        <pre><code>/* Gap uniforme */
+.grid-gap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;  /* 20px entre filas y columnas */
+}
+
+/* Gap diferente para filas y columnas */
+.grid-gap-different {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 20px;  /* row-gap: 10px, column-gap: 20px */
+}
+
+/* Propiedades individuales */
+.grid-gap-individual {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 15px;     /* Espacio entre filas */
+  column-gap: 25px;  /* Espacio entre columnas */
+}
+
+/* Sin gap (comportamiento por defecto) */
+.grid-no-gap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;  /* Elementos pegados */
+}</code></pre>
+                    </div>
+
+                    <h3>grid-area: posicionamiento específico</h3>
+                    <p>Permite posicionar elementos en lugares específicos del grid:</p>
+                    <div class="code-example">
+                        <pre><code>/* Sintaxis: grid-area: row-start / column-start / row-end / column-end */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+}
+
+/* Posicionamiento específico */
+.item-1 {
+  grid-area: 1 / 1 / 2 / 3;  /* Fila 1, Columnas 1-2 */
+  background-color: #ff6b6b;
+}
+
+.item-2 {
+  grid-area: 1 / 3 / 3 / 5;  /* Filas 1-2, Columnas 3-4 */
+  background-color: #4ecdc4;
+}
+
+.item-3 {
+  grid-area: 2 / 1 / 4 / 2;  /* Filas 2-3, Columna 1 */
+  background-color: #45b7d1;
+}
+
+/* Resultado: elementos posicionados específicamente, 
+   sin importar el orden en HTML */</code></pre>
+                    </div>
+
+                    <h3>Propiedades de línea individual</h3>
+                    <p>Control granular de posicionamiento:</p>
+                    <div class="code-example">
+                        <pre><code>/* Propiedades individuales en lugar de grid-area */
+.positioned-item {
+  grid-column-start: 2;    /* Comienza en columna 2 */
+  grid-column-end: 4;      /* Termina en columna 4 */
+  grid-row-start: 1;       /* Comienza en fila 1 */
+  grid-row-end: 3;         /* Termina en fila 3 */
+}
+
+/* Shorthand para columnas y filas */
+.shorthand-item {
+  grid-column: 2 / 4;      /* = grid-column-start: 2; grid-column-end: 4; */
+  grid-row: 1 / 3;         /* = grid-row-start: 1; grid-row-end: 3; */
+}
+
+/* Usando span para tamaño relativo */
+.span-item {
+  grid-column: 1 / span 2;  /* Comienza en 1, abarca 2 columnas */
+  grid-row: 2 / span 1;     /* Comienza en 2, abarca 1 fila */
+}
+
+/* Usar líneas negativas (desde el final) */
+.negative-lines {
+  grid-column: 1 / -1;      /* Desde primera hasta última columna */
+  grid-row: -2 / -1;        /* Última fila */
+}</code></pre>
+                    </div>
+
+                    <h3>Funciones avanzadas para dimensiones</h3>
+
+                    <h4>minmax() - tamaño mínimo y máximo</h4>
+                    <div class="code-example">
+                        <pre><code>/* Columnas que se adaptan pero con límites */
+.grid-minmax {
+  display: grid;
+  grid-template-columns: 
+    minmax(200px, 300px)    /* Min 200px, Max 300px */
+    1fr                     /* Resto del espacio */
+    minmax(100px, 1fr);     /* Min 100px, Max flexible */
+}
+
+/* Filas responsivas */
+.grid-minmax-rows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 
+    auto                    /* Altura del contenido */
+    minmax(200px, 1fr)     /* Min 200px, resto flexible */
+    auto;                   /* Altura del contenido */
+}</code></pre>
+                    </div>
+
+                    <h4>fit-content() - ajuste al contenido</h4>
+                    <div class="code-example">
+                        <pre><code>/* Ajusta al contenido pero con máximo */
+.grid-fit-content {
+  display: grid;
+  grid-template-columns: 
+    fit-content(200px)      /* Tamaño del contenido, max 200px */
+    1fr                     /* Resto */
+    fit-content(150px);     /* Tamaño del contenido, max 150px */
+}
+
+/* Útil para sidebars que se adaptan */
+.sidebar-adaptive {
+  display: grid;
+  grid-template-columns: fit-content(250px) 1fr;
+  /* Sidebar: tamaño del contenido, máximo 250px
+     Contenido: resto del espacio */
+}</code></pre>
+                    </div>
+
+                    <h4>auto-fit vs auto-fill</h4>
+                    <div class="code-example">
+                        <pre><code>/* auto-fill: mantiene pistas vacías */
+.grid-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* Crea tantas columnas de min 200px como quepan
+     Deja espacios vacíos si sobra espacio */
+}
+
+/* auto-fit: colapsa pistas vacías */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* Crea tantas columnas como elementos haya
+     Los elementos se expanden para llenar el espacio */
+}
+
+/* Ejemplo visual con 3 elementos en contenedor ancho:
+   auto-fill: [Item] [Item] [Item] [    ] [    ]
+   auto-fit:  [  Item  ] [  Item  ] [  Item  ] */</code></pre>
+                    </div>
+
+                    <h3>Grid implícito vs explícito</h3>
+                    <div class="code-example">
+                        <pre><code>/* Grid explícito: defines las pistas */
+.explicit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 columnas definidas */
+  grid-template-rows: repeat(2, 100px);   /* 2 filas definidas */
+  /* Grid explícito: 3x2 = 6 celdas */
+}
+
+/* Si agregas más de 6 elementos... */
+.explicit-grid {
+  /* Elementos 7, 8, 9... crean filas automáticas (grid implícito) */
+  grid-auto-rows: 80px;        /* Altura de filas automáticas */
+  grid-auto-flow: row;         /* Dirección de elementos adicionales */
+}
+
+/* Control del flujo automático */
+.auto-flow-column {
+  display: grid;
+  grid-template-rows: repeat(3, 100px);
+  grid-auto-columns: 150px;    /* Ancho de columnas automáticas */
+  grid-auto-flow: column;      /* Elementos adicionales en nuevas columnas */
+}</code></pre>
+                    </div>
+
+                    <h3>Ejemplos prácticos combinando propiedades</h3>
+
+                    <h4>1. Dashboard con widgets</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;div class="dashboard"&gt;
+  &lt;div class="widget header"&gt;Header&lt;/div&gt;
+  &lt;div class="widget sidebar"&gt;Menu&lt;/div&gt;
+  &lt;div class="widget stats"&gt;Estadísticas&lt;/div&gt;
+  &lt;div class="widget chart"&gt;Gráfico&lt;/div&gt;
+  &lt;div class="widget activity"&gt;Actividad&lt;/div&gt;
+  &lt;div class="widget footer"&gt;Footer&lt;/div&gt;
+&lt;/div&gt;
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr auto;
+  gap: 1rem;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.header {
+  grid-column: 1 / -1;  /* Toda la anchura */
+  background-color: #343a40;
+  color: white;
+}
+
+.sidebar {
+  grid-row: 2 / 4;      /* Filas 2-3 */
+  background-color: #f8f9fa;
+}
+
+.stats {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #17a2b8;
+  color: white;
+}
+
+.chart {
+  grid-column: 3;
+  grid-row: 2 / 4;      /* Filas 2-3 */
+  background-color: #28a745;
+  color: white;
+}
+
+.activity {
+  grid-column: 2;
+  grid-row: 3;
+  background-color: #ffc107;
+}
+
+.footer {
+  grid-column: 1 / -1;  /* Toda la anchura */
+  background-color: #6c757d;
+  color: white;
+}</code></pre>
+                    </div>
+
+                    <h4>2. Galería responsive</h4>
+                    <div class="code-example">
+                        <pre><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.gallery-item {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Elementos destacados */
+.gallery-item.featured {
+  grid-column: span 2;  /* Ocupa 2 columnas */
+}
+
+.gallery-item.tall {
+  grid-row: span 2;     /* Ocupa 2 filas */
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 3: Grid vs Flexbox -->
+            <section class="content-section" id="grid-vs-flexbox">
+                <h2 class="section-title">
+                    <i class="fas fa-balance-scale"></i>
+                    Diferencias con Flexbox
+                </h2>
+                <div class="topic-content">
+                    <p>Aunque Grid y Flexbox pueden parecer similares, cada uno tiene casos de uso específicos y fortalezas diferentes.</p>
+                    
+                    <h3>Dimensionalidad: La diferencia clave</h3>
+                    <div class="code-example">
+                        <h4>Flexbox - Unidimensional:</h4>
+                        <pre><code>/* Flexbox controla UNA dimensión a la vez */
+.flex-container {
+  display: flex;
+  /* Elementos se organizan en UNA dirección:
+     - Horizontal (flex-direction: row)
+     - Vertical (flex-direction: column) */
+}
+
+/* Ideal para: distribución lineal */
+/* [Item1] → [Item2] → [Item3] → [Item4] */</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Grid - Bidimensional:</h4>
+                        <pre><code>/* Grid controla DOS dimensiones simultáneamente */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  /* Elementos se organizan en filas Y columnas */
+}
+
+/* Ideal para: layouts complejos 2D */
+/* [Item1] [Item2]
+   [Item3] [Item4] */</code></pre>
+                    </div>
+
+                    <h3>Cuándo usar cada uno</h3>
+
+                    <h4>✅ Usa FLEXBOX cuando:</h4>
+                    <ul>
+                        <li><strong>Distribución lineal:</strong> elementos en fila o columna</li>
+                        <li><strong>Componentes pequeños:</strong> navegación, botones, formularios</li>
+                        <li><strong>Alineación simple:</strong> centrar elementos</li>
+                        <li><strong>Distribución de espacio:</strong> space-between, space-around</li>
+                        <li><strong>Orden flexible:</strong> cambiar orden con order</li>
+                        <li><strong>Tamaño basado en contenido:</strong> elementos que crecen según contenido</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplos ideales para Flexbox:</h4>
+                        <pre><code>/* Navegación horizontal */
+.nav-flex {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Distribución de botones */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* Centrado perfecto */
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Cards de igual altura */
+.cards-flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1;  /* Distribución igual */
+}</code></pre>
+                    </div>
+
+                    <h4>✅ Usa GRID cuando:</h4>
+                    <ul>
+                        <li><strong>Layouts complejos:</strong> necesitas control 2D</li>
+                        <li><strong>Posicionamiento específico:</strong> elementos en lugares exactos</li>
+                        <li><strong>Superposición:</strong> elementos que se solapan</li>
+                        <li><strong>Layouts de página:</strong> header, sidebar, content, footer</li>
+                        <li><strong>Galerías asimétricas:</strong> elementos de diferentes tamaños</li>
+                        <li><strong>Responsive complejo:</strong> cambios dramáticos de layout</li>
+                    </ul>
+
+                    <div class="code-example">
+                        <h4>Ejemplos ideales para Grid:</h4>
+                        <pre><code>/* Layout de página completo */
+.page-layout {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Galería asimétrica */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.featured {
+  grid-column: span 2;  /* Elemento destacado más ancho */
+}
+
+/* Dashboard con widgets */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.widget-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}</code></pre>
+                    </div>
+
+                    <h3>Comparación práctica lado a lado</h3>
+
+                    <h4>Caso: Centrar contenido</h4>
+                    <div class="code-example">
+                        <pre><code>/* CON FLEXBOX - más simple para centrado */
+.center-flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CON GRID - más verboso para centrado simple */
+.center-grid {
+  display: grid;
+  place-items: center;  /* shorthand para align-items + justify-items */
+  height: 100vh;
+}
+
+/* GANADOR: Flexbox para centrado simple */</code></pre>
+                    </div>
+
+                    <h4>Caso: Layout de página</h4>
+                    <div class="code-example">
+                        <pre><code>/* CON FLEXBOX - requiere nesting */
+.page-flexbox {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-flexbox {
+  display: flex;  /* Nested flexbox */
+  flex: 1;
+}
+
+.sidebar { flex: 0 0 200px; }
+.content { flex: 1; }
+
+/* CON GRID - layout directo, sin nesting */
+.page-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+.header { grid-column: 1 / -1; }
+.footer { grid-column: 1 / -1; }
+
+/* GANADOR: Grid para layouts complejos */</code></pre>
+                    </div>
+
+                    <h4>Caso: Navegación responsiva</h4>
+                    <div class="code-example">
+                        <pre><code>/* CON FLEXBOX - natural para navegación */
+.nav-flexbox {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .nav-flexbox {
+    flex-direction: column;  /* Cambio simple */
+  }
+}
+
+/* CON GRID - sobrecomplejo para navegación */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+/* GANADOR: Flexbox para navegación */</code></pre>
+                    </div>
+
+                    <h4>Caso: Galería de imágenes</h4>
+                    <div class="code-example">
+                        <pre><code>/* CON FLEXBOX - limitado para galerías */
+.gallery-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gallery-flexbox .item {
+  flex: 1 1 200px;  /* No controla filas específicas */
+}
+
+/* CON GRID - ideal para galerías */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.featured {
+  grid-column: span 2;  /* Control específico */
+  grid-row: span 2;
+}
+
+/* GANADOR: Grid para galerías complejas */</code></pre>
+                    </div>
+
+                    <h3>¿Se pueden combinar?</h3>
+                    <p><strong>¡Absolutamente!</strong> Grid y Flexbox funcionan perfectamente juntos:</p>
+                    <div class="code-example">
+                        <pre><code>/* Grid para layout general, Flexbox para componentes */
+.page-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+}
+
+/* Flexbox dentro de elementos grid */
+.header {
+  grid-column: 1 / -1;
+  display: flex;              /* Flexbox dentro de Grid */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar {
+  display: flex;              /* Flexbox dentro de Grid */
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content .card-container {
+  display: grid;              /* Grid dentro de Grid */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  display: flex;              /* Flexbox dentro de Grid */
+  flex-direction: column;
+}
+
+.card .button-group {
+  display: flex;              /* Flexbox dentro de Flexbox */
+  gap: 1rem;
+  margin-top: auto;
+}</code></pre>
+                    </div>
+
+                    <h3>Resumen de decisión</h3>
+                    <div class="code-example">
+                        <h4>Flowchart de decisión:</h4>
+                        <pre><code>¿Necesitas layout en 2 dimensiones (filas Y columnas)?
+├─ SÍ → Usa GRID
+│  ├─ Layout de página completo
+│  ├─ Posicionamiento específico
+│  ├─ Galería asimétrica
+│  └─ Dashboard/widgets
+│
+└─ NO → ¿Es distribución lineal (una dirección)?
+   ├─ SÍ → Usa FLEXBOX
+   │  ├─ Navegación
+   │  ├─ Distribución de botones
+   │  ├─ Centrado simple
+   │  └─ Cards de igual altura
+   │
+   └─ ¿Necesitas compatibilidad antigua?
+      ├─ SÍ → Usa floats + positioning
+      └─ NO → Usa Grid o Flexbox según el caso</code></pre>
+                    </div>
+
+                    <h3>Soporte de navegadores</h3>
+                    <div class="code-example">
+                        <pre><code>/* CSS Grid */
+✅ Chrome 57+ (2017)
+✅ Firefox 52+ (2017)  
+✅ Safari 10.1+ (2017)
+✅ Edge 16+ (2017)
+❌ Internet Explorer (parcial con -ms- prefixes)
+
+/* Flexbox */
+✅ Chrome 29+ (2013)
+✅ Firefox 28+ (2014)
+✅ Safari 9+ (2015)
+✅ Edge 12+ (2015)
+✅ Internet Explorer 11 (con prefijos)
+
+/* Conclusión: ambos son seguros para uso moderno */</code></pre>
+                    </div>
+
+                    <h3>Patrón recomendado</h3>
+                    <div class="code-example">
+                        <pre><code>/* Estrategia híbrida recomendada */
+
+/* 1. Grid para estructura general de página */
+.app {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "footer footer";
+}
+
+/* 2. Flexbox para componentes dentro de áreas grid */
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content .article-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Resultado: lo mejor de ambos mundos */</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de ejercicio -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Ejercicio Práctico
+                </h2>
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>Galería de imágenes con CSS Grid</h3>
+                        <span class="difficulty">Intermedio</span>
+                    </div>
+                    <div class="exercise-content">
+                        <p><strong>Objetivo:</strong> Crear una galería de imágenes responsive usando CSS Grid que se adapte automáticamente al tamaño de pantalla.</p>
+                        
+                        <h4>Requisitos:</h4>
+                        <ol class="exercise-steps">
+                            <li>Usar <code>display: grid</code> como base del layout</li>
+                            <li>Columnas que se adapten automáticamente (auto-fit)</li>
+                            <li>Tamaño mínimo de 250px por imagen</li>
+                            <li>Espaciado uniforme entre imágenes</li>
+                            <li>Algunas imágenes "destacadas" que ocupen más espacio</li>
+                            <li>Efectos hover en las imágenes</li>
+                            <li>Completamente responsive sin media queries</li>
+                        </ol>
+
+                        <div class="code-example">
+                            <h4>Estructura HTML sugerida:</h4>
+                            <pre><code>&lt;div class="gallery-container"&gt;
+  &lt;h2 class="gallery-title"&gt;Galería de Fotos&lt;/h2&gt;
+  
+  &lt;div class="image-gallery"&gt;
+    &lt;div class="gallery-item"&gt;
+      &lt;img src="foto1.jpg" alt="Descripción"&gt;
+      &lt;div class="image-overlay"&gt;
+        &lt;h3&gt;Título de la imagen&lt;/h3&gt;
+        &lt;p&gt;Descripción breve&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="gallery-item featured"&gt;
+      &lt;img src="foto2.jpg" alt="Descripción"&gt;
+      &lt;div class="image-overlay"&gt;
+        &lt;h3&gt;Imagen Destacada&lt;/h3&gt;
+        &lt;p&gt;Esta imagen es más grande&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Más elementos de galería... --&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+
+                        <h4>Especificaciones técnicas:</h4>
+                        <ul>
+                            <li>✅ Grid container: <code>repeat(auto-fit, minmax(250px, 1fr))</code></li>
+                            <li>✅ Gap: 1.5rem entre elementos</li>
+                            <li>✅ Imágenes: <code>width: 100%</code>, <code>height: 200px</code>, <code>object-fit: cover</code></li>
+                            <li>✅ Elementos .featured: <code>grid-column: span 2</code></li>
+                            <li>✅ Overlay con información que aparece en hover</li>
+                            <li>✅ Transiciones suaves de 0.3s</li>
+                            <li>✅ Border-radius: 12px en los contenedores</li>
+                        </ul>
+
+                        <h4>CSS inicial sugerido:</h4>
+                        <div class="code-example">
+                            <pre><code>.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.image-gallery {
+  display: grid;
+  /* Configurar grid-template-columns aquí */
+  /* Agregar gap aquí */
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  /* Configurar altura y efectos */
+}
+
+.gallery-item.featured {
+  /* Hacer que ocupe 2 columnas */
+}
+
+.gallery-item img {
+  /* Hacer que la imagen cubra todo el contenedor */
+}
+
+.image-overlay {
+  /* Posicionar como overlay */
+  /* Configurar transición y efectos hover */
+}
+
+/* Completar el resto del CSS... */</code></pre>
+                        </div>
+
+                        <h4>Funcionalidades adicionales (bonus):</h4>
+                        <ul>
+                            <li>⭐ Elementos .tall que ocupen 2 filas</li>
+                            <li>⭐ Modo lightbox al hacer click</li>
+                            <li>⭐ Animación de entrada progresiva</li>
+                            <li>⭐ Filtros de categoría</li>
+                            <li>⭐ Lazy loading de imágenes</li>
+                        </ul>
+
+                        <h4>Resultado esperado:</h4>
+                        <p>Una galería que automáticamente ajusta el número de columnas según el ancho de pantalla, con imágenes destacadas que ocupan más espacio y efectos visuales atractivos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de recursos -->
+            <section class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Recursos y Referencias
+                </h2>
+                <div class="resources-grid">
+                    <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Grid_Layout" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-th"></i>
+                        </div>
+                        <h3>MDN - CSS Grid Layout</h3>
+                        <p>Documentación completa de CSS Grid en español</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>CSS-Tricks - Complete Grid Guide</h3>
+                        <p>Guía visual completa con ejemplos prácticos</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://cssgridgarden.com/#es" target="_blank" class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Grid Garden</h3>
+                        <p>Juego interactivo para aprender CSS Grid de forma divertida</p>
+                        <span class="external-link">Ver recurso <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        <nav class="module-navigation">
+            <div class="nav-item prev">
+                <a href="modulo09.html"><i class="fas fa-chevron-left"></i><span>Módulo Anterior</span></a>
+            </div>
+            <div class="nav-item next">
+                <a href="modulo11.html"><span>Siguiente Módulo</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </nav>
+        <footer class="module-footer">
+            <p>&copy; 2025 Curso HTML-CSS. Módulo 10: Grid Layout</p>
+        </footer>
+    </div>
+</body>
+</html>
