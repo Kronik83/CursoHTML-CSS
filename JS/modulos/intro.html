@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introducción a JavaScript</title>
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    </head>
+    <body>
+        <a href="#top" class="back-to-top-link">
+            <div class="back-to-top">
+                <i class="fas fa-arrow-up"></i>
+                <span>Volver arriba</span>
+            </div>
+        </a>
+        <div class="container">
+            <nav class="top-nav">
+                <div class="nav-item prev">
+                    <a href="../index.html">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Indice</span>
+                    </a>
+                </div>
+                <div class="nav-item next">
+                    <a href="2.html">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Siguiente Módulo</span>
+                    </a>
+                </div>
+            </nav>
+            <header class="module-header">
+                <div class="module-number">01</div>
+                <div class="module-info">
+                    <h1 class="module-title">Introducción a JavaScript</h1>
+                    <p class="module-description">En este módulo aprenderás los
+                        conceptos básicos de JavaScript, su historia y cómo se
+                        integra con HTML y CSS.</p>
+                </div>
+            </header>
+
+            <main class="module-content">
+                <section class="content-section" id="top">
+                    <h2 class="section-title">
+                        <i class="fas fa-book"></i>
+                        Contenido del Modulo:
+                    </h2>
+                    <div class="topic-grid">
+                        <a href="#que-es-js" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h3 class="topic-title">¿Qué es JavaScript y
+                                    para qué
+                                    sirve?</h3>
+                                <p>JavaScript es un lenguaje de programación que
+                                    permite implementar funcionalidades
+                                    complejas en páginas web.</p>
+                            </div>
+                        </a>
+                        <a href="#historia" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-file-code"></i>
+                                </div>
+                                <h3>Historia y evolución del lenguaje.</h3>
+                                <p>JavaScript fue creado en 1995 por Brendan
+                                    Eich y ha evolucionado significativamente a
+                                    lo largo de los años.</p>
+                            </div>
+                        </a>
+                        <a href="#ejecucion" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>¿Cómo se ejecuta JavaScript en el navegador?</h3>
+                                <p>JavaScript se ejecuta en el navegador a través del motor de JavaScript, que interpreta y ejecuta el código. Esto permite que las páginas web sean interactivas y dinámicas.</p>
+                            </div>
+                        </a>
+                        <a href="#integracion" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                </div>
+                                <h3>¿Cómo se integra JavaScript con HTML y CSS?</h3>
+                                <p>JavaScript se puede integrar en HTML mediante la etiqueta <code>&lt;script&gt;</code> y puede manipular el DOM para cambiar el contenido y estilo de las páginas web.</p>
+                            </div>
+                        </a>
+                        <a href="#primer-script" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h3>Primer Script: console.log()</h3>
+                                <p>El primer script que muchos programadores escriben es uno que utiliza <code>console.log()</code> para imprimir mensajes en la consola del navegador. Esto es útil para depurar y entender el flujo de ejecución del código.</p>
+                            </div>
+                        </a>
+                        <a href="#comentarios" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-comment"></i>
+                                </div>
+                                <h3>Comentarios y buenas prácticas básicas</h3>
+                                <p>Es importante escribir código limpio y bien comentado. Los comentarios ayudan a otros desarrolladores (y a ti mismo en el futuro) a entender el propósito y funcionamiento del código.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="content-section" id="que-es-js">
+                    <h2 class="section-title">¿Que es JavaScript y para que sirve?</h2>
+                    <div class="topic-content">
+                        <p><strong>JavaScript</strong> es un lenguaje de programación que permite implementar funcionalidades complejas en páginas web.</p>
+                        <h3>¿Para qué se utiliza JavaScript?</h3>
+                        <p>JavaScript se utiliza para crear interactividad en las páginas web, como formularios dinámicos, animaciones y contenido actualizado en tiempo real.</p>
+                        <h3>Ejemplos de uso de JavaScript</h3>
+                        <p>Algunos ejemplos de lo que se puede hacer con JavaScript incluyen:</p>
+                        <ul>
+                            <li>Validación de formularios</li>
+                            <li>Creación de gráficos y visualizaciones</li>
+                            <li>Desarrollo de juegos en línea</li>
+                            <li>Interacción con APIs externas</li>
+                            <li>En definitiva, darle vida a las páginas web.</li>
+                        </ul>
+                        <div class="code-example">
+                            <h4>Ejemplo básico de JavaScript</h4>
+                            <pre><code>// Imprimir un mensaje en la consola
+console.log("¡Hola, mundo!");
+// Sumar dos números y mostrar el resultado
+let a = 1;
+let b = 2;
+console.log(a + b);
+// Funciones
+function saludar(nombre) {
+    return "Hola, " + nombre + "!";
+}
+
+let resultado = saludar("Juan");
+console.log(resultado);
+
+</code></pre>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="content-section" id="historia">
+                    <h2 class="section-title">Historia y evolución del lenguaje</h2>
+                    <div class="topic-content">
+                        <p>JavaScript fue creado en 1995 por Brendan Eich mientras trabajaba en Netscape Communications Corporation. Originalmente se llamó Mocha, luego LiveScript, y finalmente JavaScript para aprovechar la popularidad de Java en ese momento.</p>
+                        <h3>Evolución de JavaScript</h3>
+                        <p>Desde su creación, JavaScript ha evolucionado significativamente. Algunas de las etapas clave en su evolución incluyen:</p>
+                        <ul>
+                            <li><strong>1996:</strong> Publicación de la primera especificación oficial, ECMAScript.</li>
+                            <li><strong>2005:</strong> Popularización de AJAX, que permitió la creación de aplicaciones web más interactivas.</li>
+                            <li><strong>2009:</strong> Lanzamiento de Node.js, que permitió ejecutar JavaScript en el servidor.</li>
+                            <li><strong>2015:</strong> Publicación de ECMAScript 6 (ES6), que introdujo muchas características nuevas como clases, módulos y promesas.</li>
+                        </ul>
+                        <h3>Importancia actual de JavaScript</h3>
+                        <p>Hoy en día, JavaScript es uno de los lenguajes de programación más populares y ampliamente utilizados en el desarrollo web. Es esencial para crear experiencias web modernas y dinámicas.</p>
+                    </div>
+                </section>
+
+                <section class="content-section" id="ejecucion">
+                    <h2 class="section-title">¿Cómo se ejecuta JavaScript en el navegador?</h2>
+                    <div class="topic-content">
+                        <p>JavaScript se ejecuta en el navegador a través del motor de JavaScript, que interpreta y ejecuta el código. Esto permite que las páginas web sean interactivas y dinámicas.</p>
+                        <h3>Proceso de ejecución</h3>
+                        <p>Cuando un navegador carga una página web, sigue estos pasos para ejecutar JavaScript:</p>
+                        <ol>
+                            <li>El navegador descarga el archivo HTML y analiza su contenido.</li>
+                            <li>Cuando encuentra una etiqueta <code>&lt;script&gt;</code>, descarga y ejecuta el código JavaScript contenido en ella o en un archivo externo.</li>
+                            <li>El motor de JavaScript interpreta el código línea por línea y realiza las acciones especificadas, como manipular el DOM o manejar eventos.</li>
+                        </ol>
+                        <h3>Motores de JavaScript populares</h3>
+                        <p>Algunos de los motores de JavaScript más populares incluyen:</p>
+                        <ul>
+                            <li><strong>V8:</strong> Utilizado por Google Chrome y Node.js.</li>
+                            <li><strong>SpiderMonkey:</strong> Utilizado por Mozilla Firefox.</li>
+                            <li><strong>JavaScriptCore:</strong> Utilizado por Safari.</li>
+                        </ul>
+                    </div>
+                </section>  
+
+                <section class="content-section" id="integracion">
+                    <h2 class="section-title">¿Cómo se integra JavaScript con HTML y CSS?</h2>
+                    <div class="topic-content">
+                        <p>JavaScript se puede integrar en HTML mediante la etiqueta <code>&lt;script&gt;</code> y puede manipular el DOM para cambiar el contenido y estilo de las páginas web.</p>
+                        <h3>Integración básica</h3>
+                        <p>Para incluir JavaScript en una página HTML, se utiliza la etiqueta <code>&lt;script&gt;</code>. </p>
+                        <p>Puede colocarse en el <code>&lt;head&gt;</code>, este se ejecutará antes de que se cargue el contenido de la página. Generalmente se coloca la ruta de ubicación del archivo externo de JS.</p>
+                        <p>O al final del <code>&lt;body&gt;</code> para mejorar el rendimiento. Aqui se puede colocar un archivo externo o colocar directamente el código JavaScript, de forma inline.</p>
+
+                        <div class="code-example">
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Mi Página&lt;/title&gt;
+        &lt;script src="script.js"&gt;&lt;/script&gt; (Ubicación del archivo externo de JS)
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hola, mundo!&lt;/h1&gt;
+        &lt;script&gt; (Codigo JS inline)
+            console.log("Hola desde el script inline");
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                            </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="primer-script">
+                    <h2 class="section-title">Primer Script: console.log()</h2>
+                    <div class="topic-content">
+                        <p>El primer script que muchos programadores escriben es uno que utiliza <code>console.log()</code> para imprimir mensajes en la consola del navegador. Esto es útil para depurar y entender el flujo de ejecución del código.</p>
+                        <div class="code-example">
+                            <pre><code>// Imprimir un mensaje en la consola
+console.log("Hola, mundo!");
+                            </code></pre>
+                        </div>
+                        <div class="alert warning">
+                            <p>Recuerda que debes tener el script vinculado correctamente en tu archivo HTML para que funcione o en línea.</p>
+                            <p>Para ver el los mensajes de los console.log(), abre las herramientas de desarrollo de tu navegador (generalmente con <span class="control">F12</span> o <span class="control">Ctrl</span>+<span class="control">Shift</span>+<span class="control">I</span>) y ve a la pestaña "Consola".</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="comentarios">
+                    <h2 class="section-title">Comentarios y buenas prácticas básicas</h2>
+                    <div class="topic-content">
+                        <p>Es importante escribir código limpio y bien comentado. Los comentarios ayudan a otros desarrolladores (y a ti mismo en el futuro) a entender el propósito y funcionamiento del código.</p>
+                        <h3>Tipos de comentarios en JavaScript</h3>
+                        <p>En JavaScript, existen dos tipos principales de comentarios:</p>
+                        <ul>
+                            <li><strong>Comentarios de una sola línea:</strong> Se utilizan para comentarios breves y se indican con <code>//</code>.</li>
+                            <li><strong>Comentarios de múltiples líneas:</strong> Se utilizan para comentarios más extensos y se encierran entre <code>/*</code> y <code>*/</code>.</li>
+                        </ul>
+                        <div class="code-example">
+                            <pre><code>// Este es un comentario de una sola línea.
+/*
+  Este es un comentario
+    de múltiples líneas.
+*/
+                            </code></pre>
+                        </div>
+                        <h3>Buenas prácticas para comentarios</h3>
+                        <ul>
+                            <li>Escribe comentarios claros y concisos que expliquen el "por qué" del código, no solo el "qué".</li>
+                            <li>Evita comentarios obvios que no aporten valor.</li>
+                            <li>Mantén los comentarios actualizados cuando realices cambios en el código.</li>
+                            <li>Utiliza comentarios para dividir el código en secciones lógicas.</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
+    </body>
+</html>

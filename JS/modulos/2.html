@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introducción a JavaScript</title>
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    </head>
+    <body>
+        <a href="#top" class="back-to-top-link">
+            <div class="back-to-top">
+                <i class="fas fa-arrow-up"></i>
+                <span>Volver arriba</span>
+            </div>
+        </a>
+        <div class="container">
+            <nav class="top-nav">
+                <div class="nav-item prev">
+                    <a href="intro.html">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Modulo Anterior</span>
+                    </a>
+                </div>
+                <div class="nav-item index">
+                    <a href="../index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                </div>
+                <div class="nav-item next">
+                    <a href="3.html">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Siguiente Módulo</span>
+                    </a>
+                </div>
+            </nav>
+
+            <header class="module-header">
+                <div class="module-number">02</div>
+                <div class="module-info">
+                    <h1 class="module-title">
+                        Módulo 2: Fundamentos de JavaScript
+                    </h1>
+                    <p>En este módulo, exploraremos los conceptos básicos de
+                        JavaScript, incluyendo variables, tipos de datos y
+                        estructuras de control.</p>
+                </div>
+            </header>
+
+            <main class="module-content">
+                <section class="content-section" id="top">
+                    <h2 class="section-title">
+                        <i class="fas fa-book"></i>
+                        Contenido del Modulo:
+                    </h2>
+                    <ul class="section-list">
+                        <li><a href="#variables">Variables</a></li>
+                        <li><a href="#tipos-de-datos">Tipos de Datos</a></li>
+                        <li><a href="#operadores">Operadores aritméticos,
+                                lógicos y de comparación</a></li>
+                        <li><a href="#conversion-de-tipos">Conversión de tipos
+                                (casting y coerción)</a></li>
+                        <li><a href="#estructuras-condicionales">Estructuras
+                                condicionales: if, else, switch</a></li>
+                        <li><a href="#bucles">Bucles: for, while,
+                                do...while</a></li>
+                        <li><a href="#control-de-flujo">Control de flujo: break,
+                                continue</a></li>
+                    </ul>
+                </section>
+
+                <section class="content-section" id="varibles">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Variables
+                    </h2>
+                    <div class="topic-content">
+                        <h3>Tipos de variables:</h3>
+                        <p>Las variables en JavaScript son contenedores para
+                            almacenar datos. Se pueden declarar utilizando las
+                            palabras clave <code>var</code>, <code>let</code> o
+                            <code>const</code>.</p>
+                        <h4>Variables <code>var</code> y <code>let</code></h4>
+                        <p>La palabra clave <code>var</code> como
+                            <code>let</code> se utiliza para declarar variables
+                            que toma valores que pueden cambiar a lo largo del
+                            tiempo. Solo que tienen un diferentes alcance
+                            (scope).</p>
+                        <h4>Variable <code>const</code></h4>
+                        <p>La palabra <code>const</code> se utiliza para
+                            declarar variables cuyo valor no puede ser
+                            reasignado después de su inicialización.</p>
+                        <h5>¿Que pasa si despues de asignarle un valor intento
+                            cambiarlo?</h5>
+                        <p>Si intentas cambiar el valor de una variable
+                            declarada con <code>const</code>, obtendrás un error
+                            de tipo "TypeError".</p>
+                        <h3>Alcance de la variable <code>var</code></h3>
+                        <p>Las variables declaradas con <code>var</code> tienen
+                            un alcance dentro del contexto de la función, lo que
+                            significa que son accesibles dentro de la función en
+                            la que se declaran.</p>
+                        <h4>¿Que pasa si llamo a esta variable fuera de la
+                            función?</h4>
+                        <p>Si intentas acceder a una variable declarada con
+                            <code>var</code> fuera de su función, obtendrás un
+                            error de referencia, ya que la variable no está
+                            definida en ese contexto.</p>
+                        <h3>Alcance de la variable <code>let</code> y
+                            <code>const</code></h3>
+                        <p>Las variables declaradas con <code>let</code> y
+                            <code>const</code> tienen un alcance de bloque, lo
+                            que significa que solo son accesibles dentro del
+                            bloque en el que se declaran.</p>
+                        <h4>¿Que pasa si llamo a esta variable fuera del bloque
+                            declarado?</h4>
+                        <p>Si intentas acceder a una variable declarada con
+                            <code>let</code> o <code>const</code> fuera del
+                            bloque en el que se definió, obtendrás un error de
+                            referencia, ya que la variable no está definida en
+                            ese contexto.</p>
+
+                        <div class="code-example">
+                            <h4>Ejemplo de variable <code>var</code>:</h4>
+                            <pre><code>function ejemploVar() {
+    var contador = 0;
+    if (true) {
+        var contador = 1; // Misma variable dentro del bloque
+        console.log(contador); // Salida: 1
+    }
+    console.log(contador); // Salida: 1
+}
+</code></pre>
+                            <h4>Ejemplo de variable <code>let</code>:</h4>
+                            <pre><code>
+function ejemploLet() {
+    let contador = 0;  ────────────────────────────────────────────────┐
+    if (true) {                                                        │
+        let contador = 1; // Variable diferente dentro del bloque      │
+        console.log(contador); // Salida: 1                            │
+    }                                                                  │
+    console.log(contador); // Salida: 0  < ────────────────────────────┘
+}
+</code></pre>
+                            <h4>Ejemplo de variable <code>const</code>:</h4>
+                            <pre><code>
+function ejemploConst() {
+    const pi = 3.14159;
+    console.log(pi); // Salida: 3.14159
+    
+    pi = 0; // Error: Assignment to constant variable.
+}
+</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="tipos-de-datos">
+                    <h2 class="section-title">
+                        <i class="fas fa-database"></i>
+                        Tipos de Datos
+                    </h2>
+                    <div class="topic-content">
+                        <h3>Tipos de datos primitivos:</h3>
+                        <p>JavaScript tiene varios tipos de datos primitivos,
+                            incluyendo:</p>
+                        <ul>
+                            <li><strong>Número:</strong> Representa tanto
+                                enteros como números de punto flotante. Ejemplo:
+                                <code>42</code>, <code>3.14</code></li>
+                            <li><strong>Cadena de texto (String):</strong>
+                                Representa secuencias de caracteres. Ejemplo:
+                                <code>"Hola, Mundo!"</code></li>
+                            <li><strong>Boleano (Boolean):</strong> Representa
+                                valores lógicos: <code>true</code> o
+                                <code>false</code>.</li>
+                            <li><strong>Indefinido (Undefined):</strong> Indica
+                                que una variable no ha sido asignada a un
+                                valor.</li>
+                            <li><strong>Nulo (Null):</strong> Representa la
+                                ausencia intencional de cualquier valor.</li>
+                            <li><strong>Símbolo (Symbol):</strong> Representa un
+                                identificador único e inmutable.</li>
+                        </ul>
+                        <h3>Tipos de datos complejos:</h3>
+                        <p>Además de los tipos primitivos, JavaScript también
+                            tiene tipos de datos complejos, como:</p>
+                        <ul>
+                            <li><strong>Objeto (Object):</strong> Una colección
+                                de propiedades y métodos. Ejemplo: <code>{
+                                    nombre: "Juan", edad: 30 }</code></li>
+                            <li><strong>Matriz (Array):</strong> Una lista
+                                ordenada de valores. Ejemplo: <code>[1, 2, 3, 4,
+                                    5]</code></li>
+                            <li><strong>Función (Function):</strong> Un bloque
+                                reutilizable de código que realiza una tarea
+                                específica.</li>
+                        </ul>
+                        <h3>Declaracion de variables segun su tipo:</h3>
+                        <div class="code-example">
+                            <h4>Ejemplos de declaración de variables:</h4>
+                            <pre><code>// Declaración de variables
+var nombre = "Juan";  // String
+let edad = 30;        // Number
+const esEstudiante = true; // Boolean
+let direccion;       // Undefined
+const telefono = null; // Null
+let simbolo = Symbol("id"); // Symbol
+
+// Declaración de un objeto
+let persona = {
+    nombre: "Ana",
+    edad: 25
+};
+// Declaración de un array
+let numeros = [1, 2, 3, 4, 5];
+// Declaración de una función
+function saludar() {
+    console.log("Hola, " + nombre + "!");
+}
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="operadores">
+                    <h2 class="section-title">
+                        <i class="fas fa-calculator"></i>
+                        Operadores Aritméticos, Lógicos y de Comparación
+                    </h2>
+                    <div class="topic-content">
+                        <h3>Operadores Aritméticos:</h3>
+                        <p>Los operadores aritméticos se utilizan para
+                            realizar operaciones matemáticas básicas.
+                            Algunos de los operadores aritméticos más
+                            comunes son:</p>
+                        <ul>
+                            <li><strong>+</strong> (Suma): Suma dos
+                                valores.</li>
+                            <li><strong>-</strong> (Resta): Resta un valor
+                                de otro.</li>
+                            <li><strong>*</strong> (Multiplicación):
+                                Multiplica dos valores.</li>
+                            <li><strong>/</strong> (División): Divide un
+                                valor entre otro.</li>
+                            <li><strong>%</strong> (Módulo): Devuelve el
+                                resto de una división.</li>
+                        </ul>
+                        <h3>Operadores Lógicos:</h3>
+                        <p>Los operadores lógicos se utilizan para combinar
+                            expresiones booleanas. Los operadores lógicos
+                            más comunes son:</p>
+                        <ul>
+                            <li><strong>&&</strong> (AND): Devuelve true si
+                                ambas expresiones son verdaderas.</li>
+                            <li><strong>||</strong> (OR): Devuelve true si
+                                al menos una de las expresiones es
+                                verdadera.</li>
+                            <li><strong>!</strong> (NOT): Invierte el valor
+                                booleano de una expresión.</li>
+                        </ul>
+                        <h3>Operadores de Comparación:</h3>
+                        <p>Los operadores de comparación se utilizan para
+                            comparar dos valores. Algunos de los operadores
+                            de comparación más comunes son:</p>
+                        <ul>
+                            <li><strong>==</strong> (Igualdad): Devuelve
+                                true si los valores son iguales (con
+                                conversión de tipo).</li>
+                            <li><strong>===</strong> (Identidad): Devuelve
+                                true si los valores y tipos son
+                                iguales.</li>
+                            <li><strong>!=</strong> (Desigualdad): Devuelve
+                                true si los valores no son iguales (con
+                                conversión de tipo).</li>
+                            <li><strong>!==</strong> (No identidad):
+                                Devuelve true si los valores o tipos no son
+                                iguales.</li>
+                            <li><strong>&gt;</strong> (Mayor que): Devuelve
+                                true si el valor izquierdo es mayor que el
+                                derecho.</li>
+                            <li><strong>&lt;</strong> (Menor que): Devuelve
+                                true si el valor izquierdo es menor que el
+                                derecho.</li>
+                            <li><strong>&gt;=</strong> (Mayor o igual que):
+                                Devuelve true si el valor izquierdo es mayor
+                                o igual que el derecho.</li>
+                            <li><strong>&lt;=</strong> (Menor o igual que):
+                                Devuelve true si el valor izquierdo es menor
+                                o igual que el derecho.</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <h4>Ejemplos de operadores:</h4>
+                            <pre><code>// Operadores Aritméticos
+let a = 5;
+let b = 10;
+let suma = a + b; // Salida 15
+let resta = a - b; // Salida -5
+let multiplicacion = a * b; // Salida 50
+let division = a / b; // Salida 0.5
+let modulo = a % b; // Salida 5
+
+// Operadores Lógicos
+let x = true;
+let y = false;
+let and = x && y; // Salida false
+let or = x || y; // Salida true
+let not = !x; // Salida false
+
+// Operadores de Comparación
+let a = 10;
+let b = 21;
+let igual = (a == b); // Salida false
+let identidad = (a === b); // Salida false
+let desigual = (a != b); // Salida true
+let noIdentidad = (a !== b); // Salida true
+let mayor = (a > b); // Salida false
+let menor = (a < b); // Salida true
+let mayorIgual = (a >= b); // Salida false
+let menorIgual = (a <= b); // Salida true
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="conversion-de-tipos">
+                    <h2 class="section-title">
+                        <i class="fas fa-exchange-alt"></i>
+                        Conversión de Tipos (Casting y Coerción)
+                    </h2>
+                    <div class="topic-content">
+                        <h3>Conversión de Tipos Explícita (Casting):</h3>
+                        <p>La conversión de tipos explícita, o casting, ocurre
+                            cuando el programador convierte deliberadamente un
+                            valor de un tipo a otro utilizando funciones o
+                            métodos específicos.</p>
+                        <h4>Funciones comunes para conversión explícita:</h4>
+                        <ul>
+                            <li><strong>Number():</strong> Convierte un
+                                valor a un número.</li>
+                            <li><strong>String():</strong> Convierte un
+                                valor a una cadena de texto.</li>
+                            <li><strong>Boolean():</strong> Convierte un
+                                valor a un booleano.</li>
+                        </ul>
+                        <h3>Conversión de Tipos Implícita (Coerción):</h3>
+                        <p>La conversión de tipos implícita, o coerción, ocurre
+                            automáticamente cuando JavaScript convierte un valor
+                            de un tipo a otro según el contexto en el que se
+                            utiliza.</p>
+                        <h4>Ejemplos comunes de conversión:</h4>
+                        <ul>
+                            <li>Cuando se utiliza el operador + con una
+                                cadena y un número, el número se convierte
+                                en cadena.</li>
+                            <li>Cuando se utiliza un valor en un contexto
+                                booleano, JavaScript convierte el valor a
+                                true o false según su "truthiness".</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <h4>Ejemplos de conversión de tipos:</h4>
+                            <pre><code>// Conversión Explícita
+let num = "5"; // Cadena los numero entre comillas dobles se consideran cadenas
+let str = String(num); // Convierte a cadena
+let numero = 0;
+let numToString = String(numero); // Convierte a cadena
+let strNum = "123";
+let intNum = Number(strNum); // Convierte a número
+
+let bool = Boolean(num); // Convierte a booleano Resultado: true
+let boolZero = Boolean(numero); // Convierte a booleano Resultado: false
+
+// Conversión Implícita
+let resultado = "El número es: " + num; // Convierte a cadena
+</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section"
+                    id="estructuras-condicionales">
+                    <h2 class="section-title">
+                        <i class="fas fa-random"></i>
+                        Estructuras Condicionales: if, else, switch
+                    </h2>
+                    <div class="topic-content">
+                        <h3>¿Que es una Condición?</h3>
+                        <p>Una condición es una expresión que se evalúa como
+                            verdadera o falsa. En JavaScript, las
+                            condiciones se utilizan en estructuras de
+                            control como <code>if</code>, <code>else</code>
+                            y <code>switch</code>.</p>
+                        <div class="code-example">
+                            <h4>Ejemplo de condición:</h4>
+                            <pre><code>let edad = 18;
+console.log(edad >= 18); // Salida: true
+console.log(edad < 18);  // Salida: false
+
+/* la condicion es una comparacion entre dos terminos que dan como resultado
+un valor booleano (true o false).*/
+</code></pre>
+                        </div>
+
+                        <h3>Estructura <code>if</code>:</h3>
+                        <p>La estructura <code>if</code> se utiliza para
+                            ejecutar un bloque de código si una condición
+                            especificada es verdadera.</p>
+                        <h4>Sintaxis:</h4>
+                        <div class="code-example">
+                            <pre><code>if (condición) {
+    // Bloque de código a ejecutar si la condición es verdadera
+}</code></pre>
+                        </div>
+
+                        <h3>Estructura <code>if...else</code>:</h3>
+                        <p>La estructura <code>if...else</code> permite
+                            ejecutar un bloque de código si la condición es
+                            verdadera y otro bloque si la condición es
+                            falsa.</p>
+                        <h4>Sintaxis:</h4>
+                        <div class="code-example">
+                            <pre><code>if (condición) {
+    // Bloque de código a ejecutar si la condición es verdadera
+} else {
+    // Bloque de código a ejecutar si la condición es falsa
+}</code></pre>
+                        </div>
+
+                        <h3>Estructura <code>switch</code>:</h3>
+                        <p>La estructura <code>switch</code> se utiliza para
+                            ejecutar diferentes bloques de código según el
+                            valor de una expresión.</p>
+                        <h4>Sintaxis:</h4>
+                        <div class="code-example">
+                            <pre><code>switch (expresión) {
+case valor1:
+    // Bloque de código a ejecutar si la expresión es igual a valor1
+    break;
+case valor2:
+    // Bloque de código a ejecutar si la expresión es igual a valor2
+    break;
+default:
+    // Bloque de código a ejecutar si la expresión no coincide con ningún valor
+}
+</code></pre>
+                        </div>
+
+                        <h3>Ejemplos de Estructuras Condicionales</h3>
+                        <div class="code-example">
+                            <h4>Ejemplo de <code>if...else</code>:</h4>
+                            <pre><code>let edad = 20;
+if (edad >= 18) { // resultado de la condicional es true
+    console.log("Eres mayor de edad"); // se ejecuta este bloque
+} else {
+    console.log("Eres menor de edad");  // no se ejecuta este bloque
+}
+</code></pre>
+
+                            <h4>Ejemplo de <code>switch</code>:</h4>
+                            <pre><code>let fruta = "manzana";
+switch (fruta) {
+    case "naranja": // resultado de la condicional es false
+        console.log("La fruta es una naranja"); // no se ejecuta este bloque
+        break;
+    case "manzana": // resultado de la condicional es true
+        console.log("La fruta es una manzana"); // se ejecuta este bloque
+        break;
+    default:
+        console.log("La fruta no es ni naranja ni manzana");
+}
+</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="bucles">
+                    
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
