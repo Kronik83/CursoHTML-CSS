@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Funciones en JavaScript</title>
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    </head>
+    <body>
+        <a href="#top" class="back-to-top-link">
+            <div class="back-to-top">
+                <i class="fas fa-arrow-up"></i>
+                <span>Volver arriba</span>
+            </div>
+        </a>
+        <div class="container">
+            <nav class="top-nav">
+                <div class="nav-item prev">
+                    <a href="2.html">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Modulo Anterior</span>
+                    </a>
+                </div>
+                <div class="nav-item index">
+                    <a href="../JS/index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                </div>
+                <div class="nav-item next">
+                    <a href="4.html">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Siguiente Módulo</span>
+                    </a>
+                </div>
+            </nav>
+
+            <header class="module-header">
+                <div class="module-number">03</div>
+                <div class="module-info">
+                    <h1 class="module-title">
+                        Módulo 3: Funciones.
+                    </h1>
+                    <p>En este módulo, exploraremos los conceptos básicos de JavaScript, incluyendo funciones, parámetros y retorno de valores.</p>
+                </div>
+            </header>
+
+            <main class="module-content">
+                <section class="content-section" id="top">
+                    <h2 class="section-title">
+                        <i class="fas fa-book"></i>
+                        Contenido del Modulo:
+                    </h2>
+                    <div class="topic-grid">
+                        <a href="#definicion" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h3 class="topic-title">Definición y uso de funciones</h3>
+                                <p>Las funciones son bloques de código reutilizables que realizan una tarea específica. Se definen utilizando la palabra clave <code>function</code> y pueden aceptar parámetros y devolver valores.</p>
+                            </div>
+                        </a>
+                        <a href="#parametros" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3 class="topic-title">Parámetros y valores de retorno</h3>
+                                <p>Las funciones pueden aceptar parámetros, que son valores que se pasan a la función cuando se llama. Además, las funciones pueden devolver valores utilizando la palabra clave <code>return</code>.</p>
+                            </div>
+                        </a>
+                        <a href="#funciones-flecha" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <h3 class="topic-title">Funciones flecha (=&gt;)</h3>
+                                <p>Las funciones flecha son una sintaxis más concisa para definir funciones en JavaScript. Utilizan la flecha <code>=&gt;</code> y no tienen su propio contexto <code>this</code>.</p>
+                            </div>
+                        </a>
+                        <a href="#recursivas" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-redo"></i>
+                                </div>
+                                <h3 class="topic-title">Funciones recursivas</h3>
+                                <p>Las funciones recursivas son aquellas que se llaman a sí mismas para resolver un problema. Son útiles para tareas que pueden dividirse en subproblemas más pequeños.</p>
+                            </div>
+                        </a>
+                        <a href="#orden-superior" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon  ">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                                <h3 class="topic-title">Funciones de orden superior</h3>
+                                <p>Las funciones de orden superior son aquellas que pueden aceptar otras funciones como argumentos o devolver funciones como resultados.  Son fundamentales en la programación funcional.</p>
+                            </div>
+                        </a>
+                        <a href="#anonimas" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-user-secret"></i>
+                                </div>
+                                <h3 class="topic-title">Funciones anónimas</h3>
+                                <p>Las funciones anónimas son funciones que no tienen un nombre. Se utilizan comúnmente como argumentos para otras funciones o como funciones de devolución de llamada.</p>
+                            </div>
+                        </a>
+                        <a href="#scope-this" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3 class="topic-title">Ámbito (scope) y contexto (this)</h3>
+                                <p>El ámbito (scope) se refiere a la accesibilidad de las variables y funciones en diferentes partes del código. El contexto (this) se refiere al objeto al que pertenece una función cuando se invoca.</p>
+                            </div>
+                        </a>
+                        <a href="#closures" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h3 class="topic-title">Closures</h3>
+                                <p>Un closure es una función que recuerda el entorno en el que fue creada, incluso después de que ese entorno haya dejado de existir. Esto permite el acceso a variables externas desde una función interna.</p>
+                            </div>
+                        </a>
+                        <a href="#funciones-puras" class="topic-card-link">
+                            <div class="topic-card">
+                                <div class="topic-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <h3 class="topic-title">Funciones puras e
+                                    impuras</h3>
+                                <p>Las funciones puras son aquellas que, dado el mismo conjunto de entradas, siempre devuelven el mismo resultado y no tienen efectos secundarios. Las funciones impuras pueden tener efectos secundarios y su salida puede variar.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="content-section" id="definicion">
+                    <h2 class="section-title">Definición de funciones</h2>
+                    <div class="topic-content">
+                        <p>Las funciones en JavaScript se definen utilizando la palabra clave <code>function</code>, seguida del nombre de la función, una lista de parámetros entre paréntesis y un bloque de código entre llaves. Aquí hay un ejemplo básico:</p>
+                        <div class="code-example">
+
+                            <pre><code>function saludar(nombre) {
+    console.log("Hola, " + nombre);
+}</code></pre>
+                        </div>
+                        <p>En este ejemplo, hemos definido una función llamada <code>saludar</code> que acepta un parámetro llamado <code>nombre</code>. Cuando se llama a esta función, imprimirá un saludo en la consola.</p>
+                        <p>Para llamar a una función, simplemente usamos su nombre seguido de paréntesis, pasando los argumentos necesarios:</p>
+                        <div class="code-example">
+                            <pre><code>saludar("Juan"); <i class="comentario">// Salida: Hola, Juan</i></code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="parametros">
+                    <h2 class="section-title">Parámetros y valores de retorno</h2>
+                    <div class="topic-content">
+                        <p>Las funciones pueden aceptar múltiples parámetros, separados por comas. Aquí hay un ejemplo de una función que suma dos números:</p>
+                        <div class="code-example">
+                            <pre><code>function sumar(a, b) {
+    return a + b;
+}</code></pre>
+                        </div>
+                        <p>En este caso, la función <code>sumar</code> acepta dos parámetros, <code>a</code> y <code>b</code>, y devuelve su suma utilizando la palabra clave <code>return</code>.</p>
+                        <p>Para obtener el valor devuelto por una función, podemos asignarlo a una variable:</p>
+                        <div class="code-example">
+                            <pre><code>let resultado = sumar(5, 3); <i class="comentario"> // Resultado ahora es 8</i></code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="funciones-flecha">
+                    <h2 class="section-title">Funciones flecha (=&gt;)</h2>
+                    <div class="topic-content">
+                        <p>Las funciones flecha son una forma más concisa de definir funciones en JavaScript. Utilizan la sintaxis <code>=&gt;</code> y no tienen su propio contexto <code>this</code>. Aquí hay un ejemplo de una función flecha que suma dos números:</p>
+                        <div class="code-example">
+                            <pre><code>var a = 5;
+var b = 3;
+const sumar = (a, b) =&gt; {
+    return a + b;
+};</code></pre>
+                        </div>
+                        <p>Si la función tiene una sola expresión, podemos omitir las llaves y la palabra clave <code>return</code>:</p>
+                        <div class="code-example">
+                            <pre><code>const sumar = (a, b) =&gt; a + b; <i class="comentario">// Resultado: 8</i></code></pre>
+                        </div>
+                        <p>Las funciones flecha son especialmente útiles cuando se trabaja con funciones de orden superior, como <code>map</code>, <code>filter</code> y <code>reduce</code>.</p>
+                    </div>
+                </section>
+
+                <section class="content-section" id="recursivas">
+                    <h2 class="section-title">Funciones recursivas</h2>
+                    <div class="topic-content">
+                        <p>Las funciones recursivas son aquellas que se llaman a sí mismas para resolver un problema. Son útiles para tareas que pueden dividirse en subproblemas más pequeños. Aquí hay un ejemplo de una función recursiva que calcula el factorial de un número:</p>
+                        <div class="code-example">
+                            <pre><code>function factorial(n) {
+    if (n === 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1); <i class="comentario"> // Llamada recursiva secuencial 5*4*3*2*1=120</i>
+    }
+}
+const resultado = factorial(5); <i class="comentario"> // Resultado: 120</i></code></pre>
+                        </div>
+                        <p>En este ejemplo, la función <code>factorial</code> se llama a sí misma con un valor decreciente hasta que alcanza el caso base de <code>n === 0</code>.</p>
+                        <p>Las funciones recursivas pueden ser más difíciles de entender y depurar que las funciones iterativas, pero son una herramienta poderosa en la programación.</p>
+                    </div>
+                </section>
+
+                <section class="content-section" id="orden-superior">
+                    <h2 class="section-title">Funciones de orden superior</h2>
+                    <div class="topic-content">
+                        <p>Las funciones de orden superior son aquellas que pueden aceptar otras funciones como argumentos o devolver funciones como resultados. Son fundamentales en la programación funcional y permiten un alto grado de abstracción y reutilización del código.</p>
+                        <p>Un ejemplo común de una función de orden superior es el método <code>map</code> en los arrays, que aplica una función a cada elemento del array y devuelve un nuevo array con los resultados:</p>
+                        <div class="code-example">
+                            <pre><code>const numeros = [1, 2, 3, 4, 5];
+const dobles = numeros.map(n => n * 2); <i class="comentario"> // Resultado: [2, 4, 6, 8, 10]</i></code></pre>
+                        </div>
+                        <p>En este ejemplo, <code>map</code> es una función de orden superior que toma una función flecha como argumento para duplicar cada número en el array.</p>
+                        <p>Las funciones de orden superior son una herramienta poderosa en la programación funcional y permiten un alto grado de abstracción y reutilización del código.</p>
+                    </div>
+                </section>
+
+                <section class="content-section" id="anonimas">
+                    <h2 class="section-title">Funciones anónimas</h2>
+                    <div class="topic-content">
+                        <p>Las funciones anónimas son funciones que no tienen un nombre. Se utilizan comúnmente como argumentos para otras funciones o como funciones de devolución de llamada (callbacks). Aquí hay un ejemplo de una función anónima utilizada como argumento para el método <code>setTimeout</code>:</p>
+                        <div class="code-example">
+                            <pre><code>setTimeout(function() {
+    console.log("Hola, mundo!");
+}, 1000);</code></pre>
+                        </div>
+                        <p>En este ejemplo, hemos pasado una función anónima como el primer argumento a <code>setTimeout</code>, que se ejecutará después de 1000 milisegundos (1 segundo).</p>
+                        <p>Las funciones anónimas también se pueden definir utilizando la sintaxis de funciones flecha:</p>
+                        <div class="code-example">
+                            <pre><code>setTimeout(() =&gt; {
+    console.log("Hola, mundo!");
+}, 1000);</code></pre>
+                        </div>
+                        <p>En este ejemplo, hemos pasado una función anónima como el primer argumento a <code>setTimeout</code>, que se ejecutará después de 1000 milisegundos (1 segundo).</p>
+                    </div>
+                </section>
+
+                <section class="content-section" id="scope-this">
+                    <h2 class="section-title">Ámbito (scope) y contexto (this)</h2>
+                    <div class="topic-content">
+                        <p>El ámbito (scope) se refiere a la accesibilidad de las variables y funciones en diferentes partes del código. JavaScript tiene dos tipos principales de ámbito: global y local. Las variables definidas fuera de cualquier función tienen ámbito global, mientras que las variables definidas dentro de una función tienen ámbito local.</p>
+                        <p>El contexto (this) se refiere al objeto al que pertenece una función cuando se invoca. El valor de <code>this</code> puede variar dependiendo de cómo se llame a la función. En las funciones regulares, <code>this</code> generalmente se refiere al objeto global (o <code>undefined</code> en modo estricto), mientras que en los métodos de un objeto, <code>this</code> se refiere al objeto propietario.</p>
+                        <p>Las funciones flecha no tienen su propio contexto <code>this</code>; en su lugar, heredan el valor de <code>this</code> del entorno en el que fueron creadas.</p>
+
+                    </div>
+                </section>
+
+                <section class="content-section" id="closures">
+                    <h2 class="section-title">Closures</h2>
+                    <div class="topic-content">
+                        <p>Un closure es una función que recuerda el entorno en el que fue creada, incluso después de que ese entorno haya dejado de existir. Esto permite el acceso a variables externas desde una función interna. Aquí hay un ejemplo de un closure:</p>
+                        <div class="code-example">
+                            <pre><code>function crearContador() {
+    let contador = 0;
+    return function() {
+        contador++;
+        console.log(contador);
+    };
+}
+
+const contador1 = crearContador();
+contador1(); // 1
+contador1(); // 2
+
+const contador2 = crearContador();
+contador2(); // 1
+contador2(); // 2
+</code></pre>
+                        </div>
+                        <p>En este ejemplo, la función interna devuelta por <code>crearContador</code> es un closure que recuerda la variable <code>contador</code> del entorno externo. Cada vez que llamamos a <code>contador1</code> o <code>contador2</code>, se incrementa y se imprime su propio contador independiente.</p>
+                    </div>
+                </section>
+
+                <section class="content-section" id="funciones-puras">
+                    <h2 class="section-title">Funciones puras e impuras</h2>
+                    <div class="topic-content">
+                        <p>Las funciones puras son aquellas que, dado el mismo conjunto de entradas, siempre devuelven el mismo resultado y no tienen efectos secundarios. Esto significa que no modifican ninguna variable externa ni interactúan con el mundo exterior (como la consola o el DOM). Aquí hay un ejemplo de una función pura:</p>
+                        <div class="code-example">
+                            <pre><code>function sumar(a, b) {
+    return a + b;
+}
+</code></pre>
+                        </div>
+                        <p>En este caso, la función <code>sumar</code> es pura porque siempre devuelve la misma salida para las mismas entradas y no tiene efectos secundarios.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+    <style>
+        .code-example pre code{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .comentario {
+            color: green;
+
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
+</html>
