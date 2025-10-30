@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Funciones en JavaScript</title>
+        <link rel="stylesheet" href="../../module-styles.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <body>
+        <a href="#top" class="back-to-top-link">
+            <div class="back-to-top">
+                <i class="fas fa-arrow-up"></i>
+                <span>Volver arriba</span>
+            </div>
+        </a>
+        <div class="container">
+            <nav class="top-nav">
+                <div class="nav-item prev">
+                    <a href="3.html">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Modulo Anterior</span>
+                    </a>
+                </div>
+                <div class="nav-item index">
+                    <a href="../index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                </div>
+                <div class="nav-item next">
+                    <a href="5.html">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Siguiente Módulo</span>
+                    </a>
+                </div>
+            </nav>
+
+            <header class="module-header">
+                <div class="module-number">05</div>
+                <div class="module-info">
+                    <h1 class="module-title">
+                        Manipulacion del DOM
+                    </h1>
+                    <p>En este módulo, exploraremos los conceptos básicos de
+                        JavaScript, incluyendo objetos, arreglos y sus
+                        métodos.</p>
+                </div>
+            </header>
+
+            <main class="module-content">
+                <section class="topic-section" id="top">
+                    <h2 class="section-title">Temas del Módulo:</h2>
+                    <div class="topic-grid">
+                        <a href="#dom" class="topic-card-link">
+                            <div class="topic-content">
+                                <div class="topic-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h3 class="topic-title">¿Que es el DOM?.</h3>
+                                <p>El DOM (Document Object Model) es una interfaz de programación que permite a los scripts acceder y manipular el contenido, la estructura y el estilo de un documento HTML. </p>
+                            </div>
+                        </a>
+                        <a href="#seleccion-elementos" class="topic-card-link">
+                            <div class="topic-content">
+                                <div class="topic-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3 class="topic-title">Selección de elementos.</h3>
+                                <p>Para seleccionar elementos del DOM, se pueden utilizar métodos como <code>getElementById()</code>, <code>getElementsByClassName()</code>, <code>getElementsByTagName()</code>, <code>querySelector()</code> y <code>querySelectorAll()</code>.</p>
+                            </div>
+                        </a>
+                        <a href="#modificacion-contenido" class="topic-card-link">
+                            <div class="topic-content">
+                                <div class="topic-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <h3 class="topic-title">Modificación de contenido y atributos.</h3>
+                                <p>Para modificar el contenido y los atributos de los elementos del DOM, se pueden utilizar propiedades como <code>innerHTML</code>, <code>textContent</code> y <code>setAttribute()</code>.</p>
+                            </div>
+                        </a>
+                        <a href="#creacion-eliminacion" class="topic-card-link">
+                            <div class="topic-content">
+                                <div class="topic-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <h3 class="topic-title">Creación y eliminación de elementos.</h3>
+                                <p>Para crear y eliminar elementos del DOM, se pueden utilizar métodos como <code>document.createElement()</code> y <code>element.remove()</code>.</p>
+                            </div>
+                        </a>
+                        <a href="#manejo-clases" class="topic-card-link">
+                            <div class="topic-content">
+                                <div class="topic-icon">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                                <h3 class="topic-title">Manejo de clases y estilos</h3>
+                                <p>Para manejar clases y estilos de los elementos del DOM, se pueden utilizar propiedades como <code>classList</code> y <code>style</code>.</p>
+                            </div>
+                        </a>
+                        <a href="#eventos" class="topic-card-link">
+                            <div class="topic-content">
+                                <div class="topic-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h3 class="topic-title">Eventos.</h3>
+                                <p>Los eventos son acciones o sucesos que ocurren en el navegador, como clics de ratón, pulsaciones de teclas o movimientos del ratón. Se pueden manejar utilizando métodos como <code>addEventListener()</code>.</p>
+                            </div>
+                        </a>
+                        <a href="#propagacion-delegacion" class="topic-card-link">
+                            <div class="topic-content">
+                                <div class="topic-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <h3 class="topic-title">Propagación y delegación de eventos.</h3>
+                                <p>La propagación de eventos se refiere al orden en que se activan los controladores de eventos en el DOM. La delegación de eventos es una técnica que consiste en agregar un solo controlador de eventos a un elemento padre en lugar de a múltiples elementos hijos.</p>
+                            </div>
+                        </a>
+                </section>
+                <!-- Que es DOM-->
+                 <section class="content-section" id="dom">
+                    <h2 class="section-title">¿Qué es el DOM?</h2>
+                    <div class="topic-content">
+                        <p>El <strong>DOM</strong> (Document Object Model) es una interfaz de programación que permite a los scripts acceder y manipular el contenido, la estructura y el estilo de un documento HTML. El DOM representa el documento como una estructura de árbol, donde cada nodo es un objeto que representa una parte del documento, como un elemento, un atributo o un texto.</p>
+                        <p>Con el <strong>DOM</strong>, los desarrolladores pueden crear, eliminar o modificar elementos HTML, cambiar estilos CSS, manejar eventos y realizar otras operaciones dinámicas en una página web.</p>
+                        <p>El <strong></strong>DOM</strong> es fundamental para el desarrollo web, ya que permite a los desarrolladores interactuar con el contenido de la página de manera dinámica y crear experiencias de usuario más ricas e interactivas.</p>
+                        <p>El <strong>DOM</strong> se puede manipular utilizando JavaScript, lo que permite a los desarrolladores crear aplicaciones web interactivas y dinámicas.</p>
+                        <p>Además, el <strong>DOM</strong> proporciona una forma de estructurar y organizar el contenido de una página web, lo que facilita su mantenimiento y actualización.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de Estructura del DOM y uso</h4>
+                            </div>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de DOM&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 id="titulo"&gt;Hola, Mundo!&lt;/h1&gt;
+        &lt;script&gt;
+            // Acceder al elemento h1 por su ID y cambiar su contenido
+            document.getElementById("titulo").textContent = "¡Hola, DOM!";
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                        <p>Este es un ejemplo de cómo se puede representar la estructura de un documento HTML en el DOM.</p>
+                    </div>
+                </section>
+                <section class="content-section" id="seleccion-elementos">
+                    <h2 class="section-title">¿Cómo seleccionar elementos en el DOM?</h2>
+                    <div class="topic-content">
+                        <p>Para seleccionar elementos en el DOM, se pueden utilizar varios métodos proporcionados por la API del DOM. Algunos de los métodos más comunes son:</p>
+                        <ul>
+                            <li><a href="#byId"><code>document.getElementById(id)</code>: Selecciona un elemento por su ID.</a></li>
+                            <li><a href="#byClassName"><code>document.getElementsByClassName(className)</code>: Selecciona todos los elementos que tienen una clase específica.</a></li>
+                            <li><a href="#byTagName"><code>document.getElementsByTagName(tagName)</code>: Selecciona todos los elementos con un nombre de etiqueta específico.</a></li>
+                            <li><a href="#byQuerySelector"><code>document.querySelector(selector)</code>: Selecciona el primer elemento que coincide con un selector CSS.</a></li>
+                            <li><a href="#byQuerySelectorAll"><code>document.querySelectorAll(selector)</code>: Selecciona todos los elementos que coinciden con un selector CSS.</a></li>
+                        </ul>
+                    </div>
+                    <div class="topic-content" id="byId">
+                        <h3>Seleccionar por ID</h3>
+                        <p>El método <code>getElementById()</code> se utiliza para seleccionar un elemento del DOM utilizando su atributo <code>id</code>. Este método devuelve un solo elemento, ya que los IDs deben ser únicos en un documento HTML.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de getElementById()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de DOM&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 id="titulo"&gt;Hola, Mundo!&lt;/h1&gt;
+        &lt;script&gt;
+            // Acceder al elemento h1 por su ID y cambiar su contenido
+            document.getElementById("titulo").textContent = "¡Hola, DOM!";
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="byClassName">
+                        <h3>Seleccionar por Clase</h3>
+                        <p>El método <code>getElementsByClassName()</code> se utiliza para seleccionar todos los elementos del DOM que tienen una clase específica. Este método devuelve una colección de elementos (HTMLCollection) que coinciden con la clase proporcionada.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de getElementsByClassName()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de DOM&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class="titulo"&gt;Hola, Mundo!&lt;/h1&gt;
+        &lt;h1 class="titulo"&gt;Hola, DOM!&lt;/h1&gt;
+        &lt;script&gt;
+            // Acceder a todos los elementos h1 por su clase y cambiar su contenido
+            var titulos = document.getElementsByClassName("titulo");
+            for (var i = 0; i &lt; titulos.length; i++) {
+                titulos[i].textContent = "¡Hola, Clase!";
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="byTagName">
+                        <h3>Seleccionar por Nombre de Etiqueta</h3>
+                        <p>El método <code>getElementsByTagName()</code> se utiliza para seleccionar todos los elementos del DOM con un nombre de etiqueta específico. Este método devuelve una colección de elementos (HTMLCollection) que coinciden con el nombre de etiqueta proporcionado.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de getElementsByTagName()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de DOM&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hola, Mundo!&lt;/h1&gt;
+        &lt;h1&gt;Hola, DOM!&lt;/h1&gt;
+        &lt;script&gt;
+            // Acceder a todos los elementos h1 por su nombre de etiqueta y cambiar su contenido
+            var titulos = document.getElementsByTagName("h1");
+            for (var i = 0; i &lt; titulos.length; i++) {
+                titulos[i].textContent = "¡Hola, Etiqueta!";
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="byQuerySelector">
+                        <h3>Seleccionar con Query Selector</h3>
+                        <p>El método <code>querySelector()</code> se utiliza para seleccionar el primer elemento del DOM que coincide con un selector CSS proporcionado. Este método es muy flexible, ya que permite utilizar cualquier selector CSS válido.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de querySelector()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de DOM&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class="titulo"&gt;Hola, Mundo!&lt;/h1&gt;
+        &lt;h1 class="titulo"&gt;Hola, DOM!&lt;/h1&gt;
+        &lt;script&gt;
+            // Acceder al primer elemento h1 por su clase y cambiar su contenido
+            var titulo = document.querySelector(".titulo");
+            titulo.textContent = "¡Hola, Query Selector!";
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="byQuerySelectorAll">
+                        <h3>Seleccionar con Query Selector All</h3>
+                        <p>El método <code>querySelectorAll()</code> se utiliza para seleccionar todos los elementos del DOM que coinciden con un selector CSS proporcionado. Este método devuelve una NodeList de elementos que coinciden con el selector.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de querySelectorAll()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de DOM&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class="titulo"&gt;Hola, Mundo!&lt;/h1&gt;
+        &lt;h1 class="titulo"&gt;Hola, DOM!&lt;/h1&gt;
+        &lt;script&gt;
+            // Acceder a todos los elementos h1 por su clase y cambiar su contenido
+            var titulos = document.querySelectorAll(".titulo");
+            for (var i = 0; i &lt; titulos.length; i++) {
+                titulos[i].textContent = "¡Hola, Query Selector All!";
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

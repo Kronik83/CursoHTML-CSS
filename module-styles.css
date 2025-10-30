@@ -242,7 +242,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    margin-top: 25px;
+    margin: 25px 0;
 }
 
 .topic-card {
@@ -413,12 +413,7 @@ html {
     font-weight: 700;
 }
 
-.exercise-content .code-example h4,
-.code-example h4 {
-    color: #059669;
-    text-transform: uppercase;
 
-}
 
 .exercise-steps {
     background: #f8fafc;
@@ -441,11 +436,6 @@ html {
     overflow-x: auto;
 }
 
-.topic-content .code-example h4 {
-    color: #667eea;
-    margin-bottom: 15px;
-}
-
 .code-example pre {
     margin: 0;
 }
@@ -455,6 +445,13 @@ html {
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
     line-height: 1.5;
+}
+
+.code-header{
+    h4{
+        color: #667eea;
+        margin-bottom: 15px;
+    }
 }
 
 /* Grid de recursos */
@@ -625,25 +622,6 @@ code {
     padding: 8px 16px;
 }
 
-.alert {
-    margin: 1rem;
-    border: 1px dotted transparent;
-    border-radius: 1rem;
-    padding: 1.1rem 1rem;
-    color: black;
-
-    h3 {
-        text-decoration: underline;
-        letter-spacing: .1rem;
-        font-weight: bolder;
-        margin-bottom: .5rem;
-    }
-
-    p {
-        padding: 0 1rem;
-        margin-bottom: .5rem;
-    }
-}
 
 .tips {
     background: #3b82f620;
@@ -1018,6 +996,11 @@ code {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     border: 1px solid #e2e8f0;
     line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.topic-content:last-child {
+    margin-bottom: 0;
 }
 
 .topic-content h3 {
@@ -1034,6 +1017,18 @@ code {
     font-size: 1.1rem;
     font-weight: 600;
     margin: 20px 0 10px;
+}
+
+.topic-content .code-example h4 {
+    margin: 0;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.exercise-content .code-example h4,
+.code-example h4 {
+    color: #059669;
+    text-transform: uppercase;
 }
 
 .topic-content ul {
@@ -1446,18 +1441,44 @@ code {
     padding: 1rem;
     border: 1px solid transparent;
     color: #1a202c;
-    text-align: center;
     font-weight: 500;
+    border-radius: 1rem;
 
-    P {
+    p {
+        padding: 0 1rem;
+        margin-bottom: .5rem;
         line-height: 2.5;
         &:last-child {
             margin-top: 5px;
         }
     }
+
+    h3 {
+        margin-top: 0;
+        color:#1a202c;
+        letter-spacing: .1rem;
+        font-weight: bolder;
+        margin-bottom: .5rem;
+        text-align: center;
+        border: 1px solid transparent;
+    }
+
+    ul{
+        margin-left: 1.5rem;
+        list-style-type: disc;
+    }
+}
+
+.success {
+    background: #10b98120;
+    border-color: #10b981;
+
+    h3{
+        border-bottom-color: #10b981;
+    }
 }
 
 .warning {
-    background: #fef3c7;
+    background: #fbbf2420;
     border-color: #fbbf24;
 }

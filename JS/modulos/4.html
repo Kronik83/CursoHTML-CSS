@@ -54,7 +54,7 @@
                     <h2 class="section-title">Temas del Módulo</h2>
                     <div class="topic-grid">
                         <a href="#creacion-manipulacion" class="topic-card-link">
-                            <div class="topic-card">
+                            <div class="topic-content">
                                 <div class="topic-icon">
                                     <i class="fas fa-globe"></i>
                                 </div>
@@ -63,7 +63,7 @@
                             </div>
                         </a>
                         <a href="#propiedades-metodos" class="topic-card-link">
-                            <div class="topic-card">
+                            <div class="topic-content">
                                 <div class="topic-icon">
                                     <i class="fas fa-cogs"></i>
                                 </div>
@@ -77,7 +77,7 @@
                             </div>
                         </a>
                         <a href="#metodos-objetos" class="topic-card-link">
-                            <div class="topic-card">
+                            <div class="topic-content">
                                 <div class="topic-icon">
                                     <i class="fas fa-list"></i>
                                 </div>
@@ -91,7 +91,7 @@
                             </div>
                         </a>
                         <a href="#creacion-arreglos" class="topic-card-link">
-                            <div class="topic-card">
+                            <div class="topic-content">
                                 <div class="topic-icon">
                                     <i class="fas fa-th-list"></i>
                                 </div>
@@ -104,7 +104,7 @@
                             </div>
                         </a>
                         <a href="#metodos-arreglos" class="topic-card-link">
-                            <div class="topic-card">
+                            <div class="topic-content">
                                 <div class="topic-icon">
                                     <i class="fas fa-tools"></i>
                                 </div>
@@ -118,7 +118,7 @@
                             </div>
                         </a>
                         <a href="#destructuring" class="topic-card-link">
-                            <div class="topic-card">
+                            <div class="topic-content">
                                 <div class="topic-icon">
                                     <i class="fas fa-compress-alt"></i>
                                 </div>
@@ -132,7 +132,7 @@
                             </div>
                         </a>
                         <a href="#como-iterar" class="topic-card-link">
-                            <div class="topic-card">
+                            <div class="topic-content">
                                 <div class="topic-icon">
                                     <i class="fas fa-sync-alt"></i>
                                 </div>
@@ -146,6 +146,907 @@
                             </div>
                         </a>
                     </div>
+                </section>
+                <!-- Creacion de Objetos-->
+                <section class="content-section" id="creacion-manipulacion">
+                    <h2 class="section-title">Creación y manipulación de Objetos</h2>
+                    
+                    <div class="topic-content">
+                        <h3>¿Qué es un Objeto en JavaScript?</h3>
+                        <p>Un <strong>objeto</strong> es una colección de propiedades relacionadas. Cada propiedad es una asociación entre un <strong>nombre (clave)</strong> y un <strong>valor</strong>. Los objetos son uno de los tipos de datos más importantes en JavaScript y permiten agrupar información relacionada.</p>
+                        
+                        <div class="note-box info">
+                            <strong>💡 Analogía:</strong> Piensa en un objeto como una ficha de información de una persona. La ficha tiene campos (nombre, edad, email) y cada campo tiene su valor específico.
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <h3>Formas de Crear Objetos</h3>
+                        
+                        <h4>1. Notación de Objeto Literal (la más común)</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">Sintaxis con llaves {}</span>
+                            </div>
+                            <pre><code>// Objeto vacío
+let objetoVacio = {};
+
+// Objeto con propiedades
+let persona = {
+    nombre: 'Juan',
+    edad: 30,
+    ciudad: 'Madrid',
+    esEstudiante: false
+};
+
+console.log(persona);
+// { nombre: 'Juan', edad: 30, ciudad: 'Madrid', esEstudiante: false }</code></pre>
+                        </div>
+
+                        <h4>2. Usando el Constructor Object()</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">Constructor Object</span>
+                            </div>
+                            <pre><code>// Menos común, pero válido
+let persona = new Object();
+persona.nombre = 'María';
+persona.edad = 25;
+persona.ciudad = 'Barcelona';
+
+console.log(persona);
+// { nombre: 'María', edad: 25, ciudad: 'Barcelona' }</code></pre>
+                        </div>
+
+                        <h4>3. Usando Object.create()</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">Crear con prototipo</span>
+                            </div>
+                            <pre><code>// Crear un objeto basado en otro
+let personaBase = {
+    tipo: 'Humano',
+    saludar: function() {
+        console.log('¡Hola!');
+    }
+};
+
+let estudiante = Object.create(personaBase);
+estudiante.nombre = 'Carlos';
+estudiante.carrera = 'Ingeniería';
+
+console.log(estudiante.tipo); // 'Humano' (heredado)
+estudiante.saludar(); // ¡Hola! (heredado)</code></pre>
+                        </div>
+                    </div>
+                </section>
+                <!-- Propiedades y Metodos de Objetos-->
+                <section class="content-section" id="propiedades-metodos">
+                    <h2 class="section-title">Propiedades de los Objetos</h2>
+                    <div class="topic-content">
+                        <h3>Propiedades de un Objeto</h3>
+                        <p>Las propiedades pueden ser de cualquier tipo de dato:</p>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">Diferentes tipos de valores</span>
+                            </div>
+                            <pre><code>let usuario = {
+    // String
+    nombre: 'Ana',
+    
+    // Number
+    edad: 28,
+    puntos: 1500,
+    
+    // Boolean
+    activo: true,
+    premium: false,
+    
+    // Array
+    hobbies: ['leer', 'correr', 'programar'],
+    
+    // Objeto anidado
+    direccion: {
+        calle: 'Av. Principal',
+        numero: 123,
+        ciudad: 'Valencia'
+    },
+    
+    // Función (método)
+    saludar: function() {
+        console.log('Hola, soy ' + this.nombre);
+    },
+    
+    // null
+    foto: null,
+    
+    // undefined
+    telefono: undefined
+};
+
+console.log(usuario);</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <h3>Acceder a las Propiedades</h3>
+                        
+                        <h4>1. Notación de Punto (.)</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Sintaxis: objeto.propiedad</h4>
+                            </div>
+                            <pre><code>let coche = {
+    marca: 'Toyota',
+    modelo: 'Corolla',
+    año: 2023
+};
+
+// Leer propiedades
+console.log(coche.marca);   // 'Toyota'
+console.log(coche.modelo);  // 'Corolla'
+console.log(coche.año);     // 2023</code></pre>
+                        </div>
+
+                        <h4>2. Notación de Corchetes []</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">Sintaxis: objeto['propiedad']</span>
+                            </div>
+                            <pre><code>let coche = {
+    marca: 'Toyota',
+    modelo: 'Corolla',
+    'año de fabricación': 2023  // Propiedad con espacios
+};
+
+// Leer con corchetes
+console.log(coche['marca']);    // 'Toyota'
+console.log(coche['modelo']);   // 'Corolla'
+
+// Necesario para propiedades con espacios o caracteres especiales
+console.log(coche['año de fabricación']); // 2023
+
+// Útil con variables
+let propiedad = 'marca';
+console.log(coche[propiedad]); // 'Toyota'</code></pre>
+                        </div>
+
+                        <div class="alert success">
+                            <h3>⚠️ Diferencias importantes:</h3>
+                            <ul>
+                                <li><strong>Punto (.)</strong>: Más simple y legible, pero no funciona con espacios o variables</li>
+                                <li><strong>Corchetes []</strong>: Más flexible, funciona con strings dinámicos y nombres con espacios</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <h3>Agregar y Modificar Propiedades</h3>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Añadir nuevas propiedades</h4>
+                            </div>
+                            <pre><code>let libro = {
+    titulo: '1984',
+    autor: 'George Orwell'
+};
+
+// Agregar nueva propiedad con punto
+libro.año = 1949;
+libro.idioma = 'Inglés';
+
+// Agregar con corchetes
+libro['páginas'] = 328;
+libro['editorial'] = 'Penguin Books';
+
+console.log(libro);
+/*
+{
+  titulo: '1984',
+  autor: 'George Orwell',
+  año: 1949,
+  idioma: 'Inglés',
+  páginas: 328,
+  editorial: 'Penguin Books'
+}
+*/</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Modificar propiedades existentes</h4>
+                            </div>
+                            <pre><code>let producto = {
+    nombre: 'Laptop',
+    precio: 800,
+    stock: 10
+};
+
+console.log(producto.precio); // 800
+
+// Modificar precio
+producto.precio = 750;
+console.log(producto.precio); // 750
+
+// Modificar stock
+producto.stock = producto.stock - 1; // 9
+// o
+producto.stock--; // 8
+
+console.log(producto);
+// { nombre: 'Laptop', precio: 750, stock: 8 }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <h3>Eliminar Propiedades</h3>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Operador delete</h4>
+                            </div>
+                            <pre><code>let usuario = {
+    nombre: 'Pedro',
+    email: 'pedro@email.com',
+    contraseña: '12345',
+    edad: 30
+};
+
+console.log(usuario);
+// { nombre: 'Pedro', email: 'pedro@email.com', contraseña: '12345', edad: 30 }
+
+// Eliminar propiedad sensible
+delete usuario.contraseña;
+
+console.log(usuario);
+// { nombre: 'Pedro', email: 'pedro@email.com', edad: 30 }
+
+// Verificar si existe
+console.log(usuario.contraseña); // undefined</code></pre>
+                        </div>
+
+                        <div class="note-box info">
+                            <strong>💡 Nota:</strong> Usar <code>delete</code> elimina completamente la propiedad. Asignar <code>undefined</code> solo cambia el valor pero la propiedad sigue existiendo.
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <h3>Verificar si una Propiedad Existe</h3>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Diferentes métodos de verificación</h4>
+                            </div>
+                            <pre><code>let persona = {
+    nombre: 'Laura',
+    edad: 25,
+    ciudad: 'Sevilla'
+};
+
+// 1. Operador 'in'
+console.log('nombre' in persona);    // true
+console.log('apellido' in persona);  // false
+
+// 2. hasOwnProperty()
+console.log(persona.hasOwnProperty('edad'));     // true
+console.log(persona.hasOwnProperty('país'));     // false
+
+// 3. Verificar valor !== undefined
+console.log(persona.ciudad !== undefined);   // true
+console.log(persona.teléfono !== undefined); // false
+
+// 4. Usando el operador ?.  (Optional Chaining)
+console.log(persona?.nombre);     // 'Laura'
+console.log(persona?.apellido);   // undefined</code></pre>
+                        </div>
+                    </div>
+                </section>
+                <!-- Metodos de Objetos-->
+                <section class="content-section" id="metodos-objetos">
+                    <h2 class="section-title">Métodos de Objetos</h2>
+                    <div class="topic-content">
+                        <h3>Métodos en Objetos</h3>
+                        <p>Un método es una función que es propiedad de un objeto:</p>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Definir métodos</h4>
+                            </div>
+                            <pre><code>let calculadora = {
+    // Propiedades
+    marca: 'Casio',
+    modelo: 'FX-82',
+    
+    // Métodos
+    sumar: function(a, b) {
+        return a + b;
+    },
+    
+    restar: function(a, b) {
+        return a - b;
+    },
+    
+    // Sintaxis moderna (ES6)
+    multiplicar(a, b) {
+        return a * b;
+    },
+    
+    dividir(a, b) {
+        if (b === 0) {
+            return 'Error: No se puede dividir por cero';
+        }
+        return a / b;
+    }
+};
+
+// Llamar métodos
+console.log(calculadora.sumar(5, 3));        // 8
+console.log(calculadora.restar(10, 4));      // 6
+console.log(calculadora.multiplicar(6, 7));  // 42
+console.log(calculadora.dividir(20, 4));     // 5
+console.log(calculadora.dividir(10, 0));     // 'Error: No se puede dividir por cero'</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Usando 'this' en métodos</h4>
+                            </div>
+                            <pre><code>let cuenta = {
+    titular: 'María García',
+    saldo: 1000,
+    moneda: 'EUR',
+    
+    // Método para consultar saldo
+    consultarSaldo() {
+        return `Saldo de ${this.titular}: ${this.saldo} ${this.moneda}`;
+    },
+    
+    // Método para depositar
+    depositar(cantidad) {
+        if (cantidad > 0) {
+            this.saldo += cantidad;
+            return `Depósito exitoso. Nuevo saldo: ${this.saldo} ${this.moneda}`;
+        }
+        return 'Cantidad inválida';
+    },
+    
+    // Método para retirar
+    retirar(cantidad) {
+        if (cantidad > this.saldo) {
+            return 'Fondos insuficientes';
+        }
+        if (cantidad > 0) {
+            this.saldo -= cantidad;
+            return `Retiro exitoso. Nuevo saldo: ${this.saldo} ${this.moneda}`;
+        }
+        return 'Cantidad inválida';
+    }
+};
+
+console.log(cuenta.consultarSaldo());
+// 'Saldo de María García: 1000 EUR'
+
+console.log(cuenta.depositar(500));
+// 'Depósito exitoso. Nuevo saldo: 1500 EUR'
+
+console.log(cuenta.retirar(300));
+// 'Retiro exitoso. Nuevo saldo: 1200 EUR'
+
+console.log(cuenta.consultarSaldo());
+// 'Saldo de María García: 1200 EUR'</code></pre>
+                        </div>
+
+                        <div class="note-box success">
+                            <strong>✅ this en Objetos:</strong> La palabra clave <code>this</code> se refiere al objeto actual. Dentro de un método, <code>this</code> apunta al objeto que contiene ese método.
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <h3>Objetos Anidados</h3>
+                        <p>Los objetos pueden contener otros objetos:</p>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Estructura jerárquica</h4>
+                            </div>
+                            <pre><code>let empresa = {
+    nombre: 'TechCorp',
+    fundacion: 2020,
+    empleados: 150,
+    
+    // Objeto anidado: dirección
+    direccion: {
+        calle: 'Av. Tecnología',
+        numero: 456,
+        ciudad: 'Madrid',
+        codigoPostal: '28001',
+        pais: 'España'
+    },
+    
+    // Objeto anidado: CEO
+    ceo: {
+        nombre: 'Carlos Pérez',
+        edad: 45,
+        email: 'carlos@techcorp.com',
+        
+        // Objeto dentro de objeto dentro de objeto
+        contacto: {
+            telefono: '+34 600 123 456',
+            linkedin: 'carlos-perez'
+        }
+    },
+    
+    // Array de objetos
+    departamentos: [
+        { nombre: 'Ventas', personal: 30 },
+        { nombre: 'IT', personal: 50 },
+        { nombre: 'Marketing', personal: 20 }
+    ]
+};
+
+// Acceder a propiedades anidadas
+console.log(empresa.nombre);                    // 'TechCorp'
+console.log(empresa.direccion.ciudad);          // 'Madrid'
+console.log(empresa.ceo.nombre);                // 'Carlos Pérez'
+console.log(empresa.ceo.contacto.telefono);     // '+34 600 123 456'
+console.log(empresa.departamentos[0].nombre);   // 'Ventas'
+console.log(empresa.departamentos[1].personal); // 50</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Optional Chaining (?.) para acceso seguro</h4>
+                            </div>
+                            <pre><code>let usuario = {
+    nombre: 'Ana',
+    configuracion: {
+        notificaciones: true
+    }
+};
+
+// Sin optional chaining (puede causar error)
+// console.log(usuario.perfil.foto); // ❌ Error: Cannot read property 'foto' of undefined
+
+// Con optional chaining (seguro)
+console.log(usuario.perfil?.foto);              // undefined (no error)
+console.log(usuario.configuracion?.tema);       // undefined (no error)
+console.log(usuario.configuracion?.notificaciones); // true
+
+// Encadenar múltiples niveles
+console.log(usuario.direccion?.ciudad?.nombre); // undefined (no error)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <h3>Copiar Objetos</h3>
+                        
+                        <div class="note-box warning">
+                            <strong>⚠️ Importante:</strong> Los objetos se pasan por referencia, no por valor. Esto significa que al asignar un objeto a otra variable, ambas apuntan al mismo objeto en memoria.
+                        </div>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Copia por referencia (NO es una copia real)</h4>
+                            </div>
+                            <pre><code>let original = { nombre: 'Juan', edad: 30 };
+let copia = original;  // ❌ No es una copia, es la misma referencia
+
+copia.edad = 31;
+
+console.log(original.edad); // 31 (¡se modificó el original!)
+console.log(copia.edad);    // 31</code></pre>
+                        </div>
+
+                        <h4>Métodos para Copiar Objetos</h4>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>1. Spread Operator (...) - Copia superficial</h4>
+                            </div>
+                            <pre><code>let original = { nombre: 'María', edad: 25, ciudad: 'Madrid' };
+let copia = { ...original };  // ✅ Copia real (superficial)
+
+copia.edad = 26;
+
+console.log(original.edad); // 25 (original sin cambios)
+console.log(copia.edad);    // 26
+
+// LIMITACIÓN: Solo copia el primer nivel
+let persona = {
+    nombre: 'Carlos',
+    direccion: { ciudad: 'Barcelona' }
+};
+
+let copiaPersona = { ...persona };
+copiaPersona.direccion.ciudad = 'Valencia';
+
+console.log(persona.direccion.ciudad); // 'Valencia' (¡se modificó!)
+// Los objetos anidados aún comparten referencia</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>2. Object.assign() - Copia superficial</h4>
+                            </div>
+                            <pre><code>let original = { a: 1, b: 2 };
+let copia = Object.assign({}, original);
+
+copia.b = 3;
+
+console.log(original.b); // 2
+console.log(copia.b);    // 3</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>3. JSON.parse + JSON.stringify - Copia profunda</h4>
+                            </div>
+                            <pre><code>let original = {
+    nombre: 'Ana',
+    edad: 28,
+    direccion: {
+        ciudad: 'Sevilla',
+        pais: 'España'
+    },
+    hobbies: ['leer', 'nadar']
+};
+
+// Copia profunda (todos los niveles)
+let copiaCompleta = JSON.parse(JSON.stringify(original));
+
+copiaCompleta.direccion.ciudad = 'Granada';
+copiaCompleta.hobbies.push('correr');
+
+console.log(original.direccion.ciudad);  // 'Sevilla' (sin cambios)
+console.log(copiaCompleta.direccion.ciudad); // 'Granada'
+
+console.log(original.hobbies);       // ['leer', 'nadar'] (sin cambios)
+console.log(copiaCompleta.hobbies);  // ['leer', 'nadar', 'correr']
+
+// LIMITACIÓN: No funciona con funciones, undefined, Date, etc.</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <h3>Comparar Objetos</h3>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Comparación de objetos</h4>
+                            </div>
+                            <pre><code>let obj1 = { nombre: 'Juan', edad: 30 };
+let obj2 = { nombre: 'Juan', edad: 30 };
+let obj3 = obj1;  // misma referencia
+
+// Comparación por referencia
+console.log(obj1 === obj2);  // false (diferentes objetos en memoria)
+console.log(obj1 === obj3);  // true (misma referencia)
+
+// Comparar propiedades manualmente
+function objetosIguales(a, b) {
+    return a.nombre === b.nombre && a.edad === b.edad;
+}
+
+console.log(objetosIguales(obj1, obj2)); // true
+
+// Comparar con JSON (solo para objetos simples)
+console.log(JSON.stringify(obj1) === JSON.stringify(obj2)); // true</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Creacion de Arreglos (Array)-->
+                <section class="content-section" id="creacion-arreglos">
+                    <h2 class="section-title">Creación de Arreglos</h2>
+                    <div class="topic-content">
+                        <p>Los arreglos se pueden crear de varias formas:</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>1. Notación de Corchetes []</h4>
+                            </div>
+                            <pre><code>// Arreglo vacío
+    let arregloVacio = [];
+    // Arreglo con elementos
+    let arregloConElementos = [1, 2, 3, 4, 5];
+    console.log(arregloConElementos); // [1, 2, 3, 4, 5]</code></pre>
+                        </div>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>2. Usando el Constructor Array()</h4>
+                            </div>
+                            <pre><code>// Arreglo vacío
+    let arregloVacio = new Array();
+    // Arreglo con elementos
+    let arregloConElementos = new Array(1, 2, 3, 4, 5);
+    console.log(arregloConElementos); // [1, 2, 3, 4, 5]
+    </code></pre>
+                        </div>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>3. Usando Array.of()</h4>
+                            </div>
+                            <pre><code>// Crear arreglo con elementos
+    let arregloConElementos = Array.of(1, 2, 3, 4, 5);
+    console.log(arregloConElementos); // [1, 2, 3, 4, 5]
+    </code></pre>
+                        </div>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>4. Usando Array.from()</h4>
+                            </div>
+                            <pre><code>// Crear arreglo a partir de un objeto iterable
+    let arregloDesdeString = Array.from('Hola');
+    console.log(arregloDesdeString); // ['H', 'o', 'l', 'a']
+    </code></pre>
+                        </div>
+                        <div class="alert success">
+                            <h3>✅ Resumen:</h3>
+                            <ul>
+                                <li>Notación de corchetes <code>[]</code>: Forma más común y sencilla.</li>
+                                <li>Constructor <code>Array()</code>: Menos común, pero válido.</li>
+                                <li><code>Array.of()</code>: Útil para crear arreglos con un número variable de elementos.</li>
+                                <li><code>Array.from()</code>: Convierte objetos iterables en arreglos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Metodos de Arreglos (Array)-->
+                <section class="content-section" id="metodos-arreglos">
+                    <h2 class="section-title">Métodos de Arreglos</h2>
+                    <div class="topic-content">
+                        <h3>Metodo: map</h3>
+                        <p>El método <code>map()</code> crea un nuevo arreglo con los resultados de la llamada a la función proporcionada en cada elemento del arreglo.</p>
+                        <div class="code-example">
+<pre><code>// Ejemplo de uso
+let numeros = [1, 2, 3, 4, 5];
+let cuadrados = numeros.map(function(num) {
+    return num * num;
+});
+console.log(cuadrados); // [1, 4, 9, 16, 25]</code></pre>
+                            </div>
+                                <p>En este ejemplo, <code>map()</code> se utiliza para crear un nuevo arreglo <code>cuadrados</code> que contiene los cuadrados de los números en el arreglo original <code>numeros</code>.</p>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Metodo: filter</h3>
+                        <p>El método <code>filter()</code> crea un nuevo arreglo con todos los elementos que cumplan la condición implementada por la función proporcionada.</p>
+                        <div class="code-example">
+<pre><code>// Ejemplo de uso
+let numeros = [1, 2, 3, 4, 5];
+let pares = numeros.filter(function(num) {
+    return num % 2 === 0;
+});
+console.log(pares); // [2, 4]</code></pre>
+                            </div>
+                            <p>En este ejemplo, <code>filter()</code> se utiliza para crear un nuevo arreglo <code>pares</code> que contiene solo los números pares del arreglo original <code>numeros</code>.</p>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Metodo: reduce</h3>
+                        <p>El método <code>reduce()</code> ejecuta una función reductora sobre cada elemento de un arreglo, devolviendo como resultado un único valor.</p>
+                        <div class="code-example">
+<pre><code>// Ejemplo de uso
+let numeros = [1, 2, 3, 4, 5];
+let suma = numeros.reduce(function(acumulador, num) {
+    return acumulador + num;
+}, 0);
+console.log(suma); // 15</code></pre>
+                            </div>
+                            <p>En este ejemplo, <code>reduce()</code> se utiliza para calcular la suma de todos los números en el arreglo <code>numeros</code>.</p>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Metodo: find</h3>
+                        <p>El método <code>find()</code> devuelve el primer elemento de un arreglo que cumple con la condición proporcionada en la función de prueba.</p>
+                        <div class="code-example">
+<pre><code>// Ejemplo de uso
+let numeros = [1, 2, 3, 4, 5];
+let primerPar = numeros.find(function(num) {
+    return num % 2 === 0;
+});
+console.log(primerPar); // 2</code></pre>
+                            </div>
+                            <p>En este ejemplo, <code>find()</code> se utiliza para encontrar el primer número par en el arreglo <code>numeros</code>.</p>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Metodo: forEach</h3>
+                        <p>El método <code>forEach()</code> ejecuta una función proporcionada una vez por cada elemento del arreglo.</p>
+                        <div class="code-example">
+<pre><code>// Ejemplo de uso
+let numeros = [1, 2, 3, 4, 5];
+numeros.forEach(function(num) {
+    console.log(num);
+});</code></pre>
+                            </div>
+                            <p>En este ejemplo, <code>forEach()</code> se utiliza para imprimir cada número en el arreglo <code>numeros</code>.</p>
+                    </div>
+                </section>
+
+                <!-- Destructuring -->
+                <section class="content-section" id="destructuring">
+                    <h2 class="section-title">Destructuración y Operadores Rest</h2>
+                    <div class="topic-content">
+                        <h3>Destructuración de Objetos</h3>
+                        <p>La destructuración permite extraer propiedades de un objeto y asignarlas a variables individuales.</p>
+                        <div class="code-example">
+                            <pre><code>// Ejemplo de uso
+let persona = {
+    nombre: 'Juan',
+    edad: 30,
+    ciudad: 'Madrid'
+};
+let { nombre, edad } = persona;
+console.log(nombre); // Juan
+console.log(edad);   // 30</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Operadores Rest</h3>
+                        <p>El operador rest (<code>...</code>) permite agrupar el resto de las propiedades en un nuevo objeto.</p>
+                        <div class="code-example">
+                            <pre><code>// Ejemplo de uso
+let persona = {
+    nombre: 'Juan',
+    edad: 30,
+    ciudad: 'Madrid'
+};
+let { nombre, ...rest } = persona;
+console.log(nombre); // Juan
+console.log(resto);   // { edad: 30, ciudad: 'Madrid' }</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Operadores Spread</h3>
+                        <p>El operador spread (<code>...</code>) permite expandir las propiedades de un objeto en otro objeto.</p>
+                        <div class="code-example">
+                            <pre><code>// Ejemplo de uso
+let persona = {
+    nombre: 'Juan',
+    edad: 30,
+    ciudad: 'Madrid'
+};
+let nuevaPersona = { ...persona, pais: 'España' };
+console.log(nuevaPersona); // { nombre: 'Juan', edad: 30, ciudad: 'Madrid', pais: 'España' }</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Iteracion con for...of y for...in -->
+                <section class="content-section" id="como-iterar">
+                    <h2 class="section-title">Iteración con for...of y for...in</h2>
+                    <div class="topic-content">
+                        <h3>Bucle for...of</h3>
+                        <p>El bucle <code>for...of</code> se utiliza para iterar sobre los valores de un objeto iterable, como un array o una cadena de texto.</p>
+                        <div class="code-example">
+                            <pre><code>// Ejemplo con un array
+let numeros = [1, 2, 3, 4, 5];
+for (let numero of numeros) {
+    console.log(numero);
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Bucle for...in</h3>
+                        <p>El bucle <code>for...in</code> se utiliza para iterar sobre las propiedades enumerables de un objeto.</p>
+                        <div class="code-example">
+                            <pre><code>// Ejemplo con un objeto
+let persona = {
+    nombre: 'Juan',
+    edad: 30,
+    ciudad: 'Madrid'
+};
+for (let propiedad in persona) {
+    console.log(propiedad + ': ' + persona[propiedad]);
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="ejercicios-practicos">
+                    <div class="exercise-card">
+                        <div class="exercise-header">
+                            <h3>Ejercicio Práctico: Sistema de Biblioteca</h3>
+                            <span class="difficulty">Intermedio</span>
+                        </div>
+                        <div class="exercise-content">
+                            <h4>Objetivo:</h4>
+                            <p>Crear un sistema de gestión de libros usando objetos.</p>
+
+                            <h4>Requisitos:</h4>
+                            <ol class="exercise-steps">
+                                <li>Crea un objeto <code>biblioteca</code> con:
+                                    <ul>
+                                        <li>nombre de la biblioteca</li>
+                                        <li>dirección</li>
+                                        <li>array de libros (cada libro es un objeto)</li>
+                                        <li>métodos para agregar, buscar y listar libros</li>
+                                    </ul>
+                                </li>
+                                <li>Cada libro debe tener: título, autor, año, disponible (boolean)</li>
+                                <li>Implementa los siguientes métodos:
+                                    <ul>
+                                        <li><code>agregarLibro(libro)</code></li>
+                                        <li><code>buscarPorAutor(autor)</code></li>
+                                        <li><code>listarDisponibles()</code></li>
+                                        <li><code>prestarLibro(titulo)</code></li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <h4>Solución propuesta</h4>
+                                </div>
+                                <pre><code>let biblioteca = {
+    nombre: 'Biblioteca Municipal',
+    direccion: 'Calle Principal 123',
+    libros: [
+        {
+            titulo: '1984',
+            autor: 'George Orwell',
+            año: 1949,
+            disponible: true
+        },
+        {
+            titulo: 'Cien años de soledad',
+            autor: 'Gabriel García Márquez',
+            año: 1967,
+            disponible: true
+        }
+    ],
+    
+    agregarLibro(libro) {
+        this.libros.push(libro);
+        console.log(`Libro "${libro.titulo}" agregado correctamente`);
+    },
+    
+    buscarPorAutor(autor) {
+        return this.libros.filter(libro => 
+            libro.autor.toLowerCase().includes(autor.toLowerCase())
+        );
+    },
+    
+    listarDisponibles() {
+        console.log('Libros disponibles:');
+        this.libros
+            .filter(libro => libro.disponible)
+            .forEach(libro => {
+                console.log(`- ${libro.titulo} (${libro.autor})`);
+            });
+    },
+    
+    prestarLibro(titulo) {
+        let libro = this.libros.find(l => l.titulo === titulo);
+        
+        if (!libro) {
+            return 'Libro no encontrado';
+        }
+        
+        if (!libro.disponible) {
+            return 'El libro ya está prestado';
+        }
+        
+        libro.disponible = false;
+        return `Libro "${titulo}" prestado exitosamente`;
+    }
+};
+
+// Probar el sistema
+biblioteca.listarDisponibles();
+
+console.log(biblioteca.prestarLibro('1984'));
+// 'Libro "1984" prestado exitosamente'
+
+biblioteca.listarDisponibles();
+// Ya no muestra '1984'
+
+let librosGarcia = biblioteca.buscarPorAutor('García');
+console.log(librosGarcia);
+// [{ titulo: 'Cien años de soledad', ... }]</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
             </main>
         </div>
