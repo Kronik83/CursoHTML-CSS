@@ -1041,6 +1041,18 @@ code {
     color: #4a5568;
 }
 
+.topic-content ul li a{
+    font-weight: normal;
+    text-decoration: none;
+    color: #4a5568;
+    cursor: pointer;
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+
 .topic-content ol {
     margin: 15px 0;
     padding-left: 25px;

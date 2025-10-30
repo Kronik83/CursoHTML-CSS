@@ -15,7 +15,7 @@
                 <span>Volver arriba</span>
             </div>
         </a>
-        <div class="container">
+        <section class="container">
             <nav class="top-nav">
                 <div class="nav-item prev">
                     <a href="3.html">
@@ -283,7 +283,460 @@
 &lt;/html&gt;</code></pre>
                         </div>
                     </div>
-                </div>
+                </section>
+                <section class="content-section" id="modificacion-contenido">
+                    <h2 class="section-title">Modificación de contenido y atributos</h2>
+                    <div class="topic-content">
+                        <p>Para modificar el contenido y los atributos de los elementos del DOM, se pueden utilizar varias propiedades y métodos proporcionados por la API del DOM. Algunos de los más comunes son:</p>
+                        <ul>
+                            <li><a href="#innerHTML"><code>innerHTML</code>: Permite obtener o establecer el contenido HTML de un elemento.</a></li>
+                            <li><a href="#textContent"><code>textContent</code>: Permite obtener o establecer el contenido de texto de un elemento.</a></li>
+                            <li><a href="#setAttribute"><code>setAttribute()</code>: Permite establecer el valor de un atributo específico en un elemento.</a></li>
+                            <li><a href="#getAttribute"><code>getAttribute()</code>: Permite obtener el valor de un atributo específico en un elemento.</a></li>
+                            <li><a href="#removeAttribute"><code>removeAttribute()</code>: Permite eliminar un atributo específico de un elemento.</a></li>
+                        </ul>
+                    </div>
+                    <!-- innerHTML -->
+                    <div class="topic-content" id="innerHTML">
+                        <h3>innerHTML</h3>
+                        <p>La propiedad <code>innerHTML</code> permite obtener o establecer el contenido HTML de un elemento. Al establecer esta propiedad, se reemplaza todo el contenido existente del elemento con el nuevo contenido proporcionado.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de innerHTML</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de innerHTML&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="contenido"&gt;&lt;/div&gt;
+        &lt;script&gt;
+            // Establecer el contenido HTML del div
+            document.getElementById("contenido").innerHTML = "&lt;h1&gt;Hola, Mundo!&lt;/h1&gt;&lt;p&gt;Este es un párrafo.&lt;/p&gt;";
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <!-- textContent -->
+                    <div class="topic-content" id="textContent">
+                        <h3>textContent</h3>
+                        <p>La propiedad <code>textContent</code> permite obtener o establecer el contenido de texto de un elemento. A diferencia de <code>innerHTML</code>, esta propiedad no interpreta el contenido como HTML, sino que lo trata como texto plano.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de textContent</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de textContent&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="contenido"&gt;&lt;/div&gt;
+        &lt;script&gt;
+            // Establecer el contenido de texto del div
+            document.getElementById("contenido").textContent = "Hola, Mundo! Este es un párrafo.";
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <!-- setAttribute, getAttribute, removeAttribute -->
+                    <div class="topic-content" id="setAttribute">
+                        <h3>setAttribute</h3>
+                        <p>El método <code>setAttribute()</code> permite establecer el valor de un atributo específico en un elemento del DOM. Si el atributo ya existe, su valor se actualizará; si no existe, se creará.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de setAttribute()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de setAttribute()&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido"&gt;&lt;/div&gt;
+    &lt;script&gt;
+      // Establecer un atributo en el div
+      document.getElementById("contenido").setAttribute("data-info", "Este es un div.");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="getAttribute">
+                        <h3>getAttribute</h3>
+                        <p>El método <code>getAttribute()</code> permite obtener el valor de un atributo específico en un elemento del DOM.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de getAttribute()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de getAttribute()&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido" data-info="Este es un div."&gt;&lt;/div&gt;
+    &lt;script&gt;
+      // Obtener el valor de un atributo en el div
+      var info = document.getElementById("contenido").getAttribute("data-info");
+      console.log(info);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="removeAttribute">
+                        <h3>removeAttribute</h3>
+                        <p>El método <code>removeAttribute()</code> permite eliminar un atributo específico de un elemento del DOM.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de removeAttribute()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de removeAttribute()&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido" data-info="Este es un div."&gt;&lt;/div&gt;
+    &lt;script&gt;
+      // Eliminar un atributo en el div
+      document.getElementById("contenido").removeAttribute("data-info");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="content-section" id="creacion-eliminacion">
+                    <h2 class="section-title">Creación y eliminación de elementos</h2>
+                    <div class="topic-content">
+                        <p>Para crear y eliminar elementos del DOM, se pueden utilizar varios métodos proporcionados por la API del DOM. Algunos de los más comunes son:</p>
+                        <ul>
+                            <li><a href="#createElement"><code>document.createElement(tagName)</code>: Crea un nuevo elemento con el nombre de etiqueta especificado.</a></li>
+                            <li><a href="#appendChild"><code>element.appendChild(childElement)</code>: Agrega un elemento hijo al final de la lista de hijos de un elemento padre.</a></li>
+                            <li><a href="#removeChild"><code>element.removeChild(childElement)</code>: Elimina un elemento hijo específico de un elemento padre.</a></li>
+                            <li><a href="#remove"><code>element.remove()</code>: Elimina el elemento del DOM.</a></li>
+                        </ul>
+                    </div>
+                    <!-- createElement -->
+                    <div class="topic-content" id="createElement">
+                        <h3>createElement</h3>
+                        <p>El método <code>createElement()</code> se utiliza para crear un nuevo elemento del DOM con el nombre de etiqueta especificado.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de createElement()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de createElement()&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="contenido"&gt;&lt;/div&gt;
+        &lt;script&gt;
+            // Crear un nuevo elemento p
+            var nuevoParrafo = document.createElement("p");
+            nuevoParrafo.textContent = "Este es un nuevo párrafo.";
+            document.getElementById("contenido").appendChild(nuevoParrafo);
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <!-- appendChild, removeChild, remove -->
+                    <div class="topic-content" id="appendChild">
+                        <h3>appendChild</h3>
+                        <p>El método <code>appendChild()</code> se utiliza para agregar un elemento hijo al final de la lista de hijos de un elemento padre.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de appendChild()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de appendChild()&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="contenido"&gt;&lt;/div&gt;
+        &lt;script&gt;
+            // Crear un nuevo elemento p y agregarlo al div
+            var nuevoParrafo = document.createElement("p");
+            nuevoParrafo.textContent = "Este es un nuevo párrafo.";
+            document.getElementById("contenido").appendChild(nuevoParrafo);
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="removeChild">
+                        <h3>removeChild</h3>
+                        <p>El método <code>removeChild()</code> se utiliza para eliminar un elemento hijo específico de un elemento padre.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de removeChild()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de removeChild()&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido"&gt;
+      &lt;p&gt;Este es un párrafo que será eliminado.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      // Eliminar el párrafo del div
+      var parrafo = document.querySelector("#contenido p");
+      document.getElementById("contenido").removeChild(parrafo);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="remove">
+                        <h3>remove</h3>
+                        <p>El método <code>remove()</code> se utiliza para eliminar un elemento del DOM.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de remove()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de remove()&lt;/title&gt;
+  &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="contenido"&gt;
+            &lt;p id="parrafo"&gt;Este es un párrafo que será eliminado.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            // Eliminar el párrafo del DOM
+            var parrafo = document.getElementById("parrafo");
+            parrafo.remove();
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="content-section" id="manejo-clases">
+                    <h2 class="section-title">Manejo de clases y estilos</h2>
+                    <div class="topic-content">
+                        <p>Para manejar clases y estilos de los elementos del DOM, se pueden utilizar varias propiedades y métodos proporcionados por la API del DOM. Algunos de los más comunes son:</p>
+                        <ul>
+                            <li><a href="#classList"><code>classList</code>: Permite agregar, eliminar o alternar clases en un elemento.</a></li>
+                            <li><a href="#style"><code>style</code>: Permite acceder y modificar los estilos CSS en línea de un elemento.</a></li>
+                        </ul>
+                    </div>
+                    <div class="topic-content" id="classList">
+                        <h3>classList</h3>
+                        <p>La propiedad <code>classList</code> proporciona métodos para agregar, eliminar o alternar clases en un elemento del DOM.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de classList</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de classList&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido"&gt;
+      &lt;p id="parrafo"&gt;Este es un párrafo con una clase.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      // Agregar una clase al párrafo
+      var parrafo = document.getElementById("parrafo");
+      parrafo.classList.add("nueva-clase");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content" id="style">
+                        <h3>style</h3>
+                        <p>La propiedad <code>style</code> permite acceder y modificar los estilos CSS en línea de un elemento del DOM.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de style</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de style&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido"&gt;
+      &lt;p id="parrafo"&gt;Este es un párrafo con un estilo en línea.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      // Modificar el estilo del párrafo
+      var parrafo = document.getElementById("parrafo");
+      parrafo.style.color = "red";
+      parrafo.style.fontSize = "20px";
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="content-section" id="eventos">
+                    <h2 class="section-title">Eventos</h2>
+                    <div class="topic-content">
+                        <p>Los eventos son acciones o sucesos que ocurren en el navegador, como clics de ratón, pulsaciones de teclas o movimientos del ratón. En el DOM, los eventos se pueden manejar utilizando métodos como <code>addEventListener()</code>, que permite agregar controladores de eventos a los elementos del DOM.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de manejo de eventos con addEventListener()</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de eventos&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido"&gt;
+      &lt;p id="parrafo"&gt;Haz clic en este párrafo.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      // Agregar un manejador de eventos al párrafo
+      var parrafo = document.getElementById("parrafo");
+      parrafo.addEventListener("click", function() {
+        alert("¡Párrafo clickeado!");
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="topic-content">
+                        <h4>Eventos click</h4>
+                        <p>El evento <code>click</code> se activa cuando un usuario hace clic en un elemento. Se puede manejar utilizando el método <code>addEventListener()</code>.</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <h4>Ejemplo de evento click</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de evento click&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido"&gt;
+      &lt;p id="parrafo"&gt;Haz clic en este párrafo.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      // Agregar un manejador de eventos al párrafo
+      var parrafo = document.getElementById("parrafo");
+      parrafo.addEventListener("click", function() {
+        alert("¡Párrafo clickeado!");
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>  
+                    </div>
+                    <div class="topic-content">
+                        <h4>Eventos mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, contextmenu</h4>
+                        <p>Los eventos <code>mousedown</code>, <code>mouseup</code>, <code>mousemove</code>, <code>mouseover</code>, <code>mouseout</code>, <code>mouseenter</code>, <code>mouseleave</code> y <code>contextmenu</code> se activan en diferentes interacciones del ratón. Se pueden manejar utilizando el método <code>addEventListener()</code>.</p>
+                        <div class="code-example">
+                            <!-- Mousedown -->
+                            <div class="code-header">
+                                <h4>Ejemplo de eventos de ratón: mousedown</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ejemplo de eventos de ratón: mousedown&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="contenido"&gt;
+      &lt;p id="parrafo"&gt;Haz clic y mantén presionado este párrafo.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      // Agregar un manejador de eventos al párrafo
+      var parrafo = document.getElementById("parrafo");
+      parrafo.addEventListener("mousedown", function() {
+        alert("¡Ratón presionado sobre el párrafo!");
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<!-- MouseOver -->
+                            <div class="code-header">
+                                <h4>Ejemplo de eventos de ratón: mouseover</h4>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Ejemplo de eventos de ratón: mouseover&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="contenido"&gt;
+            &lt;p id="parrafo"&gt;Pasa el ratón sobre este párrafo.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            // Agregar un manejador de eventos al párrafo
+            var parrafo = document.getElementById("parrafo");
+            parrafo.addEventListener("mouseover", function() {
+                alert("¡Ratón sobre el párrafo!");
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<!-- MouseLeave -->
+<div class="code-header">
+    <h4>Ejemplo de eventos de ratón: mouseleave</h4>
+</div>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Ejemplo de eventos de ratón: mouseleave&lt;/
+head&gt;
+    &lt;body&gt;
+
+        &lt;div id="contenido"&gt;
+            &lt;p id="parrafo"&gt;Pasa el ratón sobre este párrafo y luego sal de él.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            // Agregar un manejador de eventos al párrafo
+            var parrafo = document.getElementById("parrafo");
+            parrafo.addEventListener("mouseleave", function() {
+                alert("¡Ratón salió del párrafo!");
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<!-- ContextMenu -->
+<div class="code-header">
+    <h4>Ejemplo de eventos de ratón: contextmenu</h4>
+</div>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Ejemplo de eventos de ratón: contextmenu&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="contenido"&gt;
+            &lt;p id="parrafo"&gt;Haz clic derecho en este párrafo.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            // Agregar un manejador de eventos al párrafo
+            var parrafo = document.getElementById("parrafo");
+            parrafo.addEventListener("contextmenu", function(event) {
+                event.preventDefault(); // Prevenir el menú contextual predeterminado
+                alert("¡Menú contextual deshabilitado!");
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     </body>
